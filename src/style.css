@@ -1,0 +1,31 @@
+* {
+    padding: 0em;
+    margin: 0em;
+}
+
+:root {
+    --bg-color: #0365AE;
+    --txt-color: #FFF;
+    --bread-color: #163F77;
+    --news-color: #F3C42B;
+    --news-txt-color: #000;
+    --content-bg-color: #FFF;
+    --content-txt-color: #000;
+    --link-color: #FFF;
+    --visited-color: #F3C42B;
+}
+
+html,
+body {
+    color: var(--txt-color);
+    background-color: var(--bg-color);
+}
+
+body {
+    font-size: 100%;
+    font-family: "Lexend", Roboto, sans-serif;
+    line-height: 1.5em;
+    max-width: 1024px;
+    margin: auto;
+    border: 1px solid #000;
+}
