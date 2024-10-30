@@ -25,11 +25,11 @@ services:
       MARIADB_ROOT_PASSWORD: password
       MARIADB_USER: username
       MARIADB_PASSWORD: password
-      MARIADB_DATABASE: database
     ports:
       - "8082:3306"
     volumes:
-      - mariadb-data:/var/lib/mysql:Z
+      - mariadb-data:/var/lib/mysql:rw
+      - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql:r
     networks:
       - local
 
@@ -39,9 +39,10 @@ services:
     ports:
       - "8081:80"
     environment:
+      - PMA_ARBITRARY=1
       - PMA_HOST=db
       - PMA_PORT=3306
-      - PMA_USER=username
+      - PMA_USER=root
       - PMA_PASSWORD=password
     networks:
       - local
