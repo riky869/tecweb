@@ -1,11 +1,26 @@
 <?php
 
-require_once("php/db.php");
-require_once("php/template.php");
+require_once("utils/db.php");
+require_once("utils/request.php");
+require_once("generator/login.php");
 
-$db = new DbConnection();
-$template = new Template();
+$template = new LoginPage();
 
-$content = $template->build_login_page();
+$content = "";
+
+if (Request::is_post()) {
+    $db = DbConnection::from_env();
+    $conn = $db->get_conn();
+
+    // fetch user
+    $user = null;
+
+    if (!empty($user)) {
+        $content = "";
+    } else {
+    }
+} else if (Request::is_get()) {
+    $content = $template->get_content();
+}
 
 echo ($content);

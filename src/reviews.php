@@ -1,11 +1,11 @@
 <?php
 
-require_once("php/db.php");
-require_once("php/template.php");
+require_once("utils/db.php");
+require_once("generator/reviews.php");
 
-$db = new DbConnection();
-$template = new Template();
+$db = DbConnection::from_env();
+$template = new ReviewsPage();
 
-$content = $template->build_review_page();
+$content = $template->get_content();
 
 echo ($content);
