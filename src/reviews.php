@@ -1,7 +1,7 @@
 <?php
 
 require_once("utils/db.php");
-require_once("generator/reviews.php");
+require_once("generators/reviews.php");
 
 $db = DbConnection::from_env();
 $template = new ReviewsPage();

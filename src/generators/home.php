@@ -1,6 +1,6 @@
 <?php
 
-require_once("generator/page.php");
+require_once("generators/page.php");
 
 
 class HomePage extends BasePage

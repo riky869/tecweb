@@ -1,7 +1,7 @@
 <?php
 
 require_once("utils/db.php");
-require_once("generator/home.php");
+require_once("generators/home.php");
 
 $db = DbConnection::from_env();
 $template = new HomePage();

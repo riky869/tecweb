@@ -2,7 +2,7 @@
 
 require_once("utils/db.php");
 require_once("utils/request.php");
-require_once("generator/login.php");
+require_once("generators/login.php");
 
 $template = new LoginPage();
 

@@ -1,6 +1,6 @@
 <?php
 
-require_once("generator/template.php");
+require_once("generators/template.php");
 
 
 class BasePage extends Template
