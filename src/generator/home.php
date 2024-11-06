@@ -9,7 +9,7 @@ class HomePage extends BasePage
     {
         parent::__construct($this->load_layout());
 
-        $this->fill_metadata_page(MenuItem::HOME);
+        $this->fill_metadata(MenuItem::HOME);
         $this->fill_menu(MenuItem::HOME);
     }
 };

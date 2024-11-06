@@ -11,24 +11,15 @@ class BasePage extends Template
         parent::__construct($content);
     }
 
-    private function fill_metadata(string $author, string $description, string $keywords)
-    {
-        $this->replace_vars([
-            "author" => $author,
-            "description" => $description,
-            "keywords" => $keywords,
-        ]);
-    }
-
-    protected function fill_metadata_page(MenuItem $current)
+    protected function fill_metadata(MenuItem $current)
     {
         $item = METADATA[$current->value];
 
-        $this->fill_metadata(
-            $item["author"],
-            $item["description"],
-            $item["keywords"],
-        );
+        $this->replace_vars([
+            "author" => $item["author"],
+            "description" => $item["description"],
+            "keywords" => $item["keywords"],
+        ]);
     }
 
     protected function fill_menu(MenuItem $current)

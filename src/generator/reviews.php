@@ -9,7 +9,7 @@ class ReviewsPage extends BasePage
     {
         parent::__construct($this->load_layout());
 
-        $this->fill_metadata_page(MenuItem::REVIEWS);
+        $this->fill_metadata(MenuItem::REVIEWS);
         $this->fill_menu(MenuItem::REVIEWS);
     }
 }
