@@ -2,7 +2,6 @@
 
 require_once("generators/page.php");
 
-
 class LoginPage extends BasePage
 {
     public function __construct()

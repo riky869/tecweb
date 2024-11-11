@@ -11,5 +11,7 @@ class ReviewsPage extends BasePage
 
         $this->fill_metadata(MenuItem::REVIEWS);
         $this->fill_menu(MenuItem::REVIEWS);
+
+        $this->delete_var("main");
     }
 }

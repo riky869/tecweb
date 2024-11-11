@@ -49,4 +49,16 @@ class Template
             $this->replace_var($name, $value);
         }
     }
+
+    protected function delete_var(string $name)
+    {
+        $this->replace_var($name, "");
+    }
+
+    protected function delete_vars(array $names)
+    {
+        foreach ($names as $name) {
+            $this->delete_var($name);
+        }
+    }
 }

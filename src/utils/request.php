@@ -12,6 +12,16 @@ class Request
         return Self::method() == "POST";
     }
 
+    static function post_param(string $name): string
+    {
+        return $_POST[$name];
+    }
+
+    static function get_param(string $name): string
+    {
+        return $_GET[$name];
+    }
+
     static function is_get(): bool
     {
         return Self::method() == "GET";
@@ -19,8 +29,9 @@ class Request
 
     static function allowed_methods(array $methods)
     {
-        if (!in_array(Self::method(), array_map(fn(string $method): string => strtoupper($method), $methods))) {
-            http_response_code(405);
+        $methods = array_map(fn(string $method): string => strtoupper($method), $methods);
+        if (!in_array(Self::method(), $methods)) {
+            http_response_code(404);
             exit();
         }
     }
