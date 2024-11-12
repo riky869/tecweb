@@ -13,6 +13,11 @@ class Template
         $this->content = $content;
     }
 
+    public function copy(): Self
+    {
+        return new Self($this->content);
+    }
+
     public function from_template(string $name): Self
     {
         $content = $this->load_template_file($name);
@@ -38,24 +43,41 @@ class Template
         return $content;
     }
 
-    protected function replace_var(string $name, string $value)
+    public function replace_var(string $name, string $value)
     {
         $this->content = str_replace("{{{$name}}}", $value, $this->content);
     }
 
-    protected function replace_vars(array $values)
+    public function replace_var_template(string $name, Self $template, $func)
+    {
+        $this->replace_var($name, $template->get_content());
+    }
+
+    public function replace_var_array_template(string $name, Self $template, array $values, callable $func)
+    {
+        $contents = array_map(function ($value) use ($template, $func) {
+            $t = $template->copy();
+            $func($t, $value);
+            return $t->get_content();
+        }, $values);
+        $content = join("\n", $contents);
+        $this->replace_var($name, $content);
+    }
+
+    public function replace_vars(array $values): Self
     {
         foreach ($values as $name => $value) {
             $this->replace_var($name, $value);
         }
+        return $this;
     }
 
-    protected function delete_var(string $name)
+    public function delete_var(string $name)
     {
         $this->replace_var($name, "");
     }
 
-    protected function delete_vars(array $names)
+    public function delete_vars(array $names)
     {
         foreach ($names as $name) {
             $this->delete_var($name);

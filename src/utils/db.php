@@ -8,7 +8,7 @@ class DbConnection
     public function __construct($host, $dbname, $user, $pass)
     {
         try {
-            $this->conn = new PDO("mysql:host={$host};dbname={$dbname}", $user, $pass);
+            $this->conn = new PDO("mysql:host={$host};dbname={$dbname}", $user, $pass, [PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_BOTH]);
         } catch (PDOException $e) {
             throw new Exception("Errore di connessione al database: {$e}");
         }

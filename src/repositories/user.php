@@ -19,7 +19,7 @@ class UserRepo
 
         $res = $stmt->execute(["username" => $username, "password" => $password]);
         if ($res) {
-            $row = $stmt->fetch(PDO::FETCH_OBJ);
+            $row = $stmt->fetch();
             return $row;
         }
 
