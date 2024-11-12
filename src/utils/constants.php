@@ -32,7 +32,7 @@ define("MENU_ITEMS", [
 // TODO: is this ok?
 define("AUTHOR", "TechWeb Castelfranco Veneto");
 
-// TODO: add 50-75 characters keyworkds
+// TODO: add 50-75 characters keywords
 define("METADATA", [
     MenuItem::HOME->value => [
         "author" => AUTHOR,

@@ -15,7 +15,7 @@ class BasePage extends Template
 
     protected function fill_metadata(MenuItem $current): Self
     {
-        $item = METADATA[$current->value];
+        $item = $current->get();
 
         $this->replace_vars([
             "author" => $item["author"],
@@ -31,8 +31,6 @@ class BasePage extends Template
         $link_template = $this->load_template_file("menu_item");
         $current_link_template = $this->load_template_file("menu_current_item");
         $links_html = [];
-
-        // $this->replace_var_array_template("links",);
 
         foreach (MENU_ITEMS as $item => $link) {
             $vars = ["name" => $link["name"]];
