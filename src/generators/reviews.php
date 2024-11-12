@@ -7,11 +7,6 @@ class ReviewsPage extends BasePage
 {
     public function __construct()
     {
-        parent::__construct($this->load_layout());
-
-        $this->fill_metadata(MenuItem::REVIEWS);
-        $this->fill_menu(MenuItem::REVIEWS);
-
-        $this->delete_var("main");
+        parent::__construct(MenuItem::REVIEWS);
     }
 }

@@ -6,20 +6,13 @@ class LoginPage extends BasePage
 {
     public function __construct()
     {
-        parent::__construct($this->load_layout());
+        parent::__construct(MenuItem::LOGIN);
+    }
 
-        $this->fill_metadata(MenuItem::LOGIN);
-        $this->fill_menu(MenuItem::LOGIN);
-
-        // ---------------
-        // example inline template
-        $t = new Template('<img src="{{img}}" alt="{{alt}}" aria-hidden="true">');
-        $t->replace_vars([
-            "img" => "",
-            "alt" => "",
-        ]);
-
-        $this->replace_var("main", $t->get_content());
-        // ---------------
+    public function fill_login(): Self
+    {
+        $t = Template::from_template("login");
+        $this->replace_var_template("main", $t);
+        return $this;
     }
 }

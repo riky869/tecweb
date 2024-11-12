@@ -9,25 +9,12 @@ require_once("repositories/movie.php");
 Request::allowed_methods(["GET"]);
 
 $db = DbConnection::from_env();
-$template = new HomePage;
 $movieRepo = new MovieRepo($db);
-
 $movies = $movieRepo->get_movies();
 
-$movieTemplate = new Template('
-<div>
-    <p>Nome:</p><p>{{name}}</p>
-    <p>Descrizione:</p><p>{{description}}</p>
-</div>
-');
+$template = new HomePage();
+$template->fill_movies($movies);
 
-$template->replace_var_array_template("movies", $movieTemplate, $movies, function ($t, $movie) {
-    $t->replace_vars([
-        "name" => $movie["name"],
-        "description" => $movie["description"]
-    ]);
-});
+$template->delete_var("main");
 
-$content = $template->get_content();
-assert_template_render($content);
-echo ($content);
+$template->show();

@@ -10,7 +10,6 @@ Request::allowed_methods(["GET"]);
 $db = DbConnection::from_env();
 $template = new ReviewsPage();
 
-$content = $template->get_content();
+$template->delete_var("main");
 
-assert_template_render($content);
-echo ($content);
+$template->show();

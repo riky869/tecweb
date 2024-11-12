@@ -38,4 +38,9 @@ VALUES
     ('Blade Runner', 'blade runner'),
     ('Odissea Nello Spazio', 'odissea nello spazio');
 
+INSERT INTO
+    user (username, password, name, last_name)
+VALUES
+    ('admin', 'password', 'mario', 'rossi');
+
 COMMIT;

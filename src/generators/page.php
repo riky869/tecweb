@@ -6,12 +6,14 @@ require_once("generators/template.php");
 class BasePage extends Template
 {
 
-    public function __construct(string $content)
+    public function __construct(MenuItem $current)
     {
-        parent::__construct($content);
+        parent::__construct($this->load_layout());
+
+        $this->fill_metadata($current)->fill_menu($current);
     }
 
-    protected function fill_metadata(MenuItem $current)
+    protected function fill_metadata(MenuItem $current): Self
     {
         $item = METADATA[$current->value];
 
@@ -20,13 +22,17 @@ class BasePage extends Template
             "description" => $item["description"],
             "keywords" => $item["keywords"],
         ]);
+
+        return $this;
     }
 
-    protected function fill_menu(MenuItem $current)
+    protected function fill_menu(MenuItem $current): Self
     {
         $link_template = $this->load_template_file("menu_item");
         $current_link_template = $this->load_template_file("menu_current_item");
         $links_html = [];
+
+        // $this->replace_var_array_template("links",);
 
         foreach (MENU_ITEMS as $item => $link) {
             $vars = ["name" => $link["name"]];
@@ -45,5 +51,7 @@ class BasePage extends Template
         }
 
         $this->replace_var("links", join("\n", $links_html));
+
+        return $this;
     }
 };

@@ -8,7 +8,7 @@ require_once("generators/login.php");
 
 Request::allowed_methods(["GET", "POST"]);
 
-$template = new LoginPage();
+$login_error = "";
 
 if (Request::is_post()) {
     $db = DbConnection::from_env();
@@ -18,12 +18,22 @@ if (Request::is_post()) {
     $user = $repo->get_user_by_password(Request::post_param("username"), Request::post_param("password"));
 
     if (!empty($user)) {
+        // Redirect to home
         $content = "";
     } else {
+        // show error
+        $login_error = "<p>Credenziali non valide</p>";
     }
 } else if (Request::is_get()) {
 }
 
-$content = $template->get_content();
-assert_template_render($content);
-echo ($content);
+$template = new LoginPage();
+$template->fill_login();
+
+if ($login_error) {
+    $template->replace_var("login_error", $login_error);
+} else {
+    $template->delete_var("login_error");
+}
+
+$template->show();
