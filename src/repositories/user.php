@@ -12,7 +12,7 @@ class UserRepo
         $this->db = $db;
     }
 
-    public function get_user_by_password($username, $password): ?array
+    public function get_user_by_password($username, $password): mixed
     {
         $conn = $this->db->get_conn();
         $stmt = $conn->prepare("SELECT * FROM user WHERE username = :username AND password = :password");

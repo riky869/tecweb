@@ -17,8 +17,9 @@ if (Request::is_post()) {
     // fetch user
     $user = $repo->get_user_by_password(Request::post_param("username"), Request::post_param("password"));
 
-    if (!empty($user)) {
+    if ($user) {
         // Redirect to home
+        // TODO: create session and redirect
         $content = "";
     } else {
         // show error
