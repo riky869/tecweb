@@ -13,17 +13,23 @@ class BasePage extends Template
         $this->fill_metadata($current)->fill_menu($current);
     }
 
-    public function fill_profile(array $user): Self
+    public function fill_profile(?array $user): Self
     {
-        $t = Template::from_content('
-            <div>
-                <p>Utente corrente: {{username}}</p>
-                <form method="POST" action="logout.php">
-                    <input type="submit" value="logout">
-                </form>
-            </div>
-        ')
-            ->replace_var("username", $user["username"]);
+        if ($user) {
+            $t = Template::from_content('
+                <div>
+                    <p>Utente corrente: {{username}}</p>
+                    <form method="POST" action="logout.php">
+                        <input type="submit" value="logout">
+                    </form>
+                </div>
+            ')
+                ->replace_var("username", $user["username"]);
+        } else {
+            $t = Template::from_content('
+                <a href="login.php">Login Page</a>
+            ');
+        }
 
         $this->replace_var_template("profile", $t);
         return $this;
@@ -53,10 +59,10 @@ class BasePage extends Template
 
             // if is not current link set the href target
             if ($current->value != $item) {
-                $template = new Template($link_template);
+                $template = Template::from_content($link_template);
                 $vars["url"] = $link["url"];
             } else {
-                $template = new Template($current_link_template);
+                $template = Template::from_content($current_link_template);
             }
 
             $template->replace_vars($vars);

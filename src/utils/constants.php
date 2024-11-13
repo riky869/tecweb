@@ -29,10 +29,6 @@ define("MENU_ITEMS", [
         "name" => "Reviews",
         "url" => "reviews.php",
     ],
-    MenuItem::LOGIN->value => [
-        "name" => "Login",
-        "url" => "login.php",
-    ],
 ]);
 
 

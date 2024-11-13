@@ -16,11 +16,7 @@ $movies = $movieRepo->get_movies();
 $template = new HomePage();
 $template->fill_movies($movies);
 
-if (Session::is_logged()) {
-    $user = Session::get_user();
-    $template->fill_profile($user);
-} else {
-    $template->delete_var("profile");
-}
+$user = Session::get_user();
+$template->fill_profile($user);
 
 $template->show();

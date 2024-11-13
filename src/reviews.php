@@ -11,12 +11,8 @@ Session::start();
 $db = DbConnection::from_env();
 $template = new ReviewsPage();
 
-if (Session::is_logged()) {
-    $user = Session::get_user();
-    $template->fill_profile($user);
-} else {
-    $template->delete_var("profile");
-}
+$user = Session::get_user();
+$template->fill_profile($user);
 
 $template->delete_vars(["main"]);
 
