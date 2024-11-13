@@ -1,6 +1,7 @@
 <?php
 
 require_once("utils/constants.php");
+require_once("utils/checks.php");
 
 
 class Template
@@ -32,10 +33,15 @@ class Template
         return new Self($this->content);
     }
 
+    public static function from_content(string $content): Self
+    {
+        return new Self($content);
+    }
+
     public static function from_template(string $name): Self
     {
         $content = Self::load_template_file($name);
-        return new Self($content);
+        return Self::from_content($content);
     }
 
     protected static function load_template_file(string $name): string

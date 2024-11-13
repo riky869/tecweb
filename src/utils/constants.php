@@ -6,6 +6,8 @@ enum MenuItem: int
     case HOME = 0;
     case REVIEWS = 1;
     case LOGIN = 2;
+    case ABOUT = 3;
+    case PROFILE = 4;
 
     public function get_menu(): array
     {

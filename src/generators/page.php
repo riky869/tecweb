@@ -13,6 +13,22 @@ class BasePage extends Template
         $this->fill_metadata($current)->fill_menu($current);
     }
 
+    public function fill_profile(array $user): Self
+    {
+        $t = Template::from_content('
+            <div>
+                <p>Utente corrente: {{username}}</p>
+                <form method="POST" action="logout.php">
+                    <input type="submit" value="logout">
+                </form>
+            </div>
+        ')
+            ->replace_var("username", $user["username"]);
+
+        $this->replace_var_template("profile", $t);
+        return $this;
+    }
+
     protected function fill_metadata(MenuItem $current): Self
     {
         $item = $current->get_metadata();
