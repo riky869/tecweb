@@ -15,7 +15,7 @@ class BasePage extends Template
 
     protected function fill_metadata(MenuItem $current): Self
     {
-        $item = $current->get();
+        $item = $current->get_metadata();
 
         $this->replace_vars([
             "author" => $item["author"],

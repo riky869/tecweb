@@ -20,7 +20,7 @@ class HomePage extends BasePage
             </div>
         ');
 
-        $this->replace_var_array_template("movies", $movieTemplate, $movies, function ($t, $movie) {
+        $this->replace_var_array_template("main", $movieTemplate, $movies, function ($t, $movie) {
             $t->replace_vars([
                 "name" => $movie["name"],
                 "description" => $movie["description"]

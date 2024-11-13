@@ -7,9 +7,14 @@ enum MenuItem: int
     case REVIEWS = 1;
     case LOGIN = 2;
 
-    public function get(): array
+    public function get_menu(): array
     {
         return MENU_ITEMS[$this->value];
+    }
+
+    public function get_metadata(): array
+    {
+        return METADATA[$this->value];
     }
 }
 

@@ -15,6 +15,4 @@ $movies = $movieRepo->get_movies();
 $template = new HomePage();
 $template->fill_movies($movies);
 
-$template->delete_var("main");
-
 $template->show();
