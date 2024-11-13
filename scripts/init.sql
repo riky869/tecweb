@@ -8,35 +8,50 @@ USE tecweb;
 
 DROP TABLE IF EXISTS review,
 movie,
+category,
 user;
 
 CREATE TABLE IF NOT EXISTS user (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    username TEXT,
-    password TEXT,
-    name TEXT,
-    last_name TEXT
+    username VARCHAR(255) PRIMARY KEY,
+    password TEXT NOT NULL,
+    name TEXT NOT NULL,
+    last_name TEXT NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS category (name VARCHAR(255) PRIMARY KEY);
 
 CREATE TABLE IF NOT EXISTS movie (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    name TEXT,
-    description TEXT
+    name TEXT NOT NULL,
+    category VARCHAR(255) REFERENCES category(name),
+    description TEXT NOT NULL,
+    image_path TEXT
 );
 
 CREATE TABLE IF NOT EXISTS review (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    title TEXT,
-    content TEXT,
-    user_id INT REFERENCES user(id),
+    title TEXT NOT NULL,
+    content TEXT NOT NULL,
+    data DATE NOT NULL,
+    username VARCHAR(255) REFERENCES user(username),
     movie_id INT REFERENCES movie(id)
 );
 
 INSERT INTO
-    movie (name, description)
+    category (name)
 VALUES
-    ('Blade Runner', 'blade runner'),
-    ('Odissea Nello Spazio', 'odissea nello spazio');
+    ('Horror'),
+    ('Dramma');
+
+INSERT INTO
+    movie (name, description, category)
+VALUES
+    ('Blade Runner', 'blade runner', 'Horror'),
+    (
+        'Odissea Nello Spazio',
+        'odissea nello spazio',
+        'Dramma'
+    );
 
 INSERT INTO
     user (username, password, name, last_name)
