@@ -50,8 +50,8 @@ class BasePage extends Template
 
     protected function fill_menu(MenuItem $current): Self
     {
-        $link_template = $this->load_template_file("menu_item");
-        $current_link_template = $this->load_template_file("menu_current_item");
+        $link_template = Self::load_template_file("menu_item");
+        $current_link_template = Self::load_template_file("menu_current_item");
         $links_html = [];
 
         foreach (MENU_ITEMS as $item => $link) {
