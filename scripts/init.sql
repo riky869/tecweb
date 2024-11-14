@@ -15,7 +15,8 @@ CREATE TABLE IF NOT EXISTS user (
     username VARCHAR(255) PRIMARY KEY,
     password TEXT NOT NULL,
     name TEXT NOT NULL,
-    last_name TEXT NOT NULL
+    last_name TEXT NOT NULL,
+    is_admin BOOLEAN NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS category (name VARCHAR(255) PRIMARY KEY);
@@ -54,8 +55,9 @@ VALUES
     );
 
 INSERT INTO
-    user (username, password, name, last_name)
+    user (username, password, name, last_name, is_admin)
 VALUES
-    ('admin', 'password', 'mario', 'rossi');
+    ('admin', 'admin', 'mario', 'rossi', true),
+    ('user', 'user', 'luca', 'agostino', false);
 
 COMMIT;
