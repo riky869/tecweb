@@ -78,6 +78,8 @@
 ### Note
 
 -   una recensione per film per persona
+-   controllo sql injection
+-   caricare file .env in php
 
 ### In più
 
