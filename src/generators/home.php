@@ -6,9 +6,9 @@ require_once("generators/page.php");
 
 class HomePage extends BasePage
 {
-    public function __construct()
+    public function __construct(?array $user)
     {
-        parent::__construct(MenuItem::HOME);
+        parent::__construct(MenuItem::HOME, $user);
     }
 
     public function fill_movies(array $movies): Self

@@ -6,7 +6,7 @@ class LoginPage extends BasePage
 {
     public function __construct()
     {
-        parent::__construct(MenuItem::LOGIN);
+        parent::__construct(MenuItem::LOGIN, null);
     }
 
     public function fill_login(): Self

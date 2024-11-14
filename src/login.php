@@ -41,6 +41,4 @@ if ($login_error) {
     $template->delete_var("login_error");
 }
 
-$template->delete_vars(["profile"]);
-
 $template->show();

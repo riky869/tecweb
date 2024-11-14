@@ -86,9 +86,14 @@ class Template
 
     public function replace_vars(array $values): Self
     {
-        foreach ($values as $name => $value) {
-            $this->replace_var($name, $value);
+        $pattern = implode("|", array_keys($values));
+
+        while (preg_match("/\{\{($pattern)\}\}/", $this->content)) {
+            foreach ($values as $name => $value) {
+                $this->replace_var($name, $value);
+            }
         }
+
         return $this;
     }
 

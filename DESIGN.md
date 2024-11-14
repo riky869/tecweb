@@ -7,9 +7,9 @@
 ### Breadcrumb
 
 -   quando si è nella pagina con la lista di film di una categoria:
-    -   categorie / {nome_categoria}
+    -   CATEGORIES / {nome_categoria}
 -   quando si è nella pagina del dettaglio film:
-    -   categorie / {nome_categoria} / film
+    -   CATEGORIES / {nome_categoria} / film
 
 ### Menu
 
@@ -17,7 +17,7 @@
 -   lista orizzontale del menù
 -   pagine
     -   home
-    -   categorie
+    -   CATEGORIES
     -   about
     -   lista utenti se utente loggato amministratore
 
@@ -34,9 +34,9 @@
 -   descrizione del sito, cosa fa, chi è, etc..
 -   carosello dei top 3 film con link al loro dettaglio
 
-### Categorie
+### CATEGORIES
 
--   lista di tutte le categorie di film con link per andare alla lista dei film per quella categoria
+-   lista di tutte le CATEGORIES di film con link per andare alla lista dei film per quella categoria
 
 ### Films
 

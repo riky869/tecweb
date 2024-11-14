@@ -12,11 +12,11 @@ Session::start();
 $db = DbConnection::from_env();
 $movieRepo = new MovieRepo($db);
 $movies = $movieRepo->get_movies();
+$user = Session::get_user();
 
-$template = new HomePage();
+$template = new HomePage($user);
 $template->fill_movies($movies);
 
-$user = Session::get_user();
-$template->fill_profile($user);
+$template->replace_var("breadcrumb", "<p>Ti trovi in: Home</p>");
 
 $template->show();
