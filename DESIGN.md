@@ -6,6 +6,11 @@
 
 ### Breadcrumb
 
+-   quando si è nella pagina con la lista di film di una categoria:
+    -   categorie / {nome_categoria}
+-   quando si è nella pagina del dettaglio film:
+    -   categorie / {nome_categoria} / film
+
 ### Menu
 
 -   login e registrazione oppure icona utente se loggato
