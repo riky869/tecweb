@@ -25,7 +25,7 @@ class Builder
     {
         // assert that the template have replaced all the variables
         $matches = [];
-        $m = preg_match('/{{([a-zA-Z0-9_]+)}}/', $this->content, $matches);
+        $m = preg_match_all("/({{([a-zA-Z0-9_]+)}}|<!--([a-zA-Z0-9_]+)-->)/", $this->content, $matches);
         assert($m == 0, "$m template variables have not been replaced: " . join(', ', $matches));
 
         echo ($this->content);
@@ -60,8 +60,8 @@ class Builder
 
     public function get_sec(string $name): Self
     {
-        $start_pattern = "<!-- {$name}_start -->";
-        $end_pattern = "<!-- {$name}_end -->";
+        $start_pattern = "<!--{$name}_start-->";
+        $end_pattern = "<!--{$name}_end-->";
 
         $start = strpos($this->content, $start_pattern);
         $end = strpos($this->content, $end_pattern);
@@ -75,8 +75,8 @@ class Builder
     public function replace_var(string $name, string $value, VarType $type = VarType::Single): Self
     {
         $pattern = match ($type) {
-            VarType::Single =>  "{{$name}}",
-            VarType::Section => "<!-- $name -->",
+            VarType::Single =>  "{\{$name\}}",
+            VarType::Section => "<!--$name-->",
         };
         $value = $value instanceof Self ? $value->get_content() : $value;
         $this->content = str_replace($pattern, $value, $this->content);
@@ -86,8 +86,9 @@ class Builder
     public function replace_secs(array $values): Self
     {
         $pattern = join("|", array_keys($values));
+        $pattern = "/<!--($pattern)-->/";
 
-        while (preg_match("/\{\{($pattern)\}\}/", $this->content)) {
+        while (preg_match_all($pattern, $this->content)) {
             foreach ($values as $name => $value) {
                 $this->replace_var($name, $value, VarType::Section);
             }
@@ -99,8 +100,9 @@ class Builder
     public function replace_vars(array $values): Self
     {
         $pattern = join("|", array_keys($values));
+        $pattern = "/{{($pattern)}}/";
 
-        while (preg_match("/\{\{($pattern)\}\}/", $this->content)) {
+        while (preg_match_all($pattern, $this->content)) {
             foreach ($values as $name => $value) {
                 $this->replace_var($name, $value, VarType::Single);
             }

@@ -15,6 +15,12 @@ $user = Session::get_user();
 $template = Builder::from_template(basename(__FILE__));
 
 $common = Builder::load_common();
+$movies = array_map(function ($i) {
+    return [
+        "name" => $i["name"],
+        "description" => $i["description"],
+    ];
+}, $movies);
 
 $template->replace_secs([
     "header" => $common->get_sec("header"),
