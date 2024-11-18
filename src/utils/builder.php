@@ -1,10 +1,6 @@
 <?php
 
-require_once("utils/constants.php");
-require_once("utils/checks.php");
-
-
-class Template
+class Builder
 {
     private static string $TEMPLATE_DIR = "templates";
     protected string $content = "";
@@ -22,8 +18,11 @@ class Template
     public function show(): Self
     {
         // assert that the template have replaced all the variables
-        assert_template_render($this->content);
-        echo ($this->get_content());
+        $matches = [];
+        $m = preg_match('/{{([a-zA-Z0-9_]+)}}/', $this->content, $matches);
+        assert($m == 0, "$m template variables have not been replaced: " . join(', ', $matches));
+
+        echo ($this->content);
 
         return $this;
     }
@@ -65,28 +64,21 @@ class Template
         return $this;
     }
 
-    public function replace_var_template(string $name, Self $template): Self
+    public function replace_sec(string $name, string $content): Self
     {
-        $this->replace_var($name, $template->get_content());
-        return $this;
-    }
+        $start = strpos($this->content, "<!-- $name\\_start -->");
+        $end = strpos($this->content, "<!-- $name\\_end -->");
 
-    public function replace_var_array_template(string $name, Self $template, array $values, callable $func): Self
-    {
-        $contents = array_map(function ($value) use ($template, $func) {
-            $t = $template->copy();
-            $func($t, $value);
-            return $t->get_content();
-        }, $values);
-        $content = join("\n", $contents);
-        $this->replace_var($name, $content);
+        assert($start !== 0 && $end !== 0);
+
+        $this->content = substr_replace($this->content, $content, $start, $end - $start);
 
         return $this;
     }
 
     public function replace_vars(array $values): Self
     {
-        $pattern = implode("|", array_keys($values));
+        $pattern = join("|", array_keys($values));
 
         while (preg_match("/\{\{($pattern)\}\}/", $this->content)) {
             foreach ($values as $name => $value) {
@@ -109,6 +101,29 @@ class Template
         foreach ($names as $name) {
             $this->delete_var($name);
         }
+
+        return $this;
+    }
+
+    public function delete_sec(string $name): Self
+    {
+        $this->replace_sec($name, "");
+
+        return $this;
+    }
+
+    public function delete_secs(array $names): Self
+    {
+        foreach ($names as $name) {
+            $this->delete_sec($name);
+        }
+
+        return $this;
+    }
+
+    public function build(): Self
+    {
+
 
         return $this;
     }

@@ -1,8 +1,7 @@
 <?php
 
-class DbConnection
+class DB
 {
-
     private PDO $conn;
 
     public function __construct($host, $dbname, $user, $pass)
@@ -24,8 +23,29 @@ class DbConnection
         return new Self($host, $dbname, $user, $pass);
     }
 
-    public function get_conn(): PDO
+    public function get_user_by_password($username, $password): mixed
     {
-        return $this->conn;
+        $stmt = $this->conn->prepare("SELECT * FROM user WHERE username = :username AND password = :password");
+
+        $res = $stmt->execute(["username" => $username, "password" => $password]);
+        if ($res) {
+            $row = $stmt->fetch();
+            return $row;
+        }
+
+        return null;
+    }
+
+    public function get_movies(): ?array
+    {
+        $stmt = $this->conn->prepare("SELECT * FROM movie");
+
+        $res = $stmt->execute([]);
+        if ($res) {
+            $row = $stmt->fetchAll();
+            return $row;
+        }
+
+        return null;
     }
 }
