@@ -8,20 +8,10 @@ require_once("utils/session.php");
 Request::allowed_methods(["GET"]);
 Session::start();
 
-$db = DbConnection::from_env();
+$db = DB::from_env();
 $user = Session::get_user();
-$template = Builder::from_template("film");
+$template = Builder::from_template(__FILE__);
 
-$categories_url = MenuItem::CATEGORIES->get_menu()["url"];
-$category_url = MenuItem::FILMS->get_menu()["url"] . "?cat=Horror";
-$category_name = "Horror";
-$film_name = "Odissea Nello Spazio";
-$breadcrumb = "Home >> ";
-$breadcrumb .= "<a href=\"$categories_url\">Categorie</a> >> ";
-$breadcrumb .= "<a href=\"$category_url\">$category_name</a> >> ";
-$breadcrumb .= $film_name;
-
-$template->replace_var("breadcrumb", $breadcrumb);
 
 $template->delete_vars(["main"]);
 

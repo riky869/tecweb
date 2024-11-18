@@ -12,11 +12,10 @@ Session::start();
 $login_error = null;
 
 if (Request::is_post()) {
-    $db = DbConnection::from_env();
-    $repo = new UserRepo($db);
+    $db = DB::from_env();
 
     // fetch user
-    $user = $repo->get_user_by_password(Request::post_param("username"), Request::post_param("password"));
+    $user = $db->get_user_by_password(Request::post_param("username"), Request::post_param("password"));
 
     if ($user) {
         // Redirect to home
@@ -32,8 +31,7 @@ if (Request::is_post()) {
     }
 }
 
-$template = new LoginPage();
-$template->fill_login();
+$template = Builder::from_template(__FILE__);
 
 if ($login_error) {
     $template->replace_var("login_error", $login_error);

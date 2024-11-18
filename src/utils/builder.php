@@ -1,5 +1,11 @@
 <?php
 
+enum VarType
+{
+    case Section;
+    case Single;
+}
+
 class Builder
 {
     private static string $TEMPLATE_DIR = "templates";
@@ -27,11 +33,6 @@ class Builder
         return $this;
     }
 
-    public function copy(): Self
-    {
-        return new Self($this->content);
-    }
-
     public static function from_content(string $content): Self
     {
         return new Self($content);
@@ -43,35 +44,54 @@ class Builder
         return Self::from_content($content);
     }
 
-    protected static function load_template_file(string $name): string
+    public static function load_common(): Self
+    {
+        return Self::from_template("common");
+    }
+
+    public static function load_template_file(string $name): string
     {
         $base_dir = Self::$TEMPLATE_DIR;
+        $name = str_replace(".php", "", $name);
         $content = file_get_contents("{$base_dir}/{$name}.html");
 
         return $content;
     }
 
-    protected static function load_layout(): string
+    public function get_sec(string $name): Self
     {
-        $content = Self::load_template_file("layout");
+        $start_pattern = "<!-- {$name}_start -->";
+        $end_pattern = "<!-- {$name}_end -->";
 
-        return $content;
+        $start = strpos($this->content, $start_pattern);
+        $end = strpos($this->content, $end_pattern);
+
+        assert($start !== false && $end !== false);
+
+        $content = substr($this->content, $start + strlen($start_pattern), $end - $start - strlen($start_pattern));
+        return Self::from_content($content);
     }
 
-    public function replace_var(string $name, string $value): Self
+    public function replace_var(string $name, string $value, VarType $type = VarType::Single): Self
     {
-        $this->content = str_replace("{{{$name}}}", $value, $this->content);
+        $pattern = match ($type) {
+            VarType::Single =>  "{{$name}}",
+            VarType::Section => "<!-- $name -->",
+        };
+        $value = $value instanceof Self ? $value->get_content() : $value;
+        $this->content = str_replace($pattern, $value, $this->content);
         return $this;
     }
 
-    public function replace_sec(string $name, string $content): Self
+    public function replace_secs(array $values): Self
     {
-        $start = strpos($this->content, "<!-- $name\\_start -->");
-        $end = strpos($this->content, "<!-- $name\\_end -->");
+        $pattern = join("|", array_keys($values));
 
-        assert($start !== 0 && $end !== 0);
-
-        $this->content = substr_replace($this->content, $content, $start, $end - $start);
+        while (preg_match("/\{\{($pattern)\}\}/", $this->content)) {
+            foreach ($values as $name => $value) {
+                $this->replace_var($name, $value, VarType::Section);
+            }
+        }
 
         return $this;
     }
@@ -82,7 +102,7 @@ class Builder
 
         while (preg_match("/\{\{($pattern)\}\}/", $this->content)) {
             foreach ($values as $name => $value) {
-                $this->replace_var($name, $value);
+                $this->replace_var($name, $value, VarType::Single);
             }
         }
 
@@ -107,7 +127,7 @@ class Builder
 
     public function delete_sec(string $name): Self
     {
-        $this->replace_sec($name, "");
+        $this->replace_var($name, "", VarType::Section);
 
         return $this;
     }
