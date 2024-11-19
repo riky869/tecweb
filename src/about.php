@@ -10,8 +10,15 @@ Session::start();
 
 $db = DB::from_env();
 $user = Session::get_user();
-$template = Builder::from_template("profile");
+$template = Builder::from_template(basename(__FILE__));
 
-$template->delete_vars(["main"]);
+$common = Builder::load_common();
+
+$template->replace_secs([
+    "header" => $common->get_sec("header"),
+    "footer" => $common->get_sec("footer"),
+]);
+
+$template->delete_secs([]);
 
 $template->show();

@@ -10,7 +10,7 @@ Session::start();
 
 $db = DB::from_env();
 $user = Session::get_user();
-$template = Builder::from_template(__FILE__);
+$template = Builder::from_template(basename(__FILE__));
 
 
 $template->delete_vars(["main"]);

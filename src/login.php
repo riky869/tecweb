@@ -31,7 +31,7 @@ if (Request::is_post()) {
     }
 }
 
-$template = Builder::from_template(__FILE__);
+$template = Builder::from_template(basename(__FILE__));
 
 if ($login_error) {
     $template->replace_var("login_error", $login_error);
