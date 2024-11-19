@@ -2,8 +2,7 @@
 
 require_once("utils/db.php");
 require_once("utils/request.php");
-require_once("repositories/user.php");
-require_once("generators/login.php");
+require_once("utils/builder.php");
 require_once("utils/session.php");
 
 Request::allowed_methods(["GET", "POST"]);
@@ -32,6 +31,13 @@ if (Request::is_post()) {
 }
 
 $template = Builder::from_template(basename(__FILE__));
+
+$common = Builder::load_common();
+
+$template->replace_secs([
+    "header" => $common->get_sec("header"),
+    "footer" => $common->get_sec("footer"),
+]);
 
 if ($login_error) {
     $template->replace_var("login_error", $login_error);
