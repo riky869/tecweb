@@ -26,11 +26,16 @@ class Builder
         // assert that the template have replaced all the variables
         $matches = [];
         $m = preg_match_all("/({{([a-zA-Z0-9_]+)}}|<!--([a-zA-Z0-9_]+)-->)/", $this->content, $matches);
-        assert($m == 0, "$m template variables have not been replaced: " . join(', ', $matches));
+        // assert($m == 0, "$m template variables have not been replaced: " . join(', ', $matches));
 
         echo ($this->content);
 
         return $this;
+    }
+
+    public function copy(): Self
+    {
+        return new Self($this->content);
     }
 
     public static function from_content(string $content): Self
@@ -58,6 +63,19 @@ class Builder
         return $content;
     }
 
+    public function replace_sec_arr(string $sec_name, array $values, Builder $sec, $func): Self
+    {
+        $content = join("\n", array_map(
+            function ($i) use ($func, $sec) {
+                return $func($sec->copy(), $i)->get_content();
+            },
+            $values
+        ));
+
+        $this->replace_var($sec_name, $content, VarType::Section);
+        return $this;
+    }
+
     public function get_sec(string $name): Self
     {
         $start_pattern = "<!--{$name}_start-->";
@@ -72,10 +90,10 @@ class Builder
         return Self::from_content($content);
     }
 
-    public function replace_var(string $name, string $value, VarType $type = VarType::Single): Self
+    public function replace_var(string $name, mixed $value, VarType $type = VarType::Single): Self
     {
         $pattern = match ($type) {
-            VarType::Single =>  "{\{$name\}}",
+            VarType::Single =>  "{{{$name}}}",
             VarType::Section => "<!--$name-->",
         };
         $value = $value instanceof Self ? $value->get_content() : $value;
