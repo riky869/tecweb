@@ -20,5 +20,7 @@ $template->replace_secs([
 ]);
 
 $template->delete_secs([]);
+$template->replace_var("cat_selected", $_GET["cat"] ?? "Tutte");
+
 
 $template->show();

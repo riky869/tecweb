@@ -21,4 +21,13 @@ $template->replace_secs([
 
 $template->delete_secs([]);
 
+
+#TODO: get film data from db
+$template->replace_var("id_film", "Nome del film di id=" . $_GET["id"]); #TODO: get name name from db
+$template->replace_var("nome_cat", "Nome categoria del film di id=" . $_GET["id"]); #TODO: get category name from db
+
+
+
+
+
 $template->show();
