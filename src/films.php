@@ -14,13 +14,31 @@ $template = Builder::from_template(basename(__FILE__));
 
 $common = Builder::load_common();
 
-$template->replace_secs([
-    "header" => $common->get_sec("header"),
-    "footer" => $common->get_sec("footer"),
-]);
+if (empty($_GET["cat"])) {
+    header("Location: categories.php");
+    exit();
+}
+
+$category = $_GET["cat"];
+$template->replace_var("cat_selected", $category);
+
+$movies_data = $db->get_movies_by_category($category);
+
+$template->replace_sec_block_arr(
+    "movie",
+    $movies_data,
+    function (Builder $sec, array $i) {
+        return $sec->replace_vars(
+            [
+                "film_id" => $i["id"],
+                "film_name" => $i["name"],
+                "description" => $i["description"],
+            ]
+        );
+    }
+);
 
 $template->delete_secs([]);
-$template->replace_var("cat_selected", $_GET["cat"] ?? "Tutte");
-
+$template->build($user, $common);
 
 $template->show();

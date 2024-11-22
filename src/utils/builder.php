@@ -4,6 +4,7 @@ enum VarType
 {
     case Section;
     case Single;
+    case Block;
 }
 
 class Builder
@@ -81,7 +82,7 @@ class Builder
         return $this;
     }
 
-    public function replace_sec_arr(string $sec_name, array $values, Builder $sec, $func): Self
+    public function replace_sec_arr(string $sec_name, array $values, Builder $sec, $func, VarType $var_type): Self
     {
         $content = join("\n", array_map(
             function ($i) use ($func, $sec) {
@@ -90,8 +91,13 @@ class Builder
             $values
         ));
 
-        $this->replace_var($sec_name, $content, VarType::Section);
+        $this->replace_var($sec_name, $content, $var_type);
         return $this;
+    }
+
+    public function replace_sec_block_arr(string $sec_name, array $values, $func): Self
+    {
+        return $this->replace_sec_arr($sec_name, $values, $this->get_sec($sec_name), $func, VarType::Block);
     }
 
     public function get_sec(string $name): Self
@@ -110,6 +116,19 @@ class Builder
 
     public function replace_var(string $name, mixed $value, VarType $type = VarType::Single): Self
     {
+        if ($type == VarType::Block) {
+            $start_pattern = "<!--{$name}_start-->";
+            $end_pattern = "<!--{$name}_end-->";
+
+            $start = strpos($this->content, $start_pattern);
+            $end = strpos($this->content, $end_pattern);
+
+            assert($start !== false && $end !== false);
+
+            $this->content = substr_replace($this->content, $value, $start, $end - $start + strlen($start_pattern));
+            return $this;
+        }
+
         $pattern = match ($type) {
             VarType::Single =>  "{{{$name}}}",
             VarType::Section => "<!--$name-->",
@@ -179,9 +198,14 @@ class Builder
         return $this;
     }
 
-    public function build(): Self
+    public function build(?array $user, Self $common): Self
     {
+        $this->replace_secs([
+            "header" => $common->get_sec("header"),
+            "footer" => $common->get_sec("footer"),
+        ]);
 
+        $this->replace_profile($user, $common);
 
         return $this;
     }

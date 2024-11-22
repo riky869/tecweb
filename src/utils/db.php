@@ -48,4 +48,43 @@ class DB
 
         return null;
     }
+
+    public function get_movies_by_category(string $category): ?array
+    {
+        $stmt = $this->conn->prepare("SELECT * FROM movie WHERE category = :category");
+
+        $res = $stmt->execute(["category" => $category]);
+        if ($res) {
+            $row = $stmt->fetchAll();
+            return $row;
+        }
+
+        return null;
+    }
+
+    public function get_movie(int $id): ?array
+    {
+        $stmt = $this->conn->prepare("SELECT * FROM movie WHERE id = :id");
+
+        $res = $stmt->execute(["id" => $id]);
+        if ($res) {
+            $row = $stmt->fetch();
+            return $row;
+        }
+
+        return null;
+    }
+
+    public function get_categories(): ?array
+    {
+        $stmt = $this->conn->prepare("SELECT DISTINCT * FROM category");
+
+        $res = $stmt->execute();
+        if ($res) {
+            $row = $stmt->fetchAll();
+            return $row;
+        }
+
+        return null;
+    }
 }

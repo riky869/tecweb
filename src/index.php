@@ -16,22 +16,7 @@ $template = Builder::from_template(basename(__FILE__));
 
 $common = Builder::load_common();
 
-$template->replace_secs([
-    "header" => $common->get_sec("header"),
-    "footer" => $common->get_sec("footer"),
-]);
-
-$template->replace_profile($user, $common);
-
-$template->replace_sec_arr("movie", $movies_data, $common->get_sec("movie"), function ($sec, $i) {
-    return $sec->replace_vars(
-        [
-            "name" => $i["name"],
-            "description" => $i["description"],
-        ]
-    );
-});
-
+$template->build($user, $common);
 $template->delete_secs([]);
 
 $template->show();

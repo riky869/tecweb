@@ -11,23 +11,24 @@ Session::start();
 $db = DB::from_env();
 $user = Session::get_user();
 $template = Builder::from_template(basename(__FILE__));
-
 $common = Builder::load_common();
 
-$template->replace_secs([
-    "header" => $common->get_sec("header"),
-    "footer" => $common->get_sec("footer"),
+$movie_id = $_GET["id"];
+
+if (empty($_GET["id"])) {
+    header("Location: categories.php");
+    exit();
+}
+
+$movie = $db->get_movie($movie_id);
+
+$template->replace_vars([
+    "nome_film" => $movie["name"],
+    "nome_cat" => $movie["category"],
+    "name" => $movie["name"],
+    "description" => $movie["description"],
 ]);
 
-$template->delete_secs([]);
-
-
-#TODO: get film data from db
-$template->replace_var("id_film", "Nome del film di id=" . $_GET["id"]); #TODO: get name name from db
-$template->replace_var("nome_cat", "Nome categoria del film di id=" . $_GET["id"]); #TODO: get category name from db
-
-
-
-
+$template->build($user, $common);
 
 $template->show();
