@@ -20,6 +20,13 @@ if (empty($_GET["cat"])) {
 }
 
 $category = $_GET["cat"];
+$categoryFound = $db->get_category($category);
+
+if (empty($categoryFound)) {
+    header("Location: categories.php");
+    exit();
+}
+
 $template->replace_var("cat_selected", $category);
 
 $movies_data = $db->get_movies_by_category($category);
@@ -38,7 +45,7 @@ $template->replace_sec_block_arr(
     }
 );
 
-$template->delete_secs([]);
 $template->build($user, $common);
+$template->delete_secs([]);
 
 $template->show();

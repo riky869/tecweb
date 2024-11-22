@@ -11,8 +11,8 @@ Session::start();
 $db = DB::from_env();
 $user = Session::get_user();
 $template = Builder::from_template(basename(__FILE__));
+$common = Builder::load_common();
 
-
-$template->delete_vars(["main"]);
-
+$template->build($user, $common);
+$template->delete_secs([]);
 $template->show();

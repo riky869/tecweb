@@ -14,11 +14,7 @@ $template = Builder::from_template(basename(__FILE__));
 
 $common = Builder::load_common();
 
-$template->replace_secs([
-    "header" => $common->get_sec("header"),
-    "footer" => $common->get_sec("footer"),
-]);
-
+$template->build($user, $common);
 $template->delete_secs([]);
 
 $template->show();

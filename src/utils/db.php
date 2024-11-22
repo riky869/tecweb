@@ -62,6 +62,19 @@ class DB
         return null;
     }
 
+    public function get_category(string $name): ?array
+    {
+        $stmt = $this->conn->prepare("SELECT * FROM category WHERE name = :name");
+
+        $res = $stmt->execute(["name" => $name]);
+        if ($res) {
+            $row = $stmt->fetchAll();
+            return $row;
+        }
+
+        return null;
+    }
+
     public function get_movie(int $id): ?array
     {
         $stmt = $this->conn->prepare("SELECT * FROM movie WHERE id = :id");
@@ -69,6 +82,7 @@ class DB
         $res = $stmt->execute(["id" => $id]);
         if ($res) {
             $row = $stmt->fetch();
+            if (!$row) return null;
             return $row;
         }
 
