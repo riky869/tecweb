@@ -21,6 +21,8 @@ $template->replace_secs([
     "footer" => $common->get_sec("footer"),
 ]);
 
+$template->replace_profile($user, $common);
+
 $template->replace_sec_arr("movie", $movies_data, $common->get_sec("movie"), function ($sec, $i) {
     return $sec->replace_vars(
         [

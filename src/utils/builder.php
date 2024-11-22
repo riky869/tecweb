@@ -26,6 +26,7 @@ class Builder
         // assert that the template have replaced all the variables
         $matches = [];
         $m = preg_match_all("/({{([a-zA-Z0-9_]+)}}|<!--([a-zA-Z0-9_]+)-->)/", $this->content, $matches);
+        // TODO: enable in DEBUG mode
         // assert($m == 0, "$m template variables have not been replaced: " . join(', ', $matches));
 
         echo ($this->content);
@@ -61,6 +62,23 @@ class Builder
         $content = file_get_contents("{$base_dir}/{$name}.html");
 
         return $content;
+    }
+
+    public function replace_profile(?array $user, Self $common): Self
+    {
+        if ($user) {
+            $this->replace_secs([
+                "profile" => $common->get_sec("user_logged")->replace_vars([
+                    "username" => $user["username"],
+                ]),
+            ]);
+        } else {
+            $this->replace_secs([
+                "profile" => $common->get_sec("user_not_logged"),
+            ]);
+        }
+
+        return $this;
     }
 
     public function replace_sec_arr(string $sec_name, array $values, Builder $sec, $func): Self
