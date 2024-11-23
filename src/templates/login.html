@@ -17,7 +17,7 @@
 <body>
     <!--header-->
     <nav id="breadcrumb">
-        <p>Ti trovi in: Home</p>
+        <p>Ti trovi in: Login</p>
     </nav>
 
     <nav id="menu">
@@ -38,7 +38,9 @@
             <input type="password" name="password">
             <label for="password">password</label>
             <input type="submit" value="submit">
-            {{login_error}}
+            <!--error_start-->
+            <p>{{login_error}}</p>
+            <!--error_end-->
         </form>
     </main>
 

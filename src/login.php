@@ -33,11 +33,11 @@ if (Request::is_post()) {
 $template = Builder::from_template(basename(__FILE__));
 $common = Builder::load_common();
 
-$template->build($user, $common);
+$template->build(null, $common);
 $template->delete_secs([]);
 
 if ($login_error) {
-    $template->replace_var("login_error", $login_error);
+    $template->replace_var("login_error", $login_error, VarType::Block);
 } else {
     $template->delete_var("login_error");
 }
