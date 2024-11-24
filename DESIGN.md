@@ -91,3 +91,4 @@
 -   redirect a login se non si è loggati quando si scrive una recensione
 -   lista cinema vicini a Padova
 -   rendere possibile cancellazione delle proprie recensioni
+-   pagina con le ultime recensioni e rispettivi link al dettaglio del film recensito
