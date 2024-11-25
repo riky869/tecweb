@@ -65,23 +65,6 @@ class Builder
         return $content;
     }
 
-    public function replace_profile(?array $user, Self $common): Self
-    {
-        if ($user) {
-            $this->replace_secs([
-                "profile" => $common->get_sec("user_logged")->replace_vars([
-                    "username" => $user["username"],
-                ]),
-            ]);
-        } else {
-            $this->replace_secs([
-                "profile" => $common->get_sec("user_not_logged"),
-            ]);
-        }
-
-        return $this;
-    }
-
     public function replace_sec_arr(string $sec_name, array $values, Builder $sec, $func, VarType $var_type): Self
     {
         $content = join("\n", array_map(
@@ -116,6 +99,8 @@ class Builder
 
     public function replace_var(string $name, mixed $value, VarType $type = VarType::Single): Self
     {
+        $value = $value instanceof Self ? $value->get_content() : $value;
+
         if ($type == VarType::Block) {
             $start_pattern = "<!--{$name}_start-->";
             $end_pattern = "<!--{$name}_end-->";
@@ -133,7 +118,6 @@ class Builder
             VarType::Single =>  "{{{$name}}}",
             VarType::Section => "<!--$name-->",
         };
-        $value = $value instanceof Self ? $value->get_content() : $value;
         $this->content = str_replace($pattern, $value, $this->content);
         return $this;
     }
@@ -189,10 +173,34 @@ class Builder
         return $this;
     }
 
+    public function delete_block(string $name): Self
+    {
+        $this->replace_var($name, "", VarType::Block);
+
+        return $this;
+    }
+
     public function delete_secs(array $names): Self
     {
         foreach ($names as $name) {
             $this->delete_sec($name);
+        }
+
+        return $this;
+    }
+
+    public function replace_profile(?array $user, Self $common): Self
+    {
+        if ($user) {
+            $this->replace_secs([
+                "profile" => $common->get_sec("user_logged")->replace_vars([
+                    "username" => $user["username"],
+                ]),
+            ]);
+        } else {
+            $this->replace_secs([
+                "profile" => $common->get_sec("user_not_logged"),
+            ]);
         }
 
         return $this;
@@ -206,6 +214,11 @@ class Builder
         ]);
 
         $this->replace_profile($user, $common);
+
+        if (empty($user) || !$user["is_admin"])
+            $this->delete_block("menu_admin");
+        else
+            $this->replace_var("menu_admin", $this->get_sec("menu_admin"), VarType::Block);
 
         return $this;
     }
