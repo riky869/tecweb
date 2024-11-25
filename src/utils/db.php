@@ -23,13 +23,40 @@ class DB
         return new Self($host, $dbname, $user, $pass);
     }
 
-    public function get_user_by_password($username, $password): mixed
+    public function get_user_with_password(string $username, string $password): mixed
     {
+        // TODO: use hashing
         $stmt = $this->conn->prepare("SELECT * FROM user WHERE username = :username AND password = :password");
 
         $res = $stmt->execute(["username" => $username, "password" => $password]);
         if ($res) {
             $row = $stmt->fetch();
+            return $row;
+        }
+
+        return null;
+    }
+
+    public function get_user(string $username): mixed
+    {
+        $stmt = $this->conn->prepare("SELECT * FROM user WHERE username = :username");
+
+        $res = $stmt->execute(["username" => $username]);
+        if ($res) {
+            $row = $stmt->fetch();
+            return $row;
+        }
+
+        return null;
+    }
+
+    public function get_users(): ?array
+    {
+        $stmt = $this->conn->prepare("SELECT * FROM user");
+
+        $res = $stmt->execute([]);
+        if ($res) {
+            $row = $stmt->fetchAll();
             return $row;
         }
 

@@ -14,6 +14,25 @@ $template = Builder::from_template(basename(__FILE__));
 
 $common = Builder::load_common();
 
+if (empty($user)) {
+    header("Location: index.php");
+    exit();
+}
+
+// TODO: error handling
+if (empty($_GET["username"])) {
+    $profile_user = $user;
+} else {
+    $profile_user = $db->get_user($_GET["username"]);
+}
+
+
+$template->replace_vars([
+    "username" => $profile_user["username"],
+    "name" => $profile_user["name"],
+    "last_name" => $profile_user["last_name"],
+]);
+
 $template->build($user, $common);
 $template->delete_secs([]);
 

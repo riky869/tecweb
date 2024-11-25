@@ -14,7 +14,7 @@ if (Request::is_post()) {
     $db = DB::from_env();
 
     // fetch user
-    $user = $db->get_user_by_password(Request::post_param("username"), Request::post_param("password"));
+    $user = $db->get_user_with_password(Request::post_param("username"), Request::post_param("password"));
 
     if ($user) {
         // Redirect to home
