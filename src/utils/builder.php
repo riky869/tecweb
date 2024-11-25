@@ -69,7 +69,9 @@ class Builder
     {
         $content = join("\n", array_map(
             function ($i) use ($func, $sec) {
-                return $func($sec->copy(), $i)->get_content();
+                $sec = $sec->copy();
+                $sec  = $func($sec, $i) ?? $sec;
+                return $sec->get_content();
             },
             $values
         ));

@@ -26,7 +26,6 @@ if (empty($_GET["username"])) {
     $profile_user = $db->get_user($_GET["username"]);
 }
 
-
 $template->replace_vars([
     "username" => $profile_user["username"],
     "name" => $profile_user["name"],
