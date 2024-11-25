@@ -3,12 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Movies</title>
+    <title>Popcorn time</title>
 
-    <meta name="description" content="Pagina dedicata alle recensioni dei migliori film">
-    <meta name="keywords" content="film review">
+    <meta name="description" content="Elenco di tutti i film">
+    <meta name="keywords" content="elenco film, categorie film">
 
-    <meta name="author" content="TechWeb Castelfranco Veneto">
+    <meta name="author" content="FrankCastleTech">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="css/style.css" media="screen">
@@ -33,15 +33,42 @@
 
     <aside></aside>
 
+    <!--
+    +-----------------+
+    |     Header      |
+    +-----------------+
+    |  Categoria:     |
+    |  - Film 1       |
+    |    Locandina    |
+    | nome in piccolo |
+    |  - Film 2       |
+    |    Locandina    |
+    | nome in piccolo |
+    |  - Film 3       |
+    |    Locandina    |
+    | nome in piccolo |
+    +-----------------+
+    |     Footer      |
+    +-----------------+
+    E tipo ogni film sarà tipo locandina con piccolo nome sotto
+    la scelta del display dei film è ancora da fare di preciso
+    abbiamo pensato al carosello ma anche una bella lista monolitica
+    non è male secondo me
+    -->
+
     <main>
-        <!--movie_start-->
-        <div>
-            <p>Nome:</p>
-            <p><a href="film.php?id={{film_id}}">{{film_name}}</a></p>
-            <p>Descrizione:</p>
+            <h2>{{cat_selected}}</h2>
+            <!-- volevo mettere h3 ma mi pare ci sia tipo la regola
+                 tipo della scala degli h
+                 E quindi ho aggiunto cateogia anche se è ridondante con il breadcrumb
+                 Però ci sta nella pagina secondo me
+                 -->
+            <h3>Nome:</h3>
+            <!--movie_start-->
+            <h3><a href="film.php?id={{film_id}}">{{film_name}}</a></h3>
+            <!--movie_end-->
+            <h3>Descrizione:</h3>
             <p>{{description}}</p>
-        </div>
-        <!--movie_end-->
     </main>
 
     <!--footer-->

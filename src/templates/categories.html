@@ -3,12 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Movies</title>
+    <title>Popcorn time</title>
 
-    <meta name="description" content="Pagina dedicata alle recensioni dei migliori film">
-    <meta name="keywords" content="film review">
+    <meta name="description" content="Categorie dei migliori film">
+    <meta name="keywords" content="categorie film, generi cinematografici">
 
-    <meta name="author" content="TechWeb Castelfranco Veneto">
+    <meta name="author" content="FrankCastleTech">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="css/style.css" media="screen">
@@ -31,14 +31,32 @@
 
     <!--profile-->
 
+    <!--
+    +-----------------+
+    |     Header      |
+    +-----------------+
+    |  Categorie:     |
+    |  - Azione       |
+    |  - Commedia     |
+    |  - Dramma       |
+    |  - ...          |
+    +-----------------+
+    |     Footer      |
+    +-----------------+
+    Listone di categorie di film è da capire se mettere tipo films una lista di
+    categorie o piu stile index e allora mettere qui i film per categoria in ordine
+    di voti tipo
+    -->
+
     <aside></aside>
 
     <main>
-        <!--category_start-->
-        <div>
-            <a href="films.php?cat={{cat_name}}">{{cat_name}}</a>
-        </div>
-        <!--category_end-->
+        <h2>Categorie</h2>
+        <ul>
+            <!--category_start-->
+            <li><a href="films.php?cat={{cat_name}}">{{cat_name}}</a></li>
+            <!--category_end-->
+        </ul>
     </main>
 
     <!--footer-->

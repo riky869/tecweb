@@ -3,12 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Movies</title>
+    <title>Popcorn time</title>
 
-    <meta name="description" content="Pagina dedicata alle recensioni dei migliori film">
-    <meta name="keywords" content="film review">
+    <meta name="description" content="Elenco degli utente registrati">
+    <meta name="keywords" content="elenco utenti">
 
-    <meta name="author" content="TechWeb Castelfranco Veneto">
+    <meta name="author" content="FrankCastleTech">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="css/style.css" media="screen">
@@ -33,7 +33,20 @@
 
     <aside></aside>
 
+    <!--
+        Qui onestramente non ho in mente cosa
+        fare di preciso, ma immagino che ci sarà
+        tipo una tabella di utenti e poi si preve e si
+        va sulla pagina dell utente ma è completamente diversa
+        da categories e films
+    -->
+
     <main>
+        <h2>Utenti</h2>
+        <ul>
+            <li><a href="profile.php?user={{user_id}}">{{username}}</a></li>
+            <!-- Ripeti il blocco per ogni utente -->
+        </ul>
     </main>
 
     <!--footer-->

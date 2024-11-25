@@ -3,12 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Movies</title>
+    <title>Popcorn time</title>
 
-    <meta name="description" content="Pagina dedicata alle recensioni dei migliori film">
-    <meta name="keywords" content="film review">
+    <meta name="description" content="Pagina profilo utente con recensioni personali">
+    <meta name="keywords" content="profilo utente, recensioni personali, film">
 
-    <meta name="author" content="TechWeb Castelfranco Veneto">
+    <meta name="author" content="FrankCastleTech">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="css/style.css" media="screen">
@@ -33,8 +33,32 @@
 
     <aside></aside>
 
+    <!--
+    +-----------------+
+    |     Header      |
+    +-----------------+
+    |  Profilo Utente |
+    |  Nome:          |
+    |  Recensioni:    |
+    |  - Recensione 1 |
+    |  - Recensione 2 |
+    +-----------------+
+    |     Footer      |
+    +-----------------+
+    Qua non so se mettere le recensioni personali o meno
+    Boh, per ora le metto nello schemino ma non nell html
+    -->
+
     <main>
-        <!--movie-->
+        <main>
+            <h2>Profilo Utente</h2>
+            <p>Nome utente: {{username}}</p>
+            <!-- Ho visto sull'sql che ci sono nome e cognome ma non nel login/signup -->
+            <p>Nome : {{name}}</p>
+            <p>Cognome : {{last_name}}</p>
+            <!-- <h3>Recensioni Personali</h3> -->
+            <!-- Eventuale lista (non modificabile) delle recensioni dell'utente -->
+        </main>
     </main>
 
     <!--footer-->

@@ -3,12 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Movies</title>
+    <title>Popcorn time</title>
 
-    <meta name="description" content="Pagina dedicata alle recensioni dei migliori film">
-    <meta name="keywords" content="film review">
+    <meta name="description" content="Dettagli, specifiche e recensioni del singolo film">
+    <meta name="keywords" content="dettagli film, titolo film, descrizione film">
 
-    <meta name="author" content="TechWeb Castelfranco Veneto">
+    <meta name="author" content="FrankCastleTech">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="css/style.css" media="screen">
@@ -17,7 +17,7 @@
 <body>
     <!--header-->
     <nav id="breadcrumb">
-        <p>Ti trovi in: <a href="categories.php">Categorie</a> > <a href="films.php?cat={{nome_cat}}">{{nome_cat}}</a> >
+        <p>Ti trovi in: <a href="categories.php">Categorie</a> > <a href="films.php?cat={{nome_cat}}">{{nome_cat}}</a>
             {{nome_film}}</p>
     </nav>
 
@@ -32,9 +32,33 @@
 
     <!--profile-->
 
+    <!--
+    +-----------------+
+    |     Header      |
+    +-----------------+
+    |   Locandina:    |
+    |    Titolo:      |
+    |  Descrizione:   |
+    |  Scrittura rec: |
+    |  Recensioni:    |
+    |  +------------+ |
+    |  | Utente     | |
+    |  | Valutazione| |
+    |  | Commento   | |
+    |  +------------+ |
+    +-----------------+
+    |     Footer      |
+    +-----------------+
+    Va scelto come nascondere la zona di scrittura recensione e se metterla sopra o sotto
+    alle lista delle recensioni.
+    Poi per far capire che per recensire bisogna loggarsi si puo mettere tipo nella
+    pagina di login secondo me e nell'index tipo stile pubblcità tipo "recensisci ora loggandoti!"
+    -->
+
     <aside></aside>
 
     <main>
+
         <p>Nome:</p>
         <p>{{nome_film}}</p>
         <p>Descrizione:</p>
