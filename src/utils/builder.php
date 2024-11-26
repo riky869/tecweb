@@ -2,9 +2,9 @@
 
 enum VarType
 {
-    case Section;
-    case Single;
-    case Block;
+    case Section; // <!--$name-->
+    case Single; // {{$name}}
+    case Block; // <!--$name_start--> ... <!--$name_end-->
 }
 
 class Builder
@@ -152,9 +152,9 @@ class Builder
         return $this;
     }
 
-    public function delete_var(string $name): Self
+    public function delete_var(string $name, VarType $type): Self
     {
-        $this->replace_var($name, "");
+        $this->replace_var($name, "", $type);
 
         return $this;
     }
@@ -162,20 +162,13 @@ class Builder
     public function delete_vars(array $names): Self
     {
         foreach ($names as $name) {
-            $this->delete_var($name);
+            $this->delete_var($name, VarType::Single);
         }
 
         return $this;
     }
 
-    public function delete_sec(string $name): Self
-    {
-        $this->replace_var($name, "", VarType::Section);
-
-        return $this;
-    }
-
-    public function delete_block(string $name): Self
+    public function delete_blocks(string $name): Self
     {
         $this->replace_var($name, "", VarType::Block);
 
@@ -185,7 +178,7 @@ class Builder
     public function delete_secs(array $names): Self
     {
         foreach ($names as $name) {
-            $this->delete_sec($name);
+            $this->delete_var($name, VarType::Section);
         }
 
         return $this;
@@ -218,7 +211,7 @@ class Builder
         $this->replace_profile($user, $common);
 
         if (empty($user) || !$user["is_admin"])
-            $this->delete_block("menu_admin");
+            $this->delete_var("menu_admin", VarType::Block);
         else
             $this->replace_var("menu_admin", $this->get_sec("menu_admin"), VarType::Block);
 

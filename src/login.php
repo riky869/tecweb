@@ -22,7 +22,7 @@ if (Request::is_post()) {
         header("location: index.php");
     } else {
         // show error
-        $login_error = "<p>Credenziali non valide</p>";
+        $login_error = "Credenziali non valide";
     }
 } else if (Request::is_get()) {
     if (Session::is_logged()) {
@@ -37,9 +37,9 @@ $template->build(null, $common);
 $template->delete_secs([]);
 
 if ($login_error) {
-    $template->replace_var("login_error", $login_error, VarType::Block);
+    $template->replace_var("login_error", $template->get_sec("login_error")->replace_var("error", $login_error), VarType::Block);
 } else {
-    $template->delete_var("login_error");
+    $template->delete_var("login_error", VarType::Block);
 }
 
 $template->show();
