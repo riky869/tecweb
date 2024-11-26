@@ -1,34 +1,33 @@
 <!DOCTYPE html>
 <html lang="it">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Popcorn time</title>
 
-    <meta name="description" content="Pagina login per accedere al sito di recensioni di film">
-    <meta name="keywords" content="film, login, accesso utente">
+    <meta name="description" content="Pagina login per accedere al sito di recensioni di film" />
+    <meta name="keywords" content="film, login, accesso utente" />
 
-    <meta name="author" content="FrankCastleTech">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="FrankCastleTech" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="css/style.css" media="screen">
-</head>
+    <link rel="stylesheet" href="css/style.css" media="screen" />
+  </head>
 
-<body>
+  <body>
     <!--header-->
     <nav id="breadcrumb">
-        <p>Ti trovi in: Login</p>
+      <p>Ti trovi in: Login</p>
     </nav>
 
     <nav id="menu">
-        <ul>
-            <li><a href="index.php">Home</a></li>
-            <li><a href="categories.php">Categorie</a></li>
-            <!--menu_admin_start-->
-            <li><a href="users.php">Utenti</a></li>
-            <!--menu_admin_end-->
-            <li><a href="about.php">Informazioni</a></li>
-        </ul>
+      <ul>
+        <li><a href="index.php">Home</a></li>
+        <li><a href="categories.php">Categorie</a></li>
+        <!--menu_admin_start-->
+        <li><a href="users.php">Utenti</a></li>
+        <!--menu_admin_end-->
+        <li><a href="about.php">Informazioni</a></li>
+      </ul>
     </nav>
 
     <aside></aside>
@@ -42,19 +41,18 @@
     -->
 
     <main>
-        <form action="" method="post">
-            <input type="text" name="username">
-            <label for="username">username</label>
-            <input type="password" name="password">
-            <label for="password">password</label>
-            <input type="submit" value="submit">
-            <!--error_start-->
-            <p>{{login_error}}</p>
-            <!--error_end-->
-        </form>
+      <form action="" method="post">
+        <input type="text" name="username" />
+        <label for="username">username</label>
+        <input type="password" name="password" />
+        <label for="password">password</label>
+        <input type="submit" value="submit" />
+        <!--error_start-->
+        <p>{{login_error}}</p>
+        <!--error_end-->
+      </form>
     </main>
 
     <!--footer-->
-</body>
-
+  </body>
 </html>

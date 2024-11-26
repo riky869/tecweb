@@ -1,34 +1,33 @@
 <!DOCTYPE html>
 <html lang="it">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Popcorn time</title>
 
-    <meta name="description" content="Elenco di tutti i film">
-    <meta name="keywords" content="elenco film, categorie film">
+    <meta name="description" content="Elenco di tutti i film" />
+    <meta name="keywords" content="elenco film, categorie film" />
 
-    <meta name="author" content="FrankCastleTech">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="FrankCastleTech" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="css/style.css" media="screen">
-</head>
+    <link rel="stylesheet" href="css/style.css" media="screen" />
+  </head>
 
-<body>
+  <body>
     <!--header-->
     <nav id="breadcrumb">
-        <p>Ti trovi in: <a href="categories.php">Categorie</a> > {{cat_selected}}</p>
+      <p>Ti trovi in: <a href="categories.php">Categorie</a> > {{cat_selected}}</p>
     </nav>
 
     <nav id="menu">
-        <ul>
-            <li><a href="index.php">Home</a></li>
-            <li><a href="categories.php">Categorie</a></li>
-            <!--menu_admin_start-->
-            <li><a href="users.php">Utenti</a></li>
-            <!--menu_admin_end-->
-            <li><a href="about.php">Informazioni</a></li>
-        </ul>
+      <ul>
+        <li><a href="index.php">Home</a></li>
+        <li><a href="categories.php">Categorie</a></li>
+        <!--menu_admin_start-->
+        <li><a href="users.php">Utenti</a></li>
+        <!--menu_admin_end-->
+        <li><a href="about.php">Informazioni</a></li>
+      </ul>
     </nav>
 
     <!--profile-->
@@ -59,21 +58,20 @@
     -->
 
     <main>
-        <h2>{{cat_selected}}</h2>
-        <!-- volevo mettere h3 ma mi pare ci sia tipo la regola
+      <h2>{{cat_selected}}</h2>
+      <!-- volevo mettere h3 ma mi pare ci sia tipo la regola
                  tipo della scala degli h
                  E quindi ho aggiunto categoria anche se è ridondante con il breadcrumb
                  Però ci sta nella pagina secondo me
                  -->
-        <h3>Nome:</h3>
-        <!--movie_start-->
-        <h3><a href="film.php?id={{film_id}}">{{film_name}}</a></h3>
-        <h3>Descrizione:</h3>
-        <p>{{description}}</p>
-        <!--movie_end-->
+      <h3>Nome:</h3>
+      <!--movie_start-->
+      <h3><a href="film.php?id={{film_id}}">{{film_name}}</a></h3>
+      <h3>Descrizione:</h3>
+      <p>{{description}}</p>
+      <!--movie_end-->
     </main>
 
     <!--footer-->
-</body>
-
+  </body>
 </html>

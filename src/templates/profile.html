@@ -1,34 +1,33 @@
 <!DOCTYPE html>
 <html lang="it">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Popcorn time</title>
 
-    <meta name="description" content="Pagina profilo utente con recensioni personali">
-    <meta name="keywords" content="profilo utente, recensioni personali, film">
+    <meta name="description" content="Pagina profilo utente con recensioni personali" />
+    <meta name="keywords" content="profilo utente, recensioni personali, film" />
 
-    <meta name="author" content="FrankCastleTech">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="FrankCastleTech" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="css/style.css" media="screen">
-</head>
+    <link rel="stylesheet" href="css/style.css" media="screen" />
+  </head>
 
-<body>
+  <body>
     <!--header-->
     <nav id="breadcrumb">
-        <p>Ti trovi in: Profilo</p>
+      <p>Ti trovi in: Profilo</p>
     </nav>
 
     <nav id="menu">
-        <ul>
-            <li><a href="index.php">Home</a></li>
-            <li><a href="categories.php">Categorie</a></li>
-            <!--menu_admin_start-->
-            <li><a href="users.php">Utenti</a></li>
-            <!--menu_admin_end-->
-            <li><a href="about.php">Informazioni</a></li>
-        </ul>
+      <ul>
+        <li><a href="index.php">Home</a></li>
+        <li><a href="categories.php">Categorie</a></li>
+        <!--menu_admin_start-->
+        <li><a href="users.php">Utenti</a></li>
+        <!--menu_admin_end-->
+        <li><a href="about.php">Informazioni</a></li>
+      </ul>
     </nav>
 
     <!--profile-->
@@ -52,18 +51,17 @@
     -->
 
     <main>
-        <main>
-            <h2>Profilo Utente</h2>
-            <p>Nome utente: {{username}}</p>
-            <!-- Ho visto sull'sql che ci sono nome e cognome ma non nel login/signup -->
-            <p>Nome : {{name}}</p>
-            <p>Cognome : {{last_name}}</p>
-            <!-- <h3>Recensioni Personali</h3> -->
-            <!-- Eventuale lista (non modificabile) delle recensioni dell'utente -->
-        </main>
+      <main>
+        <h2>Profilo Utente</h2>
+        <p>Nome utente: {{username}}</p>
+        <!-- Ho visto sull'sql che ci sono nome e cognome ma non nel login/signup -->
+        <p>Nome : {{name}}</p>
+        <p>Cognome : {{last_name}}</p>
+        <!-- <h3>Recensioni Personali</h3> -->
+        <!-- Eventuale lista (non modificabile) delle recensioni dell'utente -->
+      </main>
     </main>
 
     <!--footer-->
-</body>
-
+  </body>
 </html>

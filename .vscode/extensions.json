@@ -2,5 +2,6 @@
     "recommendations": [
         "zobo.php-intellisense",
         "bmewburn.vscode-intelephense-client",
+        "esbenp.prettier-vscode",
     ]
 }

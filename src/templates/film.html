@@ -1,35 +1,36 @@
 <!DOCTYPE html>
 <html lang="it">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Popcorn time</title>
 
-    <meta name="description" content="Dettagli, specifiche e recensioni del singolo film">
-    <meta name="keywords" content="dettagli film, titolo film, descrizione film">
+    <meta name="description" content="Dettagli, specifiche e recensioni del singolo film" />
+    <meta name="keywords" content="dettagli film, titolo film, descrizione film" />
 
-    <meta name="author" content="FrankCastleTech">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="FrankCastleTech" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="css/style.css" media="screen">
-</head>
+    <link rel="stylesheet" href="css/style.css" media="screen" />
+  </head>
 
-<body>
+  <body>
     <!--header-->
     <nav id="breadcrumb">
-        <p>Ti trovi in: <a href="categories.php">Categorie</a> > <a href="films.php?cat={{nome_cat}}">{{nome_cat}}</a>
-            {{nome_film}}</p>
+      <p>
+        Ti trovi in: <a href="categories.php">Categorie</a> >
+        <a href="films.php?cat={{nome_cat}}">{{nome_cat}}</a> {{nome_film}}
+      </p>
     </nav>
 
     <nav id="menu">
-        <ul>
-            <li><a href="index.php">Home</a></li>
-            <li><a href="categories.php">Categorie</a></li>
-            <!--menu_admin_start-->
-            <li><a href="users.php">Utenti</a></li>
-            <!--menu_admin_end-->
-            <li><a href="about.php">Informazioni</a></li>
-        </ul>
+      <ul>
+        <li><a href="index.php">Home</a></li>
+        <li><a href="categories.php">Categorie</a></li>
+        <!--menu_admin_start-->
+        <li><a href="users.php">Utenti</a></li>
+        <!--menu_admin_end-->
+        <li><a href="about.php">Informazioni</a></li>
+      </ul>
     </nav>
 
     <!--profile-->
@@ -60,14 +61,12 @@
     <aside></aside>
 
     <main>
-
-        <p>Nome:</p>
-        <p>{{nome_film}}</p>
-        <p>Descrizione:</p>
-        <p>{{description}}</p>
+      <p>Nome:</p>
+      <p>{{nome_film}}</p>
+      <p>Descrizione:</p>
+      <p>{{description}}</p>
     </main>
 
     <!--footer-->
-</body>
-
+  </body>
 </html>
