@@ -20,8 +20,8 @@ if (empty($user) || !$user["is_admin"]) {
 $common = Builder::load_common();
 
 $users = $db->get_users();
-$template->replace_sec_block_arr("users_list", $users, function (Builder $sec, array $i) {
-    $sec->replace_vars(["profile_username" => $i["username"]]);
+$template->replace_block_name_arr("users_list", $users, function (Builder $sec, array $i) {
+    $sec->replace_single(["profile_username" => $i["username"]]);
 });
 
 $template->build($user, $common);

@@ -37,7 +37,7 @@ $template->build(null, $common);
 $template->delete_secs([]);
 
 if ($login_error) {
-    $template->replace_var("login_error", $template->get_sec("login_error")->replace_var("error", $login_error), VarType::Block);
+    $template->replace_var("login_error", $template->get_block("login_error")->replace_var("error", $login_error), VarType::Block);
 } else {
     $template->delete_var("login_error", VarType::Block);
 }

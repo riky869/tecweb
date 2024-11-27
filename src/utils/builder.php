@@ -65,7 +65,7 @@ class Builder
         return $content;
     }
 
-    public function replace_sec_arr(string $sec_name, array $values, Builder $sec, $func, VarType $var_type): Self
+    public function replace_var_arr(string $sec_name, array $values, Builder $sec, $func, VarType $var_type): Self
     {
         $content = join("\n", array_map(
             function ($i) use ($func, $sec) {
@@ -80,12 +80,12 @@ class Builder
         return $this;
     }
 
-    public function replace_sec_block_arr(string $sec_name, array $values, $func): Self
+    public function replace_block_name_arr(string $sec_name, array $values, $func): Self
     {
-        return $this->replace_sec_arr($sec_name, $values, $this->get_sec($sec_name), $func, VarType::Block);
+        return $this->replace_var_arr($sec_name, $values, $this->get_block($sec_name), $func, VarType::Block);
     }
 
-    public function get_sec(string $name): Self
+    public function get_block(string $name): Self
     {
         $start_pattern = "<!--{$name}_start-->";
         $end_pattern = "<!--{$name}_end-->";
@@ -138,7 +138,7 @@ class Builder
         return $this;
     }
 
-    public function replace_vars(array $values): Self
+    public function replace_single(array $values): Self
     {
         $pattern = join("|", array_keys($values));
         $pattern = "/{{($pattern)}}/";
@@ -159,7 +159,7 @@ class Builder
         return $this;
     }
 
-    public function delete_vars(array $names): Self
+    public function delete_singles(array $names): Self
     {
         foreach ($names as $name) {
             $this->delete_var($name, VarType::Single);
@@ -168,9 +168,11 @@ class Builder
         return $this;
     }
 
-    public function delete_blocks(string $name): Self
+    public function delete_blocks(array $names): Self
     {
-        $this->replace_var($name, "", VarType::Block);
+        foreach ($names as $name) {
+            $this->delete_var($name, VarType::Block);
+        }
 
         return $this;
     }
@@ -188,13 +190,13 @@ class Builder
     {
         if ($user) {
             $this->replace_secs([
-                "profile" => $common->get_sec("user_logged")->replace_vars([
+                "profile" => $common->get_block("user_logged")->replace_single([
                     "username" => $user["username"],
                 ]),
             ]);
         } else {
             $this->replace_secs([
-                "profile" => $common->get_sec("user_not_logged"),
+                "profile" => $common->get_block("user_not_logged"),
             ]);
         }
 
@@ -204,10 +206,10 @@ class Builder
     public function build(?array $user, Self $common): Self
     {
         $this->replace_secs([
-            "header" => $common->get_sec("header"),
-            "vai_contenuto" => $common->get_sec("vai_contenuto"),
-            "torna_su" => $common->get_sec("torna_su"),
-            "footer" => $common->get_sec("footer"),
+            "header" => $common->get_block("header"),
+            "vai_contenuto" => $common->get_block("vai_contenuto"),
+            "torna_su" => $common->get_block("torna_su"),
+            "footer" => $common->get_block("footer"),
         ]);
 
         $this->replace_profile($user, $common);
@@ -215,7 +217,7 @@ class Builder
         if (empty($user) || !$user["is_admin"])
             $this->delete_var("menu_admin", VarType::Block);
         else
-            $this->replace_var("menu_admin", $this->get_sec("menu_admin"), VarType::Block);
+            $this->replace_var("menu_admin", $this->get_block("menu_admin"), VarType::Block);
 
         return $this;
     }

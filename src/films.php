@@ -31,11 +31,11 @@ $template->replace_var("cat_selected", $category);
 
 $movies_data = $db->get_movies_by_category($category);
 
-$template->replace_sec_block_arr(
+$template->replace_block_name_arr(
     "movie",
     $movies_data,
     function (Builder $sec, array $i) {
-        return $sec->replace_vars(
+        return $sec->replace_single(
             [
                 "film_id" => $i["id"],
                 "film_name" => $i["name"],

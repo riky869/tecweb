@@ -128,4 +128,45 @@ class DB
 
         return null;
     }
+
+    public function get_reviews(int $film_id): ?array
+    {
+        $stmt = $this->conn->prepare("SELECT * FROM review WHERE movie_id = :film_id");
+
+        $res = $stmt->execute(["film_id" => $film_id]);
+        if ($res) {
+            $row = $stmt->fetchAll();
+            return $row;
+        }
+
+        return null;
+    }
+
+    public function create_review(int $film_id, string $username, string $title, string $content, int $rating): bool
+    {
+        $stmt = $this->conn->prepare("INSERT INTO review (
+            title,
+            content,
+            rating,
+            username,
+            movie_id,
+            data
+        ) VALUES (
+            :title,
+            :content,
+            :rating,
+            :username,
+            :film_id,
+            NOW()
+        )");
+
+        $res = $stmt->execute([
+            "film_id" => $film_id,
+            "username" => $username,
+            "title" => $title,
+            "content" => $content,
+            "rating" => $rating,
+        ]);
+        return $res && $stmt->rowCount() > 0;
+    }
 }

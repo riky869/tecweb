@@ -63,10 +63,35 @@
     <aside></aside>
 
     <main>
+      <h3>Film</h3>
       <p>Nome:</p>
       <p>{{nome_film}}</p>
       <p>Descrizione:</p>
       <p>{{description}}</p>
+
+      <!--crea_recensione_start-->
+      <h3>Crea recensione</h3>
+      <form action="review.php" method="post">
+        <input type="hidden" name="film_id" value="{{film_id}}" />
+        <label for="title">Titolo</label>
+        <input type="text" name="title" value="" />
+        <label for="content">Commento</label>
+        <input type="text" name="content" value="" />
+        <label for="rating">Valutazione</label>
+        <input type="number" name="rating" value="8" />
+        <input type="submit" value="Crea recensione" />
+      </form>
+      <!--crea_recensione_end-->
+
+      <h3>Recensioni</h3>
+      <!--recensioni_start-->
+      <div>
+        <p>Utente: {{rev_username}}</p>
+        <p>Valutazione: {{rev_rating}}</p>
+        <p>Titolo: {{rev_title}}</p>
+        <p>Commento: {{rev_content}}</p>
+      </div>
+      <!--recensioni_end-->
     </main>
 
     <!--torna_su-->

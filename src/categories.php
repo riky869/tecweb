@@ -15,7 +15,7 @@ $template = Builder::from_template(basename(__FILE__));
 $common = Builder::load_common();
 $categories = $db->get_categories();
 
-$template->replace_sec_block_arr("category", $categories, function (Builder $sec, array $i) {
+$template->replace_block_name_arr("category", $categories, function (Builder $sec, array $i) {
     return $sec->replace_var("cat_name", $i["name"]);
 });
 

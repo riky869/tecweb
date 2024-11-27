@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS review (
     title TEXT NOT NULL,
     content TEXT NOT NULL,
     data DATE NOT NULL,
+    rating INT NOT NULL,
     username VARCHAR(255) REFERENCES user(username),
     movie_id INT REFERENCES movie(id)
 );
