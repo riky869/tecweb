@@ -21,7 +21,7 @@ $common = Builder::load_common();
 
 $users = $db->get_users();
 $template->replace_block_name_arr("users_list", $users, function (Builder $sec, array $i) {
-    $sec->replace_single(["profile_username" => $i["username"]]);
+    $sec->replace_singles(["profile_username" => $i["username"]]);
 });
 
 $template->build($user, $common);

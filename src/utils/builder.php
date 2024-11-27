@@ -138,7 +138,7 @@ class Builder
         return $this;
     }
 
-    public function replace_single(array $values): Self
+    public function replace_singles(array $values): Self
     {
         $pattern = join("|", array_keys($values));
         $pattern = "/{{($pattern)}}/";
@@ -190,7 +190,7 @@ class Builder
     {
         if ($user) {
             $this->replace_secs([
-                "profile" => $common->get_block("user_logged")->replace_single([
+                "profile" => $common->get_block("user_logged")->replace_singles([
                     "username" => $user["username"],
                 ]),
             ]);

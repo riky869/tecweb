@@ -35,7 +35,7 @@ $template->replace_block_name_arr(
     "movie",
     $movies_data,
     function (Builder $sec, array $i) {
-        return $sec->replace_single(
+        return $sec->replace_singles(
             [
                 "film_id" => $i["id"],
                 "film_name" => $i["name"],

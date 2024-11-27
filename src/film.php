@@ -27,7 +27,7 @@ if (empty($movie)) {
     exit();
 }
 
-$template->replace_single([
+$template->replace_singles([
     "nome_film" => $movie["name"],
     "nome_cat" => $movie["category"],
     "description" => $movie["description"],
@@ -36,7 +36,7 @@ $template->replace_single([
 
 $reviews = $db->get_reviews($movie_id);
 $template->replace_block_name_arr("recensioni", $reviews, function (Builder $sec, array $i) {
-    $sec->replace_single([
+    $sec->replace_singles([
         "rev_username" => $i["username"],
         "rev_title" => $i["title"],
         "rev_content" => $i["content"],
@@ -47,7 +47,7 @@ $template->replace_block_name_arr("recensioni", $reviews, function (Builder $sec
 if (empty($user)) {
     $template->delete_blocks(["crea_recensione"]);
 } else {
-    $template->replace_var("crea_recensione", $template->get_block("crea_recensione")->replace_single([
+    $template->replace_var("crea_recensione", $template->get_block("crea_recensione")->replace_singles([
         "film_id" => $movie_id,
     ]), VarType::Block);
 }

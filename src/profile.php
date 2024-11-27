@@ -26,7 +26,7 @@ if (!$user["is_admin"] || empty($_GET["username"])) {
     $profile_user = $db->get_user($_GET["username"]);
 }
 
-$template->replace_single([
+$template->replace_singles([
     "username" => $profile_user["username"],
     "name" => $profile_user["name"],
     "last_name" => $profile_user["last_name"],
