@@ -8,8 +8,11 @@ require_once("utils/session.php");
 Request::allowed_methods(["GET", "POST"]);
 Session::start();
 
-$login_error = null;
+if (Session::is_logged()) {
+    header("Location: index.php");
+}
 
+$login_error = null;
 if (Request::is_post()) {
     $db = DB::from_env();
 
@@ -23,10 +26,6 @@ if (Request::is_post()) {
     } else {
         // show error
         $login_error = "Credenziali non valide";
-    }
-} else if (Request::is_get()) {
-    if (Session::is_logged()) {
-        header("Location: index.php");
     }
 }
 

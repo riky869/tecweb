@@ -26,12 +26,15 @@ class DB
     public function get_user_with_password(string $username, string $password): mixed
     {
         // TODO: use hashing
-        $stmt = $this->conn->prepare("SELECT * FROM user WHERE username = :username AND password = :password");
+        $stmt = $this->conn->prepare("SELECT * FROM user WHERE username = :username");
 
-        $res = $stmt->execute(["username" => $username, "password" => $password]);
+        $res = $stmt->execute(["username" => $username]);
         if ($res) {
             $row = $stmt->fetch();
-            return $row;
+            if ($row && $row["password"] == $password) {
+                return $row;
+            }
+            return null;
         }
 
         return null;
@@ -48,6 +51,20 @@ class DB
         }
 
         return null;
+    }
+
+    public function create_user(string $username, string $password, string $name, string $last_name): bool
+    {
+        $stmt = $this->conn->prepare("INSERT INTO user (username, password, name, last_name, is_admin) VALUES (:username, :password, :name, :last_name, 0)");
+
+        $res = $stmt->execute([
+            "username" => $username,
+            "password" => $password,
+            "name" => $name,
+            "last_name" => $last_name,
+        ]);
+
+        return $res && $stmt->rowCount() > 0;
     }
 
     public function get_users(): ?array
