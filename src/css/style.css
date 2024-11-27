@@ -1,6 +1,10 @@
 * {
-  padding: 0em;
-  margin: 0em;
+    padding: 0em;
+    margin: 0em;
+}
+
+#menu {
+    border: 1px solid black;
 }
 
 /* 
