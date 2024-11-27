@@ -20,7 +20,7 @@ if (empty($user)) {
 }
 
 // TODO: error handling
-if (empty($_GET["username"])) {
+if (!$user["is_admin"] || empty($_GET["username"])) {
     $profile_user = $user;
 } else {
     $profile_user = $db->get_user($_GET["username"]);
