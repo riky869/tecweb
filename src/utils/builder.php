@@ -205,6 +205,8 @@ class Builder
     {
         $this->replace_secs([
             "header" => $common->get_sec("header"),
+            "vai_contenuto" => $common->get_sec("vai_contenuto"),
+            "torna_su" => $common->get_sec("torna_su"),
             "footer" => $common->get_sec("footer"),
         ]);
 
