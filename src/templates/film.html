@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
   <head>
     <meta charset="UTF-8" />
@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="css/style.css" media="screen" />
+    <link rel="stylesheet" href="css/mini.css" media="screen and (max-width: 1200px)" />
   </head>
 
   <body>
@@ -20,7 +21,7 @@
     <nav id="breadcrumb">
       <p>
         Ti trovi in: <a href="categories.php">Categorie</a> >
-        <a href="films.php?cat={{nome_cat}}">{{nome_cat}}</a> {{nome_film}}
+        <a href="films.php?cat={{nome_cat}}">{{nome_cat}}</a> > {{nome_film}}
       </p>
     </nav>
 
@@ -33,9 +34,8 @@
         <!--menu_admin_end-->
         <li><a href="about.php">Informazioni</a></li>
       </ul>
+      <!--profile-->
     </nav>
-
-    <!--profile-->
 
     <!--
     +-----------------+

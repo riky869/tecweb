@@ -1,0 +1,6 @@
+/* css per il resize della finestra da mobile*/
+
+header {
+  background-image: none;
+  background-color: var(--color-primary);
+}
