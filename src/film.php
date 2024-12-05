@@ -23,7 +23,7 @@ $movie_id = $_GET["id"];
 $movie = $db->get_movie($movie_id);
 
 if (empty($movie)) {
-    header("Location: categories.php");
+    header("Location: 404.php");
     exit();
 }
 
