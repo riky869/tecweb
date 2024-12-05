@@ -21,6 +21,7 @@ if (empty($_GET["id"])) {
 
 $movie_id = $_GET["id"];
 $movie = $db->get_movie($movie_id);
+$category = $db->get_movie($movie_id);
 
 if (empty($movie)) {
     header("Location: 404.php");
@@ -29,7 +30,6 @@ if (empty($movie)) {
 
 $template->replace_singles([
     "nome_film" => $movie["name"],
-    "nome_cat" => $movie["category"],
     "description" => $movie["description"],
 ]);
 
