@@ -21,7 +21,6 @@ if (empty($_GET["id"])) {
 
 $movie_id = $_GET["id"];
 $movie = $db->get_movie($movie_id);
-$category = $db->get_movie($movie_id);
 
 if (empty($movie)) {
     header("Location: 404.php");
