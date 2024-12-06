@@ -29,7 +29,6 @@ if (empty($movie)) {
 
 $template->replace_singles([
     "nome_film" => $movie["name"],
-    "nome_cat" => $movie["category"],
     "description" => $movie["description"],
 ]);
 

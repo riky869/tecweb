@@ -95,7 +95,9 @@ class DB
 
     public function get_movies_by_category(string $category): ?array
     {
-        $stmt = $this->conn->prepare("SELECT * FROM movie WHERE category = :category");
+        $stmt = $this->conn->prepare("SELECT * FROM movie
+                          JOIN movie_category ON movie.id = movie_category.movie_id
+                          WHERE movie_category.category_name = :category");
 
         $res = $stmt->execute(["category" => $category]);
         if ($res) {
