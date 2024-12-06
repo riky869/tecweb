@@ -19,7 +19,21 @@ if (empty($_GET["id"])) {
     exit();
 }
 
+if (empty($_GET["cat"])) {
+    header("Location: categories.php");
+    exit();
+}
+
 $movie_id = $_GET["id"];
+$category = $_GET["cat"];
+
+$categoryFound = $db->get_category($category);
+
+if (empty($categoryFound)) {
+    header("Location: categories.php");
+    exit();
+}
+
 $movie = $db->get_movie($movie_id);
 
 if (empty($movie)) {
@@ -27,8 +41,11 @@ if (empty($movie)) {
     exit();
 }
 
+// TODO: check if movie is in category, maybe creating another db function that join the movie_category with movie
+
 $template->replace_singles([
     "nome_film" => $movie["name"],
+    "nome_cat" => $category,
     "description" => $movie["description"],
 ]);
 

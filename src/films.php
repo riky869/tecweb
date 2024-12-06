@@ -34,9 +34,10 @@ $movies_data = $db->get_movies_by_category($category);
 $template->replace_block_name_arr(
     "movie",
     $movies_data,
-    function (Builder $sec, array $i) {
+    function (Builder $sec, array $i) use ($category) {
         return $sec->replace_singles(
             [
+                "cat_name" => $category,
                 "film_id" => $i["id"],
                 "film_name" => $i["name"],
                 "description" => $i["description"],
