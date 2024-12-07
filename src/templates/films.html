@@ -1,42 +1,43 @@
 <!DOCTYPE html>
 <html lang="it">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Popcorn time</title>
 
-    <meta name="description" content="Elenco di tutti i film" />
-    <meta name="keywords" content="elenco film, categorie film" />
+<head>
+  <meta charset="UTF-8" />
+  <title>Popcorn time</title>
 
-    <meta name="author" content="FrankCastleTech" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Elenco di tutti i film" />
+  <meta name="keywords" content="elenco film, categorie film" />
 
-    <link rel="stylesheet" href="css/style.css" media="screen" />
-    <link rel="stylesheet" href="css/mini.css" media="screen and (max-width: 1200px)" />
-  </head>
+  <meta name="author" content="FrankCastleTech" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <body>
-    <!--header-->
-    <!--vai_contenuto-->
+  <link rel="stylesheet" href="css/style.css" media="screen" />
+  <link rel="stylesheet" href="css/mini.css" media="screen and (max-width: 1200px)" />
+</head>
 
-    <nav id="breadcrumb">
-      <p>Ti trovi in: <a href="categories.php">Categorie</a> > {{cat_selected}}</p>
-    </nav>
+<body>
+  <!--header-->
+  <!--vai_contenuto-->
 
-    <nav id="menu">
-      <ul id="navbar">
-        <li><a href="index.php">Home</a></li>
-        <li><a href="categories.php">Categorie</a></li>
-        <!--menu_admin_start-->
-        <li><a href="users.php">Utenti</a></li>
-        <!--menu_admin_end-->
-        <li><a href="about.php">Informazioni</a></li>
-      </ul>
-      <!--profile-->
-    </nav>
+  <nav id="breadcrumb">
+    <p>Ti trovi in: <a href="categories.php">Categorie</a> > {{cat_selected}}</p>
+  </nav>
 
-    <aside></aside>
+  <nav id="menu">
+    <ul id="navbar">
+      <li><a href="index.php">Home</a></li>
+      <li><a href="categories.php">Categorie</a></li>
+      <!--menu_admin_start-->
+      <li><a href="users.php">Utenti</a></li>
+      <!--menu_admin_end-->
+      <li><a href="about.php">Informazioni</a></li>
+    </ul>
+    <!--profile-->
+  </nav>
 
-    <!--
+  <aside></aside>
+
+  <!--
     +-----------------+
     |     Header      |
     +-----------------+
@@ -59,22 +60,26 @@
     non è male secondo me
     -->
 
-    <main id="contenuto">
-      <h2>{{cat_selected}}</h2>
-      <!-- volevo mettere h3 ma mi pare ci sia tipo la regola
+  <main id="contenuto">
+    <h2>Film della categoria: {{cat_selected}}</h2>
+    <!-- volevo mettere h3 ma mi pare ci sia tipo la regola
                  tipo della scala degli h
                  E quindi ho aggiunto categoria anche se è ridondante con il breadcrumb
                  Però ci sta nella pagina secondo me
                  -->
-      <h3>Nome:</h3>
+    <ul>
       <!--movie_start-->
-      <h3><a href="film.php?id={{film_id}}&cat={{cat_name}}">{{film_name}}</a></h3>
-      <h3>Descrizione:</h3>
-      <p>{{description}}</p>
+      <li>
+        <h3><a href="film.php?id={{film_id}}&cat={{cat_name}}">{{film_name}}</a></h3>
+        <h4>Descrizione:</h3>
+          <p>{{description}}</p>
+      </li>
       <!--movie_end-->
-    </main>
+    </ul>
+  </main>
 
-    <!--torna_su-->
-    <!--footer-->
-  </body>
+  <!--torna_su-->
+  <!--footer-->
+</body>
+
 </html>
