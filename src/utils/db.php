@@ -177,6 +177,71 @@ class DB
         }
     }
 
+    public function get_movie_categories(int $film_id): ?array
+    {
+        $stmt = $this->conn->prepare("SELECT * FROM movie_category WHERE movie_id = ?");
+        if (!$stmt) {
+            throw new Exception("Could not prepare statement: " . $this->conn->error);
+        }
+
+        if (!$stmt->execute([$film_id])) {
+            throw new Exception("Could not execute statement: " . $stmt->error);
+        }
+
+        if ($res = $stmt->get_result()) {
+            $row = $res->fetch_all(MYSQLI_ASSOC);
+            $res->free();
+            return $row;
+        } else {
+            throw new Exception("Could not execute statement: " . $stmt->error);
+        }
+    }
+
+    public function get_movie_cast(int $film_id): ?array
+    {
+        $stmt = $this->conn->prepare("SELECT * FROM cast
+                          JOIN people ON cast.person_id = people.id
+                          WHERE cast.movie_id = ?");
+        if (!$stmt) {
+            throw new Exception("Could not prepare statement: " . $this->conn->error);
+        }
+
+        if (!$stmt->execute([$film_id])) {
+            throw new Exception("Could not execute statement: " . $stmt->error);
+        }
+
+        if ($res = $stmt->get_result()) {
+            $row = $res->fetch_all(MYSQLI_ASSOC);
+            $res->free();
+            return $row;
+        } else {
+            throw new Exception("Could not execute statement: " . $stmt->error);
+        }
+    }
+
+    public function get_movie_crew(int $film_id): ?array
+    {
+        $stmt = $this->conn->prepare("SELECT * FROM crew
+                          JOIN people ON crew.person_id = people.id
+                          WHERE crew.movie_id = ?");
+        if (!$stmt) {
+            throw new Exception("Could not prepare statement: " . $this->conn->error);
+        }
+
+        if (!$stmt->execute([$film_id])) {
+            throw new Exception("Could not execute statement: " . $stmt->error);
+        }
+
+        if ($res = $stmt->get_result()) {
+            $row = $res->fetch_all(MYSQLI_ASSOC);
+            $res->free();
+            return $row;
+        } else {
+            throw new Exception("Could not execute statement: " . $stmt->error);
+        }
+    }
+
+
     public function get_categories(): ?array
     {
         $stmt = $this->conn->prepare("SELECT DISTINCT * FROM category");
