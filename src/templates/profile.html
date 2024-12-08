@@ -52,15 +52,26 @@
     -->
 
     <main id="contenuto">
-      <main>
-        <h2>Profilo Utente</h2>
-        <p>Nome utente: {{username}}</p>
-        <!-- Ho visto sull'sql che ci sono nome e cognome ma non nel login/signup -->
-        <p>Nome : {{name}}</p>
-        <p>Cognome : {{last_name}}</p>
-        <!-- <h3>Recensioni Personali</h3> -->
-        <!-- Eventuale lista (non modificabile) delle recensioni dell'utente -->
-      </main>
+      <h2>Profilo Utente</h2>
+      <p>Nome utente: {{username}}</p>
+      <!-- Ho visto sull'sql che ci sono nome e cognome ma non nel signup -->
+      <p>Nome : {{name}}</p>
+      <p>Cognome : {{last_name}}</p>
+      <!-- <h3>Recensioni Personali</h3> -->
+      <!-- Eventuale lista (non modificabile) delle recensioni dell'utente -->
+      <section aria-label="Recensioni">
+        <h3>Recensioni</h3>
+
+        <!--recensioni_start-->
+        <!-- TODO: non sono sicuro sia il tag giusto-->
+        <article>
+          <p>Film: <a href="film.php?id={{rec_film_id}}">{{rec_film_title}}</a></p>
+          <p>Valutazione: {{rec_rating}}</p>
+          <p>Titolo: {{rec_title}}</p>
+          <p>Commento: {{rec_content}}</p>
+        </article>
+        <!--recensioni_end-->
+      </section>
     </main>
 
     <!--torna_su-->

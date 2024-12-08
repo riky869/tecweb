@@ -14,23 +14,12 @@ if (empty($_GET["id"])) {
     exit();
 }
 
-if (empty($_GET["cat"])) {
-    header("Location: categories.php");
-    exit();
-}
-
 $movie_id = $_GET["id"];
-$category = $_GET["cat"];
+$category = $_GET["cat"] ?? null;
 
 $db = DB::from_env();
 
-$categoryFound = $db->get_category($category);
-
-if (empty($categoryFound)) {
-    header("Location: categories.php");
-    exit();
-}
-
+$categoryFound = $category ? $db->get_category($category) : null;
 $movie = $db->get_movie($movie_id);
 
 if (empty($movie)) {
@@ -57,8 +46,6 @@ $template = Builder::from_template(basename(__FILE__));
 
 $template->replace_singles([
     "nome_film" => $movie["name"],
-    "nome_cat" => $category,
-    
     "nome_originale" => $movie["original_name"],
     "lingua_originale" => $movie["original_language"],
     "data_uscita" => $movie["release_date"],
@@ -71,6 +58,20 @@ $template->replace_singles([
     "locandina" => "./images/film/" . $movie["image_path"],
     "valutazione" => $average_rating,
 ]);
+
+
+if (empty($categoryFound)) {
+    $template->replace_var("breadcrumb_da_altro", $template->get_block("breadcrumb_da_altro")->replace_singles([
+        "breadcrumb_nome_film" => $movie["name"],
+    ]), VarType::Block);
+    $template->delete_var("breadcrumb_da_categoria", VarType::Block);
+} else {
+    $template->replace_var("breadcrumb_da_categoria", $template->get_block("breadcrumb_da_categoria")->replace_singles([
+        "breadcrumb_nome_cat" => $categoryFound["name"],
+        "breadcrumb_nome_film" => $movie["name"],
+    ]), VarType::Block);
+    $template->delete_var("breadcrumb_da_altro", VarType::Block);
+}
 
 $template->replace_block_name_arr("genere", $categories, function (Builder $sec, array $i) {
     $sec->replace_singles([

@@ -16,15 +16,17 @@ if (empty($_POST["film_id"])) {
 $user = Session::get_user();
 $movie_id = $_POST["film_id"];
 
-if (empty($user)) {
-    header("Location: film.php?id=$movie_id");
-    exit();
+if (!empty($user)) {
+    $db = DB::from_env();
+    $movie = $db->get_movie($movie_id);
+    $created = $db->create_review($movie_id, $user["username"], $_POST["title"], $_POST["content"], $_POST["rating"]);
+    $db->close();
 }
 
-$db = DB::from_env();
-$movie = $db->get_movie($movie_id);
-$created = $db->create_review($movie_id, $user["username"], $_POST["title"], $_POST["content"], $_POST["rating"]);
-$db->close();
+$location = "Location: film.php?id=$movie_id";
+if (!empty($_POST["cat"])) {
+    $location .= "&cat=" . $_POST["cat"];
+}
 
-header("Location: film.php?id=$movie_id");
+header($location);
 exit();

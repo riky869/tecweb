@@ -15,14 +15,17 @@ if (empty($user)) {
     exit();
 }
 
+$db = DB::from_env();
+
 // TODO: error handling
 if (!$user["is_admin"] || empty($_GET["username"])) {
     $profile_user = $user;
 } else {
-    $db = DB::from_env();
     $profile_user = $db->get_user($_GET["username"]);
-    $db->close();
 }
+
+$reviews = $db->get_reviews_by_user($profile_user["username"]);
+$db->close();
 
 $template = Builder::from_template(basename(__FILE__));
 $template->replace_singles([
@@ -30,6 +33,16 @@ $template->replace_singles([
     "name" => $profile_user["name"],
     "last_name" => $profile_user["last_name"],
 ]);
+
+$template->replace_block_name_arr("recensioni", $reviews, function (Builder $t, array $i) {
+    $t->replace_singles([
+        "rec_film_title" => $i["name"],
+        "rec_film_id" => $i["movie_id"],
+        "rec_title" => $i["title"],
+        "rec_content" => $i["content"],
+        "rec_rating" => $i["rating"],
+    ]);
+});
 
 $common = Builder::load_common();
 $template->build($user, $common);

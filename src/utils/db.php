@@ -282,6 +282,26 @@ class DB
         }
     }
 
+    public function get_reviews_by_user(string $username): ?array
+    {
+        $stmt = $this->conn->prepare("SELECT * FROM review JOIN movie ON movie.id = review.movie_id WHERE username = ?");
+        if (!$stmt) {
+            throw new Exception("Could not prepare statement: " . $this->conn->error);
+        }
+
+        if (!$stmt->execute([$username])) {
+            throw new Exception("Could not execute statement: " . $stmt->error);
+        }
+
+        if ($res = $stmt->get_result()) {
+            $row = $res->fetch_all(MYSQLI_ASSOC);
+            $res->free();
+            return $row;
+        } else {
+            throw new Exception("Could not execute statement: " . $stmt->error);
+        }
+    }
+
     public function create_review(int $film_id, string $username, string $title, string $content, int $rating): bool
     {
         $stmt = $this->conn->prepare("INSERT INTO review (
