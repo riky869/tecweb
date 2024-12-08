@@ -8,9 +8,7 @@ require_once("utils/session.php");
 Request::allowed_methods(["GET"]);
 Session::start();
 
-$db = DB::from_env();
 $user = Session::get_user();
-$template = Builder::from_template(basename(__FILE__));
 
 if (empty($user) || !$user["is_admin"]) {
     header("Location: index.php");
@@ -19,7 +17,10 @@ if (empty($user) || !$user["is_admin"]) {
 
 $common = Builder::load_common();
 
+$db = DB::from_env();
 $users = $db->get_users();
+$db->close();
+$template = Builder::from_template(basename(__FILE__));
 $template->replace_block_name_arr("users_list", $users, function (Builder $sec, array $i) {
     $sec->replace_singles(["profile_username" => $i["username"]]);
 });

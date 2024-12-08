@@ -18,6 +18,7 @@ if (Request::is_post()) {
 
     // fetch user
     $user = $db->get_user_with_password(Request::post_param("username"), Request::post_param("password"));
+    $db->close();
 
     if ($user) {
         // Redirect to home

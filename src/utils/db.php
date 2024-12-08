@@ -2,15 +2,16 @@
 
 class DB
 {
-    private PDO $conn;
+    private mysqli $conn;
 
     public function __construct($host, $dbname, $user, $pass)
     {
-        try {
-            $this->conn = new PDO("mysql:host={$host};dbname={$dbname}", $user, $pass, [PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_BOTH]);
-        } catch (PDOException $e) {
-            throw new Exception("Errore di connessione al database: {$e}");
+        $conn = mysqli_connect($host, $user, $pass, $dbname, 3306);
+        if (!$conn) {
+            throw new Exception("Could not connect to database: " . mysqli_connect_error());
         }
+
+        $this->conn = $conn;
     }
 
     public static function from_env(): Self
@@ -23,142 +24,197 @@ class DB
         return new Self($host, $dbname, $user, $pass);
     }
 
-    public function get_user_with_password(string $username, string $password): mixed
+    public function close()
     {
-        // TODO: use hashing
-        $stmt = $this->conn->prepare("SELECT * FROM user WHERE username = :username");
+        $this->conn->close();
+    }
 
-        $res = $stmt->execute(["username" => $username]);
-        if ($res) {
-            $row = $stmt->fetch();
+    // TODO: use hashing
+    public function get_user_with_password(string $username, string $password): ?array
+    {
+        $stmt = $this->conn->prepare("SELECT * FROM user WHERE username=?");
+        if (!$stmt) {
+            throw new Exception("Could not prepare statement: " . $this->conn->error);
+        }
+
+        if (!$stmt->execute([$username])) {
+            throw new Exception("Could not execute statement: " . $stmt->error);
+        }
+
+        if ($res = $stmt->get_result()) {
+            $row = $res->fetch_assoc();
+            $res->free();
+
             if ($row && $row["password"] == $password) {
                 return $row;
             }
             return null;
+        } else {
+            throw new Exception("Could not bind result: " . $stmt->error);
         }
-
-        return null;
     }
 
     public function get_user(string $username): mixed
     {
-        $stmt = $this->conn->prepare("SELECT * FROM user WHERE username = :username");
-
-        $res = $stmt->execute(["username" => $username]);
-        if ($res) {
-            $row = $stmt->fetch();
-            return $row;
+        $stmt = $this->conn->prepare("SELECT * FROM user WHERE username=?");
+        if (!$stmt) {
+            throw new Exception("Could not prepare statement: " . $this->conn->error);
         }
 
-        return null;
+        if (!$stmt->execute([$username])) {
+            throw new Exception("Could not execute statement: " . $stmt->error);
+        }
+
+        if ($res = $stmt->get_result()) {
+            $row = $res->fetch_assoc();
+            $res->free();
+            return $row;
+        } else {
+            throw new Exception("Could not bind result: " . $stmt->error);
+        }
     }
 
     public function create_user(string $username, string $password, string $name, string $last_name): bool
     {
-        $stmt = $this->conn->prepare("INSERT INTO user (username, password, name, last_name, is_admin) VALUES (:username, :password, :name, :last_name, 0)");
+        $stmt = $this->conn->prepare("INSERT INTO user (username, password, name, last_name, is_admin) VALUES (?,?,?,0)");
+        if (!$stmt) {
+            throw new Exception("Could not prepare statement: " . $this->conn->error);
+        }
 
-        $res = $stmt->execute([
-            "username" => $username,
-            "password" => $password,
-            "name" => $name,
-            "last_name" => $last_name,
-        ]);
-
-        return $res && $stmt->rowCount() > 0;
+        if ($stmt->execute([
+            $username,
+            $password,
+            $name,
+            $last_name,
+        ])) {
+            return $stmt->affected_rows > 0;
+        } else {
+            throw new Exception("Could not execute statement: " . $stmt->error);
+        }
     }
 
     public function get_users(): ?array
     {
-        $stmt = $this->conn->prepare("SELECT * FROM user");
-
-        $res = $stmt->execute([]);
-        if ($res) {
-            $row = $stmt->fetchAll();
+        if ($res = $this->conn->query("SELECT * FROM user")) {
+            $row = $res->fetch_all(MYSQLI_ASSOC);
+            $res->free();
             return $row;
+        } else {
+            throw new Exception("Could not execute query: " . $this->conn->error);
         }
-
-        return null;
     }
 
     public function get_movies(): ?array
     {
-        $stmt = $this->conn->prepare("SELECT * FROM movie");
-
-        $res = $stmt->execute([]);
-        if ($res) {
-            $row = $stmt->fetchAll();
+        if ($res = $this->conn->query("SELECT * FROM movie")) {
+            $row = $res->fetch_all(MYSQLI_ASSOC);
+            $res->free();
             return $row;
+        } else {
+            throw new Exception("Could not execute query: " . $this->conn->error);
         }
-
-        return null;
     }
 
     public function get_movies_by_category(string $category): ?array
     {
         $stmt = $this->conn->prepare("SELECT * FROM movie
                           JOIN movie_category ON movie.id = movie_category.movie_id
-                          WHERE movie_category.category_name = :category");
-
-        $res = $stmt->execute(["category" => $category]);
-        if ($res) {
-            $row = $stmt->fetchAll();
-            return $row;
+                          WHERE movie_category.category_name = ?");
+        if (!$stmt) {
+            throw new Exception("Could not prepare statement: " . $this->conn->error);
         }
 
-        return null;
+        if (!$stmt->execute([$category])) {
+            throw new Exception("Could not execute statement: " . $stmt->error);
+        }
+
+        if ($res = $stmt->get_result()) {
+            $row = $res->fetch_all(MYSQLI_ASSOC);
+            $res->free();
+            return $row;
+        } else {
+            throw new Exception("Could not execute statement: " . $stmt->error);
+        }
     }
 
     public function get_category(string $name): ?array
     {
-        $stmt = $this->conn->prepare("SELECT * FROM category WHERE name = :name");
-
-        $res = $stmt->execute(["name" => $name]);
-        if ($res) {
-            $row = $stmt->fetchAll();
-            return $row;
+        $stmt = $this->conn->prepare("SELECT * FROM category WHERE name = ?");
+        if (!$stmt) {
+            throw new Exception("Could not prepare statement: " . $this->conn->error);
         }
 
-        return null;
+        if (!$stmt->execute([$name])) {
+            throw new Exception("Could not execute statement: " . $stmt->error);
+        }
+
+        if ($res = $stmt->get_result()) {
+            $row = $res->fetch_assoc();
+            $res->free();
+            return $row;
+        } else {
+            throw new Exception("Could not execute statement: " . $stmt->error);
+        }
     }
 
     public function get_movie(int $id): ?array
     {
-        $stmt = $this->conn->prepare("SELECT * FROM movie WHERE id = :id");
-
-        $res = $stmt->execute(["id" => $id]);
-        if ($res) {
-            $row = $stmt->fetch();
-            if (!$row) return null;
-            return $row;
+        $stmt = $this->conn->prepare("SELECT * FROM movie WHERE id = ?");
+        if (!$stmt) {
+            throw new Exception("Could not prepare statement: " . $this->conn->error);
         }
 
-        return null;
+        if (!$stmt->execute([$id])) {
+            throw new Exception("Could not execute statement: " . $stmt->error);
+        }
+
+        if ($res = $stmt->get_result()) {
+            $row = $res->fetch_assoc();
+            $res->free();
+            return $row;
+        } else {
+            throw new Exception("Could not execute statement: " . $stmt->error);
+        }
     }
 
     public function get_categories(): ?array
     {
         $stmt = $this->conn->prepare("SELECT DISTINCT * FROM category");
-
-        $res = $stmt->execute();
-        if ($res) {
-            $row = $stmt->fetchAll();
-            return $row;
+        if (!$stmt) {
+            throw new Exception("Could not prepare statement: " . $this->conn->error);
         }
 
-        return null;
+        if (!$stmt->execute()) {
+            throw new Exception("Could not execute statement: " . $stmt->error);
+        }
+
+        if ($res = $stmt->get_result()) {
+            $row = $res->fetch_all(MYSQLI_ASSOC);
+            $res->free();
+            return $row;
+        } else {
+            throw new Exception("Could not execute statement: " . $stmt->error);
+        }
     }
 
     public function get_reviews(int $film_id): ?array
     {
-        $stmt = $this->conn->prepare("SELECT * FROM review WHERE movie_id = :film_id");
-
-        $res = $stmt->execute(["film_id" => $film_id]);
-        if ($res) {
-            $row = $stmt->fetchAll();
-            return $row;
+        $stmt = $this->conn->prepare("SELECT * FROM review WHERE movie_id = ?");
+        if (!$stmt) {
+            throw new Exception("Could not prepare statement: " . $this->conn->error);
         }
 
-        return null;
+        if (!$stmt->execute([$film_id])) {
+            throw new Exception("Could not execute statement: " . $stmt->error);
+        }
+
+        if ($res = $stmt->get_result()) {
+            $row = $res->fetch_all(MYSQLI_ASSOC);
+            $res->free();
+            return $row;
+        } else {
+            throw new Exception("Could not execute statement: " . $stmt->error);
+        }
     }
 
     public function create_review(int $film_id, string $username, string $title, string $content, int $rating): bool
@@ -170,22 +226,22 @@ class DB
             username,
             movie_id,
             data
-        ) VALUES (
-            :title,
-            :content,
-            :rating,
-            :username,
-            :film_id,
-            NOW()
-        )");
+        ) VALUES (?,?,?,?,?,NOW())");
 
-        $res = $stmt->execute([
-            "film_id" => $film_id,
-            "username" => $username,
-            "title" => $title,
-            "content" => $content,
-            "rating" => $rating,
-        ]);
-        return $res && $stmt->rowCount() > 0;
+        if (!$stmt) {
+            throw new Exception("Could not prepare statement: " . $this->conn->error);
+        }
+
+        if (!$stmt->execute([
+            $title,
+            $content,
+            $rating,
+            $username,
+            $film_id,
+        ])) {
+            throw new Exception("Could not execute statement: " . $stmt->error);
+        }
+
+        return $stmt->affected_rows > 0;
     }
 }

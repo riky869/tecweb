@@ -13,7 +13,6 @@ if (empty($_POST["film_id"])) {
     exit();
 }
 
-$db = DB::from_env();
 $user = Session::get_user();
 $movie_id = $_POST["film_id"];
 
@@ -22,9 +21,10 @@ if (empty($user)) {
     exit();
 }
 
+$db = DB::from_env();
 $movie = $db->get_movie($movie_id);
-
 $created = $db->create_review($movie_id, $user["username"], $_POST["title"], $_POST["content"], $_POST["rating"]);
+$db->close();
 
 header("Location: film.php?id=$movie_id");
 exit();

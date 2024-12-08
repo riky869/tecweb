@@ -8,11 +8,6 @@ require_once("utils/session.php");
 Request::allowed_methods(["GET"]);
 Session::start();
 
-$db = DB::from_env();
-$user = Session::get_user();
-$template = Builder::from_template(basename(__FILE__));
-$common = Builder::load_common();
-
 
 if (empty($_GET["id"])) {
     header("Location: categories.php");
@@ -26,6 +21,8 @@ if (empty($_GET["cat"])) {
 
 $movie_id = $_GET["id"];
 $category = $_GET["cat"];
+
+$db = DB::from_env();
 
 $categoryFound = $db->get_category($category);
 
@@ -41,6 +38,11 @@ if (empty($movie)) {
     exit();
 }
 
+$reviews = $db->get_reviews($movie_id);
+$db->close();
+
+$template = Builder::from_template(basename(__FILE__));
+
 // TODO: check if movie is in category, maybe creating another db function that join the movie_category with movie
 
 $template->replace_singles([
@@ -49,8 +51,6 @@ $template->replace_singles([
     "description" => $movie["description"],
 ]);
 
-
-$reviews = $db->get_reviews($movie_id);
 $template->replace_block_name_arr("recensioni", $reviews, function (Builder $sec, array $i) {
     $sec->replace_singles([
         "rev_username" => $i["username"],
@@ -60,6 +60,7 @@ $template->replace_block_name_arr("recensioni", $reviews, function (Builder $sec
     ]);
 });
 
+$user = Session::get_user();
 if (empty($user)) {
     $template->delete_blocks(["crea_recensione"]);
 } else {
@@ -68,6 +69,7 @@ if (empty($user)) {
     ]), VarType::Block);
 }
 
+$common = Builder::load_common();
 $template->build($user, $common);
 $template->delete_secs([]);
 

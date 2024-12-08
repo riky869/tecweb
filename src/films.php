@@ -8,11 +8,7 @@ require_once("utils/session.php");
 Request::allowed_methods(["GET"]);
 Session::start();
 
-$db = DB::from_env();
 $user = Session::get_user();
-$template = Builder::from_template(basename(__FILE__));
-
-$common = Builder::load_common();
 
 if (empty($_GET["cat"])) {
     header("Location: categories.php");
@@ -20,6 +16,7 @@ if (empty($_GET["cat"])) {
 }
 
 $category = $_GET["cat"];
+$db = DB::from_env();
 $categoryFound = $db->get_category($category);
 
 if (empty($categoryFound)) {
@@ -27,10 +24,11 @@ if (empty($categoryFound)) {
     exit();
 }
 
-$template->replace_var("cat_selected", $category);
-
 $movies_data = $db->get_movies_by_category($category);
+$db->close();
 
+$template = Builder::from_template(basename(__FILE__));
+$template->replace_var("cat_selected", $category);
 $template->replace_block_name_arr(
     "movie",
     $movies_data,
@@ -46,6 +44,7 @@ $template->replace_block_name_arr(
     }
 );
 
+$common = Builder::load_common();
 $template->build($user, $common);
 $template->delete_secs([]);
 

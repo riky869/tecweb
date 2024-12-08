@@ -8,12 +8,13 @@ require_once("utils/builder.php");
 Request::allowed_methods(["GET"]);
 Session::start();
 
-$db = DB::from_env();
-$movies_data = $db->get_movies();
 $user = Session::get_user();
 
-$template = Builder::from_template(basename(__FILE__));
+$db = DB::from_env();
+$movies_data = $db->get_movies();
+$db->close();
 
+$template = Builder::from_template(basename(__FILE__));
 $common = Builder::load_common();
 
 $template->build($user, $common);

@@ -8,7 +8,7 @@ require_once("utils/session.php");
 Request::allowed_methods(["GET"]);
 Session::start();
 
-$db = DB::from_env();
+// $db = DB::from_env();
 $user = Session::get_user();
 $template = Builder::from_template(basename(__FILE__));
 

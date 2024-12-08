@@ -9,16 +9,17 @@ Request::allowed_methods(["GET"]);
 Session::start();
 
 $db = DB::from_env();
-$user = Session::get_user();
-$template = Builder::from_template(basename(__FILE__));
 
-$common = Builder::load_common();
 $categories = $db->get_categories();
+$db->close();
 
+$template = Builder::from_template(basename(__FILE__));
 $template->replace_block_name_arr("category", $categories, function (Builder $sec, array $i) {
     return $sec->replace_var("cat_name", $i["name"]);
 });
 
+$common = Builder::load_common();
+$user = Session::get_user();
 $template->build($user, $common);
 $template->delete_secs([]);
 
