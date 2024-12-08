@@ -199,9 +199,9 @@ class DB
 
     public function get_movie_cast(int $film_id): ?array
     {
-        $stmt = $this->conn->prepare("SELECT * FROM cast
-                          JOIN people ON cast.person_id = people.id
-                          WHERE cast.movie_id = ?");
+        $stmt = $this->conn->prepare("SELECT * FROM movie_cast
+                          JOIN people ON movie_cast.person_id = people.id
+                          WHERE movie_cast.movie_id = ?");
         if (!$stmt) {
             throw new Exception("Could not prepare statement: " . $this->conn->error);
         }
@@ -221,9 +221,9 @@ class DB
 
     public function get_movie_crew(int $film_id): ?array
     {
-        $stmt = $this->conn->prepare("SELECT * FROM crew
-                          JOIN people ON crew.person_id = people.id
-                          WHERE crew.movie_id = ?");
+        $stmt = $this->conn->prepare("SELECT * FROM movie_crew
+                          JOIN people ON movie_crew.person_id = people.id
+                          WHERE movie_crew.movie_id = ?");
         if (!$stmt) {
             throw new Exception("Could not prepare statement: " . $this->conn->error);
         }
