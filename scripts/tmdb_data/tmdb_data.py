@@ -209,8 +209,8 @@ def main():
     execute_sql(people_data, "people")
     execute_sql(movies_data, "movie")
     execute_sql(movie_genres, "movie_category")
-    execute_sql(movie_cast, "cast")
-    execute_sql(movie_crew, "crew")
+    execute_sql(movie_cast, "movie_cast")
+    execute_sql(movie_crew, "movie_crew")
 
 
 if __name__ == "__main__":

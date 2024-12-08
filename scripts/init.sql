@@ -1,14 +1,34 @@
 BEGIN;
 
+-- QUERY CONFIGURATION START --
+set
+    character_set_client = 'utf8';
+
+set
+    character_set_connection = 'utf8';
+
+set
+    character_set_database = 'utf8';
+
+set
+    character_set_results = 'utf8';
+
+set
+    character_set_server = 'utf8';
+
+show variables like 'char%';
+
+-- DATABASE START --
 DROP DATABASE IF EXISTS tecweb;
 
 CREATE DATABASE IF NOT EXISTS tecweb;
 
 USE tecweb;
 
+-- TABLES START -- 
 DROP TABLE IF EXISTS review,
-crew,
-cast,
+movie_crew,
+movie_cast,
 movie_category,
 movie,
 people,
@@ -59,7 +79,7 @@ CREATE TABLE
     );
 
 CREATE TABLE
-    IF NOT EXISTS cast(
+    IF NOT EXISTS movie_cast (
         movie_id INT,
         person_id INT,
         role VARCHAR(255) NOT NULL,
@@ -69,11 +89,11 @@ CREATE TABLE
     );
 
 CREATE TABLE
-    IF NOT EXISTS crew (
+    IF NOT EXISTS movie_crew (
         movie_id INT,
         person_id INT,
         role VARCHAR(255) NOT NULL,
-        PRIMARY KEY (movie_id, person_id),
+        PRIMARY KEY (movie_id, person_id, role),
         FOREIGN KEY (movie_id) REFERENCES movie (id),
         FOREIGN KEY (person_id) REFERENCES people (id)
     );
@@ -91,6 +111,7 @@ CREATE TABLE
         FOREIGN KEY (movie_id) REFERENCES movie (id)
     );
 
+-- INSERT_START --
 INSERT INTO
     user (username, password, name, last_name, is_admin)
 VALUES
@@ -862,7 +883,7 @@ VALUES
     ('10', 'Romance');
 
 INSERT INTO
-    cast(movie_id, person_id, role)
+    movie_cast (movie_id, person_id, role)
 VALUES
     ('1', '1', 'Eddie Brock / Venom'),
     ('1', '2', 'General Rex Strickland'),
@@ -998,7 +1019,7 @@ VALUES
     ('10', '118', 'Dr. Dillamond (voice)');
 
 INSERT INTO
-    crew (movie_id, person_id, role)
+    movie_crew (movie_id, person_id, role)
 VALUES
     ('1', '11', 'Director'),
     ('2', '22', 'Director'),
@@ -1022,4 +1043,5 @@ VALUES
     ('9', '108', 'Director'),
     ('10', '119', 'Director');
 
+-- INSERT_END --
 COMMIT;
