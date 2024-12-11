@@ -264,7 +264,7 @@ class DB
         }
     }
 
-    public function get_reviews(int $film_id): ?array
+    public function get_film_reviews(int $film_id): ?array
     {
         $stmt = $this->conn->prepare("SELECT * FROM review WHERE movie_id = ?");
         if (!$stmt) {

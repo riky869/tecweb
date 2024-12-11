@@ -10,8 +10,7 @@ Session::start();
 
 
 if (empty($_GET["id"])) {
-    header("Location: categories.php");
-    exit();
+    Request::load_404_page();
 }
 
 $movie_id = $_GET["id"];
@@ -23,14 +22,13 @@ $categoryFound = $category ? $db->get_category($category) : null;
 $movie = $db->get_movie($movie_id);
 
 if (empty($movie)) {
-    header("Location: 404.php");
-    exit();
+    Request::load_404_page();
 }
 
 $categories = $db->get_movie_categories($movie_id);
 $cast = $db->get_movie_cast($movie_id);
 $crew = $db->get_movie_crew($movie_id);
-$reviews = $db->get_reviews($movie_id);
+$reviews = $db->get_film_reviews($movie_id);
 
 $db->close();
 
@@ -105,6 +103,12 @@ $template->replace_block_name_arr("recensioni", $reviews, function (Builder $sec
 });
 
 $user = Session::get_user();
+
+$user_review = array_filter($reviews, function ($review) {
+    return $user["username"] ?? null === $review["username"];
+})[0] ?? null;
+
+
 if (empty($user)) {
     $template->delete_blocks(["crea_recensione"]);
 } else {
