@@ -8,7 +8,6 @@ require_once("utils/session.php");
 Request::allowed_methods(["GET"]);
 Session::start();
 
-// $db = DB::from_env();
 $user = Session::get_user();
 $template = Builder::from_template(basename(__FILE__));
 
@@ -18,3 +17,4 @@ $template->build($user, $common);
 $template->delete_secs([]);
 
 $template->show();
+http_response_code(500);

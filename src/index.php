@@ -11,7 +11,11 @@ Session::start();
 $user = Session::get_user();
 
 $db = DB::from_env();
-$movies_data = $db->get_movies();
+try {
+    $movies_data = $db->get_movies();
+} catch (Exception $e) {
+    Request::load_500_page();
+}
 $db->close();
 
 $template = Builder::from_template(basename(__FILE__));

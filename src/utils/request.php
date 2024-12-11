@@ -1,5 +1,8 @@
 <?php
 
+require_once("utils/session.php");
+require_once("utils/builder.php");
+
 class Request
 {
     private static function method(): string
@@ -34,5 +37,17 @@ class Request
             http_response_code(404);
             exit();
         }
+    }
+
+    static function load_404_page()
+    {
+        require("404.php");
+        exit();
+    }
+
+    static function load_500_page()
+    {
+        require("500.php");
+        exit();
     }
 };
