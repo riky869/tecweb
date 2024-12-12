@@ -181,14 +181,20 @@
 
       <section aria-label="Recensioni">
         <h3>Recensioni</h3>
+        <!--recensione_utente_start-->
 
+        <!--recensione_utente_end-->
         <!--recensioni_start-->
-        <div>
-          <p>Utente: {{rev_username}}</p>
-          <p>Valutazione: {{rev_rating}}</p>
-          <p>Titolo: {{rev_title}}</p>
-          <p>Commento: {{rev_content}}</p>
-        </div>
+        <dl>
+          <dt>Utente:</dt>
+          <dd>{{rev_username}}</dd>
+          <dt>Valutazione:</dt>
+          <dd>{{rev_rating}}</dd>
+          <dt>Titolo:</dt>
+          <dd>{{rev_title}}</dd>
+          <dt>Commento:</dt>
+          <dd>{{rev_content}}</dd>
+        </dl>
         <!--recensioni_end-->
       </section>
     </main>
