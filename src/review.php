@@ -13,13 +13,22 @@ if (empty($_POST["film_id"])) {
     exit();
 }
 
+if (empty($_POST["modify"])) {
+    header("Location: categories.php");
+    exit();
+}
+
 $user = Session::get_user();
 $movie_id = $_POST["film_id"];
+$to_modify = $_POST["modify"] === "true";
 
 if (!empty($user)) {
     $db = DB::from_env();
-    $movie = $db->get_movie($movie_id);
-    $created = $db->create_review($movie_id, $user["username"], $_POST["title"], $_POST["content"], $_POST["rating"]);
+    if (!$to_modify) {
+        $created = $db->create_review($movie_id, $user["username"], $_POST["title"], $_POST["content"], $_POST["rating"]);
+    } else {
+        $modified = $db->modify_review($movie_id, $user["username"], $_POST["title"], $_POST["content"], $_POST["rating"]);
+    }
     $db->close();
 }
 

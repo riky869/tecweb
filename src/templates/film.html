@@ -167,7 +167,9 @@
         <!--crea_recensione_start-->
         <h3>Crea recensione</h3>
         <form action="review.php" method="post">
+          <input type="hidden" name="modify" value="false" />
           <input type="hidden" name="film_id" value="{{film_id}}" />
+          <input type="hidden" name="cat" value="{{film_cat}}" />
           <label for="title">Titolo</label>
           <input type="text" name="title" value="" />
           <label for="content">Commento</label>
@@ -181,9 +183,34 @@
 
       <section aria-label="Recensioni">
         <h3>Recensioni</h3>
-        <!--recensione_utente_start-->
-
-        <!--recensione_utente_end-->
+        <!--view_recensione_utente_start-->
+        <!--TODO: modificare il tag p se necessario-->
+        <p>La tua recensione:</p>
+        <dl>
+          <dt>Valutazione:</dt>
+          <dd>{{user_rev_rating}}</dd>
+          <dt>Titolo:</dt>
+          <dd>{{user_rev_title}}</dd>
+          <dt>Commento:</dt>
+          <dd>{{user_rev_content}}</dd>
+        </dl>
+        <a href="{{mod_location}}">Modifica recensione</a>
+        <!--view_recensione_utente_end-->
+        <!--mod_recensione_utente_start-->
+        <p>Modifica la tua recensione:</p>
+        <form action="review.php" method="post">
+          <input type="hidden" name="modify" value="true" />
+          <input type="hidden" name="film_id" value="{{film_id}}" />
+          <input type="hidden" name="cat" value="{{film_cat}}" />
+          <label for="title">Title</label>
+          <input type="text" name="title" value="{{mod_title}}" />
+          <label for="content">Commento</label>
+          <input type="text" name="content" value="{{mod_content}}" />
+          <label for="rating">Valutazione</label>
+          <input type="number" name="rating" value="{{mod_rating}}" />
+          <input type="submit" value="Modifica recensione" />
+        </form>
+        <!--mod_recensione_utente_end-->
         <!--recensioni_start-->
         <dl>
           <dt>Utente:</dt>

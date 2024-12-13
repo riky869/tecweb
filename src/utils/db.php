@@ -331,4 +331,25 @@ class DB
 
         return $stmt->affected_rows > 0;
     }
+    public function modify_review(int $film_id, string $username, string $title, string $content, int $rating): bool
+    {
+
+        $stmt = $this->conn->prepare("UPDATE review SET title=?, content=?, rating=?, data=NOW() WHERE movie_id=? AND username=?");
+
+        if (!$stmt) {
+            throw new Exception("Could not prepare statement: " . $this->conn->error);
+        }
+
+        if (!$stmt->execute([
+            $title,
+            $content,
+            $rating,
+            $film_id,
+            $username,
+        ])) {
+            throw new Exception("Could not execute statement: " . $stmt->error);
+        }
+
+        return $stmt->affected_rows > 0;
+    }
 }
