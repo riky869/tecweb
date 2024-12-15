@@ -24,6 +24,7 @@ $to_modify = $_POST["modify"] === "true";
 
 if (!empty($user)) {
     $db = DB::from_env();
+    // TODO: check if movie id exists
     if (!$to_modify) {
         $created = $db->create_review($movie_id, $user["username"], $_POST["title"], $_POST["content"], $_POST["rating"]);
     } else {
@@ -31,6 +32,7 @@ if (!empty($user)) {
     }
     $db->close();
 }
+// TODO: else redirect to error probably
 
 $location = "Location: film.php?id=$movie_id";
 if (!empty($_POST["cat"])) {
