@@ -67,7 +67,19 @@
       <!-- Aggiungi i film -->
       <h3>Film con voto più alto</h3>
       <!-- Aggiungi i film -->
-      <h3>Film in piu recensiti</h3>
+      <h3>Le ultime 10 recensioni</h3>
+      <!--last_reviews_start-->
+      <dl>
+        <dt>Film:</dt>
+        <dd><a href="film.php?id={{rec_film_id}}">{{rec_film_title}}</a></dd>
+        <dt>Valutazione:</dt>
+        <dd>{{rec_rating}}</dd>
+        <dt>Titolo:</dt>
+        <dd>{{rec_title}}</dd>
+        <dt>Commento:</dt>
+        <dd>{{rec_content}}</dd>
+      </dl>
+      <!--last_reviews_end-->
       <!-- Aggiungi i film -->
     </main>
 

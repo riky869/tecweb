@@ -352,4 +352,28 @@ class DB
 
         return $stmt->affected_rows > 0;
     }
+
+    public function get_last_reviews(int $num_revs): ?array
+    {
+
+        $stmt = $this->conn->prepare("SELECT title,content,rating,movie_id,name FROM review JOIN movie ON review.movie_id = movie.id ORDER BY data LIMIT ?");
+
+        if (!$stmt) {
+            throw new Exception("Could not prepare statement: " . $this->conn->error);
+        }
+
+        if (!$stmt->execute([
+            $num_revs,
+        ])) {
+            throw new Exception("Could not execute statement: " . $stmt->error);
+        }
+
+        if ($res = $stmt->get_result()) {
+            $row = $res->fetch_all(MYSQLI_ASSOC);
+            $res->free();
+            return $row;
+        } else {
+            throw new Exception("Could not execute statement: " . $stmt->error);
+        }
+    }
 }
