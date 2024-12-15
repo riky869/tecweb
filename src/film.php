@@ -13,6 +13,7 @@ if (empty($_GET["id"])) {
     Request::load_404_page();
 }
 
+
 $movie_id = $_GET["id"];
 $category = $_GET["cat"] ?? null;
 
@@ -93,6 +94,22 @@ $template->replace_block_name_arr("crew", $crew, function (Builder $sec, array $
     ]);
 });
 
+$user = Session::get_user();
+
+
+if (!empty($user)) {
+    $user_review = array_filter($reviews, function ($review, $key) use ($user) {
+        return $user["username"] == $review["username"];
+    }, ARRAY_FILTER_USE_BOTH);
+
+    if ($user_review) {
+        $user_review = array_values($user_review)[0];
+        foreach (array_keys($reviews, $user_review, true) as $key) {
+            unset($reviews[$key]);
+        }
+    }
+}
+
 $template->replace_block_name_arr("recensioni", $reviews, function (Builder $sec, array $i) {
     $sec->replace_singles([
         "rev_username" => $i["username"],
@@ -102,20 +119,44 @@ $template->replace_block_name_arr("recensioni", $reviews, function (Builder $sec
     ]);
 });
 
-$user = Session::get_user();
 
-$user_review = array_filter($reviews, function ($review) {
-    return $user["username"] ?? null === $review["username"];
-})[0] ?? null;
-
-
-if (empty($user)) {
+if (empty($user) || !empty($user_review)) {
     $template->delete_blocks(["crea_recensione"]);
 } else {
     $template->replace_var("crea_recensione", $template->get_block("crea_recensione")->replace_singles([
         "film_id" => $movie_id,
+        "film_cat" => $category,
     ]), VarType::Block);
 }
+
+if (!empty($user) && !empty($user_review)) {
+    // se il parametro modifica è 1 ed esiste una review dell'utente loggato mostra il form di modifica
+    if (!empty($_GET["modifica"]) && $_GET["modifica"] == 1) {
+        $template->replace_var("mod_recensione_utente", $template->get_block("mod_recensione_utente")->replace_singles([
+            "film_id" => $movie_id,
+            "film_cat" => $category,
+            "mod_title" => $user_review["title"],
+            "mod_content" => $user_review["content"],
+            "mod_rating" => $user_review["rating"],
+        ]), VarType::Block);
+        $template->delete_blocks(["view_recensione_utente"]);
+    }
+    // se esiste una review dell'utente loggato ma il parametro non è 1 mostra solo in readonly
+    else {
+        $template->replace_var("view_recensione_utente", $template->get_block("view_recensione_utente")->replace_singles([
+            "user_rev_rating" => $user_review["rating"],
+            "user_rev_title" => $user_review["title"],
+            "user_rev_content" => $user_review["content"],
+            "mod_location" => "film.php?id=$movie_id&cat=$category&modifica=1",
+        ]), VarType::Block);
+        $template->delete_blocks(["mod_recensione_utente"]);
+    }
+}
+// altrimenti non mostrare nulla della recensione dell'utente
+else {
+    $template->delete_blocks(["mod_recensione_utente", "view_recensione_utente"]);
+}
+
 
 $common = Builder::load_common();
 $template->build($user, $common);
