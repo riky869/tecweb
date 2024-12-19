@@ -31,8 +31,6 @@ body {
   min-height: 100vh;
   flex-direction: column;
   background-color: var(--color-background);
-  margin-left: 20%;
-  margin-right: 20%;
 }
 
 :root {
@@ -54,29 +52,28 @@ body {
 
 header {
   text-align: center;
-  padding: 3em 4em;
   background-color: var(--color-primary);
   color: var(--color-text-light);
-  background: url('../images/oppenheimer.jpg') left center,
-    url('../images/wildRobot.jpg') right center, var(--color-primary);
-  background-size: 15% auto, 15% auto;
-  background-position: 4em center, right 4em center;
+  background: url('../images/header_bck.png');
+  background-size: cover;
   background-repeat: no-repeat;
-  margin: 1em 0;
+  background-position: center;
+  height: 30em;
 }
 
 #contenuto-centrale {
-  width: 50%;
+  width: 28%;
   margin: 0 auto;
+  padding-top: 10em;
 }
 
 header h1 {
-  font-size: 2.5em;
-  margin-bottom: 0.5em;
+  font-size: 3.8em;
+  margin-bottom: 0.3em;
 }
 
 header h2 {
-  font-size: 1.2em;
+  font-size: 1.5em;
   font-weight: normal;
   color: var(--color-text-secondary);
   line-height: 1.4em;
@@ -88,7 +85,11 @@ header h2 {
   background-color: var(--color-breadcrumb);
   color: var(--color-text-light);
   padding: 0.5em;
-  padding-left: 1em;
+  padding-left: 15%;
+}
+
+#breadcrumb p{
+  padding-left: 1.4em;
 }
 
 #breadcrumb a {
@@ -104,6 +105,8 @@ header h2 {
 #navbar {
   display: flex;
   list-style-type: none;
+  padding: 0.5em;
+  padding-left: 15%;
 }
 
 #navbar li {
@@ -135,6 +138,7 @@ header h2 {
   text-decoration: none;
   display: flex;
   gap: 1em;
+  padding-right: 15%;
 }
 
 #login a {
@@ -150,14 +154,90 @@ header h2 {
   color: var(--color-visited);
 }
 
+
+
+#log_form {
+  background-color: var(--color-text-secondary); 
+  padding: 3em;
+  border-radius: 1em; 
+  width: 33%;
+  text-align: center;
+}
+
+#log_form label {
+  font-size: 1em;
+  color: var(--color-text-dark);
+  display: block;
+  margin-bottom: 0.3em;
+  text-align: left;
+}
+
+input[type="text"], 
+input[type="password"] {
+  width: 100%; 
+  padding: 0.6em;
+  margin-bottom: 1.4em; 
+  border: 0.1em solid #ddd;
+  border-radius: 0.4em; 
+  font-size: 0.8em;
+  outline: none;
+}
+
+input[type="text"]:focus, 
+input[type="password"]:focus {
+  border-color: var(--color-visited); 
+}
+
+input[type="submit"] {
+  width: 100%;
+  padding: 0.8em;
+  background-color: var(--color-link); 
+  color: var(--color-text-light);
+  font-size: 1em;
+  border: none;
+  border-radius: 0.3em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #00408d; 
+}
+
+/* Messaggio di errore */
+#log_form p {
+  width: 100%;
+  color: var(--color-text-light);
+  background-color: rgb(223, 56, 56);
+  font-size: 0.8em;
+  margin-bottom: 2.6em;
+  border-radius: 0.2em;
+  padding: 0.4em;
+}
+
+/* Link di registrazione */
+#log_form a {
+  display: inline-block;
+  margin-top: 2em;
+  color: blue;
+  text-decoration: none;
+  font-size: 1em;
+}
+
+#log_form a:hover {
+  text-decoration: underline;
+}
+
 /* contenuto-centrale */
 
 main {
-  background-color: white;
-  color: var(--color-text-dark);
+  background-color: var(--color-background);
+  color: var(--color-text-light);
   padding: 1.75em;
   margin: 0 0;
   flex: 1;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 
 /* Stile Footer */
