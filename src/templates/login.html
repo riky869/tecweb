@@ -7,7 +7,10 @@
     <meta name="description" content="Pagina login per accedere al sito di recensioni di film" />
     <meta name="keywords" content="film, login, accesso utente" />
 
-    <meta name="author" content="FrankCastleTech" />
+    <meta
+      name="author"
+      content="Loris Libralato, Leonardo Lucato, Piva Riccardo, Matteo Campagnaro, Tommaso Diviesti"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="css/style.css" media="screen" />
@@ -18,12 +21,14 @@
     <!--header-->
 
     <nav id="breadcrumb">
-      <p>Ti trovi in: Login</p>
+      <p>Ti trovi in: <span lang="en">Login</span></p>
     </nav>
 
     <nav id="menu">
       <ul id="navbar">
-        <li><a href="index.php">Home</a></li>
+        <li>
+          <a href="index.php"><span lang="en">Home</span></a>
+        </li>
         <li><a href="categories.php">Categorie</a></li>
         <!--menu_admin_start-->
         <li><a href="users.php">Utenti</a></li>
@@ -38,7 +43,7 @@
         Qua niente schemino
         Penso sia abbastanza chiaro come funziona
         Va solo sistemato il form
-        Direi tipo di centrarlo al centro della pagina e poi vabbeh magia del css
+        Direi tipo di centrarlo al centro della pagina e poi vabbe magia del css
         colori e bottoni rotondi
     -->
 
@@ -49,11 +54,16 @@
     <main id="contenuto">
       <form action="" method="post">
         <fieldset>
+          <legend>Effettua l'accesso</legend>
+
+          <label for="username">nome utente</label>
           <input type="text" name="username" />
-          <label for="username">username</label>
-          <input type="password" name="password" />
+
           <label for="password">password</label>
+          <input type="password" name="password" />
+
           <input type="submit" value="submit" />
+
           <!--login_error_start-->
           <p>{{error}}</p>
           <!--login_error_end-->

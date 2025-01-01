@@ -14,7 +14,7 @@
       <!-- <img src="../images/The_Batman_Poster.jpg" alt="Immagine poster the batman" /> -->
       <!--Da vedere se tenere div-->
       <div id="contenuto-centrale">
-        <h1>Popcorn time</h1>
+        <h1><span lang="en">Popcorn time</span></h1>
         <h2>
           Un sito in cui te e tanti altri potete esprimere le vostre opinioni come un gruppo di
           amici al bar
@@ -29,6 +29,7 @@
       <p>Utente corrente: <a href="profile.php">{{username}}</a></p>
       <form method="POST" action="logout.php">
         <fieldset>
+          <legend>Effettua la disconnessione</legend>
           <input type="submit" value="logout" />
         </fieldset>
       </form>
@@ -37,8 +38,8 @@
 
     <!--user_not_logged_start-->
     <div id="login">
-      <a href="login.php">Login</a>
-      <a href="signup.php">Registrazione</a>
+      <a href="login.php">Accedi</a>
+      <a href="signup.php">Registrati</a>
     </div>
     <!--user_not_logged_end-->
 

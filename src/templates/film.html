@@ -7,7 +7,10 @@
     <meta name="description" content="Dettagli, specifiche e recensioni del singolo film" />
     <meta name="keywords" content="dettagli film, titolo film, descrizione film" />
 
-    <meta name="author" content="FrankCastleTech" />
+    <meta
+      name="author"
+      content="Loris Libralato, Leonardo Lucato, Piva Riccardo, Matteo Campagnaro, Tommaso Diviesti"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="css/style.css" media="screen" />
@@ -168,6 +171,8 @@
         <h3>Crea recensione</h3>
         <form action="review.php" method="post">
           <fieldset>
+            <legend>Crea una recensione</legend>
+
             <input type="hidden" name="modify" value="false" />
             <input type="hidden" name="film_id" value="{{film_id}}" />
             <input type="hidden" name="cat" value="{{film_cat}}" />
@@ -206,6 +211,8 @@
         <p>Modifica la tua recensione:</p>
         <form action="review.php" method="post">
           <fieldset>
+            <legend>Modifica la tua recensione</legend>
+
             <input type="hidden" name="modify" value="true" />
             <input type="hidden" name="film_id" value="{{film_id}}" />
             <input type="hidden" name="cat" value="{{film_cat}}" />
