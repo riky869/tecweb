@@ -48,14 +48,16 @@
 
     <main id="contenuto">
       <form action="" method="post">
-        <input type="text" name="username" />
-        <label for="username">username</label>
-        <input type="password" name="password" />
-        <label for="password">password</label>
-        <input type="submit" value="submit" />
-        <!--login_error_start-->
-        <p>{{error}}</p>
-        <!--login_error_end-->
+        <fieldset>
+          <input type="text" name="username" />
+          <label for="username">username</label>
+          <input type="password" name="password" />
+          <label for="password">password</label>
+          <input type="submit" value="submit" />
+          <!--login_error_start-->
+          <p>{{error}}</p>
+          <!--login_error_end-->
+        </fieldset>
       </form>
       <a href="signup.php">Registrati</a>
     </main>

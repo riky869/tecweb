@@ -167,16 +167,18 @@
         <!--crea_recensione_start-->
         <h3>Crea recensione</h3>
         <form action="review.php" method="post">
-          <input type="hidden" name="modify" value="false" />
-          <input type="hidden" name="film_id" value="{{film_id}}" />
-          <input type="hidden" name="cat" value="{{film_cat}}" />
-          <label for="title">Titolo</label>
-          <input type="text" name="title" value="" />
-          <label for="content">Commento</label>
-          <input type="text" name="content" value="" />
-          <label for="rating">Valutazione</label>
-          <input type="number" name="rating" value="8" />
-          <input type="submit" value="Crea recensione" />
+          <fieldset>
+            <input type="hidden" name="modify" value="false" />
+            <input type="hidden" name="film_id" value="{{film_id}}" />
+            <input type="hidden" name="cat" value="{{film_cat}}" />
+            <label for="title">Titolo</label>
+            <input type="text" name="title" value="" />
+            <label for="content">Commento</label>
+            <input type="text" name="content" value="" />
+            <label for="rating">Valutazione</label>
+            <input type="number" name="rating" value="8" />
+            <input type="submit" value="Crea recensione" />
+          </fieldset>
         </form>
         <!--crea_recensione_end-->
       </section>
@@ -199,16 +201,18 @@
         <!--mod_recensione_utente_start-->
         <p>Modifica la tua recensione:</p>
         <form action="review.php" method="post">
-          <input type="hidden" name="modify" value="true" />
-          <input type="hidden" name="film_id" value="{{film_id}}" />
-          <input type="hidden" name="cat" value="{{film_cat}}" />
-          <label for="title">Title</label>
-          <input type="text" name="title" value="{{mod_title}}" />
-          <label for="content">Commento</label>
-          <input type="text" name="content" value="{{mod_content}}" />
-          <label for="rating">Valutazione</label>
-          <input type="number" name="rating" value="{{mod_rating}}" />
-          <input type="submit" value="Modifica recensione" />
+          <fieldset>
+            <input type="hidden" name="modify" value="true" />
+            <input type="hidden" name="film_id" value="{{film_id}}" />
+            <input type="hidden" name="cat" value="{{film_cat}}" />
+            <label for="title">Title</label>
+            <input type="text" name="title" value="{{mod_title}}" />
+            <label for="content">Commento</label>
+            <input type="text" name="content" value="{{mod_content}}" />
+            <label for="rating">Valutazione</label>
+            <input type="number" name="rating" value="{{mod_rating}}" />
+            <input type="submit" value="Modifica recensione" />
+          </fieldset>
         </form>
         <!--mod_recensione_utente_end-->
         <!--recensioni_start-->
