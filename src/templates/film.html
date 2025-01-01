@@ -171,12 +171,16 @@
             <input type="hidden" name="modify" value="false" />
             <input type="hidden" name="film_id" value="{{film_id}}" />
             <input type="hidden" name="cat" value="{{film_cat}}" />
+
             <label for="title">Titolo</label>
-            <input type="text" name="title" value="" />
+            <input id="title" type="text" name="title" value="" />
+
             <label for="content">Commento</label>
-            <input type="text" name="content" value="" />
+            <textarea rows="20" cols="40" id="content" name="content"></textarea>
+
             <label for="rating">Valutazione</label>
-            <input type="number" name="rating" value="8" />
+            <input id="rating" type="range" name="rating" value="5" min="1" max="10" />
+
             <input type="submit" value="Crea recensione" />
           </fieldset>
         </form>
@@ -205,12 +209,17 @@
             <input type="hidden" name="modify" value="true" />
             <input type="hidden" name="film_id" value="{{film_id}}" />
             <input type="hidden" name="cat" value="{{film_cat}}" />
-            <label for="title">Title</label>
+
+            <label for="title">Titolo</label>
             <input type="text" name="title" value="{{mod_title}}" />
+
             <label for="content">Commento</label>
-            <input type="text" name="content" value="{{mod_content}}" />
+            <textarea rows="20" cols="40" id="content" name="content">
+              {{mod_content}}
+            </textarea>
+
             <label for="rating">Valutazione</label>
-            <input type="number" name="rating" value="{{mod_rating}}" />
+            <input id="rating" type="range" name="rating" value="{{mod_rating}}" min="1" max="10" />
             <input type="submit" value="Modifica recensione" />
           </fieldset>
         </form>
