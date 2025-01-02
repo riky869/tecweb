@@ -11,6 +11,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-style: none;
 }
 
 /* :root {
@@ -27,8 +30,8 @@
 } */
 
 body {
-  /* Serve solo per tenere il footer in basso */
   min-height: 100vh;
+  display: flex; /* Serve per tenere il footer in basso */
   flex-direction: column;
   background-color: var(--color-background);
   margin-left: 20%;
@@ -39,15 +42,18 @@ body {
   /* colori principali */
   --color-primary: #1a1a1a; /* grigio molto scuro per sfondo principale */
   --color-secondary: #c4b27f; /* oro sobrio per contrasti usato anche per link visitati ma andrebbe deciso un altro colore*/
+  --color-extra: #d2691e; /* cioccolato per titoli h4 */
   --color-text-light: #ffffff; /* bianco per testo su sfondo scuro */
   --color-text-dark: #000000; /* nero puro per contrasto massimo */
+  --color-content-bg: #333333; /* grigio scuro per sfondo contenuto */
   --color-background: #242424; /* grigio scuro per sfondo */
   --color-accent: #8b0000; /* rosso scuro sobrio */
   --color-breadcrumb: #333333; /* grigio scuro per breadcrumb */
   --color-link: #4aaaff; /* blu sobrio per link */
-  --color-visited: #9370db; /* viola sobrio per link visitati */
+  --color-visited: #b6732f; /* perù per link visitati */
   --color-hover: #a52a2a; /* rosso brunito per hover */
   --color-text-secondary: #d3d3d3; /* grigio chiaro per testo secondario */
+  --color-current: #de593b; /* rosso puro per link corrente */
 }
 
 /* Stile Header */
@@ -57,10 +63,16 @@ header {
   padding: 3em 4em;
   background-color: var(--color-primary);
   color: var(--color-text-light);
-  background: url('../images/oppenheimer.jpg') left center,
-    url('../images/wildRobot.jpg') right center, var(--color-primary);
-  background-size: 15% auto, 15% auto;
-  background-position: 4em center, right 4em center;
+  background:
+    url('../images/oppenheimer.jpg') left center,
+    url('../images/wildRobot.jpg') right center,
+    var(--color-primary);
+  background-size:
+    15% auto,
+    15% auto;
+  background-position:
+    4em center,
+    right 4em center;
   background-repeat: no-repeat;
   margin: 1em 0;
 }
@@ -89,6 +101,8 @@ header h2 {
   color: var(--color-text-light);
   padding: 0.5em;
   padding-left: 1em;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
 #breadcrumb a {
@@ -123,9 +137,13 @@ header h2 {
   color: var(--color-visited);
 }
 
+#navbar li a:visited:hover {
+  color: var(--color-hover);
+}
+
 #currentLink {
   text-decoration: underline;
-  color: var(--color-secondary);
+  color: var(--color-current);
 }
 
 /* login */
@@ -150,14 +168,294 @@ header h2 {
   color: var(--color-visited);
 }
 
+#login a:visited:hover {
+  color: var(--color-hover);
+}
+
+/* logout */
+
+#loggato p {
+  color: var(--color-text-light);
+}
+
+#loggato a {
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+#loggato a:hover {
+  color: var(--color-hover);
+}
+
+#loggato a:visited {
+  color: var(--color-visited);
+}
+
+#loggato a:visited:hover {
+  color: var(--color-hover);
+}
+
+#loggato fieldset {
+  border: none;
+}
+
+#loggato legend {
+  color: var(--color-text-light);
+  margin-top: 0.2em;
+  margin-right: 0.3em;
+  float: left;
+}
+
+#loggato input[type='submit'] {
+  background-color: var(--color-secondary);
+  color: var(--color-text-light);
+  padding: 0.3em 0.4em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
 /* contenuto-centrale */
 
 main {
-  background-color: white;
-  color: var(--color-text-dark);
+  flex: 1; /* Serve per tenere il footer in basso */
+  background-color: var(--color-content-bg);
+  color: var(--color-text-light);
   padding: 1.75em;
-  margin: 0 0;
-  flex: 1;
+  margin: 1em 0;
+  border-radius: 8px;
+}
+
+main h2 {
+  color: var(--color-secondary);
+  margin-bottom: 0.5em;
+}
+
+main h3 {
+  color: var(--color-secondary);
+  margin-bottom: 0.5em;
+}
+
+main h4 {
+  color: var(--color-extra);
+  margin-bottom: 0.5em;
+}
+
+main p {
+  color: var(--color-text-secondary);
+  margin-bottom: 1em;
+}
+
+main a {
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+main a:hover {
+  color: var(--color-hover);
+}
+
+main a:visited {
+  color: var(--color-visited);
+}
+
+main a:visited:hover {
+  color: var(--color-hover);
+}
+
+/* griglia categorie */
+
+#griglia-categorie {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1em;
+  list-style-type: none;
+  /* padding: 0; */
+}
+
+#griglia-categorie li {
+  background-color: var(--color-primary);
+  border-radius: 8px;
+  text-align: center;
+}
+
+#griglia-categorie a {
+  display: block;
+  height: auto;
+  margin-top: 6em;
+  margin-bottom: 6em;
+  color: var(--color-text-light);
+  text-decoration: none;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* background-image: url('../images/placeholder.jpg'); */ /* da decidere se mettere immagine per categoria */
+}
+
+#griglia-categorie a:hover {
+  color: var(--color-hover);
+}
+
+#griglia-categorie a:visited {
+  color: var(--color-visited);
+}
+
+#griglia-categorie a:visited:hover {
+  color: var(--color-hover);
+}
+
+/* locandina e lista informazioni film */
+
+#informazioniPrincipali {
+  display: flex;
+}
+
+.info-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.info-list li {
+  margin-bottom: 0.5em;
+}
+
+.info-title {
+  font-weight: bold;
+  width: 15em;
+}
+
+/* Locandina film */
+.locandina {
+  max-width: 20em;
+  height: auto;
+  border-radius: 8px;
+  margin-right: 3em;
+}
+
+/* Generi film */
+
+#generi li {
+  list-style: none;
+  margin-right: 1em;
+  margin-bottom: 0.5em;
+}
+
+#generi ul {
+  margin-bottom: 1em;
+}
+
+#generi h4 {
+  margin-bottom: 0;
+}
+
+/* Lista persone film */
+
+.person-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1em;
+  list-style-type: none;
+  padding: 0;
+  margin: 1em 0;
+}
+
+.person-list figure {
+  background-color: var(--color-primary);
+  padding: 1em;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 10em;
+  height: 20em;
+}
+
+.person-list img {
+  max-width: auto;
+  height: 12em;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.5em;
+}
+
+.person-title {
+  font-weight: bold;
+  color: var(--color-extra);
+}
+
+.person-info {
+  text-align: left;
+  color: var(--color-text-secondary);
+  margin-top: 0.5em;
+}
+
+/* Stile per la sezione delle recensioni */
+.recensione {
+  background-color: var(--color-primary);
+  padding: 1em;
+  border-radius: 8px;
+  margin-bottom: 1em;
+}
+
+.recensione dt {
+  font-weight: bold;
+  color: var(--color-extra);
+}
+
+.recensione dd {
+  margin-left: 1em;
+  margin-bottom: 0.5em;
+  color: var(--color-text-secondary);
+  overflow-wrap: break-word;
+}
+
+/* Stile per il form delle recensioni */
+#formRecensione {
+  background-color: var(--color-primary);
+  padding: 1em;
+  border-radius: 8px;
+  margin-bottom: 1em;
+}
+
+#formRecensione fieldset {
+  border: none;
+}
+
+#formRecensione legend {
+  font-weight: bold;
+  color: var(--color-secondary);
+  margin-bottom: 0.5em;
+}
+
+#formRecensione label {
+  display: block;
+  color: var(--color-extra);
+  margin-bottom: 0.5em;
+}
+
+#formRecensione input[type='text'],
+#formRecensione textarea,
+#formRecensione input[type='range'] {
+  width: 100%;
+  margin-bottom: 1em;
+  margin-right: 3em;
+  border: 1px solid var(--color-secondary);
+  border-radius: 4px;
+  background-color: var(--color-background);
+  color: var(--color-text-light);
+}
+
+#formRecensione input[type='submit'] {
+  background-color: var(--color-secondary);
+  color: var(--color-text-light);
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#formRecensione input[type='submit']:hover {
+  background-color: var(--color-hover);
 }
 
 /* Stile Footer */

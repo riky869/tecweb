@@ -4,3 +4,48 @@ header {
   background-image: none;
   background-color: var(--color-primary);
 }
+
+body {
+  min-height: 100vh;
+  display: flex; /* Serve per tenere il footer in basso */
+  flex-direction: column;
+  background-color: var(--color-background);
+  margin: 0;
+  padding: 0;
+}
+
+footer {
+  display: inline;
+}
+
+footer img {
+  display: none;
+}
+
+@media screen and (max-width: 560px) {
+  #informazioniPrincipali {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .locandina {
+    max-width: 15em;
+    margin-right: 0;
+    margin-bottom: 1em;
+  }
+
+  .info-list {
+    width: 100%;
+    text-align: center;
+  }
+
+  .info-list li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .info-title {
+    width: auto;
+  }
+}

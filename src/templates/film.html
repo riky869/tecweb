@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
   <head>
     <meta charset="UTF-8" />
@@ -46,61 +46,54 @@
       <!--profile-->
     </nav>
 
-    <!--
-    Va scelto come nascondere la zona di scrittura recensione e se metterla sopra o sotto
-    alle lista delle recensioni.
-    Poi per far capire che per recensire bisogna loggarsi si puo mettere tipo nella
-    pagina di login secondo me e nell'index tipo stile pubblicità tipo "recensisci ora loggandoti!"
-    -->
-
-    <!--<aside></aside>*/-->
-
     <main id="contenuto" aria-label="Contenuto principale della pagina">
       <h2 id="film-title">{{nome_film}}</h2>
 
       <section aria-label="Informazioni principali">
         <h3>Informazioni principali</h3>
-        <ul class="info-list">
-          <li>
-            <h4 class="info-title">Titolo originale:</h4>
-            <p class="info-value">{{nome_originale}}</p>
-          </li>
-          <li>
-            <h4 class="info-title">Lingua originale:</h4>
-            <p class="info-value">{{lingua_originale}}</p>
-          </li>
-          <li>
-            <h4 class="info-title">Data di uscita:</h4>
-            <p class="info-value">{{data_uscita}}</p>
-          </li>
-          <li>
-            <h4 class="info-title">Durata:</h4>
-            <p class="info-value">{{durata}}</p>
-          </li>
-          <li>
-            <h4 class="info-title">Stato di avanzamento:</h4>
-            <p class="info-value">{{stato}}</p>
-          </li>
-          <li>
-            <h4 class="info-title">Budget:</h4>
-            <p class="info-value">{{budget}}</p>
-          </li>
-          <li>
-            <h4 class="info-title">Incassi:</h4>
-            <p class="info-value">{{incassi}}</p>
-          </li>
-          <li>
-            <h4 class="info-title">Valutazione:</h4>
-            <p class="info-value">{{valutazione}}</p>
-          </li>
-        </ul>
+        <div id="informazioniPrincipali">
+          <picture>
+            <img class="locandina" src="{{locandina}}" alt="Locandina del film {{nome_film}}" />
+          </picture>
 
-        <picture>
-          <img src="{{locandina}}" alt="Locandina del film {{nome_film}}" />
-        </picture>
+          <ul class="info-list">
+            <li>
+              <h4 class="info-title">Titolo originale:</h4>
+              <p class="info-value">{{nome_originale}}</p>
+            </li>
+            <li>
+              <h4 class="info-title">Lingua originale:</h4>
+              <p class="info-value">{{lingua_originale}}</p>
+            </li>
+            <li>
+              <h4 class="info-title">Data di uscita:</h4>
+              <p class="info-value">{{data_uscita}}</p>
+            </li>
+            <li>
+              <h4 class="info-title">Durata:</h4>
+              <p class="info-value">{{durata}}</p>
+            </li>
+            <li>
+              <h4 class="info-title">Stato di avanzamento:</h4>
+              <p class="info-value">{{stato}}</p>
+            </li>
+            <li>
+              <h4 class="info-title">Budget:</h4>
+              <p class="info-value">{{budget}}</p>
+            </li>
+            <li>
+              <h4 class="info-title">Incassi:</h4>
+              <p class="info-value">{{incassi}}</p>
+            </li>
+            <li>
+              <h4 class="info-title">Valutazione:</h4>
+              <p class="info-value">{{valutazione}}</p>
+            </li>
+          </ul>
+        </div>
       </section>
 
-      <section aria-label="Generi">
+      <section id="generi" aria-label="Generi">
         <h3>Generi</h3>
         <ul>
           <!--genere_start-->
@@ -120,8 +113,8 @@
         <h3><span lang="en">Cast</span></h3>
 
         <ul class="person-list">
+          <!--cast_start-->
           <li>
-            <!--cast_start-->
             <figure>
               <picture>
                 <img src="{{immagine_cast}}" alt="Immagine di {{cast_name}}" />
@@ -136,8 +129,8 @@
                 </dl>
               </figcaption>
             </figure>
-            <!--cast_end-->
           </li>
+          <!--cast_end-->
         </ul>
       </section>
 
@@ -145,8 +138,8 @@
         <h3><span lang="en">Crew</span></h3>
 
         <ul class="person-list">
+          <!--crew_start-->
           <li>
-            <!--crew_start-->
             <figure>
               <picture>
                 <img src="{{immagine_crew}}" alt="Immagine di {{crew_name}}" />
@@ -161,15 +154,15 @@
                 </dl>
               </figcaption>
             </figure>
-            <!--crew_end-->
           </li>
+          <!--crew_end-->
         </ul>
       </section>
 
       <section aria-label="Crea Recensione">
         <!--crea_recensione_start-->
         <h3>Crea recensione</h3>
-        <form action="review.php" method="post">
+        <form id="formRecensione" action="review.php" method="post">
           <fieldset>
             <legend>Crea una recensione</legend>
 
@@ -197,7 +190,7 @@
         <!--view_recensione_utente_start-->
         <!--TODO: modificare il tag p se necessario-->
         <p>La tua recensione:</p>
-        <dl>
+        <dl class="recensione">
           <dt>Valutazione:</dt>
           <dd>{{user_rev_rating}}</dd>
           <dt>Titolo:</dt>
@@ -209,7 +202,7 @@
         <!--view_recensione_utente_end-->
         <!--mod_recensione_utente_start-->
         <p>Modifica la tua recensione:</p>
-        <form action="review.php" method="post">
+        <form class="formRecensione" action="review.php" method="post">
           <fieldset>
             <legend>Modifica la tua recensione</legend>
 
@@ -232,7 +225,7 @@
         </form>
         <!--mod_recensione_utente_end-->
         <!--recensioni_start-->
-        <dl>
+        <dl class="recensione">
           <dt>Utente:</dt>
           <dd>{{rev_username}}</dd>
           <dt>Valutazione:</dt>
@@ -247,6 +240,7 @@
     </main>
 
     <!--torna_su-->
-    <!--footer-->
+    <!-- Include il file common.html per il footer -->
+    <!--#include virtual="common.html" -->
   </body>
 </html>
