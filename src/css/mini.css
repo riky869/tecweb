@@ -22,30 +22,28 @@ footer img {
   display: none;
 }
 
-@media screen and (max-width: 560px) {
-  #informazioniPrincipali {
-    flex-direction: column;
-    align-items: center;
-  }
+#informazioniPrincipali {
+  flex-direction: column;
+  align-items: center;
+}
 
-  .locandina {
-    max-width: 15em;
-    margin-right: 0;
-    margin-bottom: 1em;
-  }
+.locandina {
+  max-width: 15em;
+  margin-right: 0;
+  margin-bottom: 1em;
+}
 
-  .info-list {
-    width: 100%;
-    text-align: center;
-  }
+.info-list {
+  width: 100%;
+  text-align: center;
+}
 
-  .info-list li {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+.info-list li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  .info-title {
-    width: auto;
-  }
+.info-title {
+  width: auto;
 }

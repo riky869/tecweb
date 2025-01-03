@@ -505,14 +505,33 @@ footer p {
   padding-top: 3em;
   padding-bottom: 3em;
   color: var(--color-text-light);
-  background: url('../images/404.jpg') center center;
-  background-size: 40% auto;
-  background-position: 2em center;
-  background-repeat: no-repeat;
+  /* background:
+    url('../images/404.jpg') center center,
+    var(--color-primary);
+  background-size: 80% auto;
+  background-position: center;
+  background-repeat: no-repeat; */
 }
 
-.error404 h1 p {
+.error404 h2 {
+  color: var(--color-text-secondary);
   text-align: center;
+  margin-left: 1em;
+  margin-right: 1em;
+  background-image: url('../images/404.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  min-height: 8em;
+  /* background-position: 0 2em; */
+  background-position: bottom;
+  /* text-indent: -99999em; */
+  font-size: 3em;
+}
+
+.error404 p {
+  text-align: center;
+  margin-left: 1em;
+  margin-right: 1em;
 }
 
 /* Sezione aiuti alla navigazione */
