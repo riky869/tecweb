@@ -11,8 +11,7 @@ Session::start();
 $user = Session::get_user();
 
 if (empty($user)) {
-    header("Location: index.php");
-    exit();
+    Request::load_403_page();
 }
 
 $db = DB::from_env();

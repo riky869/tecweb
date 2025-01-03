@@ -39,6 +39,12 @@ class Request
         }
     }
 
+    static function load_403_page()
+    {
+        require("403.php");
+        exit();
+    }
+
     static function load_404_page()
     {
         require("404.php");

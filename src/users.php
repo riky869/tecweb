@@ -11,8 +11,7 @@ Session::start();
 $user = Session::get_user();
 
 if (empty($user) || !$user["is_admin"]) {
-    header("Location: index.php");
-    exit();
+    Request::load_403_page();
 }
 
 $common = Builder::load_common();

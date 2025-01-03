@@ -146,7 +146,77 @@ header h2 {
   color: var(--color-current);
 }
 
-/* login */
+/* login/signup form */
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-form form {
+  background-color: var(--color-primary);
+  padding: 2em;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 60%;
+  margin: 2em auto;
+}
+
+.login-form fieldset {
+  border: none;
+  padding: 0;
+}
+
+.login-form legend {
+  font-size: 1.5em;
+  color: var(--color-secondary);
+  margin-bottom: 1em;
+}
+
+.login-form label {
+  display: block;
+  color: var(--color-text-light);
+  margin-bottom: 0.5em;
+}
+
+.login-form input[type='text'],
+.login-form input[type='password'] {
+  width: 100%;
+  padding: 0em;
+  padding-top: 1.5em;
+  margin-bottom: 1em;
+  border: 1px solid var(--color-secondary);
+  border-radius: 4px;
+  background-color: var(--color-background);
+  color: var(--color-text-light);
+}
+
+.login-form input[type='submit'] {
+  background-color: var(--color-secondary);
+  color: var(--color-text-dark);
+  padding: 0.75em 1.5em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-form input[type='submit']:hover {
+  color: var(--color-text-dark);
+  background-color: var(--color-hover);
+}
+
+.login-form a {
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+.login-form a:hover {
+  color: var(--color-hover);
+}
+
+/* login navbar */
 
 #login {
   color: var(--color-text-light);
