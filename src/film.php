@@ -79,16 +79,18 @@ $template->replace_block_name_arr("genere", $categories, function (Builder $sec,
 });
 
 $template->replace_block_name_arr("cast", $cast, function (Builder $sec, array $i) {
+    $profileImage = $i["profile_image"] ? "./images/persone/" . $i["profile_image"] : "./images/no_picture_available.png";
     $sec->replace_singles([
-        "immagine_cast" => "./images/persone/" . $i["profile_image"],
+        "immagine_cast" => $profileImage,
         "cast_name" => $i["name"],
         "cast_job" => $i["role"],
     ]);
 });
 
 $template->replace_block_name_arr("crew", $crew, function (Builder $sec, array $i) {
+    $profileImage = $i["profile_image"] ? "./images/persone/" . $i["profile_image"] : "./images/no_picture_available.png";
     $sec->replace_singles([
-        "immagine_crew" => "./images/persone/" . $i["profile_image"],
+        "immagine_crew" =>  $profileImage,
         "crew_name" => $i["name"],
         "crew_job" => $i["role"],
     ]);
