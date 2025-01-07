@@ -47,3 +47,12 @@ footer img {
 .info-title {
   width: auto;
 }
+
+.person-list {
+  /* grid-template-columns: repeat(auto-fit, minmax(9em, 1fr)); */
+  grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+}
+
+.person-list figure {
+  max-width: 9em;
+}
