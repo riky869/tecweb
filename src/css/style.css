@@ -63,6 +63,22 @@ header {
   padding: 3em 4em;
   background-color: var(--color-primary);
   color: var(--color-text-light);
+  background: url('../images/header_bck.png');
+  background-size:
+    15% cover,
+    15% cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 1em 0;
+  height: 8em;
+}
+/*
+header {
+  text-align: center;
+  padding: 3em 4em;
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
   background:
     url('../images/oppenheimer.jpg') left center,
     url('../images/wildRobot.jpg') right center,
@@ -76,7 +92,7 @@ header {
   background-repeat: no-repeat;
   margin: 1em 0;
 }
-
+*/
 #contenuto-centrale {
   width: 50%;
   margin: 0 auto;
@@ -84,7 +100,7 @@ header {
 
 header h1 {
   font-size: 2.5em;
-  margin-bottom: 0.5em;
+  margin-top: 1em;
 }
 
 header h2 {
