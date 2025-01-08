@@ -31,7 +31,8 @@
 
 body {
   min-height: 100vh;
-  display: flex; /* Serve per tenere il footer in basso */
+  display: flex;
+  /* Serve per tenere il footer in basso */
   flex-direction: column;
   background-color: var(--color-background);
   margin-left: 20%;
@@ -40,20 +41,34 @@ body {
 
 :root {
   /* colori principali */
-  --color-primary: #1a1a1a; /* grigio molto scuro per sfondo principale */
-  --color-secondary: #c4b27f; /* oro sobrio per contrasti usato anche per link visitati ma andrebbe deciso un altro colore*/
-  --color-extra: #d2691e; /* cioccolato per titoli h4 */
-  --color-text-light: #ffffff; /* bianco per testo su sfondo scuro */
-  --color-text-dark: #000000; /* nero puro per contrasto massimo */
-  --color-content-bg: #333333; /* grigio scuro per sfondo contenuto */
-  --color-background: #242424; /* grigio scuro per sfondo */
-  --color-accent: #8b0000; /* rosso scuro sobrio */
-  --color-breadcrumb: #333333; /* grigio scuro per breadcrumb */
-  --color-link: #4aaaff; /* blu sobrio per link */
-  --color-visited: #b6732f; /* perù per link visitati */
-  --color-hover: #a52a2a; /* rosso brunito per hover */
-  --color-text-secondary: #d3d3d3; /* grigio chiaro per testo secondario */
-  --color-current: #de593b; /* rosso puro per link corrente */
+  --color-primary: #1a1a1a;
+  /* grigio molto scuro per sfondo principale */
+  --color-secondary: #c4b27f;
+  /* oro sobrio per contrasti usato anche per link visitati ma andrebbe deciso un altro colore*/
+  --color-extra: #d2691e;
+  /* cioccolato per titoli h4 */
+  --color-text-light: #ffffff;
+  /* bianco per testo su sfondo scuro */
+  --color-text-dark: #000000;
+  /* nero puro per contrasto massimo */
+  --color-content-bg: #333333;
+  /* grigio scuro per sfondo contenuto */
+  --color-background: #242424;
+  /* grigio scuro per sfondo */
+  --color-accent: #8b0000;
+  /* rosso scuro sobrio */
+  --color-breadcrumb: #333333;
+  /* grigio scuro per breadcrumb */
+  --color-link: #4aaaff;
+  /* blu sobrio per link */
+  --color-visited: #b6732f;
+  /* perù per link visitati */
+  --color-hover: #a52a2a;
+  /* rosso brunito per hover */
+  --color-text-secondary: #d3d3d3;
+  /* grigio chiaro per testo secondario */
+  --color-current: #de593b;
+  /* rosso puro per link corrente */
 }
 
 /* Stile Header */
@@ -73,6 +88,7 @@ header {
   margin: 1em 0;
   height: 8em;
 }
+
 /*
 header {
   text-align: center;
@@ -305,7 +321,8 @@ header h2 {
 /* contenuto-centrale */
 
 main {
-  flex: 1; /* Serve per tenere il footer in basso */
+  flex: 1;
+  /* Serve per tenere il footer in basso */
   background-color: var(--color-content-bg);
   color: var(--color-text-light);
   padding: 1.75em;
@@ -366,6 +383,10 @@ main a:visited:hover {
   text-align: center;
 }
 
+.cat_avventura {
+  background-image: url("./images/cat_avventura.png");
+}
+
 #griglia-categorie a {
   display: block;
   height: auto;
@@ -376,7 +397,8 @@ main a:visited:hover {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  /* background-image: url('../images/placeholder.jpg'); */ /* da decidere se mettere immagine per categoria */
+  /* background-image: url('../images/placeholder.jpg'); */
+  /* da decidere se mettere immagine per categoria */
 }
 
 #griglia-categorie a:hover {
@@ -626,6 +648,7 @@ footer p {
 .listaAiuti {
   list-style-type: none;
 }
+
 .aiutoNavigazione {
   position: absolute;
   text-indent: -9999em;
