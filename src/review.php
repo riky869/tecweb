@@ -24,7 +24,12 @@ $to_modify = $_POST["modify"] === "true";
 
 if (!empty($user)) {
     $db = DB::from_env();
-    // TODO: check if movie id exists
+
+    // check if movie id exists
+    if (!$db->get_movie($movie_id)) {
+        Request::load_404_page();
+    }
+
     if (!$to_modify) {
         $created = $db->create_review($movie_id, $user["username"], $_POST["title"], $_POST["content"], $_POST["rating"]);
     } else {
@@ -40,4 +45,5 @@ if (!empty($_POST["cat"])) {
 }
 
 header($location);
+http_response_code(303);
 exit();
