@@ -115,8 +115,20 @@ CREATE TABLE
 INSERT INTO
     user (username, password, name, last_name, is_admin)
 VALUES
-    ('admin', 'admin', 'mario', 'rossi', true),
-    ('user', 'user', 'luca', 'agostino', false);
+    (
+        'admin',
+        '$2a$12$.w3WfJMmXnV3Ap3H598wMOk/0bd7gk/OvCSx8QngaNkIs/VtgHDwq', -- BCRYPT12 HASH OF: 'admin'
+        'mario',
+        'rossi',
+        true
+    ),
+    (
+        'user',
+        '$2a$12$SwD9B93YDNIExvZAR1qbteLCY6uWwO0NrvrknQqE9WLHUty.ZAQki', -- BCRYPT12 HASH OF: 'user',
+        'luca',
+        'agostino',
+        false
+    );
 
 INSERT INTO
     category (name)

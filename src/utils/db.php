@@ -31,7 +31,6 @@ class DB
         $this->conn->close();
     }
 
-    // TODO: use hashing
     public function get_user_with_password(string $username, string $password): ?array
     {
         $stmt = $this->conn->prepare("SELECT * FROM user WHERE username=?");
@@ -46,8 +45,7 @@ class DB
         if ($res = $stmt->get_result()) {
             $row = $res->fetch_assoc();
             $res->free();
-
-            if ($row && $row["password"] == $password) {
+            if ($row && password_verify($password, $row["password"])) {
                 return $row;
             }
             return null;
@@ -82,6 +80,8 @@ class DB
         if (!$stmt) {
             throw new Exception("Could not prepare statement: " . $this->conn->error);
         }
+
+        $password = password_hash($password, PASSWORD_BCRYPT);
 
         if ($stmt->execute([
             $username,
