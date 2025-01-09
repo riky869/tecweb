@@ -82,6 +82,7 @@ $template->replace_block_name_arr("cast", $cast, function (Builder $sec, array $
     $profileImage = $i["profile_image"] ? "./images/persone/" . $i["profile_image"] : "./images/no_picture_available.png";
     $sec->replace_singles([
         "immagine_cast" => $profileImage,
+        "cast_alt_img_not_present" => empty($i["profile_image"]) ? ", non presente" : "",
         "cast_name" => $i["name"],
         "cast_job" => $i["role"],
     ]);
@@ -91,6 +92,7 @@ $template->replace_block_name_arr("crew", $crew, function (Builder $sec, array $
     $profileImage = $i["profile_image"] ? "./images/persone/" . $i["profile_image"] : "./images/no_picture_available.png";
     $sec->replace_singles([
         "immagine_crew" =>  $profileImage,
+        "crew_alt_img_not_present" => empty($i["profile_image"]) ? ", non presente" : "",
         "crew_name" => $i["name"],
         "crew_job" => $i["role"],
     ]);
