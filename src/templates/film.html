@@ -173,7 +173,7 @@
           <fieldset>
             <legend>Crea una recensione</legend>
 
-            <input type="hidden" name="modify" value="false" />
+            <input type="hidden" name="type" value="create" />
             <input type="hidden" name="film_id" value="{{film_id}}" />
             <input type="hidden" name="cat" value="{{film_cat}}" />
 
@@ -213,7 +213,7 @@
           <fieldset>
             <legend>Modifica la tua recensione</legend>
 
-            <input type="hidden" name="modify" value="true" />
+            <input type="hidden" name="type" value="modify" />
             <input type="hidden" name="film_id" value="{{film_id}}" />
             <input type="hidden" name="cat" value="{{film_cat}}" />
 
@@ -231,6 +231,19 @@
           </fieldset>
         </form>
         <!--mod_recensione_utente_end-->
+        <!--delete_recensione_utente_start-->
+        <form action="review.php" method="post">
+          <fieldset>
+            <legend>Elimina la tua recensione</legend>
+
+            <input type="hidden" name="type" value="delete" />
+            <input type="hidden" name="film_id" value="{{film_id}}" />
+            <input type="hidden" name="cat" value="{{film_cat}}" />
+
+            <input type="submit" value="Elimina recensione" />
+          </fieldset>
+        </form>
+        <!--delete_recensione_utente_end-->
         <!--recensioni_start-->
         <dl class="recensione">
           <dt>Utente:</dt>
@@ -242,6 +255,20 @@
           <dt>Commento:</dt>
           <dd>{{rev_content}}</dd>
         </dl>
+        <!--delete_recensione_start-->
+        <form action="review.php" method="post">
+          <fieldset>
+            <legend>Elimina la recensione</legend>
+
+            <input type="hidden" name="type" value="delete" />
+            <input type="hidden" name="film_id" value="{{film_id}}" />
+            <input type="hidden" name="username" value="{{rev_username}}" />
+            <input type="hidden" name="cat" value="{{film_cat}}" />
+
+            <input type="submit" value="Elimina recensione" />
+          </fieldset>
+        </form>
+        <!--delete_recensione_end-->
         <!--recensioni_end-->
       </section>
     </main>

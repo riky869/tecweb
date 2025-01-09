@@ -6,7 +6,8 @@ class Session
 
     static function start()
     {
-        session_start();
+        if (session_status() === PHP_SESSION_NONE)
+            session_start();
     }
 
     static function is_logged(): bool
