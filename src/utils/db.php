@@ -76,7 +76,7 @@ class DB
 
     public function create_user(string $username, string $password, string $name, string $last_name): bool
     {
-        $stmt = $this->conn->prepare("INSERT INTO user (username, password, name, last_name, is_admin) VALUES (?,?,?,0)");
+        $stmt = $this->conn->prepare("INSERT INTO user (username, password, name, last_name, is_admin) VALUES (?,?,?,?,0)");
         if (!$stmt) {
             throw new Exception("Could not prepare statement: " . $this->conn->error);
         }
