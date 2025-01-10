@@ -385,18 +385,68 @@ main a:visited:hover {
   background-color: var(--color-primary);
   border-radius: 8px;
   text-align: center;
+  border: 0.1em solid var(--color-text-secondary);
 
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-#cat_avventura {
-  background-image: url("../images/wildRobot.jpg");
+/* Immagini sfondo categorie */
+#cat_fantascienza {
+  background-image: url("../images/fantascienza.png");
 }
 
-#cat_fantascienza {
-  background-image: url("../images/oppenheimer.jpg");
+#cat_azione {
+  background-image: url("../images/azione.png");
+}
+
+#cat_avventura {
+  background-image: url("../images/avventura.png");
+}
+
+#cat_animazione {
+  background-image: url("../images/animazione.png");
+}
+
+#cat_famiglia {
+  background-image: url("../images/famiglia.png");
+}
+
+#cat_commedia {
+  background-image: url("../images/commedia.png");
+}
+
+#cat_thriller {
+  background-image: url("../images/thriller.png");
+}
+
+#cat_crime {
+  background-image: url("../images/crime.png");
+}
+
+#cat_romance {
+  background-image: url("../images/romance.png");
+}
+
+#cat_televisione {
+  background-image: url("../images/televisione.png");
+}
+
+#cat_mistero {
+  background-image: url("../images/mistero.png");
+}
+
+#cat_storia {
+  background-image: url("../images/storia.png");
+}
+
+#cat_dramma {
+  background-image: url("../images/dramma.png");
+}
+
+#cat_fantasy {
+  background-image: url("../images/fantasy.png");
 }
 
 .griglia-categorie a {
