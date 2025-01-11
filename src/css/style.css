@@ -41,34 +41,47 @@ body {
 
 :root {
   /* colori principali */
-  --color-primary: #1a1a1a;
+
+  --color-primary: #000000;
   /* grigio molto scuro per sfondo principale */
   --color-secondary: #c4b27f;
   /* oro sobrio per contrasti usato anche per link visitati ma andrebbe deciso un altro colore*/
   --color-extra: #d2691e;
   /* cioccolato per titoli h4 */
+
   --color-text-light: #ffffff;
   /* bianco per testo su sfondo scuro */
   --color-text-dark: #000000;
   /* nero puro per contrasto massimo */
-  --color-content-bg: #333333;
+
+  --color-content-bg: #000000;
   /* grigio scuro per sfondo contenuto */
-  --color-background: #242424;
+  --color-background: #161617;
   /* grigio scuro per sfondo */
-  --color-accent: #8b0000;
-  /* rosso scuro sobrio */
-  --color-breadcrumb: #333333;
+  --color-breadcrumb: #2b2b2d;
   /* grigio scuro per breadcrumb */
+
   --color-link: #4aaaff;
   /* blu sobrio per link */
-  --color-visited: #b6732f;
+  --color-visited: #b27ffa;
   /* perù per link visitati */
-  --color-hover: #a52a2a;
-  /* rosso brunito per hover */
+
   --color-text-secondary: #d3d3d3;
   /* grigio chiaro per testo secondario */
-  --color-current: #de593b;
+  --color-current: #e03838;
   /* rosso puro per link corrente */
+
+
+
+
+  --color-button-hover: #344ca3;
+
+
+
+
+
+  --color-gradient1: #F7B500;
+  --color-gradient2: #6DD400;
 }
 
 /* Stile Header */
@@ -143,7 +156,7 @@ header h2 {
 }
 
 #breadcrumb a:hover {
-  color: var(--color-hover);
+  border-bottom: 0.2em solid;
 }
 
 /* Stile Menu */
@@ -162,7 +175,7 @@ header h2 {
 }
 
 #navbar li a:hover {
-  color: var(--color-hover);
+  border-bottom: 0.08em solid;
 }
 
 #navbar li a:visited {
@@ -170,11 +183,11 @@ header h2 {
 }
 
 #navbar li a:visited:hover {
-  color: var(--color-hover);
+  border-bottom: 0.08em solid;
 }
 
 #currentLink {
-  text-decoration: underline;
+  border-bottom: 0.08em solid;
   color: var(--color-current);
 }
 
@@ -187,7 +200,11 @@ header h2 {
 }
 
 .login-form form {
-  background-color: var(--color-primary);
+  background-image: url(../images/back.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 0.08em solid var(--color-text-secondary);
+  /*background-color: var(--color-breadcrumb);*/
   padding: 2em;
   padding-left: 1.5em;
   border-radius: 8px;
@@ -202,8 +219,8 @@ header h2 {
 }
 
 .login-form legend {
-  font-size: 1.5em;
-  color: var(--color-secondary);
+  font-size: 2em;
+  color: var(--color-text-light);
   margin-bottom: 1em;
 }
 
@@ -221,25 +238,25 @@ header h2 {
   padding-left: 0.5em;
   padding-bottom: 0.5em;
   margin-bottom: 1em;
-  border: 1px solid var(--color-secondary);
   border-radius: 4px;
-  background-color: var(--color-background);
-  color: var(--color-text-light);
+  background-color: var(--color-text-light);
+  color: var(--color-text-dark);
 }
 
 .login-form input[type='submit'] {
-  background-color: var(--color-secondary);
-  color: var(--color-text-dark);
+  background-color: var(--color-link);
+  color: var(--color-text-light);
   padding: 0.75em 1.5em;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.2s ease;
+  margin-top: 0.5em;
 }
 
 .login-form input[type='submit']:hover {
-  color: var(--color-text-dark);
-  background-color: var(--color-hover);
+  color: var(--color-text-light);
+  background-color: var(--color-button-hover);
 }
 
 .login-form a {
@@ -248,7 +265,7 @@ header h2 {
 }
 
 .login-form a:hover {
-  color: var(--color-hover);
+  border-bottom: 0.08em solid;
 }
 
 /* login navbar */
@@ -266,7 +283,7 @@ header h2 {
 }
 
 #login a:hover {
-  color: var(--color-hover);
+  border-bottom: 0.08em solid;
 }
 
 #login a:visited {
@@ -274,7 +291,7 @@ header h2 {
 }
 
 #login a:visited:hover {
-  color: var(--color-hover);
+  border-bottom: 0.08em solid;
 }
 
 /* logout */
@@ -289,7 +306,7 @@ header h2 {
 }
 
 #loggato a:hover {
-  color: var(--color-hover);
+  border-bottom: 0.08em solid;
 }
 
 #loggato a:visited {
@@ -297,7 +314,7 @@ header h2 {
 }
 
 #loggato a:visited:hover {
-  color: var(--color-hover);
+  border-bottom: 0.08em solid;
 }
 
 #loggato fieldset {
@@ -359,7 +376,7 @@ main a {
 }
 
 main a:hover {
-  color: var(--color-hover);
+  border-bottom: 0.08em solid;
 }
 
 main a:visited {
@@ -367,7 +384,12 @@ main a:visited {
 }
 
 main a:visited:hover {
-  color: var(--color-hover);
+  border-bottom: 0.08em solid;
+}
+
+#cat_title{
+  font-size: 2em;
+  color: white;
 }
 
 /* griglia categorie */
@@ -385,12 +407,13 @@ main a:visited:hover {
   background-color: var(--color-primary);
   border-radius: 8px;
   text-align: center;
-  border: 0.1em solid var(--color-text-secondary);
+  border: 0.07em solid var(--color-text-secondary);
 
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
+
 
 /* Immagini sfondo categorie */
 #cat_fantascienza {
@@ -451,20 +474,16 @@ main a:visited:hover {
 
 .griglia-categorie a {
   display: block;
-  height: auto;
-  margin-top: 6em;
-  margin-bottom: 6em;
+  padding-top: 6em;
+  padding-bottom: 6em;
   color: var(--color-text-light);
   text-decoration: none;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  /* background-image: url('../images/placeholder.jpg'); */
-  /* da decidere se mettere immagine per categoria */
 }
 
 .griglia-categorie a:hover {
-  color: var(--color-hover);
+  border: none;
+  background-color:rgba(0, 0, 0, 0.6);
+  border-radius: 8px;
 }
 
 .griglia-categorie a:visited {
@@ -472,7 +491,9 @@ main a:visited:hover {
 }
 
 .griglia-categorie a:visited:hover {
-  color: var(--color-hover);
+  border: none;
+  background-color:rgba(0, 0, 0, 0.6);
+  border-radius: 8px;
 }
 
 /* locandina e lista informazioni film */
@@ -644,7 +665,7 @@ main a:visited:hover {
 }
 
 .formRecensione input[type='submit']:hover {
-  background-color: var(--color-hover);
+  background-color: var(--color-button-hover);
 }
 
 /* Stile Footer */
