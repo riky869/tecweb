@@ -20,10 +20,10 @@ class DB
 
     public static function from_env(): Self
     {
-        $host = getenv("DB_HOST") ? getenv("DB_HOST") : DEFAULT_VARS["DB_HOST"];
-        $user = getenv("DB_USER") ? getenv("DB_USER") : DEFAULT_VARS["DB_USER"];
-        $pass = getenv("DB_PASS") ? getenv("DB_PASS") : DEFAULT_VARS["DB_PASS"];
-        $dbname = getenv("DB_NAME") ? getenv("DB_NAME") : DEFAULT_VARS["DB_NAME"];
+        $host = getenv("DB_HOST") != false ? getenv("DB_HOST") : DEFAULT_VARS["DB_HOST"];
+        $user = getenv("DB_USER") != false ? getenv("DB_USER") : DEFAULT_VARS["DB_USER"];
+        $pass = getenv("DB_PASS") != false ? getenv("DB_PASS") : DEFAULT_VARS["DB_PASS"];
+        $dbname = getenv("DB_NAME") != false ? getenv("DB_NAME") : DEFAULT_VARS["DB_NAME"];
 
         return new Self($host, $dbname, $user, $pass);
     }
