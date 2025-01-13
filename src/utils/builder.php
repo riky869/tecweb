@@ -1,5 +1,7 @@
 <?php
 
+require_once("utils/cred.php");
+
 enum VarType
 {
     case Section; // <!--$name-->
@@ -209,6 +211,8 @@ class Builder
             "header" => $common->get_block("header"),
             "torna_su" => $common->get_block("torna_su"),
             "footer" => $common->get_block("footer"),
+            // NOTE: this is a workaround to use relative path based on the environment, production UniPD server or local docker env
+            "html_head" => $common->get_block("html_head")->replace_var("html_head_base_path", DEFAULT_VARS["BASE_PATH"]),
         ]);
 
         $this->replace_profile($user, $common);

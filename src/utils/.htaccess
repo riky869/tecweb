@@ -1,0 +1,4 @@
+# Blocca tutte le richieste alla cartella
+<RequireAll>
+    Require all denied
+</RequireAll>

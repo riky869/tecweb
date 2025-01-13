@@ -18,13 +18,6 @@ set
 
 show variables like 'char%';
 
--- DATABASE START --
-DROP DATABASE IF EXISTS tecweb;
-
-CREATE DATABASE IF NOT EXISTS tecweb;
-
-USE tecweb;
-
 -- TABLES START -- 
 DROP TABLE IF EXISTS review,
 movie_crew,

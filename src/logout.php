@@ -9,4 +9,4 @@ Session::start();
 
 Session::logout();
 // Redirect to home
-header("location: index.php");
+Request::redirect("/index.php");

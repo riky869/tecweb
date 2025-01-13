@@ -2,6 +2,8 @@
 
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
+require_once("utils/cred.php");
+
 class DB
 {
     private mysqli $conn;
@@ -18,10 +20,10 @@ class DB
 
     public static function from_env(): Self
     {
-        $host = getenv("DB_HOST");
-        $user = getenv("DB_USER");
-        $pass = getenv("DB_PASS");
-        $dbname = getenv("DB_NAME");
+        $host = getenv("DB_HOST") ? getenv("DB_HOST") : DEFAULT_VARS["DB_HOST"];
+        $user = getenv("DB_USER") ? getenv("DB_USER") : DEFAULT_VARS["DB_USER"];
+        $pass = getenv("DB_PASS") ? getenv("DB_PASS") : DEFAULT_VARS["DB_PASS"];
+        $dbname = getenv("DB_NAME") ? getenv("DB_NAME") : DEFAULT_VARS["DB_NAME"];
 
         return new Self($host, $dbname, $user, $pass);
     }

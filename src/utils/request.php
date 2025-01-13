@@ -34,8 +34,7 @@ class Request
     {
         $methods = array_map(fn(string $method): string => strtoupper($method), $methods);
         if (!in_array(Self::method(), $methods)) {
-            http_response_code(404);
-            exit();
+            Self::load_404_page();
         }
     }
 
@@ -54,6 +53,13 @@ class Request
     static function load_500_page()
     {
         require("500.php");
+        exit();
+    }
+
+    static function redirect($url)
+    {
+        header("location: $url");
+        http_response_code(302);
         exit();
     }
 };

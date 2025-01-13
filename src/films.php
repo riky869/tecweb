@@ -10,18 +10,16 @@ Session::start();
 
 $user = Session::get_user();
 
-if (empty($_GET["cat"])) {
-    header("Location: categories.php");
-    exit();
+$category = $_GET["cat"] ?? null;
+if (empty($category)) {
+    Request::load_404_page();
 }
-
-$category = $_GET["cat"];
 $db = DB::from_env();
 $categoryFound = $db->get_category($category);
 
 if (empty($categoryFound)) {
-    header("Location: categories.php");
-    exit();
+    $db->close();
+    Request::load_404_page();
 }
 
 $movies_data = $db->get_movies_by_category($category);

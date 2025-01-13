@@ -2,7 +2,7 @@
 
 header {
   background-image: none;
-  background-color: var(--color-primary);
+  /* background-color: var(--color-primary); */
 }
 
 body {
@@ -18,9 +18,17 @@ footer {
   display: inline;
 }
 
-footer img {
-  display: none;
+footer p {
+  background-image: none;
 }
+
+footer img {
+  /* display: none; */
+}
+
+/* .login-form form { */
+/*   width: auto; */
+/* } */
 
 #informazioniPrincipali {
   flex-direction: column;
