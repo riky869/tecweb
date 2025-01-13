@@ -28,9 +28,9 @@ if (Request::is_post()) {
     if (empty($username) || empty($password) || empty($name) || empty($last_name)) {
         $register_error = "Compilare tutti i campi";
     } else if (strlen($username) < 4 || strlen($username) > 20) {
-        $register_error = "Username deve essere lungo tra 4 e 20 caratteri";
-    } else if (strlen($password) < 5) {
-        $register_error = "Password deve essere più lungo di 5 caratteri";
+        $register_error = "L'username deve essere lungo tra 4 e 20 caratteri";
+    } else if (strlen($password) < 4) {
+        $register_error = "La Password deve essere più lunga di 4 caratteri";
     } else if (strlen($name) < 2) {
         $register_error = "Nome deve essere lungo almeno 2 caratteri";
     } else if (strlen($last_name) < 2) {
