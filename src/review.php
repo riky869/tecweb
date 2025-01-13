@@ -8,11 +8,7 @@ require_once("utils/session.php");
 Request::allowed_methods(["POST"]);
 Session::start();
 
-if (empty($_POST["film_id"])) {
-    Request::load_404_page();
-}
-
-if (empty($_POST["type"])) {
+if (empty($_POST["film_id"]) || empty($_POST["type"])) {
     Request::load_404_page();
 }
 
@@ -59,11 +55,9 @@ if (!empty($user)) {
 }
 // TODO: else redirect to error probably
 
-$location = "Location: film.php?id=$movie_id";
+$location = "/film.php?id=$movie_id";
 if (!empty($_POST["cat"])) {
     $location .= "&cat=" . $_POST["cat"];
 }
 
-header($location);
-http_response_code(303);
-exit();
+Request::redirect($location);

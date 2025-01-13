@@ -55,4 +55,11 @@ class Request
         require("500.php");
         exit();
     }
+
+    static function redirect($url)
+    {
+        header("location: $url");
+        http_response_code(302);
+        exit();
+    }
 };

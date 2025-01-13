@@ -9,7 +9,7 @@ Request::allowed_methods(["GET", "POST"]);
 Session::start();
 
 if (Session::is_logged()) {
-    header("Location: index.php");
+    Request::redirect("/index.php");
 }
 
 $login_error = null;
@@ -33,7 +33,7 @@ if (Request::is_post()) {
         if ($user) {
             // Redirect to home
             Session::set_user($user);
-            header("location: index.php");
+            Request::redirect("/index.php");
         } else {
             // show error
             $login_error = "Username o password errate";
