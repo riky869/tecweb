@@ -34,8 +34,7 @@ class Request
     {
         $methods = array_map(fn(string $method): string => strtoupper($method), $methods);
         if (!in_array(Self::method(), $methods)) {
-            http_response_code(404);
-            exit();
+            Self::load_404_page();
         }
     }
 

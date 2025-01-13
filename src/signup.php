@@ -11,35 +11,54 @@ Session::start();
 $user = Session::get_user();
 
 if (!empty($user)) {
-    header("Location: profile.php");
-    exit();
+    Request::load_403_page();
 }
 
 $template = Builder::from_template(basename(__FILE__));
 
-if (Request::is_post()) {
-    $username = $_POST["username"];
-    $password = $_POST["password"];
-    $name = $_POST["name"];
-    $last_name = $_POST["last_name"];
+$register_error = null;
 
-    $db = DB::from_env();
-    $created = $db->create_user($username, $password, $name, $last_name);
-    if ($created) {
-        Session::set_user($db->get_user($username));
-        $db->close();
-        header("Location: profile.php");
-        exit();
+if (Request::is_post()) {
+    $username = $_POST["username"] ?? null;
+    $password = $_POST["password"] ?? null;
+    $name = $_POST["name"] ?? null;
+    $last_name = $_POST["last_name"] ?? null;
+
+
+    if (empty($username) || empty($password) || empty($name) || empty($last_name)) {
+        $register_error = "Compilare tutti i campi";
+    } else if (strlen($username) < 4 || strlen($username) > 20) {
+        $register_error = "Username deve essere lungo tra 4 e 20 caratteri";
+    } else if (strlen($password) < 5) {
+        $register_error = "Password deve essere più lungo di 5 caratteri";
+    } else if (strlen($name) < 2) {
+        $register_error = "Nome deve essere lungo almeno 2 caratteri";
+    } else if (strlen($last_name) < 2) {
+        $register_error = "Cognome deve essere lungo almeno 2 caratteri";
     } else {
-        $template->replace_var(
-            "register_error",
-            $template->get_block("register_error")->replace_var("error_value", "Errore creazione utente"),
-            VarType::Block
-        );
+        $db = DB::from_env();
+        $created = $db->create_user($username, $password, $name, $last_name);
+        if ($created) {
+            Session::set_user($db->get_user($username));
+            $db->close();
+            header("Location: profile.php");
+            http_response_code(303);
+            exit();
+        } else {
+            $register_error = "Errore durante la creazione dell'utente";
+        }
+        $db->close();
     }
-    $db->close();
-} else if (Request::is_get()) {
+}
+
+if (empty($register_error)) {
     $template->delete_blocks(["register_error"]);
+} else {
+    $template->replace_var(
+        "register_error",
+        $template->get_block("register_error")->replace_var("error_value", $register_error),
+        VarType::Block
+    );
 }
 
 $common = Builder::load_common();

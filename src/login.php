@@ -14,19 +14,30 @@ if (Session::is_logged()) {
 
 $login_error = null;
 if (Request::is_post()) {
-    $db = DB::from_env();
+    $username = $_POST["username"] ?? null;
+    $password = $_POST["password"] ?? null;
 
-    // fetch user
-    $user = $db->get_user_with_password(Request::post_param("username"), Request::post_param("password"));
-    $db->close();
-
-    if ($user) {
-        // Redirect to home
-        Session::set_user($user);
-        header("location: index.php");
+    if (empty($username) || empty($password)) {
+        $login_error = "Inserisci username e password";
+    } else if (!preg_match("/^[a-zA-Z0-9_]{3,20}$/", $username)) {
+        $login_error = "Username o password errate";
+    } else if (strlen($password) < 5) {
+        $login_error = "Username o password errate";
     } else {
-        // show error
-        $login_error = "Credenziali non valide";
+
+        $db = DB::from_env();
+        // fetch user
+        $user = $db->get_user_with_password($_POST["username"], $_POST["password"]);
+        $db->close();
+
+        if ($user) {
+            // Redirect to home
+            Session::set_user($user);
+            header("location: index.php");
+        } else {
+            // show error
+            $login_error = "Username o password errate";
+        }
     }
 }
 

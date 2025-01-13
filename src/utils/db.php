@@ -6,6 +6,13 @@ class DB
 {
     private mysqli $conn;
 
+    static $DEFAULT_VARS = [
+        "DB_HOST" => "localhost",
+        "DB_USER" => "",
+        "DB_PASS" => "",
+        "DB_NAME" => ""
+    ];
+
     public function __construct($host, $dbname, $user, $pass)
     {
         $conn = mysqli_connect($host, $user, $pass, $dbname, 3306);
@@ -18,10 +25,10 @@ class DB
 
     public static function from_env(): Self
     {
-        $host = getenv("DB_HOST");
-        $user = getenv("DB_USER");
-        $pass = getenv("DB_PASS");
-        $dbname = getenv("DB_NAME");
+        $host = getenv("DB_HOST") ?? self::$DEFAULT_VARS["DB_HOST"];
+        $user = getenv("DB_USER") ?? self::$DEFAULT_VARS["DB_USER"];
+        $pass = getenv("DB_PASS") ?? self::$DEFAULT_VARS["DB_PASS"];
+        $dbname = getenv("DB_NAME") ?? self::$DEFAULT_VARS["DB_NAME"];
 
         return new Self($host, $dbname, $user, $pass);
     }

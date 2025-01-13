@@ -13,25 +13,25 @@
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="css/style.css" media="screen" />
-    <link rel="stylesheet" href="css/mini.css" media="screen and (max-width: 930px)" />
+    <link rel="stylesheet" href="/css/style.css" media="screen" />
+    <link rel="stylesheet" href="/css/mini.css" media="screen and (max-width: 930px)" />
   </head>
 
   <body>
     <!--header-->
 
     <nav id="breadcrumb">
-      <p>Ti trovi in: <a href="categories.php">Categorie</a> > {{cat_selected}}</p>
+      <p>Ti trovi in: <a href="/categories.php">Categorie</a> > {{cat_selected}}</p>
     </nav>
 
     <nav id="menu">
       <ul id="navbar">
-        <li><a href="index.php">Home</a></li>
-        <li><a href="categories.php">Categorie</a></li>
+        <li><a href="/index.php">Home</a></li>
+        <li><a href="/categories.php">Categorie</a></li>
         <!--menu_admin_start-->
-        <li><a href="users.php">Utenti</a></li>
+        <li><a href="/users.php">Utenti</a></li>
         <!--menu_admin_end-->
-        <li><a href="about.php">Informazioni</a></li>
+        <li><a href="/about.php">Informazioni</a></li>
       </ul>
       <!--profile-->
     </nav>
@@ -71,7 +71,7 @@
       <ul>
         <!--movie_start-->
         <li>
-          <h3><a href="film.php?id={{film_id}}&cat={{cat_name}}">{{film_name}}</a></h3>
+          <h3><a href="/film.php?id={{film_id}}&cat={{cat_name}}">{{film_name}}</a></h3>
           <h4>Descrizione:</h4>
           <p>{{description}}</p>
         </li>
