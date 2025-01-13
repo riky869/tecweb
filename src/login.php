@@ -21,7 +21,7 @@ if (Request::is_post()) {
         $login_error = "Inserisci username e password";
     } else if (!preg_match("/^[a-zA-Z0-9_]{3,20}$/", $username)) {
         $login_error = "Username o password errate";
-    } else if (strlen($password) < 5) {
+    } else if (strlen($password) < 4) {
         $login_error = "Username o password errate";
     } else {
 

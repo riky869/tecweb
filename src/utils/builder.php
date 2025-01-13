@@ -28,9 +28,9 @@ class Builder
     {
         // assert that the template have replaced all the variables
         $matches = [];
-        $m = preg_match_all("/({{([a-zA-Z0-9_]+)}}|<!--([a-zA-Z0-9_]+)-->)/", $this->content, $matches);
+        $m = preg_match_all("/({{([a-zA-Z0-9_]+)}}|<!--([a-zA-Z0-9_]+)-->)/", $this->content, $matches, PREG_PATTERN_ORDER);
         // TODO: enable in DEBUG mode
-        // assert($m == 0, "$m template variables have not been replaced: " . join(', ', $matches));
+        assert($m == 0, "$m template variables have not been replaced: " . join(', ', $matches[0]));
 
         echo ($this->content);
 
