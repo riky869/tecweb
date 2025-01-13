@@ -190,7 +190,6 @@ header h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   padding: 0;
 }
 
@@ -230,7 +229,8 @@ header h2 {
 
 .login-form input[type='text'],
 .login-form input[type='password'] {
-  /* width: 100%; */
+  width: 100%;
+  box-sizing: border-box;
   padding: 0.5em;
   /* padding-top: 0.5em; */
   /* padding-left: 0.5em; */
@@ -242,8 +242,8 @@ header h2 {
 }
 
 .login-form input[type='submit'] {
-  /* width: 20%; */
-  min-width: 80px;
+  width: 20%;
+  min-width: fit-content;
   background-color: var(--color-link);
   color: var(--color-text-light);
   padding: 0.75em 1.5em;
@@ -266,6 +266,11 @@ header h2 {
 
 .login-form a:hover {
   border-bottom: 0.08em solid;
+}
+
+.login-form fieldset p {
+  margin: 0;
+  margin-top: 1em;
 }
 
 /* login navbar */
@@ -546,7 +551,7 @@ main a:visited:hover {
 }
 
 .person-list figure {
-  background-color: var(--color-primary);
+  background-color: var(--color-secondary-background);
   padding: 1em;
   border-radius: 8px;
   text-align: center;
@@ -627,7 +632,8 @@ main a:visited:hover {
 
 .formRecensione input[type='text'],
 .formRecensione textarea {
-  /* width: 100%; */
+  width: 100%;
+  box-sizing: border-box;
   /* margin-right: 3em; */
   padding: 0.5em;
   margin-bottom: 1em;
@@ -668,11 +674,62 @@ main a:visited:hover {
   transition: background-color 0.2s ease;
   cursor: pointer;
   width: 18%;
-  min-width: 130px;
+  min-width: fit-content;
   margin-top: 1em;
+
+  /* Serve per mandare a capo il testo del bottone quando troppo lungo */
+  white-space: normal;
+  word-wrap: break-word;
 }
 
 .formRecensione input[type='submit']:hover {
+  color: var(--color-text-light);
+  background-color: var(--color-button-hover);
+}
+
+/* Eliminazione recensione */
+
+#formEliminazione {
+  background-color: var(--color-secondary-background);
+  padding: 0 1em;
+  border-radius: 8px;
+  margin: 1em auto 0;
+}
+
+#formEliminazione fieldset {
+  border: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 0.5em;
+}
+
+#formEliminazione legend {
+  /* font-weight: bold; */
+  color: var(--color-secondary);
+  float: left;
+  margin: 1em 1em 1em 0;
+}
+
+#formEliminazione input[type='submit'] {
+  background-color: var(--color-link);
+  color: var(--color-text-light);
+  padding: 0.75em 1em;
+  /* padding: 0.75em 1.5em; */
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+  width: 18%;
+  min-width: fit-content;
+  margin: 1em 0;
+
+  /* Serve per mandare a capo il testo del bottone quando troppo lungo */
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+#formEliminazione input[type='submit']:hover {
   color: var(--color-text-light);
   background-color: var(--color-button-hover);
 }

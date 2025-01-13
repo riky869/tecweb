@@ -2,3 +2,4 @@
 .DS_Store
 /scripts/tmdb_data/venv
 /scripts/tmdb_data/output
+.php-cs-fixer.cache
