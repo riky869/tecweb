@@ -16,8 +16,9 @@
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="/css/style.css" media="screen" />
-    <link rel="stylesheet" href="/css/mini.css" media="screen and (max-width: 930px)" />
+    <!--html_head-->
+    <link rel="stylesheet" href="css/style.css" media="screen" />
+    <link rel="stylesheet" href="css/mini.css" media="screen and (max-width: 930px)" />
   </head>
 
   <body>
@@ -30,11 +31,11 @@
     <nav id="menu">
       <ul id="navbar">
         <li id="currentLink">Home</li>
-        <li><a href="/categories.php">Categorie</a></li>
+        <li><a href="categories.php">Categorie</a></li>
         <!--menu_admin_start-->
-        <li><a href="/users.php">Utenti</a></li>
+        <li><a href="users.php">Utenti</a></li>
         <!--menu_admin_end-->
-        <li><a href="/about.php">Informazioni</a></li>
+        <li><a href="about.php">Informazioni</a></li>
       </ul>
       <!--profile-->
     </nav>
@@ -74,7 +75,7 @@
       <!--last_reviews_start-->
       <dl class="recensione">
         <dt>Film:</dt>
-        <dd><a href="/film.php?id={{rec_film_id}}">{{rec_film_title}}</a></dd>
+        <dd><a href="film.php?id={{rec_film_id}}">{{rec_film_title}}</a></dd>
         <dt>Valutazione:</dt>
         <dd>{{rec_rating}}</dd>
         <dt>Titolo:</dt>

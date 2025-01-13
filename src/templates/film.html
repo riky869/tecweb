@@ -13,8 +13,9 @@
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="/css/style.css" media="screen" />
-    <link rel="stylesheet" href="/css/mini.css" media="screen and (max-width: 930px)" />
+    <!--html_head-->
+    <link rel="stylesheet" href="css/style.css" media="screen" />
+    <link rel="stylesheet" href="css/mini.css" media="screen and (max-width: 930px)" />
   </head>
 
   <body>
@@ -25,24 +26,24 @@
         Ti trovi in:
 
         <!--breadcrumb_da_categoria_start-->
-        <a href="/categories.php">Categorie</a> >
-        <a href="/films.php?cat={{breadcrumb_nome_cat}}">{{breadcrumb_nome_cat}}</a> >
+        <a href="categories.php">Categorie</a> >
+        <a href="films.php?cat={{breadcrumb_nome_cat}}">{{breadcrumb_nome_cat}}</a> >
         {{breadcrumb_nome_film}}
         <!--breadcrumb_da_categoria_end-->
         <!--breadcrumb_da_altro_start-->
-        <a href="/index.php">Home</a> > {{breadcrumb_nome_film}}
+        <a href="index.php">Home</a> > {{breadcrumb_nome_film}}
         <!--breadcrumb_da_altro_end-->
       </p>
     </nav>
 
     <nav id="menu" aria-label="Menù">
       <ul id="navbar">
-        <li><a href="/index.php">Home</a></li>
-        <li><a href="/categories.php">Categorie</a></li>
+        <li><a href="index.php">Home</a></li>
+        <li><a href="categories.php">Categorie</a></li>
         <!--menu_admin_start-->
-        <li><a href="/users.php">Utenti</a></li>
+        <li><a href="users.php">Utenti</a></li>
         <!--menu_admin_end-->
-        <li><a href="/about.php">Informazioni</a></li>
+        <li><a href="about.php">Informazioni</a></li>
       </ul>
       <!--profile-->
     </nav>
@@ -205,7 +206,7 @@
           <dt>Commento:</dt>
           <dd>{{user_rev_content}}</dd>
         </dl>
-        <a href="/{{mod_location}}">Modifica recensione</a>
+        <a href="{{mod_location}}">Modifica recensione</a>
         <!--view_recensione_utente_end-->
         <!--mod_recensione_utente_start-->
         <form class="formRecensione" action="review.php" method="post">

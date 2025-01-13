@@ -13,8 +13,9 @@
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="/css/style.css" media="screen" />
-    <link rel="stylesheet" href="/css/mini.css" media="screen and (max-width: 930px)" />
+    <!--html_head-->
+    <link rel="stylesheet" href="css/style.css" media="screen" />
+    <link rel="stylesheet" href="css/mini.css" media="screen and (max-width: 930px)" />
   </head>
 
   <body>
@@ -26,12 +27,12 @@
 
     <nav id="menu">
       <ul id="navbar">
-        <li><a href="/index.php">Home</a></li>
+        <li><a href="index.php">Home</a></li>
         <li id="currentLink">Categorie</li>
         <!--menu_admin_start-->
-        <li><a href="/users.php">Utenti</a></li>
+        <li><a href="users.php">Utenti</a></li>
         <!--menu_admin_end-->
-        <li><a href="/about.php">Informazioni</a></li>
+        <li><a href="about.php">Informazioni</a></li>
       </ul>
       <!--profile-->
     </nav>
@@ -60,7 +61,7 @@
       <ul class="griglia-categorie">
         <!--category_start-->
         <li id="{{cat_img_class}}">
-          <a href="/films.php?cat={{cat_name}}">{{cat_name}}</a>
+          <a href="films.php?cat={{cat_name}}">{{cat_name}}</a>
         </li>
         <!--category_end-->
       </ul>

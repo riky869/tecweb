@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head> </head>
+  <head>
+    <!--html_head_start-->
+    <base href="{{html_head_base_path}}" />
+    <!--html_head_end-->
+  </head>
 
   <body>
     <!--header_start-->
     <header id="top">
       <nav aria-label="Aiuti alla navigazione">
         <ul class="listaAiuti">
-          <li><a href="/#contenuto" class="aiutoNavigazione">Vai al contenuto</a></li>
-          <li><a href="/#menu" class="aiutoNavigazione">Vai alla navigazione</a></li>
+          <li><a href="#contenuto" class="aiutoNavigazione">Vai al contenuto</a></li>
+          <li><a href="#menu" class="aiutoNavigazione">Vai alla navigazione</a></li>
         </ul>
       </nav>
-      <!-- <img src="../images/The_Batman_Poster.jpg" alt="Immagine poster the batman" /> -->
+      <!-- <img src="images/The_Batman_Poster.jpg" alt="Immagine poster the batman" /> -->
       <!--Da vedere se tenere div-->
       <div id="contenuto-centrale">
         <h1><span lang="en">Popcorn time</span></h1>
@@ -20,13 +24,13 @@
           amici al bar
         </h2> -->
       </div>
-      <!-- <img src="../images/The_Dark_Knight.jpg" alt="Immagine poster the dark knight" /> -->
+      <!-- <img src="images/The_Dark_Knight.jpg" alt="Immagine poster the dark knight" /> -->
     </header>
     <!--header_end-->
 
     <!--user_logged_start-->
     <div id="loggato">
-      <p>Utente corrente: <a href="/profile.php">{{username}}</a></p>
+      <p>Utente corrente: <a href="profile.php">{{username}}</a></p>
       <form method="POST" action="logout.php">
         <fieldset>
           <legend>Effettua la disconnessione</legend>
@@ -38,20 +42,20 @@
 
     <!--user_not_logged_start-->
     <div id="login">
-      <a href="/login.php">Accedi</a>
-      <a href="/signup.php">Registrati</a>
+      <a href="login.php">Accedi</a>
+      <a href="signup.php">Registrati</a>
     </div>
     <!--user_not_logged_end-->
 
     <!--torna_su_start-->
-    <a href="/#top" class="aiutoNavigazione">Torna su</a>
+    <a href="#top" class="aiutoNavigazione">Torna su</a>
     <!--torna_su_end-->
 
     <!--footer_start-->
     <footer>
-      <img src="../images/w3c_html5.png" alt="Immagine certificazione html5" />
+      <img src="images/w3c_html5.png" alt="Immagine certificazione html5" />
       <p>&copy; 2025 FrankCastleTech. All rights reserved.</p>
-      <img src="../images/w3c_css.png" alt="Immagine certificazione css" />
+      <img src="images/w3c_css.png" alt="Immagine certificazione css" />
     </footer>
     <!--footer_end-->
   </body>
