@@ -70,12 +70,13 @@
           <input type="text" name="last_name" id="last_name" value="" />
 
           <input type="submit" value="Registrati" />
+
+          <!--register_error_start-->
+          <p class="loginForm-error">{{register_error}}</p>
+          <!--register_error_end-->
         </fieldset>
       </form>
 
-      <!--register_error_start-->
-      <p>{{register_error}}</p>
-      <!--register_error_end-->
       <p>Possiedi già un account? <a href="login.php">Accedi</a></p>
     </main>
 
