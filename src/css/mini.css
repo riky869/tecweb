@@ -1,10 +1,5 @@
 /* css per il resize della finestra da mobile*/
 
-header {
-  background-image: none;
-  /* background-color: var(--color-primary); */
-}
-
 body {
   min-height: 100vh;
   display: flex; /* Serve per tenere il footer in basso */
