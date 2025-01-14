@@ -395,10 +395,10 @@ class DB
         return $stmt->affected_rows > 0;
     }
 
-    public function get_last_reviews(int $num_revs): ?array
+    public function get_last_reviews(int $num_revs = 5): ?array
     {
 
-        $stmt = $this->conn->prepare("SELECT title,content,rating,movie_id,name FROM review JOIN movie ON review.movie_id = movie.id ORDER BY data LIMIT ?");
+        $stmt = $this->conn->prepare("SELECT review.*, movie.name FROM review JOIN movie ON review.movie_id = movie.id ORDER BY data LIMIT ?");
 
         if (!$stmt) {
             throw new Exception("Could not prepare statement: " . $this->conn->error);
@@ -406,6 +406,56 @@ class DB
 
         if (!$stmt->execute([
             $num_revs,
+        ])) {
+            throw new Exception("Could not execute statement: " . $stmt->error);
+        }
+
+        if ($res = $stmt->get_result()) {
+            $row = $res->fetch_all(MYSQLI_ASSOC);
+            $res->free();
+            return $row;
+        } else {
+            throw new Exception("Could not execute statement: " . $stmt->error);
+        }
+    }
+
+    public function get_top_films(int $num = 5): ?array
+    {
+        $stmt = $this->conn->prepare("
+        SELECT movie.*, AVG(review.rating) as avg_rating FROM review JOIN movie ON review.movie_id = movie.id GROUP BY movie.id ORDER BY avg_rating DESC LIMIT ?
+        ");
+
+        if (!$stmt) {
+            throw new Exception("Could not prepare statement: " . $this->conn->error);
+        }
+
+        if (!$stmt->execute([
+            $num,
+        ])) {
+            throw new Exception("Could not execute statement: " . $stmt->error);
+        }
+
+        if ($res = $stmt->get_result()) {
+            $row = $res->fetch_all(MYSQLI_ASSOC);
+            $res->free();
+            return $row;
+        } else {
+            throw new Exception("Could not execute statement: " . $stmt->error);
+        }
+    }
+
+    public function get_incoming_films(int $num = 5): ?array
+    {
+        $stmt = $this->conn->prepare("
+        SELECT * FROM movie ORDER BY release_date DESC LIMIT ?
+        ");
+
+        if (!$stmt) {
+            throw new Exception("Could not prepare statement: " . $this->conn->error);
+        }
+
+        if (!$stmt->execute([
+            $num,
         ])) {
             throw new Exception("Could not execute statement: " . $stmt->error);
         }

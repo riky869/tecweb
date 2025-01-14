@@ -37,15 +37,23 @@ if (Request::is_post()) {
         $register_error = "Cognome deve essere lungo almeno 2 caratteri";
     } else {
         $db = DB::from_env();
-        $created = $db->create_user($username, $password, $name, $last_name);
-        if ($created) {
-            Session::set_user($db->get_user($username));
+        try {
+            $created = $db->create_user($username, $password, $name, $last_name);
+            if ($created) {
+                Session::set_user($db->get_user($username));
+                $db->close();
+                Request::redirect("profile.php");
+            } else {
+                $register_error = "Errore durante la creazione dell'utente";
+            }
             $db->close();
-            Request::redirect("profile.php");
-        } else {
-            $register_error = "Errore durante la creazione dell'utente";
+        } catch (mysqli_sql_exception $e) {
+            if ($e->getCode() == 1062) { // Duplicate entry error code
+                $register_error = "Username già esistente";
+            } else {
+                $register_error = "Errore interno del server";
+            }
         }
-        $db->close();
     }
 }
 
