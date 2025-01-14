@@ -209,7 +209,17 @@
           <dt>Commento:</dt>
           <dd>{{user_rev_content}}</dd>
         </dl>
-        <a href="{{mod_location}}">Modifica recensione</a>
+        <form action="film.php#modificaRecensione" method="get">
+          <fieldset>
+            <legend>Modifica la tua recensione</legend>
+
+            <input type="hidden" name="type" value="modify" />
+            <input type="hidden" name="id" value="{{film_id}}" />
+            <input type="hidden" name="cat" value="{{film_cat}}" />
+            <input type="hidden" name="modifica" value="1" />
+            <input type="submit" value="Modifica recensione" />
+          </fieldset>
+        </form>
         <!--view_recensione_utente_end-->
         <!--mod_recensione_utente_start-->
         <form id="modificaRecensione" class="formRecensione" action="review.php" method="post">

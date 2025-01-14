@@ -161,7 +161,8 @@ if (!empty($user) && !empty($user_review)) {
             "user_rev_rating" => $user_review["rating"],
             "user_rev_title" => $user_review["title"],
             "user_rev_content" => $user_review["content"],
-            "mod_location" => "film.php?id=$movie_id&cat=$category&modifica=1&#modificaRecensione",
+            "film_id" => $movie_id,
+            "film_cat" => $category ?? "",
         ]), VarType::Block);
         $template->delete_blocks(["mod_recensione_utente"]);
     }
