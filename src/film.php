@@ -36,7 +36,7 @@ $db->close();
 $average_rating = 0;
 if (!empty($reviews)) {
     $total_rating = array_sum(array_column($reviews, 'rating'));
-    $average_rating = $total_rating / count($reviews);
+    $average_rating = round($total_rating / count($reviews), 2);
 }
 
 $template = Builder::from_template(basename(__FILE__));

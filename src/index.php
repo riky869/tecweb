@@ -15,7 +15,7 @@ $db = DB::from_env();
 try {
     $new_films = $db->get_incoming_films(5);
     $top_films = $db->get_top_films(5);
-    $last_reviews = $db->get_last_reviews(10);
+    $last_reviews = $db->get_last_reviews(5);
 } catch (Exception $e) {
     Request::load_500_page();
 }
