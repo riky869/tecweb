@@ -25,18 +25,23 @@ if (Request::is_post()) {
         $login_error = "Username o password errate";
     } else {
 
-        $db = DB::from_env();
-        // fetch user
-        $user = $db->get_user_with_password($_POST["username"], $_POST["password"]);
-        $db->close();
+        try {
 
-        if ($user) {
-            // Redirect to home
-            Session::set_user($user);
-            Request::redirect("index.php");
-        } else {
-            // show error
-            $login_error = "Username o password errate";
+            $db = DB::from_env();
+            // fetch user
+            $user = $db->get_user_with_password($_POST["username"], $_POST["password"]);
+            $db->close();
+
+            if ($user) {
+                // Redirect to home
+                Session::set_user($user);
+                Request::redirect("index.php");
+            } else {
+                // show error
+                $login_error = "Username o password errate";
+            }
+        } catch (mysqli_sql_exception $e) {
+            $login_error = "Errore interno del server";
         }
     }
 }
