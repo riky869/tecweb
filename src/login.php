@@ -9,7 +9,7 @@ Request::allowed_methods(["GET", "POST"]);
 Session::start();
 
 if (Session::is_logged()) {
-    Request::redirect("/index.php");
+    Request::redirect("index.php");
 }
 
 $login_error = null;

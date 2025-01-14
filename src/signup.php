@@ -41,7 +41,7 @@ if (Request::is_post()) {
         if ($created) {
             Session::set_user($db->get_user($username));
             $db->close();
-            Request::redirect("/profile.php");
+            Request::redirect("profile.php");
         } else {
             $register_error = "Errore durante la creazione dell'utente";
         }
