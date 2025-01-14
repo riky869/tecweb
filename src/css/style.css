@@ -446,24 +446,12 @@ main a:visited:hover {
   background-image: url('../images/thriller.png');
 }
 
-#cat_crime {
-  background-image: url('../images/crime.png');
-}
-
 #cat_romance {
   background-image: url('../images/romance.png');
 }
 
-#cat_televisione {
-  background-image: url('../images/televisione.png');
-}
-
 #cat_horror {
   background-image: url('../images/horror.png');
-}
-
-#cat_storia {
-  background-image: url('../images/storia.png');
 }
 
 #cat_dramma {
