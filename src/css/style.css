@@ -272,9 +272,11 @@ header h2 {
 }
 
 .loginForm-error {
+  font-size: 0.9em;
+  font-weight: 100;
   color: var(--color-text-light);
   padding-bottom: 0.2em;
-  border-bottom: 0.15em solid var(--color-current);
+  border-bottom: 0.14em solid var(--color-current);
 }
 
 /* login navbar */
@@ -519,6 +521,8 @@ main a:visited:hover {
 .griglia-about li p{
   margin-top: 0.3em;
   color: var(--color-text-light);
+  text-align: center;
+  font-size: 1em;
 }
 
 /* locandina e lista informazioni film */
