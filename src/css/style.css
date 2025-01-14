@@ -37,6 +37,7 @@ body {
   background-color: var(--color-background);
   margin-left: 20%;
   margin-right: 20%;
+  transition: 0.5s ease;
 }
 
 :root {
@@ -46,7 +47,8 @@ body {
   /* grigio molto scuro per sfondo principale */
   --color-secondary: #c4b27f;
   /* oro sobrio per contrasti usato anche per link visitati ma andrebbe deciso un altro colore*/
-  --color-extra: #d2691e;
+  /* --color-extra: #d2691e; */
+  --color-extra: #e07529;
   /* cioccolato per titoli h4 */
 
   --color-text-light: #ffffff;
@@ -582,7 +584,8 @@ main a:visited:hover {
   background-color: var(--color-secondary-background);
   padding: 1em;
   border-radius: 8px;
-  margin-bottom: 1em;
+  /* margin-bottom: 1em; */
+  margin: 1em 0;
 }
 
 .recensione dt {
@@ -812,6 +815,7 @@ footer p {
   text-align: center;
   margin-left: 1em;
   margin-right: 1em;
+  font-size: 1.3em;
 }
 
 /* Sezione aiuti alla navigazione */
@@ -823,11 +827,37 @@ footer p {
 .aiutoNavigazione {
   position: absolute;
   text-indent: -9999em;
+  color: var(--color-link);
 }
 
 .aiutoNavigazione:focus {
   position: static;
   text-indent: 0;
+}
+
+/* Stile bottone torna su fixed in fondo a destra della pagina */
+
+#tornaSu {
+  position: absolute;
+  cursor: pointer;
+  text-indent: -9999em;
+  color: var(--color-text-light);
+  width: 3em;
+  height: 3em;
+}
+
+#tornaSu:focus {
+  position: fixed;
+  background-image: url('../images/tornaSu.png');
+  background-repeat: no-repeat;
+  /* border-radius: 100%; */
+  border-radius: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-color: var(--color-button-hover);
+  overflow: hidden;
+  right: 1em;
+  bottom: 1em;
 }
 
 /*
