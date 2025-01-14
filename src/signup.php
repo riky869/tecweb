@@ -54,7 +54,7 @@ if (empty($register_error)) {
 } else {
     $template->replace_var(
         "register_error",
-        $template->get_block("register_error")->replace_var("error_value", $register_error),
+        $template->get_block("register_error")->replace_var("register_error", $register_error),
         VarType::Block
     );
 }
