@@ -398,7 +398,7 @@ class DB
     public function get_last_reviews(int $num_revs = 5): ?array
     {
 
-        $stmt = $this->conn->prepare("SELECT title,content,rating,movie_id,name FROM review JOIN movie ON review.movie_id = movie.id ORDER BY data LIMIT ?");
+        $stmt = $this->conn->prepare("SELECT review.*, movie.name FROM review JOIN movie ON review.movie_id = movie.id ORDER BY data LIMIT ?");
 
         if (!$stmt) {
             throw new Exception("Could not prepare statement: " . $this->conn->error);

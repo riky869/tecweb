@@ -45,6 +45,7 @@ $template->replace_block_name_arr("top_films", $top_films, function (Builder $t,
 $template->replace_block_name_arr("last_reviews", $last_reviews, function (Builder $t, array $i) {
     $t->replace_singles([
         "rec_film_title" => $i["name"],
+        "rec_username" => $i["username"],
         "rec_film_id" => $i["movie_id"],
         "rec_title" => $i["title"],
         "rec_content" => $i["content"],
