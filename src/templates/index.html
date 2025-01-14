@@ -68,9 +68,27 @@
       <h2>Benvenuti su Popcorn time</h2>
       <p>Esprimi le tue idee sui tuoi film preferiti nessuno ti giudicherà.</p>
       <h3>Film in uscita</h3>
-      <!-- Aggiungi i film -->
+      <!--new_films_start-->
+      <dl>
+        <dt>Film:</dt>
+        <dd><a href="film.php?id={{new_film_id}}">{{new_film_title}}</a></dd>
+        <dt>Descrizione:</dt>
+        <dd>{{new_film_descrizione}}</dd>
+      </dl>
+      <!--new_films_end-->
+
       <h3>Film con voto più alto</h3>
-      <!-- Aggiungi i film -->
+      <!--top_films_start-->
+      <dl>
+        <dt>Film:</dt>
+        <dd><a href="film.php?id={{top_film_id}}">{{top_film_title}}</a></dd>
+        <dt>Descrizione:</dt>
+        <dd>{{top_film_descrizione}}</dd>
+        <dt>Valutazione:</dt>
+        <dd>{{top_film_rating}}</dd>
+      </dl>
+      <!--top_films_end-->
+
       <h3>Le ultime 10 recensioni</h3>
       <!--last_reviews_start-->
       <dl class="recensione">
@@ -84,11 +102,9 @@
         <dd>{{rec_content}}</dd>
       </dl>
       <!--last_reviews_end-->
-      <!-- Aggiungi i film -->
     </main>
 
     <!--torna_su-->
-
     <!--footer-->
   </body>
 </html>
