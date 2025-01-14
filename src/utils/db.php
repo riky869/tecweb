@@ -306,6 +306,26 @@ class DB
         }
     }
 
+    public function get_review_by_user_and_movie(string $username, int $movie_id): ?array
+    {
+        $stmt = $this->conn->prepare("SELECT * FROM review WHERE username = ? AND review.movie_id = ?");
+        if (!$stmt) {
+            throw new Exception("Could not prepare statement: " . $this->conn->error);
+        }
+
+        if (!$stmt->execute([$username, $movie_id])) {
+            throw new Exception("Could not execute statement: " . $stmt->error);
+        }
+
+        if ($res = $stmt->get_result()) {
+            $row = $res->fetch_all(MYSQLI_ASSOC);
+            $res->free();
+            return $row;
+        } else {
+            throw new Exception("Could not execute statement: " . $stmt->error);
+        }
+    }
+
     public function create_review(int $film_id, string $username, string $title, string $content, int $rating): bool
     {
         $stmt = $this->conn->prepare("INSERT INTO review (

@@ -175,6 +175,16 @@ else {
     $template->delete_blocks(["mod_recensione_utente", "view_recensione_utente", "delete_recensione_utente"]);
 }
 
+if (!empty($_SESSION["review_error"])) {
+    $template->replace_var(
+        "crea_recensione_error",
+        $template->get_block("crea_recensione_error")->replace_singles(["crea_recensione_error" => $_SESSION["review_error"]]),
+        VarType::Block
+    );
+    unset($_SESSION["review_error"]);
+} else {
+    $template->delete_blocks(["crea_recensione_error"]);
+}
 
 $common = Builder::load_common();
 $template->build($user, $common);

@@ -167,8 +167,8 @@
         </ul>
       </section>
 
+      <!--crea_recensione_start-->
       <section aria-label="Crea Recensione">
-        <!--crea_recensione_start-->
         <h3>Crea recensione</h3>
         <form class="formRecensione" action="review.php" method="post">
           <fieldset>
@@ -190,8 +190,11 @@
             <input type="submit" value="Crea recensione" />
           </fieldset>
         </form>
-        <!--crea_recensione_end-->
+        <!--crea_recensione_error_start-->
+        <p>{{crea_recensione_error}}</p>
+        <!--crea_recensione_error_end-->
       </section>
+      <!--crea_recensione_end-->
 
       <section aria-label="Recensioni">
         <h3>Recensioni</h3>

@@ -112,6 +112,10 @@ class Builder
             $start = strpos($this->content, $start_pattern);
             $end = strpos($this->content, $end_pattern);
 
+            // pattern not found
+            if ($start === false && $end === false) {
+                return $this;
+            }
             assert($start !== false && $end !== false);
 
             $this->content = substr_replace($this->content, $value, $start, $end - $start + strlen($start_pattern));

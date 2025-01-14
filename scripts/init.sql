@@ -93,7 +93,6 @@ CREATE TABLE
 
 CREATE TABLE
     IF NOT EXISTS review (
-        id INT PRIMARY KEY AUTO_INCREMENT,
         title VARCHAR(255) NOT NULL,
         content TEXT NOT NULL,
         data DATE NOT NULL,
@@ -101,7 +100,8 @@ CREATE TABLE
         username VARCHAR(255),
         movie_id INT,
         FOREIGN KEY (username) REFERENCES user (username),
-        FOREIGN KEY (movie_id) REFERENCES movie (id)
+        FOREIGN KEY (movie_id) REFERENCES movie (id),
+        PRIMARY KEY (username, movie_id)
     );
 
 -- INSERT_START --
