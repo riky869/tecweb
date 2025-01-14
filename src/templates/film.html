@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
   <head>
     <meta charset="UTF-8" />
@@ -199,87 +199,98 @@
       <section aria-label="Recensioni">
         <h3>Recensioni</h3>
         <!--view_recensione_utente_start-->
-        <!--TODO: modificare il tag p se necessario-->
-        <p>La tua recensione:</p>
-        <dl class="recensione">
-          <dt>Valutazione:</dt>
-          <dd>{{user_rev_rating}}</dd>
-          <dt>Titolo:</dt>
-          <dd>{{user_rev_title}}</dd>
-          <dt>Commento:</dt>
-          <dd>{{user_rev_content}}</dd>
-        </dl>
-        <form action="film.php#modificaRecensione" method="get">
-          <fieldset>
-            <legend>Modifica la tua recensione</legend>
+        <div class="frameRecensione">
+          <!--TODO: modificare il tag p se necessario-->
+          <p>La tua recensione:</p>
+          <dl class="recensione">
+            <dt>Valutazione:</dt>
+            <dd>{{user_rev_rating}}</dd>
+            <dt>Titolo:</dt>
+            <dd>{{user_rev_title}}</dd>
+            <dt>Commento:</dt>
+            <dd>{{user_rev_content}}</dd>
+          </dl>
+          <form class="formGestione" action="film.php#modificaRecensione" method="get">
+            <fieldset>
+              <legend>Modifica la tua recensione</legend>
 
-            <input type="hidden" name="type" value="modify" />
-            <input type="hidden" name="id" value="{{film_id}}" />
-            <input type="hidden" name="cat" value="{{film_cat}}" />
-            <input type="hidden" name="modifica" value="1" />
-            <input type="submit" value="Modifica recensione" />
-          </fieldset>
-        </form>
-        <!--view_recensione_utente_end-->
-        <!--mod_recensione_utente_start-->
-        <form id="modificaRecensione" class="formRecensione" action="review.php" method="post">
-          <fieldset>
-            <legend>Modifica la tua recensione</legend>
+              <input type="hidden" name="type" value="modify" />
+              <input type="hidden" name="id" value="{{film_id}}" />
+              <input type="hidden" name="cat" value="{{film_cat}}" />
+              <input type="hidden" name="modifica" value="1" />
+              <input type="submit" value="Modifica recensione" />
+            </fieldset>
+          </form>
+          <!--view_recensione_utente_end-->
+          <!--mod_recensione_utente_start-->
+          <form id="modificaRecensione" class="formGestione" action="review.php" method="post">
+            <fieldset>
+              <legend>Modifica la tua recensione</legend>
 
-            <input type="hidden" name="type" value="modify" />
-            <input type="hidden" name="film_id" value="{{film_id}}" />
-            <input type="hidden" name="cat" value="{{film_cat}}" />
+              <input type="hidden" name="type" value="modify" />
+              <input type="hidden" name="film_id" value="{{film_id}}" />
+              <input type="hidden" name="cat" value="{{film_cat}}" />
 
-            <label for="title">Titolo</label>
-            <input type="text" name="title" value="{{mod_title}}" />
+              <label for="title">Titolo</label>
+              <input type="text" name="title" value="{{mod_title}}" />
 
-            <label for="content">Commento</label>
-            <textarea rows="20" cols="40" id="content" name="content">{{mod_content}}</textarea>
+              <label for="content">Commento</label>
+              <textarea rows="20" cols="40" id="content" name="content">{{mod_content}}</textarea>
 
-            <label for="rating">Valutazione</label>
-            <input id="rating" type="range" name="rating" value="{{mod_rating}}" min="1" max="10" />
-            <input type="submit" value="Modifica recensione" />
-          </fieldset>
-        </form>
-        <!--mod_recensione_utente_end-->
-        <!--delete_recensione_utente_start-->
-        <form id="formEliminazione" action="review.php" method="post">
-          <fieldset>
-            <legend>Elimina la tua recensione</legend>
+              <label for="rating">Valutazione</label>
+              <input
+                id="rating"
+                type="range"
+                name="rating"
+                value="{{mod_rating}}"
+                min="1"
+                max="10"
+              />
+              <input type="submit" value="Modifica recensione" />
+            </fieldset>
+          </form>
+          <!--mod_recensione_utente_end-->
+          <!--delete_recensione_utente_start-->
+          <form class="formGestione" action="review.php" method="post">
+            <fieldset>
+              <legend>Elimina la tua recensione</legend>
 
-            <input type="hidden" name="type" value="delete" />
-            <input type="hidden" name="film_id" value="{{film_id}}" />
-            <input type="hidden" name="cat" value="{{film_cat}}" />
+              <input type="hidden" name="type" value="delete" />
+              <input type="hidden" name="film_id" value="{{film_id}}" />
+              <input type="hidden" name="cat" value="{{film_cat}}" />
 
-            <input type="submit" value="Elimina recensione" />
-          </fieldset>
-        </form>
+              <input type="submit" value="Elimina recensione" />
+            </fieldset>
+          </form>
+        </div>
         <!--delete_recensione_utente_end-->
         <!--recensioni_start-->
-        <dl class="recensione">
-          <dt>Utente:</dt>
-          <dd>{{rev_username}}</dd>
-          <dt>Valutazione:</dt>
-          <dd>{{rev_rating}}</dd>
-          <dt>Titolo:</dt>
-          <dd>{{rev_title}}</dd>
-          <dt>Commento:</dt>
-          <dd>{{rev_content}}</dd>
-        </dl>
-        <!--delete_recensione_start-->
-        <form id="formEliminazione" action="review.php" method="post">
-          <fieldset>
-            <legend>Elimina la recensione</legend>
+        <div class="frameRecensione">
+          <dl class="recensione">
+            <dt>Utente:</dt>
+            <dd>{{rev_username}}</dd>
+            <dt>Valutazione:</dt>
+            <dd>{{rev_rating}}</dd>
+            <dt>Titolo:</dt>
+            <dd>{{rev_title}}</dd>
+            <dt>Commento:</dt>
+            <dd>{{rev_content}}</dd>
+          </dl>
+          <!--delete_recensione_start-->
+          <form class="formGestione" action="review.php" method="post">
+            <fieldset>
+              <legend>Elimina la recensione</legend>
 
-            <input type="hidden" name="type" value="delete" />
-            <input type="hidden" name="film_id" value="{{film_id}}" />
-            <input type="hidden" name="username" value="{{rev_username}}" />
-            <input type="hidden" name="cat" value="{{film_cat}}" />
+              <input type="hidden" name="type" value="delete" />
+              <input type="hidden" name="film_id" value="{{film_id}}" />
+              <input type="hidden" name="username" value="{{rev_username}}" />
+              <input type="hidden" name="cat" value="{{film_cat}}" />
 
-            <input type="submit" value="Elimina recensione" />
-          </fieldset>
-        </form>
-        <!--delete_recensione_end-->
+              <input type="submit" value="Elimina recensione" />
+            </fieldset>
+          </form>
+          <!--delete_recensione_end-->
+        </div>
         <!--recensioni_end-->
       </section>
     </main>
