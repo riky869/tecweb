@@ -22,7 +22,15 @@
     <!--header-->
 
     <nav id="breadcrumb">
-      <p>Ti trovi in: Profilo</p>
+      <p>
+        Ti trovi in:
+        <!--admin_user_info_start-->
+        <a href="users.php">Utenti</a> > {{breadcrumb_username}}
+        <!--admin_user_info_end-->
+        <!--user_info_start-->
+        Profilo
+        <!--user_info_end-->
+      </p>
     </nav>
 
     <nav id="menu">

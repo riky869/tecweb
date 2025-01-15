@@ -33,6 +33,14 @@ $template->replace_singles([
     "last_name" => $profile_user["last_name"],
 ]);
 
+if (!$user["is_admin"] || empty($_GET["username"])) {
+    $template->replace_var("user_info", $template->get_block("user_info"), VarType::Block);
+    $template->delete_var("admin_user_info", VarType::Block);
+} else {
+    $template->replace_var("admin_user_info", $template->get_block("admin_user_info")->replace_singles(["breadcrumb_username" => $profile_user["username"]]), VarType::Block);
+    $template->delete_var("user_info", VarType::Block);
+}
+
 $template->replace_block_name_arr("recensioni", $reviews, function (Builder $t, array $i) {
     $t->replace_singles([
         "rec_film_title" => $i["name"],
