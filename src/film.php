@@ -33,7 +33,7 @@ $reviews = $db->get_film_reviews($movie_id);
 
 $db->close();
 
-$average_rating = 0;
+$average_rating = "Non disponibile";
 if (!empty($reviews)) {
     $total_rating = array_sum(array_column($reviews, 'rating'));
     $average_rating = round($total_rating / count($reviews), 2);
@@ -47,11 +47,11 @@ $template->replace_singles([
     "nome_film" => $movie["name"],
     "nome_originale" => $movie["original_name"],
     "lingua_originale" => $movie["original_language"],
-    "data_uscita" => $movie["release_date"],
+    "data_uscita" => str_replace("-", " ", $movie["release_date"]),
     "durata" => $movie["runtime"],
     "stato" => $movie["phase"],
-    "budget" => $movie["budget"],
-    "incassi" => $movie["revenue"],
+    "budget" => $movie["budget"] > 0 ? $movie["budget"] . ' $' : 'Non disponibile',
+    "incassi" => $movie["revenue"] > 0 ? $movie["revenue"] . ' $' : 'Non disponibile',
     "description" => $movie["description"],
     // TODO: da ricontrollare, immagine di default se non presente, rating su che scala
     "locandina" => "images/film/" . $movie["image_path"],
@@ -74,7 +74,8 @@ if (empty($categoryFound)) {
 
 $template->replace_block_name_arr("genere", $categories, function (Builder $sec, array $i) {
     $sec->replace_singles([
-        "genere" => $i["category_name"],
+        "genere" => $i["name"],
+        "html_genere" => $i["html_name"],
     ]);
 });
 
@@ -84,6 +85,7 @@ $template->replace_block_name_arr("cast", $cast, function (Builder $sec, array $
         "immagine_cast" => $profileImage,
         "cast_alt_img_not_present" => empty($i["profile_image"]) ? ", non presente" : "",
         "cast_name" => $i["name"],
+        "cast_html_name" => $i["html_name"],
         "cast_job" => $i["role"],
     ]);
 });
@@ -94,6 +96,7 @@ $template->replace_block_name_arr("crew", $crew, function (Builder $sec, array $
         "immagine_crew" =>  $profileImage,
         "crew_alt_img_not_present" => empty($i["profile_image"]) ? ", non presente" : "",
         "crew_name" => $i["name"],
+        "crew_html_name" => $i["html_name"],
         "crew_job" => $i["role"],
     ]);
 });

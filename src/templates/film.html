@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="it">
   <head>
     <meta charset="UTF-8" />
@@ -31,14 +31,16 @@
         {{breadcrumb_nome_film}}
         <!--breadcrumb_da_categoria_end-->
         <!--breadcrumb_da_altro_start-->
-        <a href="index.php">Home</a> > {{breadcrumb_nome_film}}
+        <a href="index.php"><span lang="en">Home</span></a> > {{breadcrumb_nome_film}}
         <!--breadcrumb_da_altro_end-->
       </p>
     </nav>
 
     <nav id="menu" aria-label="Menù">
       <ul id="navbar">
-        <li><a href="index.php">Home</a></li>
+        <li>
+          <a href="index.php"><span lang="en">Home</span></a>
+        </li>
         <li><a href="categories.php">Categorie</a></li>
         <!--menu_admin_start-->
         <li><a href="users.php">Utenti</a></li>
@@ -80,12 +82,12 @@
               <p class="info-value">{{stato}}</p>
             </li>
             <li>
-              <h4 class="info-title">Budget:</h4>
-              <p class="info-value">{{budget}} $</p>
+              <h4 class="info-title"><span lang="en">Budget</span>:</h4>
+              <p class="info-value">{{budget}}</p>
             </li>
             <li>
               <h4 class="info-title">Incassi:</h4>
-              <p class="info-value">{{incassi}} $</p>
+              <p class="info-value">{{incassi}}</p>
             </li>
             <li>
               <h4 class="info-title">Valutazione:</h4>
@@ -99,9 +101,7 @@
         <h3>Generi</h3>
         <ul>
           <!--genere_start-->
-          <li>
-            <h4 class="info-title">{{genere}}</h4>
-          </li>
+          <li><a href="films.php?cat={{genere}}">{{html_genere}}</a></li>
           <!--genere_end-->
         </ul>
       </section>
@@ -127,7 +127,7 @@
               <figcaption>
                 <dl class="person-info">
                   <dt class="person-title">Nome:</dt>
-                  <dd class="person-value">{{cast_name}}</dd>
+                  <dd class="person-value">{{cast_html_name}}</dd>
 
                   <dt class="person-title">Ruolo:</dt>
                   <dd class="person-value">{{cast_job}}</dd>
@@ -155,7 +155,7 @@
               <figcaption>
                 <dl class="person-info">
                   <dt class="person-title">Nome:</dt>
-                  <dd class="person-value">{{crew_name}}</dd>
+                  <dd class="person-value">{{crew_html_name}}</dd>
 
                   <dt class="person-title">Ruolo:</dt>
                   <dd class="person-value">{{crew_job}}</dd>
@@ -204,7 +204,7 @@
           <p>La tua recensione:</p>
           <dl>
             <dt>Valutazione:</dt>
-            <dd>{{user_rev_rating}}</dd>
+            <dd>{{user_rev_rating}} <span aria-label="su 10"> / 10</span></dd>
             <dt>Titolo:</dt>
             <dd>{{user_rev_title}}</dd>
             <dt>Commento:</dt>
@@ -270,7 +270,7 @@
             <dt>Utente:</dt>
             <dd>{{rev_username}}</dd>
             <dt>Valutazione:</dt>
-            <dd>{{rev_rating}}</dd>
+            <dd>{{rev_rating}} <span aria-label="su 10"> / 10</span></dd>
             <dt>Titolo:</dt>
             <dd>{{rev_title}}</dd>
             <dt>Commento:</dt>

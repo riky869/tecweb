@@ -2,7 +2,7 @@
 <html lang="it">
   <head>
     <meta charset="UTF-8" />
-    <title>Popcorn time</title>
+    <title>Home | Popcorn time</title>
 
     <meta
       name="description"
@@ -25,12 +25,12 @@
     <!--header-->
 
     <nav id="breadcrumb">
-      <p>Ti trovi in: Home</p>
+      <p>Ti trovi in: <span lang="en">Home</span></p>
     </nav>
 
     <nav id="menu">
       <ul id="navbar">
-        <li id="currentLink">Home</li>
+        <li id="currentLink"><span lang="en">Home</span></li>
         <li><a href="categories.php">Categorie</a></li>
         <!--menu_admin_start-->
         <li><a href="users.php">Utenti</a></li>
@@ -85,7 +85,7 @@
         <dt>Descrizione:</dt>
         <dd>{{top_film_descrizione}}</dd>
         <dt>Valutazione:</dt>
-        <dd>{{top_film_rating}}</dd>
+        <dd>{{top_film_rating}}<span aria-label="su 10"> / 10</span></dd>
       </dl>
       <!--top_films_end-->
 
@@ -97,7 +97,7 @@
         <dt>Utente:</dt>
         <dd>{{rec_username}}</dd>
         <dt>Valutazione:</dt>
-        <dd>{{rec_rating}}</dd>
+        <dd>{{rec_rating}}<span aria-label="su 10"> / 10</span></dd>
         <dt>Titolo:</dt>
         <dd>{{rec_title}}</dd>
         <dt>Commento:</dt>

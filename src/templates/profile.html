@@ -2,7 +2,7 @@
 <html lang="it">
   <head>
     <meta charset="UTF-8" />
-    <title>Popcorn time</title>
+    <title>Profilo | Popcorn time</title>
 
     <meta name="description" content="Pagina profilo utente con recensioni personali" />
     <meta name="keywords" content="profilo utente, recensioni personali, film" />
@@ -22,12 +22,22 @@
     <!--header-->
 
     <nav id="breadcrumb">
-      <p>Ti trovi in: Profilo</p>
+      <p>
+        Ti trovi in:
+        <!--admin_user_info_start-->
+        <a href="users.php">Utenti</a> > {{breadcrumb_username}}
+        <!--admin_user_info_end-->
+        <!--user_info_start-->
+        Profilo
+        <!--user_info_end-->
+      </p>
     </nav>
 
     <nav id="menu">
       <ul id="navbar">
-        <li><a href="index.php">Home</a></li>
+        <li>
+          <a href="index.php"><span lang="en">Home</span></a>
+        </li>
         <li><a href="categories.php">Categorie</a></li>
         <!--menu_admin_start-->
         <li><a href="users.php">Utenti</a></li>
@@ -57,10 +67,12 @@
 
     <main id="contenuto">
       <h2>Profilo Utente</h2>
-      <p>Nome utente: {{username}}</p>
-      <!-- Ho visto sull'sql che ci sono nome e cognome ma non nel signup -->
-      <p>Nome : {{name}}</p>
-      <p>Cognome : {{last_name}}</p>
+      <dt>Nome utente:</dt>
+      <dd>{{username}}</dd>
+      <dt>Nome:</dt>
+      <dd>{{name}}</dd>
+      <dt>Cognome:</dt>
+      <dd>{{last_name}}</dd>
       <!-- <h3>Recensioni Personali</h3> -->
       <!-- Eventuale lista (non modificabile) delle recensioni dell'utente -->
       <section aria-label="Recensioni">
@@ -68,12 +80,16 @@
 
         <!--recensioni_start-->
         <!-- TODO: non sono sicuro sia il tag giusto-->
-        <article>
-          <p>Film: <a href="film.php?id={{rec_film_id}}">{{rec_film_title}}</a></p>
-          <p>Valutazione: {{rec_rating}}</p>
-          <p>Titolo: {{rec_title}}</p>
-          <p>Commento: {{rec_content}}</p>
-        </article>
+        <dl>
+          <dt>Film:</dt>
+          <dd><a href="film.php?id={{rec_film_id}}">{{rec_film_title}}</a></dd>
+          <dt>Valutazione:</dt>
+          <dd>{{rec_rating}}<span aria-label="su 10"> / 10</span></dd>
+          <dt>Titolo:</dt>
+          <dd>{{rec_title}}</dd>
+          <dt>Commento:</dt>
+          <dd>{{rec_content}}</dd>
+        </dl>
         <!--recensioni_end-->
       </section>
     </main>

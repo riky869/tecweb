@@ -2,7 +2,7 @@
 <html lang="it">
   <head>
     <meta charset="UTF-8" />
-    <title>Popcorn time</title>
+    <title>Categorie | Popcorn time</title>
 
     <meta name="description" content="Categorie dei migliori film" />
     <meta name="keywords" content="categorie film, generi cinematografici" />
@@ -27,7 +27,9 @@
 
     <nav id="menu">
       <ul id="navbar">
-        <li><a href="index.php">Home</a></li>
+        <li>
+          <a href="index.php"><span lang="en">Home</span></a>
+        </li>
         <li id="currentLink">Categorie</li>
         <!--menu_admin_start-->
         <li><a href="users.php">Utenti</a></li>
@@ -61,7 +63,7 @@
       <ul class="griglia-categorie">
         <!--category_start-->
         <li id="{{cat_img_class}}">
-          <a href="films.php?cat={{cat_name}}">{{cat_name}}</a>
+          <a href="films.php?cat={{cat_name}}">{{cat_html_name}}</a>
         </li>
         <!--category_end-->
       </ul>
