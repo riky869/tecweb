@@ -273,9 +273,6 @@ header h2 {
 .login-form fieldset p {
   margin: 0;
   margin-top: 1em;
-}
-
-.loginForm-error {
   font-size: 0.9em;
   font-weight: 100;
   color: var(--color-text-light);
@@ -632,19 +629,31 @@ main a:visited:hover {
   margin-top: 1em;
 }
 
+.frameRecensione dt {
+  font-weight: bold;
+  color: var(--color-extra);
+}
+
+.frameRecensione dd {
+  margin-left: 1em;
+  margin-bottom: 0.5em;
+  color: var(--color-text-secondary);
+  overflow-wrap: break-word;
+}
+
 .frameRecensione p {
   margin-bottom: 0.5em;
 }
 
 /* Stile per la sezione delle recensioni */
 
-/* .recensione { */
-/* background-color: var(--color-secondary-background); */
-/* padding: 1em; */
-/* border-radius: 8px; */
-/* margin: 1em 0; */
-/* margin-top: 1em; */
-/* } */
+.recensione {
+  background-color: var(--color-secondary-background);
+  padding: 1em;
+  border-radius: 8px;
+  margin: 1em 0;
+  margin-top: 1em;
+}
 
 .recensione dt {
   font-weight: bold;
