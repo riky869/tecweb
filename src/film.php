@@ -33,7 +33,7 @@ $reviews = $db->get_film_reviews($movie_id);
 
 $db->close();
 
-$average_rating = 0;
+$average_rating = "Non disponibile";
 if (!empty($reviews)) {
     $total_rating = array_sum(array_column($reviews, 'rating'));
     $average_rating = round($total_rating / count($reviews), 2);
@@ -47,11 +47,11 @@ $template->replace_singles([
     "nome_film" => $movie["name"],
     "nome_originale" => $movie["original_name"],
     "lingua_originale" => $movie["original_language"],
-    "data_uscita" => $movie["release_date"],
+    "data_uscita" => str_replace("-", " ", $movie["release_date"]),
     "durata" => $movie["runtime"],
     "stato" => $movie["phase"],
-    "budget" => $movie["budget"],
-    "incassi" => $movie["revenue"],
+    "budget" => $movie["budget"] > 0 ? $movie["budget"] . ' $' : 'Non disponibile',
+    "incassi" => $movie["revenue"] > 0 ? $movie["revenue"] . ' $' : 'Non disponibile',
     "description" => $movie["description"],
     // TODO: da ricontrollare, immagine di default se non presente, rating su che scala
     "locandina" => "images/film/" . $movie["image_path"],
