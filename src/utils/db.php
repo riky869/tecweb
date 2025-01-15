@@ -121,8 +121,9 @@ class DB
 
     public function get_movies_by_category(string $category): ?array
     {
-        $stmt = $this->conn->prepare("SELECT * FROM movie
+        $stmt = $this->conn->prepare("SELECT *, movie.name as movie_name FROM movie
                           JOIN movie_category ON movie.id = movie_category.movie_id
+                          JOIN category ON category.name = movie_category.category_name
                           WHERE movie_category.category_name = ?");
         if (!$stmt) {
             throw new Exception("Could not prepare statement: " . $this->conn->error);
@@ -183,7 +184,7 @@ class DB
 
     public function get_movie_categories(int $film_id): ?array
     {
-        $stmt = $this->conn->prepare("SELECT * FROM movie_category WHERE movie_id = ?");
+        $stmt = $this->conn->prepare("SELECT * FROM movie_category JOIN category ON category_name = category.name WHERE movie_id = ?");
         if (!$stmt) {
             throw new Exception("Could not prepare statement: " . $this->conn->error);
         }

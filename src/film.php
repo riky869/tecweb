@@ -74,7 +74,8 @@ if (empty($categoryFound)) {
 
 $template->replace_block_name_arr("genere", $categories, function (Builder $sec, array $i) {
     $sec->replace_singles([
-        "genere" => $i["category_name"],
+        "genere" => $i["name"],
+        "html_genere" => $i["html_name"],
     ]);
 });
 
@@ -84,6 +85,7 @@ $template->replace_block_name_arr("cast", $cast, function (Builder $sec, array $
         "immagine_cast" => $profileImage,
         "cast_alt_img_not_present" => empty($i["profile_image"]) ? ", non presente" : "",
         "cast_name" => $i["name"],
+        "cast_html_name" => $i["html_name"],
         "cast_job" => $i["role"],
     ]);
 });
@@ -94,6 +96,7 @@ $template->replace_block_name_arr("crew", $crew, function (Builder $sec, array $
         "immagine_crew" =>  $profileImage,
         "crew_alt_img_not_present" => empty($i["profile_image"]) ? ", non presente" : "",
         "crew_name" => $i["name"],
+        "crew_html_name" => $i["html_name"],
         "crew_job" => $i["role"],
     ]);
 });

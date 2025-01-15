@@ -20,6 +20,8 @@ $db = DB::from_env();
 $users = $db->get_users();
 $db->close();
 $template = Builder::from_template(basename(__FILE__));
+
+
 $template->replace_block_name_arr("users_list", $users, function (Builder $sec, array $i) {
     $sec->replace_singles(["profile_username" => $i["username"]]);
 });

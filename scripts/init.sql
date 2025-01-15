@@ -38,7 +38,10 @@ CREATE TABLE
     );
 
 CREATE TABLE
-    IF NOT EXISTS category (name VARCHAR(255) PRIMARY KEY);
+    IF NOT EXISTS category (
+        name VARCHAR(255) PRIMARY KEY,
+        html_name VARCHAR(255)
+    );
 
 CREATE TABLE
     IF NOT EXISTS people (
@@ -51,6 +54,7 @@ CREATE TABLE
     IF NOT EXISTS movie (
         id INT PRIMARY KEY AUTO_INCREMENT,
         name VARCHAR(255) NOT NULL,
+        -- html_name VARCHAR(255) NOT NULL,
         original_name VARCHAR(255) NOT NULL,
         original_language VARCHAR(255) NOT NULL,
         release_date DATE,
@@ -106,19 +110,19 @@ CREATE TABLE
 
 -- GENERATED_INSERT_START --
 INSERT INTO
-    category (name)
+    category (name, html_name)
 VALUES
-    ('Avventura'),
-    ('Famiglia'),
-    ('Animazione'),
-    ('Azione'),
-    ('Fantascienza'),
-    ('Commedia'),
-    ('Dramma'),
-    ('Romance'),
-    ('Fantasy'),
-    ('Horror'),
-    ('Thriller');
+    ('Avventura', 'Avventura'),
+    ('Famiglia', 'Famiglia'),
+    ('Animazione', 'Animazione'),
+    ('Azione', 'Azione'),
+    ('Fantascienza', 'Fantascienza'),
+    ('Commedia', 'Commedia'),
+    ('Dramma', 'Dramma'),
+    ('Romance', '<span lang="en">Romance</span>'),
+    ('Fantasy', '<span lang="en">Fantasy</span>'),
+    ('Horror', '<span lang="en">Horror</span>'),
+    ('Thriller', '<span lang="en">Thriller</span>');
 
 INSERT INTO
     people (id, name, profile_image)
@@ -671,6 +675,130 @@ VALUES
         'xDrtvEY2bpdFnRNqW0YNeiCfdv4.jpg'
     );
 
+ALTER TABLE people
+ADD COLUMN html_name VARCHAR(255) DEFAULT name;
+
+UPDATE people
+SET
+    html_name = CASE
+        WHEN id = '1' THEN CONCAT ('<span lang="lang="en">', name, '</span>')
+        WHEN id = '2' THEN CONCAT ('<span lang="lang="en">', name, '</span>')
+        WHEN id = '3' THEN CONCAT ('<span lang="lang="en">', name, '</span>')
+        WHEN id = '4' THEN CONCAT ('<span lang="lang="en">', name, '</span>')
+        WHEN id = '5' THEN CONCAT ('<span lang="lang="en">', name, '</span>')
+        WHEN id = '6' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '7' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '8' THEN CONCAT ('<span lang="da">', name, '</span>')
+        WHEN id = '9' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '10' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '11' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '12' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '13' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '14' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '15' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '16' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '17' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '18' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '19' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '20' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '21' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '22' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '23' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '24' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '25' THEN CONCAT ('<span lang="es">', name, '</span>')
+        WHEN id = '26' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '27' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '28' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '29' THEN CONCAT ('<span lang="he">', name, '</span>')
+        WHEN id = '30' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '31' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '32' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '33' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '34' THEN CONCAT ('<span lang="haw">', name, '</span>')
+        WHEN id = '35' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '36' THEN CONCAT ('<span lang="haw">', name, '</span>')
+        WHEN id = '37' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '38' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '39' THEN CONCAT ('<span lang="ma">', name, '</span>')
+        WHEN id = '40' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '41' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '42' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '43' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '44' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '45' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '46' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '47' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '48' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '49' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '50' THEN CONCAT ('<span lang="zh">', name, '</span>')
+        WHEN id = '51' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '52' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '53' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '54' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '55' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '56' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '57' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '58' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '59' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '60' THEN CONCAT ('<span lang="it">', name, '</span>')
+        WHEN id = '61' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '62' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '63' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '64' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '65' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '66' THEN CONCAT ('<span lang="fa">', name, '</span>')
+        WHEN id = '67' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '68' THEN CONCAT ('<span lang="ja">', name, '</span>')
+        WHEN id = '69' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '70' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '71' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '72' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '73' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '74' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '75' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '76' THEN CONCAT ('<span lang="es">', name, '</span>')
+        WHEN id = '77' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '78' THEN CONCAT ('<span lang="es">', name, '</span>')
+        WHEN id = '79' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '80' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '81' THEN CONCAT ('<span lang="es">', name, '</span>')
+        WHEN id = '82' THEN CONCAT ('<span lang="es">', name, '</span>')
+        WHEN id = '83' THEN CONCAT ('<span lang="es">', name, '</span>')
+        WHEN id = '84' THEN CONCAT ('<span lang="es">', name, '</span>')
+        WHEN id = '85' THEN CONCAT ('<span lang="es">', name, '</span>')
+        WHEN id = '86' THEN CONCAT ('<span lang="es">', name, '</span>')
+        WHEN id = '87' THEN CONCAT ('<span lang="es">', name, '</span>')
+        WHEN id = '88' THEN CONCAT ('<span lang="es">', name, '</span>')
+        WHEN id = '89' THEN CONCAT ('<span lang="es">', name, '</span>')
+        WHEN id = '90' THEN CONCAT ('<span lang="es">', name, '</span>')
+        WHEN id = '91' THEN CONCAT ('<span lang="es">', name, '</span>')
+        WHEN id = '92' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '93' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '94' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '95' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '96' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '97' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '98' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '99' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '100' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '101' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '102' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '103' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '104' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '105' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '106' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '107' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '108' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '109' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '110' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '111' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '112' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '113' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '114' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '115' THEN CONCAT ('<span lang="en">', name, '</span>')
+        ELSE name
+    END;
+
 INSERT INTO
     movie (
         id,
@@ -856,21 +984,21 @@ VALUES
 INSERT INTO
     movie_cast (movie_id, person_id, role)
 VALUES
-    ('1', '1', 'Mufasa (voice)'),
-    ('1', '2', 'Taka (voice)'),
-    ('1', '3', 'Sarabi (voice)'),
-    ('1', '4', 'Young Rafiki (voice)'),
-    ('1', '5', 'Zazu (voice)'),
-    ('1', '6', 'Kiara (voice)'),
-    ('1', '7', 'Rafiki (voice)'),
-    ('1', '8', 'Kiros (voice)'),
-    ('1', '9', 'Pumbaa (voice)'),
-    ('1', '10', 'Timon (voice)'),
+    ('1', '1', 'Mufasa (voce)'),
+    ('1', '2', 'Taka (voce)'),
+    ('1', '3', 'Sarabi (voce)'),
+    ('1', '4', 'Young Rafiki (voce)'),
+    ('1', '5', 'Zazu (voce)'),
+    ('1', '6', 'Kiara (voce)'),
+    ('1', '7', 'Rafiki (voce)'),
+    ('1', '8', 'Kiros (voce)'),
+    ('1', '9', 'Pumbaa (voce)'),
+    ('1', '10', 'Timon (voce)'),
     ('2', '12', 'Ivo Robotnik / Gerald Robotnik'),
-    ('2', '13', 'Sonic (voice)'),
-    ('2', '14', 'Shadow (voice)'),
-    ('2', '15', 'Knuckles (voice)'),
-    ('2', '16', 'Tails (voice)'),
+    ('2', '13', 'Sonic (voce)'),
+    ('2', '14', 'Shadow (voce)'),
+    ('2', '15', 'Knuckles (voce)'),
+    ('2', '16', 'Tails (voce)'),
     ('2', '17', 'Tom'),
     ('2', '18', 'Maddie'),
     ('2', '19', 'Agent Stone'),
@@ -886,16 +1014,16 @@ VALUES
     ('3', '30', 'Gracchus'),
     ('3', '31', 'Jugurtha'),
     ('3', '32', 'Master of Ceremonies'),
-    ('4', '34', 'Moana (voice)'),
-    ('4', '35', 'Maui (voice)'),
-    ('4', '36', 'Moni (voice)'),
-    ('4', '37', 'Loto (voice)'),
-    ('4', '38', 'Kele (voice)'),
-    ('4', '39', 'Matangi (voice)'),
-    ('4', '40', 'Simea (voice)'),
-    ('4', '41', 'Chief Tui (voice)'),
-    ('4', '42', 'Sina (voice)'),
-    ('4', '43', 'Gramma Tala (voice)'),
+    ('4', '34', 'Moana (voce)'),
+    ('4', '35', 'Maui (voce)'),
+    ('4', '36', 'Moni (voce)'),
+    ('4', '37', 'Loto (voce)'),
+    ('4', '38', 'Kele (voce)'),
+    ('4', '39', 'Matangi (voce)'),
+    ('4', '40', 'Simea (voce)'),
+    ('4', '41', 'Chief Tui (voce)'),
+    ('4', '42', 'Sina (voce)'),
+    ('4', '43', 'Gramma Tala (voce)'),
     ('5', '47', 'Elphaba'),
     ('5', '48', 'Galinda / Glinda'),
     ('5', '49', 'The Wonderful Wizard of Oz'),
@@ -903,19 +1031,19 @@ VALUES
     ('5', '51', 'Fiyero'),
     ('5', '52', 'Boq'),
     ('5', '53', 'Nessarose'),
-    ('5', '54', 'Dr. Dillamond (voice)'),
+    ('5', '54', 'Dr. Dillamond (voce)'),
     ('5', '55', 'Governor Thropp'),
     ('5', '56', 'Mrs. Thropp'),
-    ('6', '58', 'Helm Hammerhand (voice)'),
-    ('6', '59', 'Héra (voice)'),
-    ('6', '60', 'Wulf (voice)'),
-    ('6', '61', 'Fréaláf (voice)'),
-    ('6', '62', 'Olwyn (voice)'),
-    ('6', '63', 'Éowyn (voice)'),
-    ('6', '64', 'Freca (voice)'),
-    ('6', '65', 'Haleth (voice)'),
-    ('6', '66', 'Háma (voice)'),
-    ('6', '67', 'General Targg (voice)'),
+    ('6', '58', 'Helm Hammerhand (voce)'),
+    ('6', '59', 'Héra (voce)'),
+    ('6', '60', 'Wulf (voce)'),
+    ('6', '61', 'Fréaláf (voce)'),
+    ('6', '62', 'Olwyn (voce)'),
+    ('6', '63', 'Éowyn (voce)'),
+    ('6', '64', 'Freca (voce)'),
+    ('6', '65', 'Haleth (voce)'),
+    ('6', '66', 'Háma (voce)'),
+    ('6', '67', 'General Targg (voce)'),
     ('7', '69', 'Dr. Wesley Marshall'),
     ('7', '70', 'Dr. Amy Chen'),
     ('7', '71', 'Lucy Marshall'),
@@ -960,22 +1088,22 @@ VALUES
 INSERT INTO
     movie_crew (movie_id, person_id, role)
 VALUES
-    ('1', '11', 'Director'),
-    ('2', '22', 'Director'),
-    ('3', '33', 'Director'),
-    ('4', '44', 'Director'),
-    ('4', '45', 'Director'),
-    ('4', '46', 'Director'),
-    ('5', '57', 'Director'),
-    ('6', '68', 'Director'),
-    ('7', '79', 'Director'),
-    ('7', '80', 'Writer'),
-    ('8', '91', 'Director'),
-    ('9', '101', 'Director'),
-    ('10', '112', 'Director'),
-    ('10', '113', 'Writer'),
-    ('10', '114', 'Writer'),
-    ('10', '115', 'Writer');
+    ('1', '11', 'Regista'),
+    ('2', '22', 'Regista'),
+    ('3', '33', 'Regista'),
+    ('4', '44', 'Regista'),
+    ('4', '45', 'Regista'),
+    ('4', '46', 'Regista'),
+    ('5', '57', 'Regista'),
+    ('6', '68', 'Regista'),
+    ('7', '79', 'Regista'),
+    ('7', '80', 'Scrittore'),
+    ('8', '91', 'Regista'),
+    ('9', '101', 'Regista'),
+    ('10', '112', 'Regista'),
+    ('10', '113', 'Scrittore'),
+    ('10', '114', 'Scrittore'),
+    ('10', '115', 'Scrittore');
 
 -- GENERATED_INSERT_END --
 -- MANUAL_INSERT_START --

@@ -17,7 +17,8 @@ $template = Builder::from_template(basename(__FILE__));
 $template->replace_block_name_arr("category", $categories, function (Builder $sec, array $i) {
     return $sec->replace_singles([
         "cat_name" => $i["name"],
-        "cat_img_class" => "cat_".explode(" ", strtolower($i["name"]))[0], 
+        "cat_html_name" => $i["html_name"],
+        "cat_img_class" => "cat_" . explode(" ", strtolower($i["name"]))[0],
     ]);
 });
 
