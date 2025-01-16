@@ -54,7 +54,6 @@ CREATE TABLE
     IF NOT EXISTS movie (
         id INT PRIMARY KEY AUTO_INCREMENT,
         name VARCHAR(255) NOT NULL,
-        -- html_name VARCHAR(255) NOT NULL,
         original_name VARCHAR(255) NOT NULL,
         original_language VARCHAR(255) NOT NULL,
         release_date DATE,
@@ -675,6 +674,12 @@ VALUES
         'xDrtvEY2bpdFnRNqW0YNeiCfdv4.jpg'
     );
 
+UPDATE people
+SET
+    profile_image = CONCAT ('images/persone/', profile_image)
+WHERE
+    profile_image IS NOT NULL;
+
 ALTER TABLE people
 ADD COLUMN html_name VARCHAR(255) DEFAULT name;
 
@@ -825,7 +830,7 @@ VALUES
         '200000000',
         '539677479',
         'Rafiki narra la leggenda di Mufasa alla giovane leoncina Kiara, figlia di Simba e Nala, con Timon e Pumbaa che offrono il loro caratteristico spettacolo. Raccontata attraverso flashback, la storia presenta Mufasa, un cucciolo orfano, perso e solo fino a quando incontra un leone compassionevole di nome Taka, erede di una stirpe reale. L''incontro casuale dà il via al viaggio di uno straordinario gruppo di sventurati alla ricerca del proprio destino: i loro legami saranno messi alla prova mentre lavorano insieme per sfuggire a un nemico minaccioso e letale.',
-        'eZS2taWdadP8lh22xJOVrWT0lTn.jpg'
+        'images/film/eZS2taWdadP8lh22xJOVrWT0lTn.jpg'
     ),
     (
         '2',
@@ -838,7 +843,7 @@ VALUES
         '122000000',
         '384815196',
         'Sonic, Knuckles e Tails si ritrovano a dover fronteggiare un nuovo e formidabile nemico:  Shadow, un misterioso villain con poteri incredibili mai visti prima. Con le loro abilità messe alla prova in ogni modo, il Team Sonic dovra cercare un''alleanza inaspettata per fermare Shadow e proteggere il pianeta.',
-        'hArbAOlNZX0qfd2Udpr6RCTflpg.jpg'
+        'images/film/hArbAOlNZX0qfd2Udpr6RCTflpg.jpg'
     ),
     (
         '3',
@@ -851,7 +856,7 @@ VALUES
         '310000000',
         '455388841',
         'Anni dopo aver assistito alla tragica morte del venerato eroe Massimo per mano del suo perfido zio, Lucio (Paul Mescal) si trova costretto a combattere nel Colosseo dopo che la sua patria viene conquistata da parte di due tirannici imperatori, che ora governano Roma.  Con il cuore ardente di rabbia e il destino dell''Impero appeso a un filo, Lucio deve affrontare pericoli e nemici, riscoprendo nel suo passato la forza e l''onore necessari per riportare la gloria di Roma al suo popolo. Preparatevi per un viaggio epico di coraggio e vendetta nella sanguinosa arena del Colosseo.',
-        'chnuw5cQMzbrGTK2F7bPUDdmyQF.jpg'
+        'images/film/chnuw5cQMzbrGTK2F7bPUDdmyQF.jpg'
     ),
     (
         '4',
@@ -864,7 +869,7 @@ VALUES
         '150000000',
         '989755208',
         'A tre anni dal suo primo viaggio, Vaiana è impegnata in un lungo viaggio alla ricerca di persone oltre le coste di Motunui. Assieme a Maui e a un nuovissimo equipaggio di improbabili marittimi, Vaiana si imbarca alla volta dei lontani mari dell''Oceania in acque pericolose per un''avventura diversa da qualsiasi cosa abbia mai affrontato.',
-        'dPnRomNzww9G7dgS84f6HSevVLc.jpg'
+        'images/film/dPnRomNzww9G7dgS84f6HSevVLc.jpg'
     ),
     (
         '5',
@@ -877,7 +882,7 @@ VALUES
         '150000000',
         '697615060',
         'La storia ruota attorno all’amicizia tra le due streghe. Elphaba, soprannominata ingiustamente Malvagia Strega dell’Ovest, è in realtà una donna rivoluzionaria e anticonformista con la pelle verde che sfida lo strapotere del Mago di Oz, imbroglione dalle mire imperialiste. Glinda è invece la Strega Buona del Nord, amica di Elphaba dai tempi dell’Università di Shiz.',
-        '3al2ouBCaZN5UcCNr8HKSiNji28.jpg'
+        'images/film/3al2ouBCaZN5UcCNr8HKSiNji28.jpg'
     ),
     (
         '6',
@@ -890,7 +895,7 @@ VALUES
         '30000000',
         '19891554',
         '183 anni prima degli aventi del Signore degli Anelli, Helm Mandimartello, re di Rohan, e la sua famiglia difendono il loro regno da un esercito di Dunlandiani. A prendersi il ruolo di protagonista della battaglia, però, è soprattutto Hèra, figlia di Helm dal temperamento ribelle che non esiterà a scendere in campo per difendere il proprio popolo.',
-        'vNVAJb5gmQP0wjd1LDxu0eI6Thl.jpg'
+        'images/film/vNVAJb5gmQP0wjd1LDxu0eI6Thl.jpg'
     ),
     (
         '7',
@@ -903,7 +908,7 @@ VALUES
         '0',
         '1052998',
         'Una Superluna ha innescato il gene latente in ogni essere umano sulla Terra, trasformando in lupo mannaro chiunque si fosse esposto alla luce lunare durante quella notte. Si è scatenato il caos, e quasi un miliardo di persone sono morte. Ora, un anno dopo, la Superluna è tornata…',
-        'xZv09zZ3Rhe84JFmJB7dzb7iSeJ.jpg'
+        'images/film/xZv09zZ3Rhe84JFmJB7dzb7iSeJ.jpg'
     ),
     (
         '8',
@@ -916,7 +921,7 @@ VALUES
         '0',
         '0',
         'Noah deve lasciare la sua città, il fidanzato e gli amici per trasferirsi a casa del nuovo marito di sua madre. Lì conosce il fratellastro Nick e le loro personalità sono sin da subito in contrasto. Tuttavia, l''attrazione che provano li porterà a vivere una relazione proibita, in cui i caratteri ribelli e tormentati metteranno a soqquadro i rispettivi mondi, facendoli innamorare follemente.',
-        'cKwId4BiGtYPIUCYtKxVphtclrt.jpg'
+        'images/film/cKwId4BiGtYPIUCYtKxVphtclrt.jpg'
     ),
     (
         '9',
@@ -929,7 +934,7 @@ VALUES
         '250000000',
         '185700759',
         'Dopo che Babbo Natale - nome in codice: UNO ROSSO - viene rapito, il capo della sicurezza del Polo Nord (Dwayne Johnson) deve fare squadra con il più famigerato cacciatore di taglie del mondo (Chris Evans) in una missione travolgente e ricca di azione per salvare il Natale.',
-        'xjmVhig5Y856SCDFwvUMLaqi8hH.jpg'
+        'images/film/xjmVhig5Y856SCDFwvUMLaqi8hH.jpg'
     ),
     (
         '10',
@@ -942,7 +947,7 @@ VALUES
         '18000000',
         '3300000',
         'Un padre single e due donne escono dalla sicurezza delle loro case per affrontare creature mostruose e salvare la vita di un ragazzino.',
-        'tnfc0NJ3BzhJrGJhkkEd6MHBdq5.jpg'
+        'images/film/tnfc0NJ3BzhJrGJhkkEd6MHBdq5.jpg'
     );
 
 INSERT INTO

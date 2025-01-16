@@ -29,7 +29,7 @@ $template->replace_block_name_arr("new_films", $new_films, function (Builder $t,
     $t->replace_singles([
         "new_film_title" => $i["name"],
         "new_film_id" => $i["id"],
-        "new_film_locandina" => "images/film/" . $i["image_path"],
+        "new_film_locandina" => $i["image_path"],
         // "new_film_descrizione" => implode(' ', array_slice(explode(' ', $i["description"]), 0, 20)) . ' ...',
     ]);
 });
@@ -38,7 +38,7 @@ $template->replace_block_name_arr("top_films", $top_films, function (Builder $t,
     $t->replace_singles([
         "top_film_title" => $i["name"],
         "top_film_id" => $i["id"],
-        "top_film_locandina" => "images/film/" . $i["image_path"],
+        "top_film_locandina" => $i["image_path"],
         // "top_film_descrizione" => implode(' ', array_slice(explode(' ', $i["description"]), 0, 20)) . ' ...',
         "top_film_rating" => number_format($i["avg_rating"], 2),
     ]);

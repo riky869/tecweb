@@ -99,7 +99,7 @@ class DB
 
     public function get_users(): ?array
     {
-        if ($res = $this->conn->query("SELECT * FROM user")) {
+        if ($res = $this->conn->query("SELECT * FROM user ORDER BY username ASC")) {
             $row = $res->fetch_all(MYSQLI_ASSOC);
             $res->free();
             return $row;
@@ -110,7 +110,18 @@ class DB
 
     public function get_movies(): ?array
     {
-        if ($res = $this->conn->query("SELECT * FROM movie")) {
+        if ($res = $this->conn->query("SELECT * FROM movie ORDER BY name ASC")) {
+            $row = $res->fetch_all(MYSQLI_ASSOC);
+            $res->free();
+            return $row;
+        } else {
+            throw new Exception("Could not execute query: " . $this->conn->error);
+        }
+    }
+
+    public function get_persons(): ?array
+    {
+        if ($res = $this->conn->query("SELECT * FROM people ORDER BY name ASC")) {
             $row = $res->fetch_all(MYSQLI_ASSOC);
             $res->free();
             return $row;
@@ -249,7 +260,7 @@ class DB
 
     public function get_categories(): ?array
     {
-        $stmt = $this->conn->prepare("SELECT DISTINCT * FROM category");
+        $stmt = $this->conn->prepare("SELECT DISTINCT * FROM category ORDER BY name ASC");
         if (!$stmt) {
             throw new Exception("Could not prepare statement: " . $this->conn->error);
         }
@@ -348,6 +359,117 @@ class DB
             $rating,
             $username,
             $film_id,
+        ])) {
+            throw new Exception("Could not execute statement: " . $stmt->error);
+        }
+
+        return $stmt->affected_rows > 0;
+    }
+
+    public function create_film(string $name, string $original_name, string $original_language, ?string $release_date, int $runtime, string $phase, int $budget, int $revenue, string $description, ?string $image_path): bool
+    {
+        $stmt = $this->conn->prepare("INSERT INTO movie (
+            name,
+            original_name,
+            original_language,
+            release_date,
+            runtime,
+            phase,
+            budget,
+            revenue,
+            description,
+            image_path
+        ) VALUES (?,?,?,?,?,?,?,?,?,?)");
+
+        if (!$stmt) {
+            throw new Exception("Could not prepare statement: " . $this->conn->error);
+        }
+
+        if (!$stmt->execute([
+            $name,
+            $original_name,
+            $original_language,
+            $release_date,
+            $runtime,
+            $phase,
+            $budget,
+            $revenue,
+            $description,
+            $image_path,
+        ])) {
+            throw new Exception("Could not execute statement: " . $stmt->error);
+        }
+
+        return $stmt->affected_rows > 0;
+    }
+
+    public function create_person(string $name, ?string $profile_image): bool
+    {
+        $stmt = $this->conn->prepare("INSERT INTO people (name, profile_image) VALUES (?, ?)");
+
+        if (!$stmt) {
+            throw new Exception("Could not prepare statement: " . $this->conn->error);
+        }
+
+        if (!$stmt->execute([
+            $name,
+            $profile_image,
+        ])) {
+            throw new Exception("Could not execute statement: " . $stmt->error);
+        }
+
+        return $stmt->affected_rows > 0;
+    }
+
+    public function add_category_to_movie(int $movie_id, string $category_name): bool
+    {
+        $stmt = $this->conn->prepare("INSERT INTO movie_category (movie_id, category_name) VALUES (?, ?)");
+
+        if (!$stmt) {
+            throw new Exception("Could not prepare statement: " . $this->conn->error);
+        }
+
+        if (!$stmt->execute([
+            $movie_id,
+            $category_name,
+        ])) {
+            throw new Exception("Could not execute statement: " . $stmt->error);
+        }
+
+        return $stmt->affected_rows > 0;
+    }
+
+    public function add_person_to_movie_cast(int $movie_id, int $person_id, string $role): bool
+    {
+        $stmt = $this->conn->prepare("INSERT INTO movie_cast (movie_id, person_id, role) VALUES (?, ?, ?)");
+
+        if (!$stmt) {
+            throw new Exception("Could not prepare statement: " . $this->conn->error);
+        }
+
+        if (!$stmt->execute([
+            $movie_id,
+            $person_id,
+            $role,
+        ])) {
+            throw new Exception("Could not execute statement: " . $stmt->error);
+        }
+
+        return $stmt->affected_rows > 0;
+    }
+
+    public function add_person_to_movie_crew(int $movie_id, int $person_id, string $role): bool
+    {
+        $stmt = $this->conn->prepare("INSERT INTO movie_crew (movie_id, person_id, role) VALUES (?, ?, ?)");
+
+        if (!$stmt) {
+            throw new Exception("Could not prepare statement: " . $this->conn->error);
+        }
+
+        if (!$stmt->execute([
+            $movie_id,
+            $person_id,
+            $role,
         ])) {
             throw new Exception("Could not execute statement: " . $stmt->error);
         }

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Crea contenuto | Popcorn time</title>
+
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <meta
+      name="author"
+      content="Loris Libralato, Leonardo Lucato, Piva Riccardo, Matteo Campagnaro, Tommaso Diviesti"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--html_head-->
+    <link rel="stylesheet" href="css/style.css" media="screen" />
+    <link rel="stylesheet" href="css/mini.css" media="screen and (max-width: 930px)" />
+  </head>
+
+  <body>
+    <!--header-->
+
+    <nav id="breadcrumb">
+      <p>Ti trovi in: Crea contenuto</p>
+    </nav>
+
+    <nav id="menu">
+      <ul id="navbar">
+        <li>
+          <a href="index.php"><span lang="en">Home</span></a>
+        </li>
+        <li><a href="categories.php">Categorie</a></li>
+        <!--menu_admin_start-->
+        <li><a href="users.php">Utenti</a></li>
+        <li id="currentLink">Crea Contenuto</li>
+        <!--menu_admin_end-->
+        <li><a href="about.php">Informazioni</a></li>
+      </ul>
+    </nav>
+
+    <main id="contenuto">
+      <form id="create_people" action="" method="post" enctype="multipart/form-data">
+        <fieldset>
+          <legend>Aggiungi una persona</legend>
+          <input type="hidden" name="action" value="create_people" />
+
+          <label for="person_name">Nome</label>
+          <input type="text" name="name" id="person_name" />
+
+          <label for="image_person">Immagine profilo</label>
+          <input type="file" name="image" id="image_person" />
+
+          <input type="submit" value="Crea" />
+          <!--create_people_error_start-->
+          <p>{{error}}</p>
+          <!--create_people_error_end-->
+          <!--create_people_success_start-->
+          <p>{{success}}</p>
+          <!--create_people_success_end-->
+        </fieldset>
+      </form>
+
+      <form id="create_film" action="" method="post" enctype="multipart/form-data">
+        <fieldset>
+          <legend>Crea un nuovo film</legend>
+          <input type="hidden" name="action" value="create_film" />
+
+          <label for="film_name">Nome</label>
+          <input type="text" name="name" id="film_name" required="required" minlength="2" />
+
+          <label for="original_name">Nome originale</label>
+          <input
+            type="text"
+            name="original_name"
+            id="original_name"
+            required="required"
+            minlength="2"
+          />
+
+          <label for="original_language">Lingua</label>
+          <input type="text" name="original_language" id="original_language" required="required" />
+
+          <label for="release_date">Data di uscita</label>
+          <input type="date" name="release_date" id="release_date" />
+
+          <label for="runtime">Durata</label>
+          <input
+            type="number"
+            name="runtime"
+            id="runtime"
+            min="10"
+            max="6000"
+            required="required"
+          />
+
+          <label for="phase">Fase</label>
+          <select name="phase" id="phase" required="required">
+            <option value="Voci">Voci</option>
+            <option value="Da annunciare">Da annunciare</option>
+            <option value="Annunciato">Annunciato</option>
+            <option value="Pianificato">Pianificato</option>
+            <option value="Cancellato">Cancellato</option>
+            <option value="Pre produzione">Pre produzione</option>
+            <option value="In produzione">In produzione</option>
+            <option value="Post produzione">Post produzione</option>
+            <option value="Completato">Completato</option>
+            <option value="Rilasciato">Rilasciato</option>
+          </select>
+
+          <label for="budget">Budget</label>
+          <input type="number" name="budget" id="budget" min="0" required="required" />
+
+          <label for="revenue">Incasso</label>
+          <input type="number" name="revenue" id="revenue" min="0" required="required" />
+
+          <label for="description">Descrizione</label>
+          <textarea
+            rows="20"
+            cols="40"
+            id="description"
+            name="description"
+            minlength="10"
+            required="required"
+          ></textarea>
+
+          <label for="film_image">Immagine</label>
+          <input type="file" name="image" id="film_image" />
+
+          <input type="submit" value="Crea" />
+
+          <!--create_film_error_start-->
+          <p>{{error}}</p>
+          <!--create_film_error_end-->
+          <!--create_film_success_start-->
+          <p>{{success}}</p>
+          <!--create_film_success_end-->
+        </fieldset>
+      </form>
+
+      <form id="add_people_to_film" action="" method="post">
+        <fieldset>
+          <legend>Aggiungi persona ad un film</legend>
+          <input type="hidden" name="action" value="add_people_to_film" />
+
+          <label for="film_person">Film</label>
+          <select name="film_id" id="film_person">
+            <!--film_people_option_start-->
+            <option value="{{id}}">{{name}}</option>
+            <!--film_people_option_end-->
+          </select>
+
+          <label for="people">Persona</label>
+          <select name="person_id" id="people">
+            <!--people_option_start-->
+            <option value="{{id}}">{{name}}</option>
+            <!--people_option_end-->
+          </select>
+
+          <label for="role_crew"><span lang="en"></span>Crew</label>
+          <input type="radio" name="role_type" id="role_crew" value="crew" required="required" />
+          <label for="role_cast"><span lang="en"></span>Cast</label>
+          <input type="radio" name="role_type" id="role_cast" value="cast" required="required" />
+
+          <label for="role">Ruolo</label>
+          <input type="text" name="role" id="role" required="required" minlength="2" />
+
+          <input type="submit" value="Aggiungi" />
+          <!--add_people_to_film_error_start-->
+          <p>{{error}}</p>
+          <!--add_people_to_film_error_end-->
+          <!--add_people_to_film_success_start-->
+          <p>{{success}}</p>
+          <!--add_people_to_film_success_end-->
+        </fieldset>
+      </form>
+
+      <form id="add_category_to_film" action="" method="post">
+        <fieldset>
+          <legend>Aggiungi categoria ad un film</legend>
+          <input type="hidden" name="action" value="add_category_to_film" />
+
+          <label for="film_category">Film</label>
+          <select name="film_id" id="film_category">
+            <!--film_cat_option_start-->
+            <option value="{{id}}">{{name}}</option>
+            <!--film_cat_option_end-->
+          </select>
+
+          <label for="category">Categoria</label>
+          <select name="category" id="category">
+            <!--category_option_start-->
+            <option value="{{name}}">{{name}}</option>
+            <!--category_option_end-->
+          </select>
+
+          <input type="submit" value="Aggiungi" />
+          <!--add_category_to_film_error_start-->
+          <p>{{error}}</p>
+          <!--add_category_to_film_error_end-->
+          <!--add_category_to_film_success_start-->
+          <p>{{success}}</p>
+          <!--add_category_to_film_success_end-->
+        </fieldset>
+      </form>
+    </main>
+
+    <!--torna_su-->
+    <!--footer-->
+  </body>
+</html>
