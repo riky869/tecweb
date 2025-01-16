@@ -497,7 +497,7 @@ VALUES
         'Lydia Styslinger',
         'd5R9WgB4wvUmFyoiBgXbVVJuax2.jpg'
     ),
-    ('76', 'Daniel Fernandez', NULL),
+    ('76', 'Daniel Fernandez', 'DanielFernandez.jpg'),
     (
         '77',
         'James Kyson',
@@ -513,7 +513,7 @@ VALUES
         'Steven C. Miller',
         'lilw96APKmmFouMiDl7Hd5tlw6t.jpg'
     ),
-    ('80', 'Matthew Kennedy', NULL),
+    ('80', 'Matthew Kennedy', 'MatthewKennedy.webp'),
     (
         '81',
         'Nicole Wallace',
