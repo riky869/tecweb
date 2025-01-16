@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
   <head>
     <meta charset="UTF-8" />
@@ -21,11 +21,11 @@
   <body>
     <!--header-->
 
-    <nav id="breadcrumb">
+    <nav aria-label="breadcrumb" id="breadcrumb">
       <p>
         Ti trovi in:
         <!--admin_user_info_start-->
-        <a href="users.php">Utenti</a> > {{breadcrumb_username}}
+        <a href="users.php">Utenti</a> &gt {{breadcrumb_username}}
         <!--admin_user_info_end-->
         <!--user_info_start-->
         Profilo
@@ -33,7 +33,7 @@
       </p>
     </nav>
 
-    <nav id="menu">
+    <nav aria-label="navbar" id="menu">
       <ul id="navbar">
         <li>
           <a href="index.php"><span lang="en">Home</span></a>
@@ -80,11 +80,13 @@
 
         <!--recensioni_start-->
         <!-- TODO: non sono sicuro sia il tag giusto-->
-        <dl>
+        <dl class="recensione">
           <dt>Film:</dt>
           <dd><a href="film.php?id={{rec_film_id}}">{{rec_film_title}}</a></dd>
           <dt>Valutazione:</dt>
-          <dd>{{rec_rating}}<span aria-label="su 10"> / 10</span></dd>
+          <dd>
+            <abbr title="{{rec_rating}} su 10">{{rec_rating}} / 10</abbr>
+          </dd>
           <dt>Titolo:</dt>
           <dd>{{rec_title}}</dd>
           <dt>Commento:</dt>

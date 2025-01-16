@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
   <head>
     <meta charset="UTF-8" />
@@ -21,22 +21,22 @@
   <body>
     <!--header-->
 
-    <nav id="breadcrumb" aria-label="Percorso di navigazione">
+    <nav aria-label="breadcrumb" id="breadcrumb">
       <p>
         Ti trovi in:
 
         <!--breadcrumb_da_categoria_start-->
-        <a href="categories.php">Categorie</a> >
-        <a href="films.php?cat={{breadcrumb_nome_cat}}">{{breadcrumb_nome_cat}}</a> >
+        <a href="categories.php">Categorie</a> &gt
+        <a href="films.php?cat={{breadcrumb_nome_cat}}">{{breadcrumb_nome_cat}}</a> &gt
         {{breadcrumb_nome_film}}
         <!--breadcrumb_da_categoria_end-->
         <!--breadcrumb_da_altro_start-->
-        <a href="index.php"><span lang="en">Home</span></a> > {{breadcrumb_nome_film}}
+        <a href="index.php"><span lang="en">Home</span></a> &gt {{breadcrumb_nome_film}}
         <!--breadcrumb_da_altro_end-->
       </p>
     </nav>
 
-    <nav id="menu" aria-label="Menù">
+    <nav aria-label="navbar" id="menu">
       <ul id="navbar">
         <li>
           <a href="index.php"><span lang="en">Home</span></a>
@@ -204,7 +204,9 @@
           <p>La tua recensione:</p>
           <dl>
             <dt>Valutazione:</dt>
-            <dd>{{user_rev_rating}} <span aria-label="su 10"> / 10</span></dd>
+            <dd>
+              <abbr title="{{user_rev_rating}} su 10">{{user_rev_rating}} / 10</abbr>
+            </dd>
             <dt>Titolo:</dt>
             <dd>{{user_rev_title}}</dd>
             <dt>Commento:</dt>
@@ -270,7 +272,9 @@
             <dt>Utente:</dt>
             <dd>{{rev_username}}</dd>
             <dt>Valutazione:</dt>
-            <dd>{{rev_rating}} <span aria-label="su 10"> / 10</span></dd>
+            <dd>
+              <abbr title="{{rev_rating}} su 10">{{rev_rating}} / 10</abbr>
+            </dd>
             <dt>Titolo:</dt>
             <dd>{{rev_title}}</dd>
             <dt>Commento:</dt>

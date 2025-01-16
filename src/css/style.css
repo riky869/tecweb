@@ -40,8 +40,7 @@ body {
   /* margin-left: 20%; */
   /* margin-right: 20%; */
   margin: 0 auto;
-  /* max-width: 1024px; */
-  max-width: 65em;
+  max-width: 1024px;
   transition: 0.5s ease;
 }
 
@@ -152,7 +151,8 @@ header h2 {
 
 #breadcrumb a {
   color: var(--color-text-light);
-  text-decoration: underline;
+  text-decoration: none;
+  border-bottom: 0.08em solid;
 }
 
 #breadcrumb a:hover {
@@ -173,10 +173,11 @@ header h2 {
 #navbar li a {
   color: var(--color-link);
   text-decoration: none;
+  border-bottom: 0.08em solid;
 }
 
 #navbar li a:hover {
-  border-bottom: 0.08em solid;
+  color: var(--color-secondary);
 }
 
 #navbar li a:visited {
@@ -184,11 +185,11 @@ header h2 {
 }
 
 #navbar li a:visited:hover {
-  border-bottom: 0.08em solid;
+  color: var(--color-secondary);
 }
 
 #currentLink {
-  border-bottom: 0.08em solid;
+  /* border-bottom: 0.08em solid; */
   color: var(--color-current);
   font-weight: 600;
 }
@@ -274,7 +275,7 @@ header h2 {
 }
 
 .login-form a:hover {
-  border-bottom: 0.08em solid;
+  color: var(--color-secondary);
 }
 
 .login-form fieldset p {
@@ -300,10 +301,11 @@ header h2 {
 #login a {
   color: var(--color-link);
   text-decoration: none;
+  border-bottom: 0.08em solid;
 }
 
 #login a:hover {
-  border-bottom: 0.08em solid;
+  color: var(--color-secondary);
 }
 
 #login a:visited {
@@ -311,7 +313,7 @@ header h2 {
 }
 
 #login a:visited:hover {
-  border-bottom: 0.08em solid;
+  color: var(--color-secondary);
 }
 
 /* logout */
@@ -337,7 +339,7 @@ header h2 {
 }
 
 #loggato a:hover {
-  border-bottom: 0.08em solid;
+  color: var(--color-secondary);
 }
 
 #loggato a:visited {
@@ -345,7 +347,7 @@ header h2 {
 }
 
 #loggato a:visited:hover {
-  border-bottom: 0.08em solid;
+  color: var(--color-secondary);
 }
 
 #loggato form {
@@ -420,7 +422,7 @@ main a {
 }
 
 main a:hover {
-  border-bottom: 0.08em solid;
+  color: var(--color-secondary);
 }
 
 main a:visited {
@@ -428,7 +430,7 @@ main a:visited {
 }
 
 main a:visited:hover {
-  border-bottom: 0.08em solid;
+  color: var(--color-secondary);
 }
 
 /* griglia categorie */
@@ -586,6 +588,18 @@ main a:visited:hover {
   list-style: none;
   margin-right: 1em;
   margin-bottom: 0.5em;
+  width: fit-content;
+}
+
+#generi li a {
+  color: var(--color-link);
+  text-decoration: none;
+  border-bottom: 0.08em solid var(--color-link);
+}
+
+#generi li a:visited {
+  color: var(--color-visited);
+  border-bottom: 0.08em solid var(--color-visited);
 }
 
 #generi ul {
@@ -638,6 +652,10 @@ main a:visited:hover {
   margin-top: 1em;
 }
 
+.frameRecensione abbr {
+  text-decoration: none;
+}
+
 .frameRecensione dt {
   font-weight: bold;
   color: var(--color-extra);
@@ -678,6 +696,11 @@ main a:visited:hover {
   margin-bottom: 0.5em;
   color: var(--color-text-secondary);
   overflow-wrap: break-word;
+}
+
+.recensione dd a {
+  text-decoration: none;
+  border-bottom: 0.08em solid;
 }
 
 /* Stile per il form delle recensioni */
@@ -749,7 +772,7 @@ main a:visited:hover {
 
 .formRecensione input[type='submit'] {
   background-color: var(--color-link);
-  color: var(--color-text-light);
+  color: var(--color-text-dark);
   padding: 0.75em 1em;
   /* padding: 0.75em 1.5em; */
   border: none;
@@ -799,7 +822,7 @@ main a:visited:hover {
 
 .formGestione input[type='submit'] {
   background-color: var(--color-link);
-  color: var(--color-text-light);
+  color: var(--color-text-dark);
   padding: 0.75em 1em;
   /* padding: 0.75em 1.5em; */
   border: none;
@@ -993,7 +1016,7 @@ body {
 .film-locandina {
   width: 100%;
   height: auto;
-  border-bottom: 1px solid var(--color-secondary);
+  border: 0.1em solid var(--color-secondary);
 }
 
 /* Stile per le informazioni dei film */
@@ -1017,4 +1040,9 @@ body {
 .film-card a:hover {
   border: 0.1em solid;
   border-radius: 8px;
+}
+
+.film-card span {
+  height: 100%;
+  align-content: center;
 }
