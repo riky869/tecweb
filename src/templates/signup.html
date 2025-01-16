@@ -61,16 +61,23 @@
           <legend>Effettua la registrazione</legend>
 
           <label for="username">username</label>
-          <input type="text" name="username" id="username" />
+          <input
+            type="text"
+            name="username"
+            id="username"
+            required="required"
+            minlength="4"
+            maxlength="20"
+          />
 
           <label for="password">password</label>
-          <input type="password" name="password" id="password" />
+          <input type="password" name="password" id="password" required="required" minlength="4" />
 
           <label for="name">nome</label>
-          <input type="text" name="name" id="name" />
+          <input type="text" name="name" id="name" required="required" minlength="2" />
 
           <label for="last_name">cognome</label>
-          <input type="text" name="last_name" id="last_name" />
+          <input type="text" name="last_name" id="last_name" required="required" minlength="2" />
 
           <input type="submit" value="Registrati" />
 

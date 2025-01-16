@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="it">
   <head>
     <meta charset="UTF-8" />
@@ -180,13 +180,28 @@
             <input type="hidden" name="cat" value="{{film_cat}}" />
 
             <label for="title">Titolo</label>
-            <input id="title" type="text" name="title" value="" minlength="3" />
+            <input id="title" type="text" name="title" value="" minlength="3" required="required" />
 
             <label for="content">Commento</label>
-            <textarea rows="20" cols="40" id="content" name="content" minlength="5"></textarea>
+            <textarea
+              rows="20"
+              cols="40"
+              id="content"
+              name="content"
+              minlength="5"
+              required="required"
+            ></textarea>
 
             <label for="rating">Valutazione</label>
-            <input id="rating" type="range" name="rating" value="5" min="1" max="10" />
+            <input
+              id="rating"
+              type="number"
+              name="rating"
+              value="7"
+              min="1"
+              max="10"
+              required="required"
+            />
 
             <input type="submit" value="Crea recensione" />
           </fieldset>
@@ -197,7 +212,7 @@
       </section>
       <!--crea_recensione_end-->
 
-      <section aria-label="Recensioni">
+      <section aria-label="Recensioni" id="recensioni">
         <h3>Recensioni</h3>
         <!--view_recensione_utente_start-->
         <div class="frameRecensione">
@@ -235,21 +250,36 @@
               <input type="hidden" name="cat" value="{{film_cat}}" />
 
               <label for="title">Titolo</label>
-              <input type="text" name="title" value="{{mod_title}}" />
+              <input
+                type="text"
+                name="title"
+                id="title"
+                value="{{mod_title}}"
+                required="required"
+                minlength="3"
+              />
 
               <label for="content">Commento</label>
-              <textarea rows="20" cols="40" id="content" name="content" minlength="5">
+              <textarea
+                rows="20"
+                cols="40"
+                id="content"
+                name="content"
+                minlength="5"
+                required="required"
+              >
 {{mod_content}}</textarea
               >
 
               <label for="rating">Valutazione</label>
               <input
                 id="rating"
-                type="range"
+                type="number"
                 name="rating"
                 value="{{mod_rating}}"
                 min="1"
                 max="10"
+                required="required"
               />
               <input type="submit" value="Modifica recensione" />
             </fieldset>

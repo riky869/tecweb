@@ -32,7 +32,7 @@ if (Request::is_post()) {
             $user = $db->get_user_with_password($_POST["username"], $_POST["password"]);
             $db->close();
 
-            if ($user) {
+            if (!empty($user)) {
                 // Redirect to home
                 Session::set_user($user);
                 Request::redirect("index.php");

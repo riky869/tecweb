@@ -59,10 +59,17 @@
           <legend>Effettua l'accesso</legend>
 
           <label for="username">nome utente</label>
-          <input type="text" name="username" id="username" />
+          <input
+            type="text"
+            name="username"
+            id="username"
+            required="required"
+            minlength="4"
+            maxlength="20"
+          />
 
           <label for="password">password</label>
-          <input type="password" name="password" id="password" />
+          <input type="password" name="password" id="password" required="required" minlength="4" />
 
           <input type="submit" value="Accedi" />
 

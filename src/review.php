@@ -92,5 +92,6 @@ $location = "film.php?id=$movie_id";
 if (!empty($_POST["cat"])) {
     $location .= "&cat=" . $_POST["cat"];
 }
+$location .= "#recensioni";
 
 Request::redirect($location);
