@@ -664,6 +664,10 @@ main a:visited:hover {
   margin-top: 1em;
 }
 
+.recensione abbr {
+  text-decoration: none;
+}
+
 .recensione dt {
   font-weight: bold;
   color: var(--color-extra);
