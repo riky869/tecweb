@@ -5,6 +5,8 @@ require_once("utils/builder.php");
 
 class Request
 {
+    private static $TARGET_DIR = "storage/";
+
     private static function method(): string
     {
         return $_SERVER["REQUEST_METHOD"];
@@ -61,5 +63,40 @@ class Request
         header("location: $url");
         http_response_code(302);
         exit();
+    }
+
+    static function read_upload_file(string $target_dir, string $param, mixed &$error): ?string
+    {
+        $image_path = null;
+        if (!empty($_FILES[$param]["name"])) {
+            $target_file = $target_dir . basename($_FILES[$param]["name"]);
+            $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+            // Controlla se il file è un'immagine reale o un'immagine falsa
+            $check = getimagesize($_FILES[$param]["tmp_name"]);
+            if ($check === false) {
+                $error = "Il file non è un'immagine.";
+            }
+
+            // Controlla la dimensione del file
+            if ($_FILES[$param]["size"] > (1 * 1024 * 1024 * 1024)) {
+                $error = "Spiacente, il tuo file è troppo grande.";
+            }
+
+            // Permetti solo determinati formati di file
+            if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
+                $error = "Spiacente, sono consentiti solo file JPG, JPEG, PNG e GIF.";
+            }
+
+            // Controlla se $error è impostato su un messaggio di errore
+            if (empty($error)) {
+                if (move_uploaded_file($_FILES[$param]["tmp_name"], $target_file)) {
+                    $image_path = $target_file;
+                } else {
+                    $error = "Spiacente, si è verificato un errore durante il caricamento del tuo file.";
+                }
+            }
+        }
+        return $image_path;
     }
 };

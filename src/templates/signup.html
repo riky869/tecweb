@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="it">
   <head>
     <meta charset="UTF-8" />
@@ -36,6 +36,7 @@
         <li><a href="categories.php">Categorie</a></li>
         <!--menu_admin_start-->
         <li><a href="users.php">Utenti</a></li>
+        <li><a href="create.php">Crea Contenuto</a></li>
         <!--menu_admin_end-->
         <li><a href="about.php">Informazioni</a></li>
       </ul>
@@ -55,7 +56,7 @@
 
     <main id="contenuto" class="login-form">
       <!--Si è copiato dal login-->
-      <form method="post">
+      <form action="signup.php" method="post">
         <fieldset>
           <legend>Effettua la registrazione</legend>
 
@@ -66,10 +67,10 @@
           <input type="password" name="password" id="password" />
 
           <label for="name">nome</label>
-          <input type="text" name="name" id="name" value="" />
+          <input type="text" name="name" id="name" />
 
           <label for="last_name">cognome</label>
-          <input type="text" name="last_name" id="last_name" value="" />
+          <input type="text" name="last_name" id="last_name" />
 
           <input type="submit" value="Registrati" />
 

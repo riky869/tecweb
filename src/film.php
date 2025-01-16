@@ -54,7 +54,7 @@ $template->replace_singles([
     "incassi" => $movie["revenue"] > 0 ? $movie["revenue"] . ' $' : 'Non disponibile',
     "description" => $movie["description"],
     // TODO: da ricontrollare, immagine di default se non presente, rating su che scala
-    "locandina" => "images/film/" . $movie["image_path"],
+    "locandina" => $movie["image_path"],
     "valutazione" => $average_rating,
 ]);
 
@@ -80,7 +80,7 @@ $template->replace_block_name_arr("genere", $categories, function (Builder $sec,
 });
 
 $template->replace_block_name_arr("cast", $cast, function (Builder $sec, array $i) {
-    $profileImage = $i["profile_image"] ? "images/persone/" . $i["profile_image"] : "images/no_picture_available.png";
+    $profileImage = $i["profile_image"] ? $i["profile_image"] : "images/no_picture_available.png";
     $sec->replace_singles([
         "immagine_cast" => $profileImage,
         "cast_alt_img_not_present" => empty($i["profile_image"]) ? ", non presente" : "",
@@ -91,7 +91,7 @@ $template->replace_block_name_arr("cast", $cast, function (Builder $sec, array $
 });
 
 $template->replace_block_name_arr("crew", $crew, function (Builder $sec, array $i) {
-    $profileImage = $i["profile_image"] ? "images/persone/" . $i["profile_image"] : "images/no_picture_available.png";
+    $profileImage = $i["profile_image"] ? $i["profile_image"] : "images/no_picture_available.png";
     $sec->replace_singles([
         "immagine_crew" =>  $profileImage,
         "crew_alt_img_not_present" => empty($i["profile_image"]) ? ", non presente" : "",
