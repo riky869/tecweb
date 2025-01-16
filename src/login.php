@@ -41,7 +41,7 @@ if (Request::is_post()) {
                 $login_error = "Username o password errate";
             }
         } catch (mysqli_sql_exception $e) {
-            $login_error = "Errore interno del server";
+            $login_error = "Errore interno del <span lang=\"en\">server</span>";
         }
     }
 }

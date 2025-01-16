@@ -51,7 +51,7 @@ if (Request::is_post()) {
             if ($e->getCode() == 1062) { // Duplicate entry error code
                 $register_error = "Username già esistente";
             } else {
-                $register_error = "Errore interno del server";
+                $register_error = "Errore interno del <span lang=\"en\">server</span>";
             }
         }
     }
