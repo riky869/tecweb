@@ -37,8 +37,11 @@ body {
   /* Serve per tenere il footer in basso */
   flex-direction: column;
   background-color: var(--color-background);
-  margin-left: 20%;
-  margin-right: 20%;
+  /* margin-left: 20%; */
+  /* margin-right: 20%; */
+  margin: 0 auto;
+  /* max-width: 1024px; */
+  max-width: 65em;
   transition: 0.5s ease;
 }
 
@@ -47,12 +50,12 @@ body {
 
   --color-primary: #000000;
   /* grigio molto scuro per sfondo principale */
-  --color-secondary: #c4b27f;
+  /* --color-secondary: #c4b27f; */
+  --color-secondary: #c8b788;
   /* oro sobrio per contrasti usato anche per link visitati ma andrebbe deciso un altro colore*/
   /* --color-extra: #d2691e; */
-  --color-extra: #e07529;
-  /* cioccolato per titoli h4 */
-
+  /* --color-extra: #e07529; */
+  --color-extra: #f5a46b;
   --color-text-light: #ffffff;
   /* bianco per testo su sfondo scuro */
   --color-text-dark: #000000;
@@ -65,14 +68,17 @@ body {
   --color-secondary-background: #2b2b2d;
   /* grigio meno scuro per sfondo*/
 
-  --color-link: #4aaaff;
+  /* --color-link: #4aaaff; */
+  --color-link: #75bfff;
   /* blu sobrio per link */
-  --color-visited: #b27ffa;
+  /* --color-visited: #b27ffa; */
+  --color-visited: #f994f6;
   /* perù per link visitati */
 
   --color-text-secondary: #bababa;
   /* grigio chiaro per testo secondario */
-  --color-current: #e03838;
+  /* --color-current: #e03838; */
+  --color-current: #f26969;
   /* rosso puro per link corrente */
 
   --color-button-hover: #344ca3;
@@ -184,6 +190,7 @@ header h2 {
 #currentLink {
   border-bottom: 0.08em solid;
   color: var(--color-current);
+  font-weight: 600;
 }
 
 /* login/signup form */
@@ -247,7 +254,7 @@ header h2 {
   width: 20%;
   min-width: fit-content;
   background-color: var(--color-link);
-  color: var(--color-text-light);
+  color: var(--color-text-dark);
   padding: 0.75em 1.5em;
   border: none;
   border-radius: 4px;
@@ -287,6 +294,7 @@ header h2 {
   text-decoration: none;
   display: flex;
   gap: 1em;
+  margin-left: 2.5em;
 }
 
 #login a {
@@ -314,7 +322,7 @@ header h2 {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin-left: 3em;
+  margin-left: 4em;
   column-gap: 0.5em;
   margin-right: 0.2em;
 }
@@ -359,7 +367,8 @@ header h2 {
 
 #loggato input[type='submit'] {
   background-color: var(--color-secondary);
-  color: var(--color-text-light);
+  color: var(--color-text-dark);
+  font-weight: 700;
   padding: 0.3em 0.4em;
   border: none;
   border-radius: 4px;
@@ -539,7 +548,7 @@ main a:visited:hover {
 
 .griglia-about li p {
   margin-top: 0.3em;
-  color: var(--color-text-light);
+  color: var(--color-text-dark);
   text-align: center;
   font-size: 1em;
 }
@@ -925,7 +934,7 @@ footer p {
   border-radius: 100%;
   background-size: cover;
   background-position: center center;
-  background-color: var(--color-button-hover);
+  background-color: #3477db;
   overflow: hidden;
   right: 1em;
   bottom: 1em;
@@ -958,3 +967,50 @@ body {
     margin: auto;
     border: 1px solid #000;
 } */
+
+.film-card {
+  display: flex;
+  overflow-x: auto;
+  padding: 1em 0;
+  gap: 1em;
+  list-style-type: none;
+  align-items: stretch;
+}
+
+/* Stile per le card dei film */
+.film-card li {
+  flex-shrink: 0;
+  width: 200px;
+  background-color: var(--color-secondary-background);
+  border-radius: 8px;
+}
+
+/* Stile per le locandine dei film */
+.film-locandina {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid var(--color-secondary);
+}
+
+/* Stile per le informazioni dei film */
+.film-card a {
+  padding: 1em;
+  color: var(--color-link);
+  text-decoration: none;
+  font-size: 1.1em;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  /* flex: 1; */
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  box-sizing: border-box;
+  justify-content: space-around;
+  row-gap: 0.5em;
+}
+
+.film-card a:hover {
+  border: 0.1em solid;
+  border-radius: 8px;
+}

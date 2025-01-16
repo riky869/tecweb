@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
   <head>
     <meta charset="UTF-8" />
-    <title>Home | Popcorn time</title>
+    <title lang="en">Home | Popcorn time</title>
 
     <meta
       name="description"
@@ -24,11 +24,11 @@
   <body>
     <!--header-->
 
-    <nav id="breadcrumb">
+    <nav aria-label="breadcrumb" id="breadcrumb">
       <p>Ti trovi in: <span lang="en">Home</span></p>
     </nav>
 
-    <nav id="menu">
+    <nav aria-label="navbar" id="menu">
       <ul id="navbar">
         <li id="currentLink"><span lang="en">Home</span></li>
         <li><a href="categories.php">Categorie</a></li>
@@ -68,26 +68,29 @@
       <h2>Benvenuti su Popcorn time</h2>
       <p>Esprimi le tue idee sui tuoi film preferiti nessuno ti giudicherà.</p>
       <h3>Film nei cinema</h3>
-      <!--new_films_start-->
-      <dl>
-        <dt>Film:</dt>
-        <dd><a href="film.php?id={{new_film_id}}">{{new_film_title}}</a></dd>
-        <dt>Descrizione:</dt>
-        <dd>{{new_film_descrizione}}</dd>
-      </dl>
-      <!--new_films_end-->
+      <ul class="film-card">
+        <!--new_films_start-->
+        <li>
+          <a href="film.php?id={{new_film_id}}">
+            <img src="{{new_film_locandina}}" alt="locandina del film {{new_film_title}}" class="film-locandina" />
+            <span>{{new_film_title}}</span>
+          </a>
+        </li>
+        <!--new_films_end-->
+      </ul>
 
       <h3>Film con voto più alto</h3>
-      <!--top_films_start-->
-      <dl>
-        <dt>Film:</dt>
-        <dd><a href="film.php?id={{top_film_id}}">{{top_film_title}}</a></dd>
-        <dt>Descrizione:</dt>
-        <dd>{{top_film_descrizione}}</dd>
-        <dt>Valutazione:</dt>
-        <dd>{{top_film_rating}}<span aria-label="su 10"> / 10</span></dd>
-      </dl>
-      <!--top_films_end-->
+      <ul class="film-card">
+        <!--top_films_start-->
+        <li>
+          <a href="film.php?id={{top_film_id}}">
+            <img src="{{top_film_locandina}}" alt="locandina del film {{new_film_title}}" class="film-locandina" />
+            <span>{{top_film_title}}</span>
+            <span>{{top_film_rating}} &#11088</span>
+          </a>
+        </li>
+        <!--top_films_end-->
+      </ul>
 
       <h3>Le ultime recensioni</h3>
       <!--last_reviews_start-->
@@ -97,7 +100,9 @@
         <dt>Utente:</dt>
         <dd>{{rec_username}}</dd>
         <dt>Valutazione:</dt>
-        <dd>{{rec_rating}}<span aria-label="su 10"> / 10</span></dd>
+        <dd>
+          <abbr title="{{rec_rating}} su 10">{{rec_rating}} / 10</abbr>
+        </dd>
         <dt>Titolo:</dt>
         <dd>{{rec_title}}</dd>
         <dt>Commento:</dt>
