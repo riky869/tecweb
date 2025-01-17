@@ -79,7 +79,7 @@ class Request
             }
 
             // Controlla la dimensione del file
-            if ($_FILES[$param]["size"] > (1 * 1024 * 1024 * 1024)) {
+            if ($_FILES[$param]["size"] > (2 * 1024 * 1024)) {
                 $error = "Spiacente, il tuo file è troppo grande.";
             }
 
