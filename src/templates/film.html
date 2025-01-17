@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
   <head>
     <meta charset="UTF-8" />
@@ -230,7 +230,7 @@
         <!--view_recensione_utente_end-->
         <!--mod_recensione_utente_start-->
         <div class="frameRecensione" id="modificaRecensione">
-          <form id="modificaRecensione" class="formRecensione" action="review.php" method="post">
+          <form class="formRecensione" action="review.php" method="post">
             <fieldset>
               <legend>Modifica la tua recensione</legend>
 
@@ -246,7 +246,7 @@
 
               <label for="rating">Valutazione</label>
               <input id="rating" type="number" name="rating" value="{{mod_rating}}" min="1" max="10" required="required" />
-              <input type="submit" value="Modifica recensione" />
+              <input type="submit" value="Conferma modifica" />
             </fieldset>
           </form>
           <form class="formGestione" action="film.php#recensioni" method="get">
