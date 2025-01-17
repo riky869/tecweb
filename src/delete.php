@@ -78,6 +78,5 @@ switch ($action) {
         $location .= "#generi";
         break;
 }
-$location .= "_sec";
 
 Request::redirect($location);
