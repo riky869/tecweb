@@ -439,6 +439,24 @@ class DB
         return $stmt->affected_rows > 0;
     }
 
+    public function delete_category_from_movie(int $movie_id, string $category_name): bool
+    {
+        $stmt = $this->conn->prepare("DELETE FROM movie_category WHERE movie_id = ? AND category_name = ?");
+
+        if (!$stmt) {
+            throw new Exception("Could not prepare statement: " . $this->conn->error);
+        }
+
+        if (!$stmt->execute([
+            $movie_id,
+            $category_name,
+        ])) {
+            throw new Exception("Could not execute statement: " . $stmt->error);
+        }
+
+        return $stmt->affected_rows > 0;
+    }
+
     public function add_person_to_movie_cast(int $movie_id, int $person_id, string $role): bool
     {
         $stmt = $this->conn->prepare("INSERT INTO movie_cast (movie_id, person_id, role) VALUES (?, ?, ?)");
@@ -458,6 +476,24 @@ class DB
         return $stmt->affected_rows > 0;
     }
 
+    public function delete_person_from_movie_cast(int $movie_id, int $person_id): bool
+    {
+        $stmt = $this->conn->prepare("DELETE FROM movie_cast WHERE movie_id = ? AND person_id = ?");
+
+        if (!$stmt) {
+            throw new Exception("Could not prepare statement: " . $this->conn->error);
+        }
+
+        if (!$stmt->execute([
+            $movie_id,
+            $person_id,
+        ])) {
+            throw new Exception("Could not execute statement: " . $stmt->error);
+        }
+
+        return $stmt->affected_rows > 0;
+    }
+
     public function add_person_to_movie_crew(int $movie_id, int $person_id, string $role): bool
     {
         $stmt = $this->conn->prepare("INSERT INTO movie_crew (movie_id, person_id, role) VALUES (?, ?, ?)");
@@ -470,6 +506,24 @@ class DB
             $movie_id,
             $person_id,
             $role,
+        ])) {
+            throw new Exception("Could not execute statement: " . $stmt->error);
+        }
+
+        return $stmt->affected_rows > 0;
+    }
+
+    public function delete_person_from_movie_crew(int $movie_id, int $person_id): bool
+    {
+        $stmt = $this->conn->prepare("DELETE FROM movie_crew WHERE movie_id = ? AND person_id = ?");
+
+        if (!$stmt) {
+            throw new Exception("Could not prepare statement: " . $this->conn->error);
+        }
+
+        if (!$stmt->execute([
+            $movie_id,
+            $person_id,
         ])) {
             throw new Exception("Could not execute statement: " . $stmt->error);
         }

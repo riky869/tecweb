@@ -56,6 +56,8 @@ $template->replace_singles([
     // TODO: da ricontrollare, immagine di default se non presente, rating su che scala
     "locandina" => $movie["image_path"],
     "valutazione" => $average_rating,
+    "film_id" => $movie_id,
+    "film_cat" => $category ?? "",
 ]);
 
 
@@ -87,6 +89,7 @@ $template->replace_block_name_arr("cast", $cast, function (Builder $sec, array $
         "cast_name" => $i["name"],
         "cast_html_name" => $i["html_name"],
         "cast_job" => $i["role"],
+        "cast_id" => $i["person_id"],
     ]);
 });
 
@@ -98,6 +101,7 @@ $template->replace_block_name_arr("crew", $crew, function (Builder $sec, array $
         "crew_name" => $i["name"],
         "crew_html_name" => $i["html_name"],
         "crew_job" => $i["role"],
+        "crew_id" => $i["person_id"],
     ]);
 });
 
@@ -128,8 +132,6 @@ $template->replace_block_name_arr("recensioni", $reviews, function (Builder $sec
     if (!empty($user) && $user["is_admin"]) {
         $sec->replace_var("delete_recensione", $sec->get_block("delete_recensione")->replace_singles([
             "rev_username" => $i["username"],
-            "film_cat" => $category ?? "",
-            "film_id" => $movie_id,
         ]), VarType::Block);
     } else {
         $sec->delete_blocks(["delete_recensione"]);
@@ -140,18 +142,13 @@ $template->replace_block_name_arr("recensioni", $reviews, function (Builder $sec
 if (empty($user) || !empty($user_review)) {
     $template->delete_blocks(["crea_recensione"]);
 } else {
-    $template->replace_var("crea_recensione", $template->get_block("crea_recensione")->replace_singles([
-        "film_id" => $movie_id,
-        "film_cat" => $category ?? "",
-    ]), VarType::Block);
+    $template->replace_var("crea_recensione", $template->get_block("crea_recensione"), VarType::Block);
 }
 
 if (!empty($user) && !empty($user_review)) {
     // se il parametro modifica è 1 ed esiste una review dell'utente loggato mostra il form di modifica
     if (!empty($_GET["modifica"]) && $_GET["modifica"] == 1) {
         $template->replace_var("mod_recensione_utente", $template->get_block("mod_recensione_utente")->replace_singles([
-            "film_id" => $movie_id,
-            "film_cat" => $category ?? "",
             "mod_title" => $user_review["title"],
             "mod_content" => $user_review["content"],
             "mod_rating" => $user_review["rating"],
@@ -164,15 +161,10 @@ if (!empty($user) && !empty($user_review)) {
             "user_rev_rating" => $user_review["rating"],
             "user_rev_title" => $user_review["title"],
             "user_rev_content" => $user_review["content"],
-            "film_id" => $movie_id,
-            "film_cat" => $category ?? "",
         ]), VarType::Block);
         $template->delete_blocks(["mod_recensione_utente"]);
     }
-    $template->replace_var("delete_recensione_utente", $template->get_block("delete_recensione_utente")->replace_singles([
-        "film_id" => $movie_id,
-        "film_cat" => $category ?? "",
-    ]), VarType::Block);
+    $template->replace_var("delete_recensione_utente", $template->get_block("delete_recensione_utente"), VarType::Block);
 }
 // altrimenti non mostrare nulla della recensione dell'utente
 else {

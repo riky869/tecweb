@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="it">
   <head>
     <meta charset="UTF-8" />
@@ -93,11 +93,25 @@
         </div>
       </section>
 
-      <section id="generi" aria-label="Generi">
+      <section id="generi" aria-label="Generi" id="generi_sec">
         <h3>Generi</h3>
         <ul>
           <!--genere_start-->
-          <li><a href="films.php?cat={{genere}}">{{html_genere}}</a></li>
+          <li>
+            <a href="films.php?cat={{genere}}">{{html_genere}}</a>
+            <form action="delete.php" method="post">
+              <fieldset>
+                <legend>Elimina il genere {{html_genere}} dal film</legend>
+
+                <input type="hidden" name="type" value="category" />
+                <input type="hidden" name="film_id" value="{{film_id}}" />
+                <input type="hidden" name="cat" value="{{film_cat}}" />
+                <input type="hidden" name="genere" value="{{genere}}" />
+
+                <input type="submit" value="Elimina" />
+              </fieldset>
+            </form>
+          </li>
           <!--genere_end-->
         </ul>
       </section>
@@ -107,7 +121,7 @@
         <p id="film-description">{{description}}</p>
       </section>
 
-      <section aria-label="Cast">
+      <section aria-label="Cast" id="cast_sec">
         <h3><span lang="en">Cast</span></h3>
 
         <ul class="person-list">
@@ -125,6 +139,18 @@
                   <dt class="person-title">Ruolo:</dt>
                   <dd class="person-value">{{cast_job}}</dd>
                 </dl>
+                <form action="delete.php" method="post">
+                  <fieldset>
+                    <legend>Elimina {{cast_html_name}} dalla <span lang="en">cast</span></legend>
+
+                    <input type="hidden" name="type" value="cast" />
+                    <input type="hidden" name="film_id" value="{{film_id}}" />
+                    <input type="hidden" name="cat" value="{{film_cat}}" />
+                    <input type="hidden" name="person_id" value="{{cast_id}}" />
+
+                    <input type="submit" value="Elimina" />
+                  </fieldset>
+                </form>
               </figcaption>
             </figure>
           </li>
@@ -132,7 +158,7 @@
         </ul>
       </section>
 
-      <section aria-label="Crew">
+      <section aria-label="Crew" id="crew_sec">
         <h3><span lang="en">Crew</span></h3>
 
         <ul class="person-list">
@@ -150,6 +176,18 @@
                   <dt class="person-title">Ruolo:</dt>
                   <dd class="person-value">{{crew_job}}</dd>
                 </dl>
+                <form action="delete.php" method="post">
+                  <fieldset>
+                    <legend>Elimina {{crew_html_name}} dalla <span lang="en">crew</span></legend>
+
+                    <input type="hidden" name="type" value="crew" />
+                    <input type="hidden" name="film_id" value="{{film_id}}" />
+                    <input type="hidden" name="cat" value="{{film_cat}}" />
+                    <input type="hidden" name="person_id" value="{{crew_id}}" />
+
+                    <input type="submit" value="Elimina" />
+                  </fieldset>
+                </form>
               </figcaption>
             </figure>
           </li>
