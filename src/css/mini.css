@@ -1,7 +1,6 @@
 /* css per il resize della finestra da mobile*/
 
 body {
-  min-height: 100vh;
   display: flex; /* Serve per tenere il footer in basso */
   flex-direction: column;
   background-color: var(--color-background);
@@ -25,13 +24,6 @@ footer p {
 
 .locandina {
   max-width: 15em;
-  margin-right: 0;
-  margin-bottom: 1em;
-}
-
-.info-list {
-  width: 100%;
-  text-align: center;
 }
 
 .info-list li {
@@ -44,11 +36,16 @@ footer p {
   width: auto;
 }
 
-.person-list {
-  /* grid-template-columns: repeat(auto-fit, minmax(9em, 1fr)); */
-  grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+#menu {
+  display: none;
 }
 
-.person-list figure {
-  max-width: 9em;
+#breadcrumb {
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
 }
+
+/* .person-list { */
+/* grid-template-columns: repeat(auto-fit, minmax(9em, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+/* } */

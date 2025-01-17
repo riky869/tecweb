@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
   <head>
     <meta charset="UTF-8" />
@@ -7,10 +7,7 @@
     <meta name="description" content="Dettagli, specifiche e recensioni del singolo film" />
     <meta name="keywords" content="dettagli film, titolo film, descrizione film" />
 
-    <meta
-      name="author"
-      content="Loris Libralato, Leonardo Lucato, Piva Riccardo, Matteo Campagnaro, Tommaso Diviesti"
-    />
+    <meta name="author" content="Loris Libralato, Leonardo Lucato, Piva Riccardo, Matteo Campagnaro, Tommaso Diviesti" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!--html_head-->
@@ -26,9 +23,7 @@
         Ti trovi in:
 
         <!--breadcrumb_da_categoria_start-->
-        <a href="categories.php">Categorie</a> &gt
-        <a href="films.php?cat={{breadcrumb_nome_cat}}">{{breadcrumb_nome_cat}}</a> &gt
-        {{breadcrumb_nome_film}}
+        <a href="categories.php">Categorie</a> &gt <a href="films.php?cat={{breadcrumb_nome_cat}}">{{breadcrumb_nome_cat}}</a> &gt {{breadcrumb_nome_film}}
         <!--breadcrumb_da_categoria_end-->
         <!--breadcrumb_da_altro_start-->
         <a href="index.php"><span lang="en">Home</span></a> &gt {{breadcrumb_nome_film}}
@@ -120,10 +115,7 @@
           <li>
             <figure>
               <picture>
-                <img
-                  src="{{immagine_cast}}"
-                  alt="Foto profilo in primo piano di {{cast_name}}{{cast_alt_img_not_present}}"
-                />
+                <img src="{{immagine_cast}}" alt="Foto profilo in primo piano di {{cast_name}}{{cast_alt_img_not_present}}" />
               </picture>
               <figcaption>
                 <dl class="person-info">
@@ -148,10 +140,7 @@
           <li>
             <figure>
               <picture>
-                <img
-                  src="{{immagine_crew}}"
-                  alt="Foto profilo in primo piano di {{crew_name}}{{crew_alt_img_not_present}}"
-                />
+                <img src="{{immagine_crew}}" alt="Foto profilo in primo piano di {{crew_name}}{{crew_alt_img_not_present}}" />
               </picture>
               <figcaption>
                 <dl class="person-info">
@@ -183,25 +172,10 @@
             <input id="title" type="text" name="title" value="" minlength="3" required="required" />
 
             <label for="content">Commento</label>
-            <textarea
-              rows="20"
-              cols="40"
-              id="content"
-              name="content"
-              minlength="5"
-              required="required"
-            ></textarea>
+            <textarea rows="20" cols="40" id="content" name="content" minlength="5" required="required"></textarea>
 
             <label for="rating">Valutazione</label>
-            <input
-              id="rating"
-              type="number"
-              name="rating"
-              value="7"
-              min="1"
-              max="10"
-              required="required"
-            />
+            <input id="rating" type="number" name="rating" value="7" min="1" max="10" required="required" />
 
             <input type="submit" value="Crea recensione" />
           </fieldset>
@@ -241,7 +215,8 @@
           </form>
           <!--view_recensione_utente_end-->
           <!--mod_recensione_utente_start-->
-          <form id="modificaRecensione" class="formGestione" action="review.php" method="post">
+          <div class="frameRecensione" id="modificaRecensione">
+          <form id="modificaRecensione" class="formRecensione" action="review.php" method="post">
             <fieldset>
               <legend>Modifica la tua recensione</legend>
 
@@ -250,37 +225,13 @@
               <input type="hidden" name="cat" value="{{film_cat}}" />
 
               <label for="title">Titolo</label>
-              <input
-                type="text"
-                name="title"
-                id="title"
-                value="{{mod_title}}"
-                required="required"
-                minlength="3"
-              />
+              <input type="text" name="title" id="title" value="{{mod_title}}" required="required" minlength="3" />
 
               <label for="content">Commento</label>
-              <textarea
-                rows="20"
-                cols="40"
-                id="content"
-                name="content"
-                minlength="5"
-                required="required"
-              >
-{{mod_content}}</textarea
-              >
+              <textarea rows="20" cols="40" id="content" name="content" minlength="5" required="required">{{mod_content}}</textarea>
 
               <label for="rating">Valutazione</label>
-              <input
-                id="rating"
-                type="number"
-                name="rating"
-                value="{{mod_rating}}"
-                min="1"
-                max="10"
-                required="required"
-              />
+              <input id="rating" type="number" name="rating" value="{{mod_rating}}" min="1" max="10" required="required" />
               <input type="submit" value="Modifica recensione" />
             </fieldset>
           </form>
