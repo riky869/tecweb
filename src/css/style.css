@@ -578,6 +578,34 @@ main a:visited:hover {
   border-radius: 8px;
 }
 
+/* Stile rettangolo films */
+.films {
+  list-style: none;
+}
+
+.films li {
+  background-color: var(--color-secondary-background);
+  padding: 1em;
+  border-radius: 8px;
+  margin-top: 1em;
+}
+
+.films li a {
+  display: block;
+}
+
+.films li a h3 {
+  color: var(--color-link);
+}
+
+.films li a:visited h3 {
+  color: var(--color-visited);
+}
+
+.films li p {
+  margin-bottom: 0;
+}
+
 /* About */
 
 .griglia-about {
@@ -707,6 +735,7 @@ main a:visited:hover {
   margin-bottom: 0em;
 }
 
+/* stile rettangolo background di ogni recensione */
 .frameRecensione {
   background-color: var(--color-secondary-background);
   border-radius: 8px;
@@ -877,15 +906,17 @@ main a:visited:hover {
 
 .formGestione fieldset {
   border: none;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.5em;
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+  /* align-items: center; */
+  /* gap: 0.5em; */
 }
 
 .formGestione legend {
-  color: var(--color-secondary);
-  float: left;
+  text-indent: -9999em;
+  /* color: var(--color-secondary); */
+  /* float: left; */
+  position: absolute;
 }
 
 .formGestione input[type='submit'] {

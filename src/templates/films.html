@@ -7,10 +7,7 @@
     <meta name="description" content="Elenco di tutti i film" />
     <meta name="keywords" content="elenco film, categorie film" />
 
-    <meta
-      name="author"
-      content="Loris Libralato, Leonardo Lucato, Piva Riccardo, Matteo Campagnaro, Tommaso Diviesti"
-    />
+    <meta name="author" content="Loris Libralato, Leonardo Lucato, Piva Riccardo, Matteo Campagnaro, Tommaso Diviesti" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!--html_head-->
@@ -72,12 +69,14 @@
                  E quindi ho aggiunto categoria anche se è ridondante con il breadcrumb
                  Però ci sta nella pagina secondo me
                  -->
-      <ul>
+      <ul class="films">
         <!--movie_start-->
         <li>
-          <h3><a href="film.php?id={{film_id}}&cat={{cat_name}}">{{film_name}}</a></h3>
-          <h4>Descrizione:</h4>
-          <p>{{description}}</p>
+          <a href="film.php?id={{film_id}}&cat={{cat_name}}">
+            <h3>{{film_name}}</h3>
+            <h4>Descrizione:</h4>
+            <p>{{description}}</p>
+          </a>
         </li>
         <!--movie_end-->
       </ul>
