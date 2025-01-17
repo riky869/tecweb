@@ -327,6 +327,7 @@ header h2 {
   column-gap: 0.5em;
   row-gap: 0.2em;
   margin-right: 0.2em;
+  width: 30%;
 }
 
 #loggato p {
@@ -351,6 +352,9 @@ header h2 {
 }
 
 #loggato form {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
   width: 70%;
 }
 
