@@ -686,11 +686,11 @@ ADD COLUMN html_name VARCHAR(255) DEFAULT name;
 UPDATE people
 SET
     html_name = CASE
-        WHEN id = '1' THEN CONCAT ('<span lang="lang="en">', name, '</span>')
-        WHEN id = '2' THEN CONCAT ('<span lang="lang="en">', name, '</span>')
-        WHEN id = '3' THEN CONCAT ('<span lang="lang="en">', name, '</span>')
-        WHEN id = '4' THEN CONCAT ('<span lang="lang="en">', name, '</span>')
-        WHEN id = '5' THEN CONCAT ('<span lang="lang="en">', name, '</span>')
+        WHEN id = '1' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '2' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '3' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '4' THEN CONCAT ('<span lang="en">', name, '</span>')
+        WHEN id = '5' THEN CONCAT ('<span lang="en">', name, '</span>')
         WHEN id = '6' THEN CONCAT ('<span lang="en">', name, '</span>')
         WHEN id = '7' THEN CONCAT ('<span lang="en">', name, '</span>')
         WHEN id = '8' THEN CONCAT ('<span lang="da">', name, '</span>')
