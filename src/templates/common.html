@@ -2,8 +2,13 @@
 <html lang="it">
   <head>
     <!--html_head_start-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <base href="{{html_head_base_path}}" />
     <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <script type="text/javascript" src="js/main.js"></script>
+    <link rel="stylesheet" href="css/style.css" media="screen" />
+    <link rel="stylesheet" href="css/mini.css" media="screen and (max-width: 930px)" />
     <!--html_head_end-->
   </head>
 
@@ -32,7 +37,7 @@
     <!--user_logged_start-->
     <div id="loggato">
       <p>Utente corrente: <a href="profile.php">{{username}}</a></p>
-      <form method="POST" action="logout.php">
+      <form method="post" action="logout.php">
         <fieldset>
           <legend>Effettua la disconnessione</legend>
           <input type="submit" value="Esci" />

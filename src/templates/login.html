@@ -7,15 +7,9 @@
     <meta name="description" content="Pagina login per accedere al sito di recensioni di film" />
     <meta name="keywords" content="film, login, accesso utente" />
 
-    <meta
-      name="author"
-      content="Loris Libralato, Leonardo Lucato, Piva Riccardo, Matteo Campagnaro, Tommaso Diviesti"
-    />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Loris Libralato, Leonardo Lucato, Piva Riccardo, Matteo Campagnaro, Tommaso Diviesti" />
 
     <!--html_head-->
-    <link rel="stylesheet" href="css/style.css" media="screen" />
-    <link rel="stylesheet" href="css/mini.css" media="screen and (max-width: 930px)" />
   </head>
 
   <body>
@@ -58,23 +52,18 @@
         <fieldset>
           <legend>Effettua l'accesso</legend>
 
-          <label for="username">nome utente</label>
-          <input
-            type="text"
-            name="username"
-            id="username"
-            required="required"
-            minlength="4"
-            maxlength="20"
-          />
+          <label for="login_username">nome utente</label>
+          <input type="text" name="username" id="login_username" required="required" minlength="4" maxlength="20" />
+          <span id="login_username_err" class="field-error" data-input="login_username"></span>
 
-          <label for="password">password</label>
-          <input type="password" name="password" id="password" required="required" minlength="4" />
+          <label for="login_password">password</label>
+          <input type="password" name="password" id="login_password" required="required" minlength="4" />
+          <span id="login_password_err" class="field-error" data-input="login_password"></span>
 
           <input type="submit" value="Accedi" />
 
           <!--login_error_start-->
-          <p class="loginForm-error">{{login_error}}</p>
+          <span class="form-submit-error">{{login_error}}</span>
           <!--login_error_end-->
         </fieldset>
       </form>
