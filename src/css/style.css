@@ -324,8 +324,8 @@ header h2 {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin-left: 4em;
   column-gap: 0.5em;
+  row-gap: 0.2em;
   margin-right: 0.2em;
 }
 
@@ -335,7 +335,7 @@ header h2 {
 
 #loggato a {
   color: var(--color-link);
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 #loggato a:hover {
@@ -362,7 +362,6 @@ header h2 {
   color: var(--color-text-light);
   /* margin-top: 0.2em; */
   /* margin-right: 0.3em; */
-  float: left;
   position: absolute;
   text-indent: -9999em;
 }
@@ -375,8 +374,14 @@ header h2 {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  float: right;
+  min-width: fit-content;
   width: 100%;
+}
+
+#loggato input[type='submit']:hover {
+  color: var(--color-text-light);
+  background-color: var(--color-button-hover);
+  transition: background-color 0.2s ease;
 }
 
 /* contenuto-centrale */
@@ -450,6 +455,27 @@ main a:visited:hover {
   width: 200px;
   background-color: var(--color-secondary-background);
   border-radius: 8px;
+}
+
+/* Personalizzazione della barra di scorrimento */
+.film-card::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+.film-card::-webkit-scrollbar-track {
+  background: var(--color-secondary-background);
+  border-radius: 8px;
+}
+
+.film-card::-webkit-scrollbar-thumb {
+  background-color: var(--color-link);
+  border-radius: 8px;
+  border: 3px solid var(--color-secondary-background);
+}
+
+.film-card::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-button-hover);
 }
 
 /* Stile per le locandine dei film */
