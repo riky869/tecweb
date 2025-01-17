@@ -433,6 +433,60 @@ main a:visited:hover {
   color: var(--color-secondary);
 }
 
+/* stile caroselli film home */
+
+.film-card {
+  display: flex;
+  overflow-x: auto;
+  padding: 1em 0;
+  gap: 1em;
+  list-style-type: none;
+  align-items: stretch;
+}
+
+/* Stile per le card dei film */
+.film-card li {
+  flex-shrink: 0;
+  width: 200px;
+  background-color: var(--color-secondary-background);
+  border-radius: 8px;
+}
+
+/* Stile per le locandine dei film */
+.film-locandina {
+  width: 100%;
+  height: auto;
+  border: 0.1em solid var(--color-secondary);
+}
+
+/* Stile per le informazioni dei film */
+.film-card a {
+  padding: 1em;
+  color: var(--color-link);
+  text-decoration: none;
+  font-size: 1.1em;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  /* flex: 1; */
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  box-sizing: border-box;
+  justify-content: space-around;
+  row-gap: 0.5em;
+}
+
+.film-card a:hover {
+  border: 0.1em solid;
+  border-radius: 8px;
+}
+
+.film-card span {
+  height: 100%;
+  align-content: center;
+}
+
 /* griglia categorie */
 
 .griglia-categorie {
@@ -966,19 +1020,20 @@ footer p {
 /* Stile bottone torna su fixed in fondo a destra della pagina */
 
 #tornaSu {
-  position: absolute;
+  position: fixed;
   cursor: pointer;
   text-indent: -9999em;
   color: var(--color-text-light);
   width: 3em;
   height: 3em;
+
+  right: -9999em;
+  bottom: -9999em;
 }
 
 #tornaSu:focus {
-  position: fixed;
   background-image: url('../images/tornaSu.png');
   background-repeat: no-repeat;
-  /* border-radius: 100%; */
   border-radius: 100%;
   background-size: cover;
   background-position: center center;
@@ -1015,55 +1070,3 @@ body {
     margin: auto;
     border: 1px solid #000;
 } */
-
-.film-card {
-  display: flex;
-  overflow-x: auto;
-  padding: 1em 0;
-  gap: 1em;
-  list-style-type: none;
-  align-items: stretch;
-}
-
-/* Stile per le card dei film */
-.film-card li {
-  flex-shrink: 0;
-  width: 200px;
-  background-color: var(--color-secondary-background);
-  border-radius: 8px;
-}
-
-/* Stile per le locandine dei film */
-.film-locandina {
-  width: 100%;
-  height: auto;
-  border: 0.1em solid var(--color-secondary);
-}
-
-/* Stile per le informazioni dei film */
-.film-card a {
-  padding: 1em;
-  color: var(--color-link);
-  text-decoration: none;
-  font-size: 1.1em;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  /* flex: 1; */
-  align-items: center;
-  text-align: center;
-  height: 100%;
-  box-sizing: border-box;
-  justify-content: space-around;
-  row-gap: 0.5em;
-}
-
-.film-card a:hover {
-  border: 0.1em solid;
-  border-radius: 8px;
-}
-
-.film-card span {
-  height: 100%;
-  align-content: center;
-}
