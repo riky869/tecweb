@@ -249,6 +249,16 @@
               <input type="submit" value="Modifica recensione" />
             </fieldset>
           </form>
+          <form class="formGestione" action="film.php#recensioni" method="get">
+            <fieldset>
+              <legend>Annulla la modifica della recensione</legend>
+
+              <input type="hidden" name="id" value="{{film_id}}" />
+              <input type="hidden" name="cat" value="{{film_cat}}" />
+              <input type="hidden" name="modifica" value="0" />
+              <input type="submit" value="Annulla modifica" />
+            </fieldset>
+          </form>
           <!--delete_recensione_utente_start-->
           <form class="formGestione" action="review.php" method="post">
             <fieldset>
