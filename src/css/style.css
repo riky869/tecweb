@@ -452,6 +452,7 @@ main a:visited:hover {
   gap: 1em;
   list-style-type: none;
   align-items: stretch;
+  margin-bottom: 1em;
 }
 
 /* Stile per le card dei film */
@@ -463,6 +464,8 @@ main a:visited:hover {
 }
 
 /* Personalizzazione della barra di scorrimento */
+
+/* Chrome */
 .film-card::-webkit-scrollbar {
   width: 12px;
   height: 12px;
@@ -515,7 +518,7 @@ main a:visited:hover {
 }
 
 .film-card span {
-  /* height: 100%; */
+  height: 100%;
   align-content: center;
 }
 
@@ -715,11 +718,16 @@ main a:visited:hover {
 
 /* Generi film */
 
+#generi ul {
+  margin-bottom: 1em;
+}
+
 #generi li {
   list-style: none;
-  margin-right: 1em;
-  margin-bottom: 0.5em;
+  margin-bottom: 1em;
   width: fit-content;
+  display: flex;
+  column-gap: 1em;
 }
 
 #generi li a {
@@ -733,8 +741,27 @@ main a:visited:hover {
   border-bottom: 0.08em solid var(--color-visited);
 }
 
-#generi ul {
-  margin-bottom: 1em;
+#generi form fieldset {
+  border: none;
+}
+
+#generi form legend {
+  position: absolute;
+  text-indent: -9999em;
+}
+
+#generi form input[type='submit'] {
+  background-color: var(--color-link);
+  color: var(--color-text-dark);
+  padding: 0.3em 0.7em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#generi form input[type='submit']:hover {
+  background-color: var(--color-button-hover);
+  color: var(--color-text-light);
 }
 
 /* Lista persone film */
@@ -750,19 +777,56 @@ main a:visited:hover {
 }
 
 .person-list figure {
+  display: flex;
+  flex-direction: column;
+
   background-color: var(--color-secondary-background);
   padding: 1em;
   border-radius: 8px;
   text-align: center;
   box-sizing: border-box;
-  /* max-width: 12em; */
-  /* height: 92%; */
+  height: 100%;
 }
 
 .person-list img {
   max-width: 100%;
   height: auto;
   border-radius: 8px;
+}
+
+.person-list figcaption {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  /* align-items: flex-end; */
+  justify-content: space-evenly;
+  /* height: fit-content; */
+  row-gap: 0.5em;
+  box-sizing: border-box;
+}
+
+.person-list figcaption form legend {
+  text-indent: -9999em;
+  position: absolute;
+}
+
+.person-list figcaption form fieldset {
+  border: none;
+}
+
+.person-list figcaption form input[type='submit'] {
+  background-color: var(--color-link);
+  color: var(--color-text-dark);
+  padding: 0.5em 0.7em;
+  width: fit-content;
+  border: none;
+  border-radius: 4px;
+  float: right;
+}
+
+.person-list figcaption form input[type='submit']:hover {
+  background-color: var(--color-button-hover);
+  color: var(--color-text-light);
 }
 
 .person-title {
@@ -896,11 +960,19 @@ main a:visited:hover {
 .formRecensione input[type='number'] {
   width: fit-content;
   box-sizing: border-box;
-  padding: 0.5em 1em;
+  padding: 0.5em 0.5em;
   border: 1px solid var(--color-secondary);
   border-radius: 4px;
   background-color: var(--color-background);
   color: var(--color-text-light);
+  text-align: center;
+  -moz-appearance: textfield;
+}
+
+.formRecensione input::-webkit-outer-spin-button,
+.formRecensione input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 /* Stile dello slider che non c'è più */
