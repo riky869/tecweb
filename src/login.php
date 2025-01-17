@@ -44,18 +44,28 @@ if (Request::is_post()) {
             $login_error = "Errore interno del <span lang=\"en\">server</span>";
         }
     }
+
+    if (!empty($login_error)) {
+        $_SESSION["login_error"] = $login_error;
+    }
+    Request::redirect("login.php");
 }
 
-$template = Builder::from_template(basename(__FILE__));
-$common = Builder::load_common();
+if (Request::is_get()) {
+    $login_error = $_SESSION["login_error"] ?? null;
+    unset($_SESSION["login_error"]);
 
-$template->build(null, $common);
-$template->delete_secs([]);
+    $template = Builder::from_template(basename(__FILE__));
+    $common = Builder::load_common();
 
-if ($login_error) {
-    $template->replace_var("login_error", $template->get_block("login_error")->replace_var("login_error", $login_error), VarType::Block);
-} else {
-    $template->delete_var("login_error", VarType::Block);
+    $template->build(null, $common);
+    $template->delete_secs([]);
+
+    if (!empty($login_error)) {
+        $template->replace_var("login_error", $template->get_block("login_error")->replace_var("login_error", $login_error), VarType::Block);
+    } else {
+        $template->delete_var("login_error", VarType::Block);
+    }
+
+    $template->show();
 }
-
-$template->show();

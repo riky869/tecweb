@@ -55,19 +55,30 @@ if (Request::is_post()) {
             }
         }
     }
+
+    if (!empty($register_error)) {
+        $_SESSION["register_error"] = $register_error;
+    }
+
+    Request::redirect("signup.php");
 }
 
-if (empty($register_error)) {
-    $template->delete_blocks(["register_error"]);
-} else {
-    $template->replace_var(
-        "register_error",
-        $template->get_block("register_error")->replace_var("register_error", $register_error),
-        VarType::Block
-    );
-}
+if (Request::is_get()) {
+    $register_error = $_SESSION["register_error"] ?? null;
+    unset($_SESSION["register_error"]);
 
-$common = Builder::load_common();
-$template->build($user, $common);
-$template->delete_secs([]);
-$template->show();
+    if (empty($register_error)) {
+        $template->delete_blocks(["register_error"]);
+    } else {
+        $template->replace_var(
+            "register_error",
+            $template->get_block("register_error")->replace_var("register_error", $register_error),
+            VarType::Block
+        );
+    }
+
+    $common = Builder::load_common();
+    $template->build($user, $common);
+    $template->delete_secs([]);
+    $template->show();
+}
