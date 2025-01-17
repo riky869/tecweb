@@ -18,6 +18,7 @@ $movie_id = $_GET["id"];
 $category = $_GET["cat"] ?? "";
 
 $db = DB::from_env();
+$user = Session::get_user();
 
 $categoryFound = !empty($category) ? $db->get_category($category) : null;
 $movie = $db->get_movie($movie_id);
@@ -60,6 +61,13 @@ $template->replace_singles([
     "film_cat" => $category ?? "",
 ]);
 
+if (!empty($user) && $user["is_admin"]) {
+    $template->replace_var("delete_genere", $template->get_block("delete_genere"), VarType::Block);
+    $template->replace_var("delete_crew", $template->get_block("delete_crew"), VarType::Block);
+    $template->replace_var("delete_cast", $template->get_block("delete_cast"), VarType::Block);
+} else {
+    $template->delete_blocks(["delete_crew", "delete_cast", "delete_genere"]);
+}
 
 if (empty($categoryFound)) {
     $template->replace_var("breadcrumb_da_altro", $template->get_block("breadcrumb_da_altro")->replace_singles([
@@ -104,8 +112,6 @@ $template->replace_block_name_arr("crew", $crew, function (Builder $sec, array $
         "crew_id" => $i["person_id"],
     ]);
 });
-
-$user = Session::get_user();
 
 
 if (!empty($user)) {

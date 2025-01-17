@@ -99,6 +99,7 @@
           <!--genere_start-->
           <li>
             <a href="films.php?cat={{genere}}">{{html_genere}}</a>
+            <!--delete_genere_start-->
             <form action="delete.php" method="post">
               <fieldset>
                 <legend>Elimina il genere {{html_genere}} dal film</legend>
@@ -111,6 +112,7 @@
                 <input type="submit" value="Elimina" />
               </fieldset>
             </form>
+            <!--delete_genere_end-->
           </li>
           <!--genere_end-->
         </ul>
@@ -139,6 +141,7 @@
                   <dt class="person-title">Ruolo:</dt>
                   <dd class="person-value">{{cast_job}}</dd>
                 </dl>
+                <!--delete_cast_start-->
                 <form action="delete.php" method="post">
                   <fieldset>
                     <legend>Elimina {{cast_html_name}} dalla <span lang="en">cast</span></legend>
@@ -151,6 +154,7 @@
                     <input type="submit" value="Elimina" />
                   </fieldset>
                 </form>
+                <!--delete_cast_end-->
               </figcaption>
             </figure>
           </li>
@@ -176,6 +180,7 @@
                   <dt class="person-title">Ruolo:</dt>
                   <dd class="person-value">{{crew_job}}</dd>
                 </dl>
+                <!--delete_crew_start-->
                 <form action="delete.php" method="post">
                   <fieldset>
                     <legend>Elimina {{crew_html_name}} dalla <span lang="en">crew</span></legend>
@@ -188,6 +193,7 @@
                     <input type="submit" value="Elimina" />
                   </fieldset>
                 </form>
+                <!--delete_crew_end-->
               </figcaption>
             </figure>
           </li>
