@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="it">
   <head>
     <meta charset="UTF-8" />
@@ -213,9 +213,23 @@
               <input type="submit" value="Modifica recensione" />
             </fieldset>
           </form>
-          <!--view_recensione_utente_end-->
-          <!--mod_recensione_utente_start-->
-          <div class="frameRecensione" id="modificaRecensione">
+          <!--delete_recensione_utente_start-->
+          <form class="formGestione" action="review.php" method="post">
+            <fieldset>
+              <legend>Elimina la tua recensione</legend>
+
+              <input type="hidden" name="type" value="delete" />
+              <input type="hidden" name="film_id" value="{{film_id}}" />
+              <input type="hidden" name="cat" value="{{film_cat}}" />
+
+              <input type="submit" value="Elimina recensione" />
+            </fieldset>
+          </form>
+          <!--delete_recensione_utente_end-->
+        </div>
+        <!--view_recensione_utente_end-->
+        <!--mod_recensione_utente_start-->
+        <div class="frameRecensione" id="modificaRecensione">
           <form id="modificaRecensione" class="formRecensione" action="review.php" method="post">
             <fieldset>
               <legend>Modifica la tua recensione</legend>
@@ -235,7 +249,6 @@
               <input type="submit" value="Modifica recensione" />
             </fieldset>
           </form>
-          <!--mod_recensione_utente_end-->
           <!--delete_recensione_utente_start-->
           <form class="formGestione" action="review.php" method="post">
             <fieldset>
@@ -248,8 +261,10 @@
               <input type="submit" value="Elimina recensione" />
             </fieldset>
           </form>
+          <!--delete_recensione_utente_end-->
         </div>
-        <!--delete_recensione_utente_end-->
+        <!--mod_recensione_utente_end-->
+
         <!--recensioni_start-->
         <div class="frameRecensione">
           <dl>
