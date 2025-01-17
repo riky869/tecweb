@@ -8,11 +8,8 @@
     <meta name="keywords" content="dettagli film, titolo film, descrizione film" />
 
     <meta name="author" content="Loris Libralato, Leonardo Lucato, Piva Riccardo, Matteo Campagnaro, Tommaso Diviesti" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!--html_head-->
-    <link rel="stylesheet" href="css/style.css" media="screen" />
-    <link rel="stylesheet" href="css/mini.css" media="screen and (max-width: 930px)" />
   </head>
 
   <body>
@@ -212,14 +209,17 @@
             <input type="hidden" name="film_id" value="{{film_id}}" />
             <input type="hidden" name="cat" value="{{film_cat}}" />
 
-            <label for="title">Titolo</label>
-            <input id="title" type="text" name="title" value="" minlength="3" required="required" />
+            <label for="crea_rec_title">Titolo</label>
+            <input id="crea_rec_title" type="text" name="title" value="" minlength="3" required="required" />
+            <span id="crea_rec_title_err" class="field-error" data-input="crea_rec_title"></span>
 
-            <label for="content">Commento</label>
-            <textarea rows="20" cols="40" id="content" name="content" minlength="5" required="required"></textarea>
+            <label for="crea_rec_content">Commento</label>
+            <textarea rows="20" cols="40" id="content" name="crea_rec_content" minlength="5" required="required"></textarea>
+            <span id="crea_rec_content_err" class="field-error" data-input="crea_rec_content"></span>
 
-            <label for="rating">Valutazione</label>
-            <input id="rating" type="number" name="rating" value="7" min="1" max="10" required="required" />
+            <label for="crea_rec_rating">Valutazione</label>
+            <input id="crea_rec_rating" type="number" name="rating" value="7" min="1" max="10" required="required" />
+            <span id="crea_rec_rating_err" class="field-error" data-input="crea_rec_rating"></span>
 
             <input type="submit" value="Crea recensione" />
           </fieldset>
@@ -282,14 +282,18 @@
               <input type="hidden" name="film_id" value="{{film_id}}" />
               <input type="hidden" name="cat" value="{{film_cat}}" />
 
-              <label for="title">Titolo</label>
-              <input type="text" name="title" id="title" value="{{mod_title}}" required="required" minlength="3" />
+              <label for="mod_rec_title">Titolo</label>
+              <input type="text" name="title" id="mod_rec_title" value="{{mod_title}}" required="required" minlength="3" />
+              <span id="mod_rec_title_err" class="field-error" data-input="mod_rec_title"></span>
 
-              <label for="content">Commento</label>
-              <textarea rows="20" cols="40" id="content" name="content" minlength="5" required="required">{{mod_content}}</textarea>
+              <label for="mod_rec_content">Commento</label>
+              <textarea rows="20" cols="40" id="mod_rec_content" name="content" minlength="5" required="required">{{mod_content}}</textarea>
+              <span id="mod_rec_content_err" class="field-error" data-input="mod_rec_content"></span>
 
-              <label for="rating">Valutazione</label>
-              <input id="rating" type="number" name="rating" value="{{mod_rating}}" min="1" max="10" required="required" />
+              <label for="mod_rec_rating">Valutazione</label>
+              <input id="mod_rec_rating" type="number" name="rating" value="{{mod_rating}}" min="1" max="10" required="required" />
+              <span id="mod_rec_rating_err" class="field-error" data-input="mod_rec_rating"></span>
+
               <input type="submit" value="Conferma modifica" />
             </fieldset>
           </form>

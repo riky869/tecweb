@@ -8,11 +8,8 @@
     <meta name="keywords" content="" />
 
     <meta name="author" content="Loris Libralato, Leonardo Lucato, Piva Riccardo, Matteo Campagnaro, Tommaso Diviesti" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!--html_head-->
-    <link rel="stylesheet" href="css/style.css" media="screen" />
-    <link rel="stylesheet" href="css/mini.css" media="screen and (max-width: 930px)" />
   </head>
 
   <body>
@@ -43,11 +40,13 @@
           <legend>Aggiungi una persona</legend>
           <input type="hidden" name="action" value="create_people" />
 
-          <label for="person_name">Nome</label>
-          <input type="text" name="name" id="person_name" />
+          <label for="crea_people_name">Nome</label>
+          <input type="text" name="name" id="crea_people_name" />
+          <span id="crea_people_name_err" class="field-error" data-input="crea_people_name"></span>
 
-          <label for="image_person">Immagine profilo</label>
-          <input type="file" name="image" id="image_person" />
+          <label for="crea_people_image">Immagine profilo</label>
+          <input type="file" name="image" id="crea_people_image" />
+          <span id="crea_people_image_err" class="field-error" data-input="crea_people_image"></span>
 
           <input type="submit" value="Crea" />
           <!--create_people_error_start-->
@@ -64,23 +63,28 @@
           <legend>Crea un nuovo film</legend>
           <input type="hidden" name="action" value="create_film" />
 
-          <label for="film_name">Nome</label>
-          <input type="text" name="name" id="film_name" required="required" minlength="2" />
+          <label for="crea_film_name">Nome</label>
+          <input type="text" name="name" id="crea_film_name" required="required" minlength="2" />
+          <span id="crea_film_name_err" class="field-error" data-input="crea_film_name"></span>
 
-          <label for="original_name">Nome originale</label>
-          <input type="text" name="original_name" id="original_name" required="required" minlength="2" />
+          <label for="crea_film_original_name">Nome originale</label>
+          <input type="text" name="original_name" id="crea_film_original_name" minlength="2" />
+          <span id="crea_film_original_name_err" class="field-error" data-input="crea_film_original_name"></span>
 
-          <label for="original_language">Lingua</label>
-          <input type="text" name="original_language" id="original_language" required="required" />
+          <label for="crea_film_original_language">Lingua</label>
+          <input type="text" name="original_language" id="crea_film_original_language" required="required" />
+          <span id="crea_film_original_language_err" class="field-error" data-input="crea_film_original_language"></span>
 
-          <label for="release_date">Data di uscita</label>
-          <input type="date" name="release_date" id="release_date" />
+          <label for="crea_film_release_date">Data di uscita</label>
+          <input type="date" name="release_date" id="crea_film_release_date" />
+          <span id="crea_film_release_date_err" class="field-error" data-input="crea_film_release_date"></span>
 
-          <label for="runtime">Durata</label>
-          <input type="number" name="runtime" id="runtime" min="10" max="6000" required="required" />
+          <label for="crea_film_runtime">Durata</label>
+          <input type="number" name="runtime" id="crea_film_runtime" min="10" max="6000" />
+          <span id="crea_film_runtime_err" class="field-error" data-input="crea_film_runtime"></span>
 
-          <label for="phase">Fase</label>
-          <select name="phase" id="phase" required="required">
+          <label for="crea_film_phase">Fase</label>
+          <select name="phase" id="crea_film_phase" required="required">
             <option value="Voci">Voci</option>
             <option value="Da annunciare">Da annunciare</option>
             <option value="Annunciato">Annunciato</option>
@@ -92,18 +96,23 @@
             <option value="Completato">Completato</option>
             <option value="Rilasciato">Rilasciato</option>
           </select>
+          <span id="crea_film_phase_err" class="field-error" data-input="crea_film_phase"></span>
 
-          <label for="budget">Budget</label>
-          <input type="number" name="budget" id="budget" min="0" required="required" />
+          <label for="crea_film_budget">Budget</label>
+          <input type="number" name="budget" id="crea_film_budget" min="0" />
+          <span id="crea_film_budget_err" class="field-error" data-input="crea_film_budget"></span>
 
-          <label for="revenue">Incasso</label>
-          <input type="number" name="revenue" id="revenue" min="0" required="required" />
+          <label for="crea_film_revenue">Incasso</label>
+          <input type="number" name="revenue" id="crea_film_revenue" min="0" />
+          <span id="crea_film_revenue_err" class="field-error" data-input="crea_film_revenue"></span>
 
-          <label for="description">Descrizione</label>
-          <textarea rows="20" cols="40" id="description" name="description" minlength="10" required="required"></textarea>
+          <label for="crea_film_description">Descrizione</label>
+          <textarea rows="20" cols="40" id="crea_film_description" name="description" minlength="10" required="required"></textarea>
+          <span id="crea_film_description_err" class="field-error" data-input="crea_film_description"></span>
 
-          <label for="film_image">Immagine</label>
-          <input type="file" name="image" id="film_image" />
+          <label for="crea_film_image">Immagine</label>
+          <input type="file" name="image" id="crea_film_image" />
+          <span id="crea_film_image_err" class="field-error" data-input="crea_film_image"></span>
 
           <input type="submit" value="Crea" />
 
@@ -121,34 +130,38 @@
           <legend>Aggiungi persona ad un film</legend>
           <input type="hidden" name="action" value="add_people_to_film" />
 
-          <label for="film_person">Film</label>
-          <select name="film_id" id="film_person">
+          <label for="add_people_film">Film</label>
+          <select name="film_id" id="add_people_film">
             <!--film_people_option_start-->
             <option value="{{id}}">{{name}}</option>
             <!--film_people_option_end-->
           </select>
+          <span id="add_people_film_err" class="field-error" data-input="add_people_film"></span>
 
-          <label for="people">Persona</label>
-          <select name="person_id" id="people">
+          <label for="add_people_people">Persona</label>
+          <select name="person_id" id="add_people_people">
             <!--people_option_start-->
             <option value="{{id}}">{{name}}</option>
             <!--people_option_end-->
           </select>
+          <span id="add_people_people_err" class="field-error" data-input="add_people_people"></span>
 
-          <label for="role_crew"><span lang="en"></span>Crew</label>
-          <input type="radio" name="role_type" id="role_crew" value="crew" required="required" />
-          <label for="role_cast"><span lang="en"></span>Cast</label>
-          <input type="radio" name="role_type" id="role_cast" value="cast" required="required" />
+          <label for="add_people_crew"><span lang="en"></span>Crew</label>
+          <input type="radio" name="role_type" id="add_people_crew" value="crew" required="required" />
 
-          <label for="role">Ruolo</label>
-          <input type="text" name="role" id="role" required="required" minlength="2" />
+          <label for="add_people_cast"><span lang="en"></span>Cast</label>
+          <input type="radio" name="role_type" id="add_people_cast" value="cast" required="required" />
+
+          <label for="add_people_role">Ruolo</label>
+          <input type="text" name="role" id="add_people_role" required="required" minlength="2" />
+          <span id="add_people_role_err" class="field-error" data-input="add_people_role"></span>
 
           <input type="submit" value="Aggiungi" />
           <!--add_people_to_film_error_start-->
-          <p>{{error}}</p>
+          <span class="form-submit-error">{{error}}</p>
           <!--add_people_to_film_error_end-->
           <!--add_people_to_film_success_start-->
-          <p>{{success}}</p>
+          <span class="form-submit-success">{{success}}</span>
           <!--add_people_to_film_success_end-->
         </fieldset>
       </form>
@@ -158,26 +171,28 @@
           <legend>Aggiungi categoria ad un film</legend>
           <input type="hidden" name="action" value="add_category_to_film" />
 
-          <label for="film_category">Film</label>
-          <select name="film_id" id="film_category">
+          <label for="add_cat_film">Film</label>
+          <select name="film_id" id="add_cat_film">
             <!--film_cat_option_start-->
             <option value="{{id}}">{{name}}</option>
             <!--film_cat_option_end-->
           </select>
+          <span id="add_cat_film_err" class="field-error" data-input="add_cat_film"></span>
 
-          <label for="category">Categoria</label>
-          <select name="category" id="category">
+          <label for="add_cat_category">Categoria</label>
+          <select name="category" id="add_cat_category">
             <!--category_option_start-->
             <option value="{{name}}">{{name}}</option>
             <!--category_option_end-->
           </select>
+          <span id="add_cat_category_err" class="field-error" data-input="add_cat_category"></span>
 
           <input type="submit" value="Aggiungi" />
           <!--add_category_to_film_error_start-->
-          <p>{{error}}</p>
+          <span class="form-submit-error">{{error}}</span>
           <!--add_category_to_film_error_end-->
           <!--add_category_to_film_success_start-->
-          <p>{{success}}</p>
+          <span class="form-submit-success">{{success}}</span>
           <!--add_category_to_film_success_end-->
         </fieldset>
       </form>
