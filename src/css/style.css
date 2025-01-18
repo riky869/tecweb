@@ -800,16 +800,13 @@ main a:visited:hover {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  /* align-items: flex-end; */
-  justify-content: space-evenly;
-  /* height: fit-content; */
+  justify-content: space-between;
   row-gap: 0.5em;
   box-sizing: border-box;
 }
 
 .person-list figcaption form {
   align-self: flex-end;
-  margin-top: auto;
 }
 
 .person-list figcaption form legend {
