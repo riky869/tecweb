@@ -91,9 +91,7 @@ header {
   background-color: var(--color-primary);
   color: var(--color-text-light);
   background: url('../images/header_bck.png');
-  background-size:
-    15% cover,
-    15% cover;
+  background-size: 15% cover, 15% cover;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -146,8 +144,12 @@ header h2 {
   color: var(--color-text-light);
   padding: 0.5em;
   padding-left: 1em;
+  border-radius: 0;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 #breadcrumb a {
@@ -1286,3 +1288,7 @@ body {
     margin: auto;
     border: 1px solid #000;
 } */
+
+#btnOpen {
+  display: none;
+}
