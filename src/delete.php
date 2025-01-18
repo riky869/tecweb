@@ -16,7 +16,7 @@ if (empty($user) || !$user["is_admin"]) {
 }
 
 $action = $_POST["type"] ?? null;
-if ($action != "crew" && $action != "cast" && $action != "category") {
+if ($action != "crew" && $action != "cast" && $action != "category" && $action != "film") {
     Request::load_403_page();
 }
 
@@ -25,8 +25,7 @@ if (empty($_POST["film_id"])) {
 }
 
 $film_id = clean_input($_POST["film_id"]);
-$cat = clean_input($_POST["cat"] ?? "");
-$category = clean_input($_POST["film_cat"] ?? "");
+$category = !empty($_POST["cat"]) ? clean_input($_POST["cat"]) : null;
 
 $db = DB::from_env();
 
@@ -60,23 +59,37 @@ if ($action == "crew" || $action == "cast") {
     } catch (mysqli_sql_exception $e) {
         throw $e;
     }
+} else if ($action == "film") {
+    try {
+        $db->delete_movie($film_id);
+    } catch (mysqli_sql_exception $e) {
+        throw $e;
+    }
 }
 
 
-$location = "film.php?id=$film_id";
-if (!empty($cat)) {
-    $location .= "&cat=" . $cat;
-}
-switch ($action) {
-    case "crew":
-        $location .= "#crew";
-        break;
-    case "cast":
-        $location .= "#cast";
-        break;
-    case "category":
-        $location .= "#generi";
-        break;
-}
+if ($action == "film") {
+    if (!empty($category)) {
+        Request::redirect("films.php?cat=$category");
+    } else {
+        Request::redirect("index.php");
+    }
+} else {
+    $location = "film.php?id=$film_id";
+    if (!empty($category)) {
+        $location .= "&cat=" . $category;
+    }
+    switch ($action) {
+        case "crew":
+            $location .= "#crew";
+            break;
+        case "cast":
+            $location .= "#cast";
+            break;
+        case "category":
+            $location .= "#generi";
+            break;
+    }
 
-Request::redirect($location);
+    Request::redirect($location);
+}

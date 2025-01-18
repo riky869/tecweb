@@ -71,7 +71,7 @@ CREATE TABLE
         movie_id INT,
         category_name VARCHAR(255),
         PRIMARY KEY (movie_id, category_name),
-        FOREIGN KEY (movie_id) REFERENCES movie (id),
+        FOREIGN KEY (movie_id) REFERENCES movie (id) ON DELETE CASCADE,
         FOREIGN KEY (category_name) REFERENCES category (name)
     );
 
@@ -81,7 +81,7 @@ CREATE TABLE
         person_id INT,
         role VARCHAR(255),
         PRIMARY KEY (movie_id, person_id, role),
-        FOREIGN KEY (movie_id) REFERENCES movie (id),
+        FOREIGN KEY (movie_id) REFERENCES movie (id) ON DELETE CASCADE,
         FOREIGN KEY (person_id) REFERENCES people (id)
     );
 
@@ -91,7 +91,7 @@ CREATE TABLE
         person_id INT,
         role VARCHAR(255),
         PRIMARY KEY (movie_id, person_id, role),
-        FOREIGN KEY (movie_id) REFERENCES movie (id),
+        FOREIGN KEY (movie_id) REFERENCES movie (id) ON DELETE CASCADE,
         FOREIGN KEY (person_id) REFERENCES people (id)
     );
 
@@ -104,7 +104,7 @@ CREATE TABLE
         username VARCHAR(255),
         movie_id INT,
         FOREIGN KEY (username) REFERENCES user (username),
-        FOREIGN KEY (movie_id) REFERENCES movie (id),
+        FOREIGN KEY (movie_id) REFERENCES movie (id) ON DELETE CASCADE,
         PRIMARY KEY (username, movie_id)
     );
 

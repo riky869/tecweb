@@ -370,7 +370,7 @@ class DB
         return $stmt->affected_rows > 0;
     }
 
-    public function create_film(string $name, string $original_name, string $original_language, ?string $release_date, int $runtime, string $phase, int $budget, int $revenue, string $description, ?string $image_path): bool
+    public function create_film(string $name, ?string $original_name, ?string $original_language, ?string $release_date, ?int $runtime, string $phase, ?int $budget, ?int $revenue, string $description, ?string $image_path): bool
     {
         $stmt = $this->conn->prepare("INSERT INTO movie (
             name,
@@ -455,6 +455,20 @@ class DB
             $movie_id,
             $category_name,
         ])) {
+            throw new Exception("Could not execute statement: " . $stmt->error);
+        }
+
+        return $stmt->affected_rows > 0;
+    }
+
+    public function delete_movie(int $movie_id): bool
+    {
+        $stmt = $this->conn->prepare("DELETE FROM movie WHERE id = ?");
+        if (!$stmt) {
+            throw new Exception("Could not prepare statement: " . $this->conn->error);
+        }
+
+        if (!$stmt->execute([$movie_id])) {
             throw new Exception("Could not execute statement: " . $stmt->error);
         }
 

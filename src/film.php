@@ -66,12 +66,13 @@ $template->replace_singles([
     "film_cat" => !empty($categoryFound) ? $categoryFound["name"] : "",
 ]);
 
+$delete_forms = ["delete_crew", "delete_cast", "delete_genere", "delete_film"];
 if (!empty($user) && $user["is_admin"]) {
-    $template->replace_var("delete_genere", $template->get_block("delete_genere"), VarType::Block);
-    $template->replace_var("delete_crew", $template->get_block("delete_crew"), VarType::Block);
-    $template->replace_var("delete_cast", $template->get_block("delete_cast"), VarType::Block);
+    foreach ($delete_forms as $form) {
+        $template->replace_var($form, $template->get_block($form), VarType::Block);
+    }
 } else {
-    $template->delete_blocks(["delete_crew", "delete_cast", "delete_genere"]);
+    $template->delete_blocks($delete_forms);
 }
 
 if (empty($categoryFound)) {

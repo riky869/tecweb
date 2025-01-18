@@ -49,6 +49,20 @@
       <section aria-label="Informazioni principali">
         <h3>Informazioni principali</h3>
         <div id="informazioniPrincipali">
+          <!--delete_film_start-->
+          <form action="delete.php" method="post">
+            <fieldset>
+              <legend>Elimina {{nome_film}}</legend>
+
+              <input type="hidden" name="type" value="film" />
+              <input type="hidden" name="film_id" value="{{film_id}}" />
+              <input type="hidden" name="cat" value="{{film_cat}}" />
+
+              <input type="submit" value="Elimina" />
+            </fieldset>
+          </form>
+          <!--delete_film_end-->
+
           <picture>
             <img class="locandina" src="{{locandina}}" alt="Locandina del film {{nome_film}}{{locandina_alt_img_not_present}}" />
           </picture>
