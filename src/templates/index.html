@@ -4,19 +4,14 @@
     <meta charset="UTF-8" />
     <title lang="en">Home | Popcorn time</title>
 
-    <meta
-      name="description"
-      content="Home page del sito dedicato alle recensioni dei migliori film"
-    />
+    <meta name="description" content="Home page del sito dedicato alle recensioni dei migliori film" />
     <meta name="keywords" content="home, recensioni film, migliori film" />
 
-    <meta
-      name="author"
-      content="Loris Libralato, Leonardo Lucato, Piva Riccardo, Matteo Campagnaro, Tommaso Diviesti"
-    />
+    <meta name="author" content="Loris Libralato, Leonardo Lucato, Piva Riccardo, Matteo Campagnaro, Tommaso Diviesti" />
 
     <!--html_head-->
-    
+
+    <script src="js/hamburger.js" async></script>
   </head>
 
   <body>
@@ -24,8 +19,8 @@
 
     <nav aria-label="breadcrumb" id="breadcrumb">
       <p>Ti trovi in: <span lang="en">Home</span></p>
-      <button id="btnOpen" aria-expanded="false" aria-label="menù" >
-        <img src="images/menu.png" aria-hidden="true"/>
+      <button id="btnOpen" aria-expanded="false" aria-label="menù">
+        <img src="images/menu.png" alt="icona menu" aria-hidden="true" />
       </button>
     </nav>
 
@@ -39,7 +34,7 @@
         <!--menu_admin_end-->
         <li><a href="about.php">Informazioni</a></li>
       </ul>
-       <!--profile--> 
+      <!--profile-->
     </nav>
 
     <aside></aside>
@@ -88,7 +83,7 @@
           <a href="film.php?id={{top_film_id}}">
             <img src="{{top_film_locandina}}" alt="locandina del film {{top_film_title}}{{top_film_alt_img_not_present}}" class="film-locandina" />
             <span>{{top_film_title}}</span>
-            <span>{{top_film_rating}} &#11088</span>
+            <span>{{top_film_rating}} &#11088; </span>
           </a>
         </li>
         <!--top_films_end-->
@@ -116,5 +111,4 @@
     <!--torna_su-->
     <!--footer-->
   </body>
-  <script src="js/hamburger.js" async></script>
 </html>
