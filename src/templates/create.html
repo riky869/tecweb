@@ -44,8 +44,11 @@
           <input type="text" name="name" id="crea_people_name" />
           <span id="crea_people_name_err" class="field-error" data-input="crea_people_name"></span>
 
-          <label for="crea_people_image">Immagine profilo</label>
-          <input type="file" name="image" id="crea_people_image" />
+          <div class="rowFormDiv">
+            <label for="crea_people_image">Immagine profilo</label>
+            <label class="customUpload" for="crea_people_image">Carica immagine</label>
+            <input type="file" name="image" id="crea_people_image" />
+          </div>
           <span id="crea_people_image_err" class="field-error" data-input="crea_people_image"></span>
 
           <input type="submit" value="Crea" />
@@ -110,8 +113,11 @@
           <textarea rows="20" cols="40" id="crea_film_description" name="description" minlength="10" required="required"></textarea>
           <span id="crea_film_description_err" class="field-error" data-input="crea_film_description"></span>
 
-          <label for="crea_film_image">Immagine</label>
-          <input type="file" name="image" id="crea_film_image" />
+          <div class="rowFormDiv">
+            <label for="crea_film_image">Immagine</label>
+            <label class="customUpload" for="crea_film_image">Carica immagine</label>
+            <input type="file" name="image" id="crea_film_image" />
+          </div>
           <span id="crea_film_image_err" class="field-error" data-input="crea_film_image"></span>
 
           <input type="submit" value="Crea" />
@@ -146,14 +152,14 @@
           </select>
           <span id="add_people_people_err" class="field-error" data-input="add_people_people"></span>
 
-          <div class="add_people_radio">
-            <label for="add_people_crew"><span lang="en"></span>Crew</label>
+          <div class="rowFormDiv">
             <input type="radio" name="role_type" id="add_people_crew" value="crew" required="required" />
+            <label for="add_people_crew"><span lang="en"></span>Crew</label>
           </div>
 
-          <div class="add_people_radio">
-            <label for="add_people_cast"><span lang="en"></span>Cast</label>
+          <div class="rowFormDiv">
             <input type="radio" name="role_type" id="add_people_cast" value="cast" required="required" />
+            <label for="add_people_cast"><span lang="en"></span>Cast</label>
           </div>
 
           <label for="add_people_role">Ruolo</label>
