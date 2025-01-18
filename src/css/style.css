@@ -91,7 +91,6 @@ header {
   background-color: var(--color-primary);
   color: var(--color-text-light);
   background: url('../images/header_bck.png');
-  background-size: 15% cover, 15% cover;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -1176,9 +1175,9 @@ footer p {
   text-align: center;
 }
 
-/* Stile 404 */
+/* Stile pagina errore */
 
-.error404 {
+.errorPage {
   width: 100%;
   padding: 0em;
   display: flex;
@@ -1196,7 +1195,7 @@ footer p {
   background-repeat: no-repeat; */
 }
 
-.error404 h2 {
+.errorPage h2 {
   color: var(--color-text-secondary);
   text-align: center;
   margin-left: 1em;
@@ -1211,7 +1210,7 @@ footer p {
   font-size: 3em;
 }
 
-.error404 p {
+.errorPage p {
   text-align: center;
   margin-left: 1em;
   margin-right: 1em;
