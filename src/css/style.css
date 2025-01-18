@@ -1159,7 +1159,6 @@ footer {
   background-color: var(--color-primary);
   color: var(--color-text-light);
   display: flex;
-  width: 100%;
   justify-content: space-between;
   align-items: center;
   border-top-left-radius: 8px;
