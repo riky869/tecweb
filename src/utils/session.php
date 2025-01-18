@@ -45,5 +45,7 @@ class Session
     }
 }
 
-if (DEFAULT_VARS["ALWAYS_LOGGED"] ?? false)
+if (DEFAULT_VARS["ALWAYS_LOGGED"] ?? false) {
+    Session::start();
     Session::always_logged();
+}
