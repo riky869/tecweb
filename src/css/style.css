@@ -667,7 +667,8 @@ main a:visited:hover {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
   justify-items: center;
-  gap: 1em;
+  column-gap: 10%;
+  row-gap: 1em;
   list-style-type: none;
   margin-top: 1em;
 }
