@@ -1291,6 +1291,11 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+}
+
+.stileEliminaFilm h3 {
+  margin-bottom: 0;
 }
 
 .stileEliminaFilm fieldset {
