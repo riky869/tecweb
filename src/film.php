@@ -20,13 +20,13 @@ $category = $_GET["cat"] ?? "";
 $db = DB::from_env();
 $user = Session::get_user();
 
-$categoryFound = !empty($category) ? $db->get_category($category) : null;
 $movie = $db->get_movie($movie_id);
 
 if (empty($movie)) {
     Request::load_404_page();
 }
 
+$categoryFound = !empty($category) ? $db->get_category($category) : null;
 $categories = $db->get_movie_categories($movie_id);
 $cast = $db->get_movie_cast($movie_id);
 $crew = $db->get_movie_crew($movie_id);
@@ -34,7 +34,14 @@ $reviews = $db->get_film_reviews($movie_id);
 
 $db->close();
 
-$average_rating = "Non disponibile";
+if (!empty($categoryFound)) {
+    $categoryFound = array_filter($categories, function ($cat, $_) use ($category) {
+        return $cat["name"] == $category;
+    }, ARRAY_FILTER_USE_BOTH);
+    $categoryFound = !empty($categoryFound) ? array_values($categoryFound)[0] : null;
+}
+
+$average_rating = null;
 if (!empty($reviews)) {
     $total_rating = array_sum(array_column($reviews, 'rating'));
     $average_rating = round($total_rating / count($reviews), 2);
@@ -42,23 +49,20 @@ if (!empty($reviews)) {
 
 $template = Builder::from_template(basename(__FILE__));
 
-// TODO: check if movie is in category, maybe creating another db function that join the movie_category with movie
-
 $template->replace_singles([
     "nome_film" => $movie["name"],
-    "nome_originale" => $movie["original_name"],
-    "lingua_originale" => $movie["original_language"],
-    "data_uscita" => str_replace("-", " ", $movie["release_date"]),
-    "durata" => $movie["runtime"],
+    "nome_originale" => !empty($movie["original_name"]) ? $movie["original_name"] : "Non disponibile",
+    "lingua_originale" => !empty($movie["original_language"]) ? $movie["original_language"] : "Non disponibile",
+    "data_uscita" => !empty($movie["release_date"]) ? str_replace("-", " ", $movie["release_date"]) : "Non disponibile",
+    "durata" => !empty($movie["runtime"]) ? $movie["runtime"] : "Non disponibile",
     "stato" => $movie["phase"],
-    "budget" => $movie["budget"] > 0 ? $movie["budget"] . ' $' : 'Non disponibile',
-    "incassi" => $movie["revenue"] > 0 ? $movie["revenue"] . ' $' : 'Non disponibile',
+    "budget" => !empty($movie["budget"]) && $movie["budget"] > 0 ? $movie["budget"] . ' $' : 'Non disponibile',
+    "incassi" =>  !empty($movie["revenue"]) && $movie["revenue"] > 0 ? $movie["revenue"] . ' $' : 'Non disponibile',
     "description" => $movie["description"],
-    // TODO: da ricontrollare, immagine di default se non presente, rating su che scala
-    "locandina" => $movie["image_path"],
-    "valutazione" => $average_rating,
+    "locandina" => !empty($movie["image_path"]) ? $movie["image_path"] : "images/no_picture_available.png",
+    "valutazione" => !empty($average_rating) ? $average_rating : "Non disponibile",
     "film_id" => $movie_id,
-    "film_cat" => $category ?? "",
+    "film_cat" => !empty($categoryFound) ? $categoryFound["name"] : "",
 ]);
 
 if (!empty($user) && $user["is_admin"]) {
@@ -127,7 +131,7 @@ if (!empty($user)) {
     }
 }
 
-$template->replace_block_name_arr("recensioni", $reviews, function (Builder $sec, array $i) use ($category, $movie_id, $user) {
+$template->replace_block_name_arr("recensioni", $reviews, function (Builder $sec, array $i) use ($user) {
     $sec->replace_singles([
         "rev_username" => $i["username"],
         "rev_title" => $i["title"],
