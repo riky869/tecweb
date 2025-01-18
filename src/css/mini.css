@@ -117,3 +117,8 @@ footer img {
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
 }
+
+.usersList li img {
+  /* max-height: 7em; */
+  /* height: 70%; */
+}

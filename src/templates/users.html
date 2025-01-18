@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
   <head>
     <meta charset="UTF-8" />
@@ -46,9 +46,14 @@
 
     <main id="contenuto">
       <h2>Utenti</h2>
-      <ul>
+      <ul class="usersList">
         <!--users_list_start-->
-        <li><a href="profile.php?username={{profile_username}}">{{profile_username}}</a></li>
+        <li>
+          <a href="profile.php?username={{profile_username}}">
+            <img src="images/utente.png" alt="Immagine profilo di {{profile_username}}" />
+            <span>{{profile_username}}</span>
+          </a>
+        </li>
         <!--users_list_end-->
       </ul>
     </main>

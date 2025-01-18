@@ -635,6 +635,47 @@ main a:visited:hover {
   margin-bottom: 0;
 }
 
+/* Stile lista utenti */
+.usersList {
+  /* display: flex;
+  flex-wrap: wrap; */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
+  gap: 1em;
+  list-style-type: none;
+  margin-top: 1em;
+}
+
+.usersList li {
+  width: fit-content;
+  height: auto;
+}
+
+.usersList li a {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1em;
+  align-items: center;
+  border-radius: 8px;
+  padding: 1em;
+  border: 0.08em solid var(--color-text-light);
+  background-color: var(--color-secondary-background);
+}
+
+.usersList li a:hover {
+  border: 0.2em solid var(--color-secondary);
+}
+
+.usersList li img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.usersList li span {
+  border-bottom: 0.08em solid;
+}
+
 /* About */
 
 .griglia-about {
