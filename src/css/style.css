@@ -143,8 +143,12 @@ header h2 {
   color: var(--color-text-light);
   padding: 0.5em;
   padding-left: 1em;
+  border-radius: 0;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 #breadcrumb a {
@@ -1283,6 +1287,10 @@ body {
     margin: auto;
     border: 1px solid #000;
 } */
+
+#btnOpen {
+  display: none;
+}
 
 .stileEliminaFilm {
   display: flex;
