@@ -29,6 +29,7 @@ footer img {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0.5em 2em;
 }
 
 .info-title {
@@ -118,7 +119,7 @@ footer img {
   border-top-right-radius: 8px;
 }
 
-.usersList li img {
-  /* max-height: 7em; */
-  /* height: 70%; */
+.usersList {
+  grid-template-columns: repeat(auto-fit, minmax(6em, 1fr));
+  /* grid-template-columns: repeat(auto-fill, minmax(6em, 1fr)); */
 }

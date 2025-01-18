@@ -664,17 +664,18 @@ main a:visited:hover {
 
 /* Stile lista utenti */
 .usersList {
-  /* display: flex;
-  flex-wrap: wrap; */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
+  justify-items: center;
   gap: 1em;
   list-style-type: none;
   margin-top: 1em;
 }
 
 .usersList li {
-  width: fit-content;
+  /* width: fit-content; */
+  width: 100%;
+  max-width: 14em;
   height: auto;
 }
 
@@ -691,6 +692,8 @@ main a:visited:hover {
   padding: 1em;
   border: 0.1em solid var(--color-text-light);
   background-color: var(--color-secondary-background);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .usersList li a:hover {
@@ -699,6 +702,7 @@ main a:visited:hover {
 
 .usersList li img {
   width: 100%;
+  box-sizing: border-box;
   height: auto;
   border-radius: 8px;
 }
@@ -798,6 +802,10 @@ main a:visited:hover {
 
 .info-list li {
   margin-bottom: 0.5em;
+}
+
+.info-list abbr {
+  text-decoration: none;
 }
 
 .info-title {
