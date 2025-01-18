@@ -780,6 +780,7 @@ main a:visited:hover {
 .person-list figure {
   display: flex;
   flex-direction: column;
+  row-gap: 1em;
 
   background-color: var(--color-secondary-background);
   padding: 1em;
@@ -806,6 +807,11 @@ main a:visited:hover {
   box-sizing: border-box;
 }
 
+.person-list figcaption form {
+  align-self: flex-end;
+  margin-top: auto;
+}
+
 .person-list figcaption form legend {
   text-indent: -9999em;
   position: absolute;
@@ -823,6 +829,7 @@ main a:visited:hover {
   border: none;
   border-radius: 4px;
   float: right;
+  cursor: pointer;
 }
 
 .person-list figcaption form input[type='submit']:hover {
@@ -838,8 +845,6 @@ main a:visited:hover {
 .person-info {
   text-align: left;
   color: var(--color-text-secondary);
-  margin-top: 1em;
-  margin-bottom: 0em;
 }
 
 /* stile rettangolo background di ogni recensione */
