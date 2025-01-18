@@ -47,6 +47,7 @@ CREATE TABLE
     IF NOT EXISTS people (
         id INT PRIMARY KEY AUTO_INCREMENT,
         name VARCHAR(255) NOT NULL,
+        html_name VARCHAR(255) DEFAULT name,
         profile_image TEXT
     );
 
@@ -54,13 +55,13 @@ CREATE TABLE
     IF NOT EXISTS movie (
         id INT PRIMARY KEY AUTO_INCREMENT,
         name VARCHAR(255) NOT NULL,
-        original_name VARCHAR(255) NOT NULL,
-        original_language VARCHAR(255) NOT NULL,
+        original_name VARCHAR(255),
+        original_language VARCHAR(255),
         release_date DATE,
-        runtime INT NOT NULL,
+        runtime INT,
         phase VARCHAR(255) NOT NULL,
-        budget INT NOT NULL,
-        revenue INT NOT NULL,
+        budget INT,
+        revenue INT,
         description TEXT NOT NULL,
         image_path TEXT
     );
@@ -78,8 +79,8 @@ CREATE TABLE
     IF NOT EXISTS movie_cast (
         movie_id INT,
         person_id INT,
-        role VARCHAR(255) NOT NULL,
-        PRIMARY KEY (movie_id, person_id),
+        role VARCHAR(255),
+        PRIMARY KEY (movie_id, person_id, role),
         FOREIGN KEY (movie_id) REFERENCES movie (id),
         FOREIGN KEY (person_id) REFERENCES people (id)
     );
@@ -88,7 +89,7 @@ CREATE TABLE
     IF NOT EXISTS movie_crew (
         movie_id INT,
         person_id INT,
-        role VARCHAR(255) NOT NULL,
+        role VARCHAR(255),
         PRIMARY KEY (movie_id, person_id, role),
         FOREIGN KEY (movie_id) REFERENCES movie (id),
         FOREIGN KEY (person_id) REFERENCES people (id)
@@ -679,9 +680,6 @@ SET
     profile_image = CONCAT ('images/persone/', profile_image)
 WHERE
     profile_image IS NOT NULL;
-
-ALTER TABLE people
-ADD COLUMN html_name VARCHAR(255) DEFAULT name;
 
 UPDATE people
 SET

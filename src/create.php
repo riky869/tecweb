@@ -26,18 +26,18 @@ if (Request::is_post()) {
     }
 
     if ($action == "create_film") {
-        if (empty($_POST["name"]) || empty($_POST["original_name"]) || empty($_POST["original_language"]) || empty($_POST["runtime"]) || empty($_POST["phase"]) || empty($_POST["budget"]) || empty($_POST["revenue"]) || empty($_POST["description"])) {
+        if (empty($_POST["name"]) || empty($_POST["phase"]) || empty($_POST["description"])) {
             $error = "Compila tutti i campi obbligatori";
         }
 
         $name = pulisciInput($_POST["name"]);
-        $original_name = pulisciInput($_POST["original_name"]);
-        $original_language = pulisciInput($_POST["original_language"]);
+        $original_name = !empty($_POST["original_name"]) ? pulisciInput($_POST["original_name"]) : null;
+        $original_language = !empty($_POST["original_language"]) ? pulisciInput($_POST["original_language"]) : null;
         $release_date = !empty($_POST["release_date"]) ? pulisciInput($_POST["release_date"]) : null;
-        $runtime = pulisciInput($_POST["runtime"]);
+        $runtime = !empty($_POST["runtime"]) ? pulisciInput($_POST["runtime"]) : null;
         $phase = pulisciInput($_POST["phase"]);
-        $budget = pulisciInput($_POST["budget"]);
-        $revenue = pulisciInput($_POST["revenue"]);
+        $budget = !empty($_POST["budget"]) ? pulisciInput($_POST["budget"]) : null;
+        $revenue = !empty($_POST["revenue"]) ? pulisciInput($_POST["revenue"]) : null;
         $description = pulisciInput($_POST["description"]);
 
         $image_path = Request::read_upload_file("storage/film/", "image", $error);
@@ -47,19 +47,20 @@ if (Request::is_post()) {
                 $db->create_film($name, $original_name, $original_language, $release_date, $runtime, $phase, $budget, $revenue, $description, $image_path);
             } catch (mysqli_sql_exception $e) {
                 if ($e->getCode() == 1062) {
+                    // NOTE: impossibile viene usato ID come primary key
                     $error = "Film già esistente";
                 } else {
-                    Request::load_500_page();
+                    throw $e;
                 }
             }
         }
     } else if ($action == "create_people") {
         if (empty($_POST["name"])) {
             $error = "Compila tutti i campi obbligatori";
+        } else {
+            $image_path = Request::read_upload_file("storage/persone/", "image", $error);
+            $name = pulisciInput($_POST["name"]);
         }
-
-        $image_path = Request::read_upload_file("storage/persone/", "image", $error);
-        $name = pulisciInput($_POST["name"]);
 
         if (empty($error)) {
             try {
@@ -67,24 +68,25 @@ if (Request::is_post()) {
                 $db->create_person($name, $image_path);
             } catch (mysqli_sql_exception $e) {
                 if ($e->getCode() == 1062) {
-                    $error = "Persona già presente";
+                    // NOTE: impossibile viene usato ID come primary key
+                    $error = "Esiste già una persona con questo nome";
                 } else {
-                    Request::load_500_page();
+                    throw $e;
                 }
             }
         }
     } else if ($action == "add_people_to_film") {
         if (empty($_POST["film_id"]) || empty($_POST["person_id"]) || empty($_POST["role"]) || empty($_POST["role_type"])) {
             $error = "Compila tutti i campi obbligatori";
-        }
+        } else {
+            $role_type = pulisciInput($_POST["role_type"]);
+            $movie_id = pulisciInput($_POST["film_id"]);
+            $person_id = pulisciInput($_POST["person_id"]);
+            $role = pulisciInput($_POST["role"]);
 
-        $role_type = pulisciInput($_POST["role_type"]);
-        $movie_id = pulisciInput($_POST["film_id"]);
-        $person_id = pulisciInput($_POST["person_id"]);
-        $role = pulisciInput($_POST["role"]);
-
-        if ($role_type != "cast" && $role_type != "crew") {
-            $error = "Tipologia del ruolo non valido";
+            if ($role_type != "cast" && $role_type != "crew") {
+                $error = "Tipologia del ruolo non valido";
+            }
         }
 
         if (empty($error)) {
@@ -99,28 +101,28 @@ if (Request::is_post()) {
                 }
             } catch (mysqli_sql_exception $e) {
                 if ($e->getCode() == 1062) {
-                    $error = "Ruolo già presente per questo film";
+                    $error = "Questa persona ha già questo ruolo nel film";
                 } else {
-                    Request::load_500_page();
+                    throw $e;
                 }
             }
         }
     } else if ($action == "add_category_to_film") {
         if (empty($_POST["film_id"]) || empty($_POST["category"])) {
             $error = "Compila tutti i campi obbligatori";
+        } else {
+            $movie_id = pulisciInput($_POST["film_id"]);
+            $category = pulisciInput($_POST["category"]);
         }
-
-        $movie_id = pulisciInput($_POST["film_id"]);
-        $category = pulisciInput($_POST["category"]);
 
         if (empty($error)) {
             try {
                 $db->add_category_to_movie($movie_id, $category);
             } catch (mysqli_sql_exception $e) {
                 if ($e->getCode() == 1062) {
-                    $error = "Categoria già presente per questo film";
+                    $error = "Questo film ha già questa categoria";
                 } else {
-                    Request::load_500_page();
+                    throw $e;
                 }
             }
         }
@@ -139,10 +141,10 @@ if (Request::is_get()) {
 
     switch ($action) {
         case "create_film":
-            $success_text = "Film aggiunto con successo";
+            $success_text = "Film creato con successo";
             break;
         case "create_people":
-            $success_text = "Persona aggiunta con successo";
+            $success_text = "Persona create con successo";
             break;
         case "add_people_to_film":
             $success_text = "Ruolo aggiunto con successo";

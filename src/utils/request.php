@@ -2,11 +2,10 @@
 
 require_once("utils/session.php");
 require_once("utils/builder.php");
+require_once("utils/cred.php");
 
 class Request
 {
-    private static $TARGET_DIR = "storage/";
-
     private static function method(): string
     {
         return $_SERVER["REQUEST_METHOD"];
@@ -60,10 +59,22 @@ class Request
 
     static function redirect($url)
     {
-        header("location: $url");
         http_response_code(302);
+        header("location: $url");
         exit();
     }
+
+    static function exceptionHandler($exception)
+    {
+        error_log("Eccezione non catturata: " . $exception->getMessage());
+        Self::load_500_page();
+    }
+
+    static function set_exception_handler()
+    {
+        set_exception_handler("Request::exceptionHandler");
+    }
+
 
     static function read_upload_file(string $target_dir, string $param, mixed &$error): ?string
     {
@@ -100,3 +111,11 @@ class Request
         return $image_path;
     }
 };
+
+if (DEFAULT_VARS["DEBUG"] ?? false) {
+    ini_set('display_errors', 1);
+} else {
+    ini_set('display_errors', 0);
+    ini_set('log_errors', 1);
+    Request::set_exception_handler();
+}

@@ -21,7 +21,7 @@ if (empty($user)) {
 
 $movie_id = $_POST["film_id"];
 $type = $_POST["type"];
-$rev_username = $_POST["username"] ?? null;
+$cat = $_POST["cat"] ?? null;
 
 // parse movie_id from string to int
 if (!is_numeric($movie_id) || !ctype_digit($movie_id)) {
@@ -55,6 +55,7 @@ if ($type == "create" || $type == "modify") {
         }
     }
 } else if ($type == "delete") {
+    $rev_username = $_POST["username"] ?? null;
     // if the delete request is made by an admin, the review to delete is the one of the user specified in the form
     if (!empty($rev_username) && !empty($user) && $user["is_admin"]) {
         $rev_username_to_delete = $rev_username;
@@ -83,14 +84,14 @@ try {
         $db->close();
     }
 } catch (Exception $e) {
-    Request::load_500_page();
+    throw $e;
 }
 
 $_SESSION["review_error"] = $error;
 
 $location = "film.php?id=$movie_id";
-if (!empty($_POST["cat"])) {
-    $location .= "&cat=" . $_POST["cat"];
+if (!empty($cat)) {
+    $location .= "&cat=" . $cat;
 }
 $location .= "#recensioni";
 

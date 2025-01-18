@@ -6,4 +6,6 @@ define("DEFAULT_VARS", [
     "DB_PASS" => "",
     "DB_NAME" => "",
     "BASE_PATH" => "/",
+    "DEBUG" => true,
+    "ALWAYS_LOGGED" => true,
 ]);

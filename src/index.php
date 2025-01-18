@@ -17,7 +17,7 @@ try {
     $top_films = $db->get_top_films(7);
     $last_reviews = $db->get_last_reviews(5);
 } catch (Exception $e) {
-    Request::load_500_page();
+    throw $e;
 }
 $db->close();
 

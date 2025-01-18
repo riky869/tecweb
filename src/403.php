@@ -16,5 +16,5 @@ $common = Builder::load_common();
 $template->build($user, $common);
 $template->delete_secs([]);
 
-$template->show();
 http_response_code(403);
+$template->show();

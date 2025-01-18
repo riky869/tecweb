@@ -47,7 +47,7 @@ if ($action == "crew" || $action == "cast") {
                 break;
         }
     } catch (mysqli_sql_exception $e) {
-        Request::load_500_page();
+        throw $e;
     }
 } else if ($action == "category") {
     if (empty($_POST["genere"])) {
@@ -58,7 +58,7 @@ if ($action == "crew" || $action == "cast") {
     try {
         $db->delete_category_from_movie($film_id, $genere);
     } catch (mysqli_sql_exception $e) {
-        Request::load_500_page();
+        throw $e;
     }
 }
 

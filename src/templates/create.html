@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="it">
   <head>
     <meta charset="UTF-8" />
@@ -40,7 +40,7 @@
           <legend>Aggiungi una persona</legend>
           <input type="hidden" name="action" value="create_people" />
 
-          <label for="crea_people_name">Nome</label>
+          <label for="crea_people_name">Nome e Cognome</label>
           <input type="text" name="name" id="crea_people_name" />
           <span id="crea_people_name_err" class="field-error" data-input="crea_people_name"></span>
 
@@ -50,10 +50,10 @@
 
           <input type="submit" value="Crea" />
           <!--create_people_error_start-->
-          <p>{{error}}</p>
+          <span class="form-submit-error">{{error}}</span>
           <!--create_people_error_end-->
           <!--create_people_success_start-->
-          <p>{{success}}</p>
+          <span class="form-submit-success">{{success}}</span>
           <!--create_people_success_end-->
         </fieldset>
       </form>
@@ -117,10 +117,10 @@
           <input type="submit" value="Crea" />
 
           <!--create_film_error_start-->
-          <p>{{error}}</p>
+          <span class="form-submit-error">{{error}}</span>
           <!--create_film_error_end-->
           <!--create_film_success_start-->
-          <p>{{success}}</p>
+          <span class="form-submit-success">{{success}}</span>
           <!--create_film_success_end-->
         </fieldset>
       </form>

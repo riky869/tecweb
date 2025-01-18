@@ -17,8 +17,6 @@ services:
       - ./src:/var/www/html/:rw
     networks:
       - local
-    depends_on:
-      - db
 
   db:
     image: mariadb:10.6.7

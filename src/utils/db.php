@@ -1,8 +1,12 @@
 <?php
 
-mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-
 require_once("utils/cred.php");
+
+if (DEFAULT_VARS["DEBUG"] ?? false) {
+    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+} else {
+    mysqli_report(MYSQLI_REPORT_OFF);
+}
 
 class DB
 {
