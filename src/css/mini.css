@@ -13,9 +13,13 @@ footer {
   display: inline;
 }
 
-footer p {
-  background-image: none;
+footer img {
+  display: none;
 }
+
+/* footer p {
+  background-image: none;
+} */
 
 #informazioniPrincipali {
   flex-direction: column;

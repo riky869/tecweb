@@ -99,6 +99,7 @@ header {
   background-position: center;
   margin: 1em 0;
   height: 8em;
+  border-radius: 8px;
 }
 
 /*
@@ -1064,43 +1065,102 @@ div#modificaRecensione form.formRecensione {
   padding: 0;
 }
 
-/* Stile Footer */
+/* Stile aggiunta film */
 
-footer {
-  /* padding: 1em; */
-  background-color: var(--color-primary);
+.formCreazione {
+  background-color: var(--color-secondary-background);
+  padding: 2em;
+  border-radius: 8px;
+  margin: 2em auto;
+}
+
+.formCreazione fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5em;
+}
+
+.formCreazione legend {
+  font-size: 1.6em;
+  font-weight: bold;
+  color: var(--color-secondary);
+  margin-bottom: 1em;
+}
+
+.formCreazione label {
+  display: block;
+  color: var(--color-secondary);
+}
+
+.formCreazione input,
+.formCreazione select,
+.formCreazione textarea {
+  box-sizing: border-box;
+  padding: 0.5em;
+  border-radius: 4px;
+  background-color: var(--color-background);
+  color: var(--color-text-light);
+  border: 0.1em solid var(--color-secondary);
+}
+
+.formCreazione input[type='date'] {
+  box-sizing: border-box;
+  padding: 0.5em;
+  border-radius: 4px;
+  background-color: var(--color-background);
   color: var(--color-text-light);
 }
 
-/* footer img { */
-/*   width: 88px; */
-/*   height: auto; */
-/* } */
+.formCreazione input[type='submit'] {
+  width: 20%;
+  min-width: fit-content;
+  background-color: var(--color-link);
+  color: var(--color-text-dark);
+  padding: 0.75em 1.5em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.formCreazione input[type='submit']:hover {
+  color: var(--color-text-light);
+  background-color: var(--color-button-hover);
+}
+
+.formCreazione .field-error {
+  color: var(--color-current);
+  font-size: 0.9em;
+}
+
+.add_people_radio {
+  display: flex;
+  flex-direction: row;
+  column-gap: 1em;
+}
+
+/* Stile Footer */
+
+footer {
+  padding: 1em;
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+footer img {
+  width: 88px;
+  height: auto;
+}
 
 footer p {
-  padding: 1em 2em;
-  margin: 0.2em 1em;
   text-align: center;
-  background-image: url('../images/w3c_html5.png'), url('../images/w3c_css.png');
-  background-repeat: no-repeat;
-  background-size: 6em auto;
-  background-position:
-    left center,
-    right center;
-}
-
-/* aiuti navigazione */
-
-.navigationHelp {
-  position: absolute;
-  text-indent: -999em;
-  color: var(--color-link);
-}
-
-.navigationHelp:focus {
-  position: static;
-  text-indent: 0;
-  color: var(--color-secondary);
 }
 
 /* Stile 404 */
@@ -1186,79 +1246,6 @@ footer p {
   overflow: hidden;
   right: 1em;
   bottom: 1em;
-}
-
-.formCreazione {
-  background-color: var(--color-secondary-background);
-  padding: 2em;
-  border-radius: 8px;
-  margin: 2em auto;
-}
-
-.formCreazione fieldset {
-  border: none;
-  display: flex;
-  flex-direction: column;
-  row-gap: 0.5em;
-}
-
-.formCreazione legend {
-  font-size: 1.6em;
-  font-weight: bold;
-  color: var(--color-secondary);
-  margin-bottom: 1em;
-}
-
-.formCreazione label {
-  display: block;
-  color: var(--color-secondary);
-}
-
-.formCreazione input,
-.formCreazione select,
-.formCreazione textarea {
-  box-sizing: border-box;
-  padding: 0.5em;
-  border-radius: 4px;
-  background-color: var(--color-background);
-  color: var(--color-text-light);
-  border: 0.1em solid var(--color-secondary);
-}
-
-.formCreazione input[type='date'] {
-  box-sizing: border-box;
-  padding: 0.5em;
-  border-radius: 4px;
-  background-color: var(--color-background);
-  color: var(--color-text-light);
-}
-
-.formCreazione input[type='submit'] {
-  width: 20%;
-  min-width: fit-content;
-  background-color: var(--color-link);
-  color: var(--color-text-dark);
-  padding: 0.75em 1.5em;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.formCreazione input[type='submit']:hover {
-  color: var(--color-text-light);
-  background-color: var(--color-button-hover);
-}
-
-.formCreazione .field-error {
-  color: var(--color-current);
-  font-size: 0.9em;
-}
-
-.add_people_radio {
-  display: flex;
-  flex-direction: row;
-  column-gap: 1em;
 }
 
 /*
