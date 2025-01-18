@@ -750,6 +750,7 @@ main a:visited:hover {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  column-gap: 0.5em;
 }
 
 .stileEliminaFilm h3 {
@@ -816,6 +817,7 @@ main a:visited:hover {
 
 /* Locandina film */
 .locandina {
+  width: 100%;
   /* max-width: 20em; */
   max-height: 33em;
   border-radius: 8px;
