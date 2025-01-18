@@ -448,6 +448,10 @@ main a:visited:hover {
   border-radius: 8px;
 }
 
+.film-card li:hover {
+  transform: translateY(-10px);
+}
+
 /* Personalizzazione della barra di scorrimento */
 
 /* Chrome */
@@ -486,11 +490,12 @@ main a:visited:hover {
   box-sizing: border-box;
   justify-content: space-around;
   row-gap: 0.5em;
+  border: 0.1em solid transparent;
 }
 
 .film-card a:hover {
+  border-color: var(--color-secondary);
   border-radius: 8px;
-  border: 0.1em solid var(--color-secondary);
 }
 
 .film-locandina {
@@ -635,6 +640,28 @@ main a:visited:hover {
   margin-bottom: 0;
 }
 
+/* Stile informazioni singolo utente */
+
+/* User info è un dl */
+
+.userInfo {
+  background-color: var(--color-secondary-background);
+  padding: 1.5em 1.5em 0.5em 1.5em;
+  border-radius: 12px;
+  margin: 1.5em 0;
+}
+
+.userInfo dt {
+  font-weight: bold;
+  color: var(--color-extra);
+}
+
+.userInfo dd {
+  margin-left: 1.5em;
+  margin-bottom: 1em;
+  color: var(--color-text-secondary);
+}
+
 /* Stile lista utenti */
 .usersList {
   /* display: flex;
@@ -651,6 +678,10 @@ main a:visited:hover {
   height: auto;
 }
 
+.usersList li:hover {
+  transform: translateY(-10px);
+}
+
 .usersList li a {
   display: flex;
   flex-direction: column;
@@ -658,12 +689,12 @@ main a:visited:hover {
   align-items: center;
   border-radius: 8px;
   padding: 1em;
-  border: 0.08em solid var(--color-text-light);
+  border: 0.1em solid var(--color-text-light);
   background-color: var(--color-secondary-background);
 }
 
 .usersList li a:hover {
-  border: 0.2em solid var(--color-secondary);
+  border-color: var(--color-secondary);
 }
 
 .usersList li img {
