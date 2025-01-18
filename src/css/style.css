@@ -1283,19 +1283,3 @@ body {
     margin: auto;
     border: 1px solid #000;
 } */
-
-input[type='file'] {
-  display: none;
-}
-
-.customUpload {
-  display: inline-block;
-  padding: 0.5em 1em;
-  background-color: var(--color-link);
-  color: var(--color-text-dark) !important;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-  width: fit-content;
-}
