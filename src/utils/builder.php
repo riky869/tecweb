@@ -215,6 +215,7 @@ class Builder
             "header" => $common->get_block("header"),
             "torna_su" => $common->get_block("torna_su"),
             "footer" => $common->get_block("footer"),
+            "hamburger" => $common->get_block("hamburger"),
             // NOTE: this is a workaround to use relative path based on the environment, production UniPD server or local docker env
             "html_head" => $common->get_block("html_head")->replace_var("html_head_base_path", DEFAULT_VARS["BASE_PATH"]),
         ]);

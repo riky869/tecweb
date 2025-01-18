@@ -236,10 +236,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const bread = document.querySelector('#breadcrumb');
 
   // Funzione per aprire il menu
-  var btnOpenState = 'false';
+  var btnOpenState = false;
   btnOpen.addEventListener('click', function () {
-    btnOpenState = btnOpenState === 'false' ? 'true' : 'false';
-    if (btnOpenState === 'false') {
+    btnOpenState = !btnOpenState;
+    if (!btnOpenState) {
       menu.classList.remove('active');
       bread.classList.remove('active');
     } else {
