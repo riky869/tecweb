@@ -1188,6 +1188,78 @@ footer p {
   bottom: 1em;
 }
 
+.formCreazione {
+  background-color: var(--color-secondary-background);
+  padding: 2em;
+  border-radius: 8px;
+  margin: 2em auto;
+}
+
+.formCreazione fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5em;
+}
+
+.formCreazione legend {
+  font-size: 1.6em;
+  font-weight: bold;
+  color: var(--color-secondary);
+}
+
+.formCreazione label {
+  display: block;
+  color: var(--color-secondary);
+}
+
+.formCreazione input,
+.formCreazione select,
+.formCreazione textarea {
+  box-sizing: border-box;
+  padding: 0.5em;
+  border-radius: 4px;
+  background-color: var(--color-background);
+  color: var(--color-text-light);
+  border: 0.1em solid var(--color-secondary);
+}
+
+.formCreazione input[type='date'] {
+  box-sizing: border-box;
+  padding: 0.5em;
+  border-radius: 4px;
+  background-color: var(--color-background);
+  color: var(--color-text-light);
+}
+
+.formCreazione input[type='submit'] {
+  width: 20%;
+  min-width: fit-content;
+  background-color: var(--color-link);
+  color: var(--color-text-dark);
+  padding: 0.75em 1.5em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.formCreazione input[type='submit']:hover {
+  color: var(--color-text-light);
+  background-color: var(--color-button-hover);
+}
+
+.formCreazione .field-error {
+  color: var(--color-current);
+  font-size: 0.9em;
+}
+
+.add_people_radio {
+  display: flex;
+  flex-direction: row;
+  column-gap: 1em;
+}
+
 /*
 :root {
     --bg-color: #0365AE;
