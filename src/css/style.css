@@ -296,14 +296,14 @@ header h2 {
   color: var(--color-text-light);
   text-decoration: none;
   display: flex;
-  gap: 1em;
-  margin-left: 2.5em;
+  gap: 2em;
 }
 
 #login a {
   color: var(--color-link);
   text-decoration: none;
   border-bottom: 0.08em solid;
+  width: fit-content;
 }
 
 #login a:hover {
@@ -459,7 +459,10 @@ main a:visited:hover {
 /* Stile per le card dei film */
 .film-card li {
   flex-shrink: 0;
-  width: 200px;
+  /* width: 200px; */
+  width: 23%;
+  min-width: 150px;
+  height: auto;
   background-color: var(--color-secondary-background);
   border-radius: 8px;
 }
@@ -774,7 +777,6 @@ main a:visited:hover {
   gap: 1em;
   list-style-type: none;
   margin: 1em 0;
-  margin-right: 0.5em;
 }
 
 .person-list figure {
