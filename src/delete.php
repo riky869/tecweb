@@ -24,9 +24,9 @@ if (empty($_POST["film_id"])) {
     Request::load_404_page();
 }
 
-$film_id = pulisciInput($_POST["film_id"]);
-$cat = pulisciInput($_POST["cat"] ?? "");
-$category = pulisciInput($_POST["film_cat"] ?? "");
+$film_id = clean_input($_POST["film_id"]);
+$cat = clean_input($_POST["cat"] ?? "");
+$category = clean_input($_POST["film_cat"] ?? "");
 
 $db = DB::from_env();
 
@@ -35,7 +35,7 @@ if ($action == "crew" || $action == "cast") {
         Request::load_403_page();
     }
 
-    $person_id = pulisciInput($_POST["person_id"]);
+    $person_id = clean_input($_POST["person_id"]);
 
     try {
         switch ($action) {
@@ -53,7 +53,7 @@ if ($action == "crew" || $action == "cast") {
     if (empty($_POST["genere"])) {
         Request::load_403_page();
     }
-    $genere = pulisciInput($_POST["genere"]);
+    $genere = clean_input($_POST["genere"]);
 
     try {
         $db->delete_category_from_movie($film_id, $genere);

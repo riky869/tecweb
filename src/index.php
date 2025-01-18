@@ -16,7 +16,7 @@ try {
     $new_films = $db->get_incoming_films(7);
     $top_films = $db->get_top_films(7);
     $last_reviews = $db->get_last_reviews(5);
-} catch (Exception $e) {
+} catch (mysqli_sql_exception $e) {
     throw $e;
 }
 $db->close();

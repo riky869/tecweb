@@ -1,6 +1,6 @@
 <?php
 
-function pulisciInput($value)
+function clean_input($value): mixed
 {
     $value = trim($value);
     $value = strip_tags($value);

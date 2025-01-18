@@ -42,9 +42,9 @@ if ($type == "create" || $type == "modify") {
     if (empty($_POST["title"]) || empty($_POST["content"]) || empty($_POST["rating"])) {
         $error = "Compila tutti i campi";
     } else {
-        $rating = pulisciInput($_POST["rating"]);
-        $content = pulisciInput($_POST["content"]);
-        $title = pulisciInput($_POST["title"]);
+        $rating = clean_input($_POST["rating"]);
+        $content = clean_input($_POST["content"]);
+        $title = clean_input($_POST["title"]);
 
         if (!is_numeric($rating) || !ctype_digit($rating) || $rating < 1 || $rating > 10) {
             $error = "Il rating deve essere un numero intero compreso tra 1 e 10";
@@ -83,7 +83,7 @@ try {
         }
         $db->close();
     }
-} catch (Exception $e) {
+} catch (mysqli_sql_exception $e) {
     throw $e;
 }
 

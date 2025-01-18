@@ -30,15 +30,15 @@ if (Request::is_post()) {
             $error = "Compila tutti i campi obbligatori";
         }
 
-        $name = pulisciInput($_POST["name"]);
-        $original_name = !empty($_POST["original_name"]) ? pulisciInput($_POST["original_name"]) : null;
-        $original_language = !empty($_POST["original_language"]) ? pulisciInput($_POST["original_language"]) : null;
-        $release_date = !empty($_POST["release_date"]) ? pulisciInput($_POST["release_date"]) : null;
-        $runtime = !empty($_POST["runtime"]) ? pulisciInput($_POST["runtime"]) : null;
-        $phase = pulisciInput($_POST["phase"]);
-        $budget = !empty($_POST["budget"]) ? pulisciInput($_POST["budget"]) : null;
-        $revenue = !empty($_POST["revenue"]) ? pulisciInput($_POST["revenue"]) : null;
-        $description = pulisciInput($_POST["description"]);
+        $name = clean_input($_POST["name"]);
+        $original_name = !empty($_POST["original_name"]) ? clean_input($_POST["original_name"]) : null;
+        $original_language = !empty($_POST["original_language"]) ? clean_input($_POST["original_language"]) : null;
+        $release_date = !empty($_POST["release_date"]) ? clean_input($_POST["release_date"]) : null;
+        $runtime = !empty($_POST["runtime"]) ? clean_input($_POST["runtime"]) : null;
+        $phase = clean_input($_POST["phase"]);
+        $budget = !empty($_POST["budget"]) ? clean_input($_POST["budget"]) : null;
+        $revenue = !empty($_POST["revenue"]) ? clean_input($_POST["revenue"]) : null;
+        $description = clean_input($_POST["description"]);
 
         $image_path = Request::read_upload_file("storage/film/", "image", $error);
 
@@ -59,7 +59,7 @@ if (Request::is_post()) {
             $error = "Compila tutti i campi obbligatori";
         } else {
             $image_path = Request::read_upload_file("storage/persone/", "image", $error);
-            $name = pulisciInput($_POST["name"]);
+            $name = clean_input($_POST["name"]);
         }
 
         if (empty($error)) {
@@ -79,10 +79,10 @@ if (Request::is_post()) {
         if (empty($_POST["film_id"]) || empty($_POST["person_id"]) || empty($_POST["role"]) || empty($_POST["role_type"])) {
             $error = "Compila tutti i campi obbligatori";
         } else {
-            $role_type = pulisciInput($_POST["role_type"]);
-            $movie_id = pulisciInput($_POST["film_id"]);
-            $person_id = pulisciInput($_POST["person_id"]);
-            $role = pulisciInput($_POST["role"]);
+            $role_type = clean_input($_POST["role_type"]);
+            $movie_id = clean_input($_POST["film_id"]);
+            $person_id = clean_input($_POST["person_id"]);
+            $role = clean_input($_POST["role"]);
 
             if ($role_type != "cast" && $role_type != "crew") {
                 $error = "Tipologia del ruolo non valido";
@@ -111,8 +111,8 @@ if (Request::is_post()) {
         if (empty($_POST["film_id"]) || empty($_POST["category"])) {
             $error = "Compila tutti i campi obbligatori";
         } else {
-            $movie_id = pulisciInput($_POST["film_id"]);
-            $category = pulisciInput($_POST["category"]);
+            $movie_id = clean_input($_POST["film_id"]);
+            $category = clean_input($_POST["category"]);
         }
 
         if (empty($error)) {
