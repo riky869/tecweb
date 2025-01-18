@@ -91,9 +91,6 @@ header {
   background-color: var(--color-primary);
   color: var(--color-text-light);
   background: url('../images/header_bck.png');
-  background-size:
-    15% cover,
-    15% cover;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
