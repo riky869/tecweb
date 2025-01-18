@@ -60,6 +60,7 @@ $template->replace_singles([
     "incassi" =>  !empty($movie["revenue"]) && $movie["revenue"] > 0 ? $movie["revenue"] . ' $' : 'Non disponibile',
     "description" => $movie["description"],
     "locandina" => !empty($movie["image_path"]) ? $movie["image_path"] : "images/no_picture_available.png",
+    "locandina_alt_img_not_present" => empty($movie["image_path"]) ? ", non presente" : "",
     "valutazione" => !empty($average_rating) ? $average_rating : "Non disponibile",
     "film_id" => $movie_id,
     "film_cat" => !empty($categoryFound) ? $categoryFound["name"] : "",

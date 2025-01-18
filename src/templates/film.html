@@ -50,7 +50,7 @@
         <h3>Informazioni principali</h3>
         <div id="informazioniPrincipali">
           <picture>
-            <img class="locandina" src="{{locandina}}" alt="Locandina del film {{nome_film}}" />
+            <img class="locandina" src="{{locandina}}" alt="Locandina del film {{nome_film}}{{locandina_alt_img_not_present}}" />
           </picture>
 
           <ul class="info-list">
@@ -214,7 +214,7 @@
             <span id="crea_rec_title_err" class="field-error" data-input="crea_rec_title"></span>
 
             <label for="crea_rec_content">Commento</label>
-            <textarea rows="20" cols="40" id="content" name="crea_rec_content" minlength="5" required="required"></textarea>
+            <textarea rows="20" cols="40" id="crea_rec_content" name="content" minlength="5" required="required"></textarea>
             <span id="crea_rec_content_err" class="field-error" data-input="crea_rec_content"></span>
 
             <label for="crea_rec_rating">Valutazione</label>
