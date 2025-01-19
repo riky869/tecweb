@@ -248,4 +248,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     btnOpen.setAttribute('aria-expanded', btnOpenState);
   });
+
+  window.addEventListener('resize', function handleVisibility() {
+    if (window.innerWidth > 768) {
+      btnOpen.setAttribute('aria-hidden', 'true');
+    } else {
+      btnOpen.setAttribute('aria-hidden', 'false');
+    }
+  });
 });
