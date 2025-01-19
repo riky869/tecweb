@@ -1084,9 +1084,9 @@ VALUES
     ('10', '106', 'Tara'),
     ('10', '107', 'Hannah'),
     ('10', '108', 'Tim'),
-    ('10', '109', 'Nina’s Son (uncredited)'),
-    ('10', '110', 'Nina’s Husband (uncredited)'),
-    ('10', '111', 'Refugee (uncredited)');
+    ('10', '109', 'Nina’s Son (non creditato)'),
+    ('10', '110', 'Nina’s Husband (non creditato)'),
+    ('10', '111', 'Refugee (non creditato)');
 
 INSERT INTO
     movie_crew (movie_id, person_id, role)
