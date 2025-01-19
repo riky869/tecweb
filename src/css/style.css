@@ -118,7 +118,7 @@ header h2 {
 
 /* breadcrumb */
 
-#breadcrumb {
+#top-nav {
   background-color: var(--color-secondary-background);
   color: var(--color-text-light);
   padding: 0.5em;
@@ -129,6 +129,7 @@ header h2 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 
 #breadcrumb a {

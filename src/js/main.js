@@ -233,7 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const btnOpen = document.getElementById('btnOpen');
   const menu = document.querySelector('#menu');
-  const bread = document.querySelector('#breadcrumb');
+  const top = document.querySelector('#top-nav');
 
   // Funzione per aprire il menu
   var btnOpenState = false;
@@ -241,10 +241,10 @@ document.addEventListener('DOMContentLoaded', () => {
     btnOpenState = !btnOpenState;
     if (!btnOpenState) {
       menu.classList.remove('active');
-      bread.classList.remove('active');
+      top.classList.remove('active');
     } else {
       menu.classList.add('active');
-      bread.classList.add('active');
+      top.classList.add('active');
     }
     btnOpen.setAttribute('aria-expanded', btnOpenState);
   });

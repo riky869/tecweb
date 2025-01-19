@@ -15,20 +15,21 @@
   <body>
     <!--header-->
 
-    <nav aria-label="breadcrumb" id="breadcrumb">
-      <p>
-        Ti trovi in:
+    <div id="top-nav">
+      <nav aria-label="breadcrumb" id="breadcrumb">
+        <p>
+          Ti trovi in:
 
-        <!--breadcrumb_da_categoria_start-->
-        <a href="categories.php">Categorie</a> &gt; <a href="films.php?cat={{breadcrumb_nome_cat}}">{{breadcrumb_nome_cat}}</a> &gt {{breadcrumb_nome_film}}
-        <!--breadcrumb_da_categoria_end-->
-        <!--breadcrumb_da_altro_start-->
-        <a href="index.php"><span lang="en">Home</span></a> &gt {{breadcrumb_nome_film}}
-        <!--breadcrumb_da_altro_end-->
-      </p>
-    </nav>
-
-    <!--hamburger-->
+          <!--breadcrumb_da_categoria_start-->
+          <a href="categories.php">Categorie</a> &gt; <a href="films.php?cat={{breadcrumb_nome_cat}}">{{breadcrumb_nome_cat}}</a> &gt {{breadcrumb_nome_film}}
+          <!--breadcrumb_da_categoria_end-->
+          <!--breadcrumb_da_altro_start-->
+          <a href="index.php"><span lang="en">Home</span></a> &gt {{breadcrumb_nome_film}}
+          <!--breadcrumb_da_altro_end-->
+        </p>
+      </nav>
+      <!--hamburger-->
+    </div>
 
     <nav aria-label="navbar" id="menu">
       <ul id="navbar">

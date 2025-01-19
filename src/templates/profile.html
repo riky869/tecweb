@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="it">
   <head>
     <meta charset="UTF-8" />
@@ -15,19 +15,20 @@
   <body>
     <!--header-->
 
-    <nav aria-label="breadcrumb" id="breadcrumb">
-      <p>
-        Ti trovi in:
-        <!--admin_user_info_start-->
-        <a href="users.php">Utenti</a> &gt; {{breadcrumb_username}}
-        <!--admin_user_info_end-->
-        <!--user_info_start-->
-        Profilo
-        <!--user_info_end-->
-      </p>
-    </nav>
-
-    <!--hamburger-->
+    <div id="top-nav">
+      <nav aria-label="breadcrumb" id="breadcrumb">
+        <p>
+          Ti trovi in:
+          <!--admin_user_info_start-->
+          <a href="users.php">Utenti</a> &gt; {{breadcrumb_username}}
+          <!--admin_user_info_end-->
+          <!--user_info_start-->
+          Profilo
+          <!--user_info_end-->
+        </p>
+      </nav>
+      <!--hamburger-->
+    </div>
 
     <nav aria-label="navbar" id="menu">
       <ul id="navbar">
