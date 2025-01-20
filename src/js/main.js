@@ -102,14 +102,14 @@ const checks = {
       }
     ]
   },
-  crea_film_runtime_err: { optional: true, checks: [minMaxNumCheck(10, 60 * 24)] },
+  crea_film_runtime_err: { optional: true, checks: [minMaxNumCheck(10, 60 * 10)] },
   crea_film_phase_err: { optional: false, checks: [] },
   crea_film_budget_err: { optional: true, checks: [minMaxNumCheck(0, -1)] },
   crea_film_revenue_err: { optional: true, checks: [minMaxNumCheck(0, -1)] },
   crea_film_description_err: { optional: false, checks: [minMaxCharsCheck(8, 1000)] },
   crea_film_image_err: { optional: true, checks: commonChecks.image },
   add_people_film_err: { optional: false, checks: commonChecks.film },
-  add_people_people_err: { optional: false, checks: commonChecks.name },
+  add_people_people_err: { optional: false, checks: [minMaxNumCheck(0, -1)] },
   add_people_role_err: {
     optional: false,
     checks: [
