@@ -843,7 +843,7 @@ picture {
 
 /* Locandina film */
 .locandina {
-  width: 100%;
+  /* width: 100%; */
   /* max-width: 20em; */
   max-height: 35em;
   border-radius: 8px;
@@ -1402,3 +1402,4 @@ body {
 .hidden {
   display: none;
 }
+
