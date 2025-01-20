@@ -29,8 +29,9 @@ class Builder
         // assert that the template have replaced all the variables
         $matches = [];
         $m = preg_match_all("/({{([a-zA-Z0-9_]+)}}|<!--([a-zA-Z0-9_]+)-->)/", $this->content, $matches, PREG_PATTERN_ORDER);
-        // TODO: enable in DEBUG mode
-        assert($m == 0, "$m template variables have not been replaced: " . join(', ', $matches[0]));
+        if (DEFAULT_VARS["DEBUG"] ?? false) {
+            assert($m == 0, "$m template variables have not been replaced: " . join(', ', $matches[0]));
+        }
 
         echo ($this->content);
 
@@ -78,13 +79,16 @@ class Builder
             $values
         ));
 
-        $this->replace_var($sec_name, $content, $var_type);
-        return $this;
+        return $this->replace_var($sec_name, $content, $var_type);
     }
 
     public function replace_block_name_arr(string $sec_name, array $values, $func): Self
     {
         return $this->replace_var_arr($sec_name, $values, $this->get_block($sec_name), $func, VarType::Block);
+    }
+    public function show_block(string $sec_name): Self
+    {
+        return $this->replace_var($sec_name, $this->get_block($sec_name), VarType::Block);
     }
 
     public function get_block(string $name): Self

@@ -88,40 +88,59 @@ if (empty($categoryFound)) {
     $template->delete_var("breadcrumb_da_altro", VarType::Block);
 }
 
-$template->replace_block_name_arr("genere", $categories, function (Builder $sec, array $i) {
-    $sec->replace_singles([
-        "genere" => $i["name"],
-        "html_genere" => $i["html_name"],
-    ]);
-});
+if (!empty($categories)) {
+    $template->replace_var("show_generi", $template->get_block("show_generi")->replace_block_name_arr("genere", $categories, function (Builder $sec, array $i) {
+        $sec->replace_singles([
+            "genere" => $i["name"],
+            "html_genere" => $i["html_name"],
+        ]);
+    }), VarType::Block);
+    $template->delete_blocks(["show_no_generi"]);
+} else {
+    $template->show_block("show_no_generi");
+    $template->delete_blocks(["show_generi"]);
+}
 
-$template->replace_block_name_arr("cast", $cast, function (Builder $sec, array $i) {
-    $profileImage = $i["profile_image"] ? $i["profile_image"] : "images/no_picture_available.png";
-    $sec->replace_singles([
-        "immagine_cast" => $profileImage,
-        "cast_alt_img_not_present" => empty($i["profile_image"]) ? ", non presente" : "",
-        "cast_name" => $i["name"],
-        "cast_html_name" => $i["html_name"],
-        "cast_job" => $i["role"],
-        "cast_id" => $i["person_id"],
-    ]);
-});
 
-$template->replace_block_name_arr("crew", $crew, function (Builder $sec, array $i) {
-    $profileImage = $i["profile_image"] ? $i["profile_image"] : "images/no_picture_available.png";
-    $sec->replace_singles([
-        "immagine_crew" =>  $profileImage,
-        "crew_alt_img_not_present" => empty($i["profile_image"]) ? ", non presente" : "",
-        "crew_name" => $i["name"],
-        "crew_html_name" => $i["html_name"],
-        "crew_job" => $i["role"],
-        "crew_id" => $i["person_id"],
-    ]);
-});
+if (!empty($cast)) {
+    $template->replace_var("show_cast", $template->get_block("show_cast")->replace_block_name_arr("cast", $cast, function (Builder $sec, array $i) {
+        $profileImage = $i["profile_image"] ? $i["profile_image"] : "images/no_picture_available.png";
+        $sec->replace_singles([
+            "immagine_cast" => $profileImage,
+            "cast_alt_img_not_present" => empty($i["profile_image"]) ? ", non presente" : "",
+            "cast_name" => $i["name"],
+            "cast_html_name" => $i["html_name"],
+            "cast_job" => $i["role"],
+            "cast_id" => $i["person_id"],
+        ]);
+    }), VarType::Block);
+    $template->delete_blocks(["show_no_cast"]);
+} else {
+    $template->show_block("show_no_cast");
+    $template->delete_blocks(["show_cast"]);
+}
+
+if (!empty($crew)) {
+    $template->replace_var("show_crew", $template->get_block("show_crew")->replace_block_name_arr("crew", $crew, function (Builder $sec, array $i) {
+        $profileImage = $i["profile_image"] ? $i["profile_image"] : "images/no_picture_available.png";
+        $sec->replace_singles([
+            "immagine_crew" =>  $profileImage,
+            "crew_alt_img_not_present" => empty($i["profile_image"]) ? ", non presente" : "",
+            "crew_name" => $i["name"],
+            "crew_html_name" => $i["html_name"],
+            "crew_job" => $i["role"],
+            "crew_id" => $i["person_id"],
+        ]);
+    }), VarType::Block);
+    $template->delete_blocks(["show_no_crew"]);
+} else {
+    $template->show_block("show_no_crew");
+    $template->delete_blocks(["show_crew"]);
+}
 
 
 if (!empty($user)) {
-    $user_review = array_filter($reviews, function ($review, $key) use ($user) {
+    $user_review = array_filter($reviews, function ($review, $_) use ($user) {
         return $user["username"] == $review["username"];
     }, ARRAY_FILTER_USE_BOTH);
 
@@ -133,23 +152,28 @@ if (!empty($user)) {
     }
 }
 
-$template->replace_block_name_arr("recensioni", $reviews, function (Builder $sec, array $i) use ($user) {
-    $sec->replace_singles([
-        "rev_username" => $i["username"],
-        "rev_title" => $i["title"],
-        "rev_content" => $i["content"],
-        "rev_rating" => $i["rating"],
-    ]);
-
-    if (!empty($user) && $user["is_admin"]) {
-        $sec->replace_var("delete_recensione", $sec->get_block("delete_recensione")->replace_singles([
+if (!empty($reviews) || !empty($user_review)) {
+    $template->replace_block_name_arr("recensioni", $reviews, function (Builder $sec, array $i) use ($user) {
+        $sec->replace_singles([
             "rev_username" => $i["username"],
-        ]), VarType::Block);
-    } else {
-        $sec->delete_blocks(["delete_recensione"]);
-    }
-});
+            "rev_title" => $i["title"],
+            "rev_content" => $i["content"],
+            "rev_rating" => $i["rating"],
+        ]);
 
+        if (!empty($user) && $user["is_admin"]) {
+            $sec->replace_var("delete_recensione", $sec->get_block("delete_recensione")->replace_singles([
+                "rev_username" => $i["username"],
+            ]), VarType::Block);
+        } else {
+            $sec->delete_blocks(["delete_recensione"]);
+        }
+    });
+    $template->delete_blocks(["no_recensioni"]);
+} else {
+    $template->show_block("no_recensioni");
+    $template->delete_blocks(["recensioni"]);
+}
 
 if (empty($user) || !empty($user_review)) {
     $template->delete_blocks(["crea_recensione"]);

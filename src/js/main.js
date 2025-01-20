@@ -2,6 +2,10 @@ const regexCallback = (elem, regex) => {
   return regex.test(elem.value);
 };
 
+const noCallback = () => {
+  return true;
+};
+
 const checks = {
   crea_people_name_err: [
     {
@@ -87,13 +91,7 @@ const checks = {
       error: "L'immagine deve essere un file jpeg, jpg, gif o png."
     }
   ],
-  add_people_film_err: [
-    {
-      callback: regexCallback,
-      regex: /^[a-zA-Z0-9\s]+$/,
-      error: 'Il nome del film può contenere solo lettere, numeri e spazi.'
-    }
-  ],
+  add_people_film_err: [],
   add_people_people_err: [
     {
       callback: regexCallback,
@@ -217,13 +215,15 @@ document.addEventListener('DOMContentLoaded', () => {
       if (inputElem) {
         inputElem.onchange = () => {
           checks[key].forEach(c => {
-            if (c['callback'](inputElem, c['regex'])) {
-              errElem.innerHTML = '';
-              inputElem.removeAttribute('aria-invalid');
-            } else {
-              errElem.innerHTML = c['error'];
-              inputElem.setAttribute('aria-invalid', 'true');
-              return;
+            if (c['callback']) {
+              if (c['callback'](inputElem, c['regex'])) {
+                errElem.innerHTML = '';
+                inputElem.removeAttribute('aria-invalid');
+              } else {
+                errElem.innerHTML = c['error'];
+                inputElem.setAttribute('aria-invalid', 'true');
+                return;
+              }
             }
           });
         };
