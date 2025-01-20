@@ -59,7 +59,29 @@ const commonChecks = {
       },
       error: 'deve essere un file jpeg, jpg, gif o png.'
     }
-  ]
+  ],
+  rec_title: [
+    minMaxCharsCheck(2, 30),
+    {
+      callback: regexCallback,
+      args: {
+        regex: /^(?![-\s])[A-Za-zÀ-ÖØ-öø-ÿ0-9\s'()\-\u2013]{2,30}(?<![-\s])$/
+      },
+      error:
+        'deve essere lungo tra 2 e 30 caratteri, può contenere lettere, numeri, spazi, trattini, apostrofi e parentesi, ma non può iniziare o terminare con spazi o caratteri speciali.'
+    }
+  ],
+  rec_content: [
+    {
+      callback: regexCallback,
+      args: {
+        regex: /^[A-Za-zÀ-ÖØ-öø-ÿ0-9\s'(),.!?;:\-\u2013\u2014]+$/
+      },
+      error: 'può contenere solo lettere, numeri, spazi e alcuni caratteri speciali (, . ! ? ; : - – —).'
+    },
+    minMaxCharsCheck(8, 1000)
+  ],
+  rec_rating: [minMaxNumCheck(1, 10)]
 };
 
 const checks = {
@@ -114,12 +136,12 @@ const checks = {
       }
     ]
   },
-  crea_rec_title_err: { optional: false, checks: [minMaxCharsCheck(2, 30)] },
-  crea_rec_content_err: { optional: false, checks: [minMaxCharsCheck(8, 1000)] },
-  crea_rec_rating_err: { optional: false, checks: [minMaxNumCheck(1, 10)] },
-  mod_rec_title_err: { optional: false, checks: [minMaxCharsCheck(2, 30)] },
-  mod_rec_content_err: { optional: false, checks: [minMaxCharsCheck(8, 1000)] },
-  mod_rec_rating_err: { optional: false, checks: [minMaxNumCheck(1, 10)] },
+  crea_rec_title_err: { optional: false, checks: commonChecks.rec_title },
+  crea_rec_content_err: { optional: false, checks: commonChecks.rec_content },
+  crea_rec_rating_err: { optional: false, checks: commonChecks.rec_rating },
+  mod_rec_title_err: { optional: false, checks: commonChecks.rec_title },
+  mod_rec_content_err: { optional: false, checks: commonChecks.rec_content },
+  mod_rec_rating_err: { optional: false, checks: commonChecks.rec_rating },
   login_username_err: { optional: false, checks: [minMaxCharsCheck(4, -1)] },
   login_password_err: { optional: false, checks: [minMaxCharsCheck(4, -1)] },
   signup_name_err: { optional: false, checks: commonChecks.name },
