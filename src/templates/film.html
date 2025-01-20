@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
   <head>
     <meta charset="UTF-8" />
@@ -47,25 +47,25 @@
     </nav>
 
     <main id="contenuto" aria-label="Contenuto principale della pagina">
-      <h2 id="film-title">{{nome_film}}</h2>
+      <div class="stileEliminaFilm">
+        <h2 id="film-title">{{nome_film}}</h2>
+        <!--delete_film_start-->
+        <form action="delete.php" method="post">
+          <fieldset>
+            <legend>Elimina {{nome_film}}</legend>
+
+            <input type="hidden" name="type" value="film" />
+            <input type="hidden" name="film_id" value="{{film_id}}" />
+            <input type="hidden" name="cat" value="{{film_cat}}" />
+
+            <input type="submit" value="Elimina" />
+          </fieldset>
+        </form>
+        <!--delete_film_end-->
+      </div>
 
       <section aria-label="Informazioni principali">
-        <div class="stileEliminaFilm">
-          <h3>Informazioni principali</h3>
-          <!--delete_film_start-->
-          <form action="delete.php" method="post">
-            <fieldset>
-              <legend>Elimina {{nome_film}}</legend>
-
-              <input type="hidden" name="type" value="film" />
-              <input type="hidden" name="film_id" value="{{film_id}}" />
-              <input type="hidden" name="cat" value="{{film_cat}}" />
-
-              <input type="submit" value="Elimina" />
-            </fieldset>
-          </form>
-          <!--delete_film_end-->
-        </div>
+        <h3>Informazioni principali</h3>
         <div id="informazioniPrincipali">
           <picture>
             <img class="locandina" src="{{locandina}}" alt="Locandina del film {{nome_film}}{{locandina_alt_img_not_present}}" />

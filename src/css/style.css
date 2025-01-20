@@ -331,6 +331,7 @@ header h2 {
 }
 
 #loggato p {
+  text-align: center;
   color: var(--color-text-light);
 }
 
@@ -768,9 +769,10 @@ main a:visited:hover {
   justify-content: space-between;
   align-items: center;
   column-gap: 0.5em;
+  margin-bottom: 1em;
 }
 
-.stileEliminaFilm h3 {
+.stileEliminaFilm h2 {
   margin-bottom: 0;
 }
 
