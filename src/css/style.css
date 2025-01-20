@@ -81,6 +81,22 @@ body {
   /* rosso puro per link corrente */
 
   --color-button-hover: #344ca3;
+
+  /* Possibile alternativa colori */
+
+  /* --color-primary: #10141a;
+  --color-background: #1b202a;
+  --color-content-bg: #242a35;
+  --color-secondary-background: #313847;
+  --color-text-light: #f2f6f9;
+  --color-text-secondary: #dbe2e7;
+  --color-text-dark: #000000;
+  --color-link: #79d7ff;
+  --color-visited: #edbbff;
+  --color-visited: #ffbb80;
+  --color-current: #92ffc5;
+  --color-extra: #fce7ae;
+  --color-button-hover: #6ac4e6;  */
 }
 
 /* Stile Header */
@@ -1001,6 +1017,7 @@ picture {
 }
 
 .frameRecensione p {
+  color: var(--color-secondary);
   margin-bottom: 0.5em;
 }
 
@@ -1402,4 +1419,3 @@ body {
 .hidden {
   display: none;
 }
-
