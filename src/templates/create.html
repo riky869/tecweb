@@ -38,18 +38,18 @@
     </nav>
 
     <main id="contenuto">
-      <form class="formCreazione" id="create_people" action="create.php" method="post" enctype="multipart/form-data">
+      <form class="formCreazione" id="create_people" action="create.php" method="post" enctype="multipart/form-data" novalidate="novalidate">
         <fieldset>
           <legend>Aggiungi una persona</legend>
           <input type="hidden" name="action" value="create_people" />
 
           <label for="crea_people_name">Nome e Cognome</label>
-          <input type="text" name="name" id="crea_people_name" />
-          <span id="crea_people_name_err" class="field-error" data-input="crea_people_name"></span>
+          <input type="text" name="name" id="crea_people_name" required="required" aria-required="true" />
+          <span id="crea_people_name_err" class="field-error hidden" aria-live="assertive" data-input="crea_people_name"></span>
 
           <label for="crea_people_image">Immagine profilo</label>
           <input type="file" name="image" id="crea_people_image" />
-          <span id="crea_people_image_err" class="field-error" data-input="crea_people_image"></span>
+          <span id="crea_people_image_err" class="field-error hidden" aria-live="assertive" data-input="crea_people_image"></span>
 
           <input type="submit" value="Crea" />
           <!--create_people_error_start-->
@@ -61,33 +61,33 @@
         </fieldset>
       </form>
 
-      <form class="formCreazione" id="create_film" action="create.php" method="post" enctype="multipart/form-data">
+      <form class="formCreazione" id="create_film" action="create.php" method="post" enctype="multipart/form-data" novalidate="novalidate">
         <fieldset>
           <legend>Crea un nuovo film</legend>
           <input type="hidden" name="action" value="create_film" />
 
           <label for="crea_film_name">Nome</label>
-          <input type="text" name="name" id="crea_film_name" required="required" minlength="2" />
-          <span id="crea_film_name_err" class="field-error" data-input="crea_film_name"></span>
+          <input type="text" name="name" id="crea_film_name" required="required" aria-required="true" minlength="2" />
+          <span id="crea_film_name_err" class="field-error hidden" aria-live="assertive" data-input="crea_film_name"></span>
 
           <label for="crea_film_original_name">Nome originale</label>
           <input type="text" name="original_name" id="crea_film_original_name" minlength="2" />
-          <span id="crea_film_original_name_err" class="field-error" data-input="crea_film_original_name"></span>
+          <span id="crea_film_original_name_err" class="field-error hidden" aria-live="assertive" data-input="crea_film_original_name"></span>
 
           <label for="crea_film_original_language">Lingua originale</label>
           <input type="text" name="original_language" id="crea_film_original_language" />
-          <span id="crea_film_original_language_err" class="field-error" data-input="crea_film_original_language"></span>
+          <span id="crea_film_original_language_err" class="field-error hidden" aria-live="assertive" data-input="crea_film_original_language"></span>
 
           <label for="crea_film_release_date">Data di uscita</label>
           <input type="date" name="release_date" id="crea_film_release_date" />
-          <span id="crea_film_release_date_err" class="field-error" data-input="crea_film_release_date"></span>
+          <span id="crea_film_release_date_err" class="field-error hidden" aria-live="assertive" data-input="crea_film_release_date"></span>
 
           <label for="crea_film_runtime">Durata (<abbr title="minuti">min</abbr>)</label>
           <input type="number" name="runtime" id="crea_film_runtime" min="10" max="6000" />
-          <span id="crea_film_runtime_err" class="field-error" data-input="crea_film_runtime"></span>
+          <span id="crea_film_runtime_err" class="field-error hidden" aria-live="assertive" data-input="crea_film_runtime"></span>
 
           <label for="crea_film_phase">Fase</label>
-          <select name="phase" id="crea_film_phase" required="required">
+          <select name="phase" id="crea_film_phase" required="required" aria-required="true">
             <option value="Voci">Voci</option>
             <option value="Da annunciare">Da annunciare</option>
             <option value="Annunciato">Annunciato</option>
@@ -99,23 +99,23 @@
             <option value="Completato">Completato</option>
             <option value="Rilasciato">Rilasciato</option>
           </select>
-          <span id="crea_film_phase_err" class="field-error" data-input="crea_film_phase"></span>
+          <span id="crea_film_phase_err" class="field-error hidden" aria-live="assertive" data-input="crea_film_phase"></span>
 
           <label for="crea_film_budget">Budget</label>
           <input type="number" name="budget" id="crea_film_budget" min="0" />
-          <span id="crea_film_budget_err" class="field-error" data-input="crea_film_budget"></span>
+          <span id="crea_film_budget_err" class="field-error hidden" aria-live="assertive" data-input="crea_film_budget"></span>
 
           <label for="crea_film_revenue">Incasso</label>
           <input type="number" name="revenue" id="crea_film_revenue" min="0" />
-          <span id="crea_film_revenue_err" class="field-error" data-input="crea_film_revenue"></span>
+          <span id="crea_film_revenue_err" class="field-error hidden" aria-live="assertive" data-input="crea_film_revenue"></span>
 
           <label for="crea_film_description">Descrizione</label>
-          <textarea rows="20" cols="40" id="crea_film_description" name="description" minlength="10" required="required"></textarea>
-          <span id="crea_film_description_err" class="field-error" data-input="crea_film_description"></span>
+          <textarea rows="20" cols="40" id="crea_film_description" name="description" minlength="10" required="required" aria-required="true"></textarea>
+          <span id="crea_film_description_err" class="field-error hidden" aria-live="assertive" data-input="crea_film_description"></span>
 
           <label for="crea_film_image">Immagine</label>
           <input type="file" name="image" id="crea_film_image" />
-          <span id="crea_film_image_err" class="field-error" data-input="crea_film_image"></span>
+          <span id="crea_film_image_err" class="field-error hidden" aria-live="assertive" data-input="crea_film_image"></span>
 
           <input type="submit" value="Crea" />
 
@@ -128,7 +128,7 @@
         </fieldset>
       </form>
 
-      <form class="formCreazione" id="add_people_to_film" action="create.php" method="post">
+      <form class="formCreazione" id="add_people_to_film" action="create.php" method="post" novalidate="novalidate">
         <fieldset>
           <legend>Aggiungi persona ad un film</legend>
           <input type="hidden" name="action" value="add_people_to_film" />
@@ -139,7 +139,7 @@
             <option value="{{id}}">{{name}}</option>
             <!--film_people_option_end-->
           </select>
-          <span id="add_people_film_err" class="field-error" data-input="add_people_film"></span>
+          <span id="add_people_film_err" class="field-error hidden" aria-live="assertive" data-input="add_people_film"></span>
 
           <label for="add_people_people">Persona</label>
           <select name="person_id" id="add_people_people">
@@ -147,21 +147,21 @@
             <option value="{{id}}">{{name}}</option>
             <!--people_option_end-->
           </select>
-          <span id="add_people_people_err" class="field-error" data-input="add_people_people"></span>
+          <span id="add_people_people_err" class="field-error hidden" aria-live="assertive" data-input="add_people_people"></span>
 
           <div class="rowFormDiv">
-            <input type="radio" name="role_type" id="add_people_crew" value="crew" required="required" />
+            <input type="radio" name="role_type" id="add_people_crew" value="crew" required="required" aria-required="true" />
             <label for="add_people_crew"><span lang="en">Crew</span></label>
           </div>
 
           <div class="rowFormDiv">
-            <input type="radio" name="role_type" id="add_people_cast" value="cast" required="required" />
+            <input type="radio" name="role_type" id="add_people_cast" value="cast" required="required" aria-required="true" />
             <label for="add_people_cast"><span lang="en">Cast</span></label>
           </div>
 
           <label for="add_people_role">Ruolo</label>
-          <input type="text" name="role" id="add_people_role" required="required" minlength="2" />
-          <span id="add_people_role_err" class="field-error" data-input="add_people_role"></span>
+          <input type="text" name="role" id="add_people_role" required="required" aria-required="true" minlength="2" />
+          <span id="add_people_role_err" class="field-error hidden" aria-live="assertive" data-input="add_people_role"></span>
 
           <input type="submit" value="Aggiungi" />
           <!--add_people_to_film_error_start-->
@@ -173,7 +173,7 @@
         </fieldset>
       </form>
 
-      <form class="formCreazione" id="add_category_to_film" action="create.php" method="post">
+      <form class="formCreazione" id="add_category_to_film" action="create.php" method="post" novalidate="novalidate">
         <fieldset>
           <legend>Aggiungi categoria ad un film</legend>
           <input type="hidden" name="action" value="add_category_to_film" />
@@ -184,7 +184,7 @@
             <option value="{{id}}">{{name}}</option>
             <!--film_cat_option_end-->
           </select>
-          <span id="add_cat_film_err" class="field-error" data-input="add_cat_film"></span>
+          <span id="add_cat_film_err" class="field-error hidden" aria-live="assertive" data-input="add_cat_film"></span>
 
           <label for="add_cat_category">Categoria</label>
           <select name="category" id="add_cat_category">
@@ -192,7 +192,7 @@
             <option value="{{name}}">{{name}}</option>
             <!--category_option_end-->
           </select>
-          <span id="add_cat_category_err" class="field-error" data-input="add_cat_category"></span>
+          <span id="add_cat_category_err" class="field-error hidden" aria-live="assertive" data-input="add_cat_category"></span>
 
           <input type="submit" value="Aggiungi" />
           <!--add_category_to_film_error_start-->

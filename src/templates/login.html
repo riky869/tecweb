@@ -51,17 +51,17 @@
     </header> -->
 
     <main id="contenuto" class="login-form">
-      <form action="login.php" method="post">
+      <form action="login.php" method="post" id="login_form" novalidate="novalidate">
         <fieldset>
           <legend>Effettua l'accesso</legend>
 
           <label for="login_username"><span lang="en">username</span></label>
-          <input type="text" name="username" id="login_username" required="required" minlength="4" maxlength="20" />
-          <span id="login_username_err" class="field-error" data-input="login_username"></span>
+          <input type="text" name="username" id="login_username" required="required" aria-required="true" minlength="4" maxlength="20" />
+          <span id="login_username_err" class="field-error hidden" aria-live="assertive" data-input="login_username"></span>
 
           <label for="login_password"><span lang="en">password</span></label>
-          <input type="password" name="password" id="login_password" required="required" minlength="4" />
-          <span id="login_password_err" class="field-error" data-input="login_password"></span>
+          <input type="password" name="password" id="login_password" required="required" aria-required="true" minlength="4" />
+          <span id="login_password_err" class="field-error hidden" aria-live="assertive" data-input="login_password"></span>
 
           <input type="submit" value="Accedi" />
 

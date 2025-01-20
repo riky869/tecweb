@@ -840,6 +840,7 @@ main a:visited:hover {
 picture {
   display: inherit;
 }
+
 /* Locandina film */
 .locandina {
   width: 100%;
@@ -1395,5 +1396,9 @@ body {
 } */
 
 #btnOpen {
+  display: none;
+}
+
+.hidden {
   display: none;
 }

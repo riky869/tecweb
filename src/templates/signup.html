@@ -44,25 +44,25 @@
 
     <main id="contenuto" class="login-form">
       <!--Si è copiato dal login-->
-      <form action="signup.php" method="post">
+      <form id="signup" action="signup.php" method="post" novalidate="novalidate">
         <fieldset>
           <legend>Effettua la registrazione</legend>
 
           <label for="signup_username"><span lang="en">username</span></label>
-          <input type="text" name="username" id="signup_username" required="required" minlength="4" maxlength="20" />
-          <span id="signup_username_err" class="field-error" data-input="signup_username"></span>
+          <input type="text" name="username" id="signup_username" required="required" aria-required="true" minlength="4" maxlength="20" />
+          <span id="signup_username_err" class="field-error hidden" aria-live="assertive" data-input="signup_username"></span>
 
           <label for="signup_password"><span lang="en">password</span></label>
-          <input type="password" name="password" id="signup_password" required="required" minlength="4" />
-          <span id="signup_password_err" class="field-error" data-input="signup_password"></span>
+          <input type="password" name="password" id="signup_password" required="required" aria-required="true" minlength="4" />
+          <span id="signup_password_err" class="field-error hidden" aria-live="assertive" data-input="signup_password"></span>
 
           <label for="signup_name">nome</label>
-          <input type="text" name="name" id="signup_name" required="required" minlength="2" />
-          <span id="signup_name_err" class="field-error" data-input="signup_name"></span>
+          <input type="text" name="name" id="signup_name" required="required" aria-required="true" minlength="2" />
+          <span id="signup_name_err" class="field-error hidden" aria-live="assertive" data-input="signup_name"></span>
 
           <label for="signup_last_name">cognome</label>
-          <input type="text" name="last_name" id="signup_last_name" required="required" minlength="2" />
-          <span id="signup_last_name_err" class="field-error" data-input="signup_last_name"></span>
+          <input type="text" name="last_name" id="signup_last_name" required="required" aria-required="true" minlength="2" />
+          <span id="signup_last_name_err" class="field-error hidden" aria-live="assertive" data-input="signup_last_name"></span>
 
           <input type="submit" value="Registrati" />
 
