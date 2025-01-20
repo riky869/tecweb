@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
   <head>
     <!--html_head_start-->
@@ -37,7 +37,8 @@
 
     <!--user_logged_start-->
     <div id="loggato">
-      <p>Utente corrente: <a href="profile.php">{{username}}</a></p>
+      <p id="utenteCorrente">Utente corrente:</p>
+      <a aria-describedby="utenteCorrente" href="profile.php">{{username}}</a>
       <form method="post" action="logout.php">
         <fieldset>
           <legend>Effettua la disconnessione</legend>

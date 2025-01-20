@@ -322,20 +322,29 @@ header h2 {
   display: flex;
   /* flex-direction: column; */
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   column-gap: 0.5em;
   row-gap: 0.2em;
   margin-right: 0.2em;
-  width: 30%;
+  flex-grow: 0.5;
+  flex-shrink: 1;
+  /* width: 30%; */
 }
 
 #loggato p {
-  text-align: center;
+  /* text-align: center; */
   color: var(--color-text-light);
+  text-indent: -9999em;
+  position: absolute;
 }
 
 #loggato a {
+  padding-left: 2em;
+  background-image: url('../images/404.jpg');
+  background-size: contain;
+  background-position-x: -0.5em;
+  background-repeat: no-repeat;
   color: var(--color-link);
   text-decoration: underline;
 }
@@ -356,7 +365,7 @@ header h2 {
   flex-grow: 1;
   flex-shrink: 1;
   flex-basis: 0;
-  width: 70%;
+  /* width: 70%; */
 }
 
 #loggato fieldset {

@@ -45,10 +45,18 @@ footer img {
 }
 
 #loggato {
+  column-gap: 0;
   row-gap: 1em;
+  width: 10em;
+  margin-right: 0;
   margin-bottom: 1em;
   flex-direction: column;
   flex-wrap: nowrap;
+  /* width: 20%; */
+}
+
+#loggato form {
+  width: 100%;
 }
 
 #login {
