@@ -53,18 +53,42 @@ $template->replace_singles([
     "nome_film" => $movie["name"],
     "nome_originale" => !empty($movie["original_name"]) ? $movie["original_name"] : "Non disponibile",
     "lingua_originale" => !empty($movie["original_language"]) ? $movie["original_language"] : "Non disponibile",
-    "data_uscita" => !empty($movie["release_date"]) ? str_replace("-", " ", $movie["release_date"]) : "Non disponibile",
-    "durata" => !empty($movie["runtime"]) ? $movie["runtime"] : "Non disponibile",
     "stato" => $movie["phase"],
     "budget" => !empty($movie["budget"]) && $movie["budget"] > 0 ? $movie["budget"] . ' $' : 'Non disponibile',
     "incassi" =>  !empty($movie["revenue"]) && $movie["revenue"] > 0 ? $movie["revenue"] . ' $' : 'Non disponibile',
     "description" => $movie["description"],
     "locandina" => !empty($movie["image_path"]) ? $movie["image_path"] : "images/no_picture_available.png",
     "locandina_alt_img_not_present" => empty($movie["image_path"]) ? ", non presente" : "",
-    "valutazione" => !empty($average_rating) ? $average_rating : "Non disponibile",
     "film_id" => $movie_id,
     "film_cat" => !empty($categoryFound) ? $categoryFound["name"] : "",
 ]);
+
+if (!empty($movie["release_date"])) {
+    $template->replace_var("data_release_presente", $template->get_block("data_release_presente")->replace_singles([
+        "data_uscita_iso" => $movie["release_date"],
+        "data_uscita" =>  str_replace("-", "-", $movie["release_date"]),
+    ]), VarType::Block);
+    $template->delete_blocks(["data_release_non_presente"]);
+} else {
+    $template->show_block("data_release_non_presente");
+    $template->delete_blocks(["data_release_presente"]);
+}
+
+if (!empty($movie["runtime"])) {
+    $template->replace_var("durata_presente", $template->get_block("durata_presente")->replace_var("durata", $movie["runtime"]), VarType::Block);
+    $template->delete_blocks(["durata_non_presente"]);
+} else {
+    $template->show_block("durata_non_presente");
+    $template->delete_blocks(["durata_presente"]);
+}
+
+if (!empty($average_rating)) {
+    $template->replace_var("valutazione_presente", $template->get_block("valutazione_presente")->replace_var("valutazione", $average_rating), VarType::Block);
+    $template->delete_blocks(["valutazione_non_presente"]);
+} else {
+    $template->show_block("valutazione_non_presente");
+    $template->delete_blocks(["valutazione_presente"]);
+}
 
 $delete_forms = ["delete_crew", "delete_cast", "delete_genere", "delete_film"];
 if (!empty($user) && $user["is_admin"]) {

@@ -82,11 +82,21 @@
             </li>
             <li>
               <h4 class="info-title">Data di uscita:</h4>
-              <p class="info-value"><time datetime="{{data_uscita}}">{{data_uscita}}</time></p>
+              <!--data_release_presente_start-->
+              <p class="info-value"><time datetime="{{data_uscita_iso}}">{{data_uscita}}</time></p>
+              <!--data_release_presente_end-->
+              <!--data_release_non_presente_start-->
+              <p class="info-value">Non disponibile</p>
+              <!--data_release_non_presente_end-->
             </li>
             <li>
               <h4 class="info-title">Durata:</h4>
+              <!--durata_presente_start-->
               <p class="info-value">{{durata}} <abbr title="minuti">min</abbr></p>
+              <!--durata_presente_end-->
+              <!--durata_non_presente_start-->
+              <p class="info-value">Non disponibile</p>
+              <!--durata_non_presente_end-->
             </li>
             <li>
               <h4 class="info-title">Stato di avanzamento:</h4>
@@ -102,7 +112,12 @@
             </li>
             <li>
               <h4 class="info-title">Valutazione:</h4>
+              <!--valutazione_presente_start-->
               <p class="info-value"><abbr title="{{valutazione}} su 10">{{valutazione}} / 10</abbr></p>
+              <!--valutazione_presente_end-->
+              <!--valutazione_non_presente_start-->
+              <p class="info-value">Non disponibile</p>
+              <!--valutazione_non_presente_end-->
             </li>
           </ul>
         </div>
