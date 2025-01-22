@@ -259,15 +259,15 @@
             <input type="hidden" name="cat" value="{{film_cat}}" />
 
             <label for="crea_rec_title">Titolo</label>
-            <input id="crea_rec_title" type="text" name="title" value="" minlength="3" required="required" aria-required="true" />
+            <input id="crea_rec_title" type="text" name="title" value="" minlength="3" required="required" />
             <span id="crea_rec_title_err" class="field-error hidden" aria-live="assertive" data-input="crea_rec_title"></span>
 
             <label for="crea_rec_content">Commento</label>
-            <textarea rows="20" cols="40" id="crea_rec_content" name="content" minlength="5" required="required" aria-required="true"></textarea>
+            <textarea rows="20" cols="40" id="crea_rec_content" name="content" minlength="5" required="required"></textarea>
             <span id="crea_rec_content_err" class="field-error hidden" aria-live="assertive" data-input="crea_rec_content"></span>
 
             <label for="crea_rec_rating">Valutazione</label>
-            <input id="crea_rec_rating" type="number" name="rating" value="7" min="1" max="10" required="required" aria-required="true" />
+            <input id="crea_rec_rating" type="number" name="rating" value="7" min="1" max="10" required="required" />
             <span id="crea_rec_rating_err" class="field-error hidden" aria-live="assertive" data-input="crea_rec_rating"></span>
 
             <input type="submit" value="Crea recensione" />
@@ -330,15 +330,15 @@
               <input type="hidden" name="cat" value="{{film_cat}}" />
 
               <label for="mod_rec_title">Titolo</label>
-              <input type="text" name="title" id="mod_rec_title" value="{{mod_title}}" required="required" aria-required="true" minlength="3" />
+              <input type="text" name="title" id="mod_rec_title" value="{{mod_title}}" required="required" minlength="3" />
               <span id="mod_rec_title_err" class="field-error hidden" aria-live="assertive" data-input="mod_rec_title"></span>
 
               <label for="mod_rec_content">Commento</label>
-              <textarea rows="20" cols="40" id="mod_rec_content" name="content" minlength="5" required="required" aria-required="true">{{mod_content}}</textarea>
+              <textarea rows="20" cols="40" id="mod_rec_content" name="content" minlength="5" required="required">{{mod_content}}</textarea>
               <span id="mod_rec_content_err" class="field-error hidden" aria-live="assertive" data-input="mod_rec_content"></span>
 
               <label for="mod_rec_rating">Valutazione</label>
-              <input id="mod_rec_rating" type="number" name="rating" value="{{mod_rating}}" min="1" max="10" required="required" aria-required="true" />
+              <input id="mod_rec_rating" type="number" name="rating" value="{{mod_rating}}" min="1" max="10" required="required" />
               <span id="mod_rec_rating_err" class="field-error hidden" aria-live="assertive" data-input="mod_rec_rating"></span>
 
               <input type="submit" value="Conferma modifica" />

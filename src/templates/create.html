@@ -46,7 +46,7 @@
           <input type="hidden" name="action" value="create_people" />
 
           <label for="crea_people_name">Nome e Cognome</label>
-          <input type="text" name="name" id="crea_people_name" required="required" aria-required="true" />
+          <input type="text" name="name" id="crea_people_name" required="required" />
           <span id="crea_people_name_err" class="field-error hidden" aria-live="assertive" data-input="crea_people_name"></span>
 
           <label for="crea_people_image">Immagine profilo</label>
@@ -69,7 +69,7 @@
           <input type="hidden" name="action" value="create_film" />
 
           <label for="crea_film_name">Nome</label>
-          <input type="text" name="name" id="crea_film_name" required="required" aria-required="true" minlength="2" />
+          <input type="text" name="name" id="crea_film_name" required="required" minlength="2" />
           <span id="crea_film_name_err" class="field-error hidden" aria-live="assertive" data-input="crea_film_name"></span>
 
           <label for="crea_film_original_name">Nome originale</label>
@@ -89,7 +89,7 @@
           <span id="crea_film_runtime_err" class="field-error hidden" aria-live="assertive" data-input="crea_film_runtime"></span>
 
           <label for="crea_film_phase">Fase</label>
-          <select name="phase" id="crea_film_phase" required="required" aria-required="true">
+          <select name="phase" id="crea_film_phase" required="required">
             <option value="Voci">Voci</option>
             <option value="Da annunciare">Da annunciare</option>
             <option value="Annunciato">Annunciato</option>
@@ -112,7 +112,7 @@
           <span id="crea_film_revenue_err" class="field-error hidden" aria-live="assertive" data-input="crea_film_revenue"></span>
 
           <label for="crea_film_description">Descrizione</label>
-          <textarea rows="20" cols="40" id="crea_film_description" name="description" minlength="10" required="required" aria-required="true"></textarea>
+          <textarea rows="20" cols="40" id="crea_film_description" name="description" minlength="10" required="required"></textarea>
           <span id="crea_film_description_err" class="field-error hidden" aria-live="assertive" data-input="crea_film_description"></span>
 
           <label for="crea_film_image">Immagine</label>
@@ -152,17 +152,17 @@
           <span id="add_people_people_err" class="field-error hidden" aria-live="assertive" data-input="add_people_people"></span>
 
           <div class="rowFormDiv">
-            <input type="radio" name="role_type" id="add_people_crew" value="crew" required="required" aria-required="true" checked="checked" />
+            <input type="radio" name="role_type" id="add_people_crew" value="crew" required="required" checked="checked" />
             <label for="add_people_crew"><span lang="en">Crew</span></label>
           </div>
 
           <div class="rowFormDiv">
-            <input type="radio" name="role_type" id="add_people_cast" value="cast" required="required" aria-required="true" />
+            <input type="radio" name="role_type" id="add_people_cast" value="cast" required="required" />
             <label for="add_people_cast"><span lang="en">Cast</span></label>
           </div>
 
           <label for="add_people_role">Ruolo</label>
-          <input type="text" name="role" id="add_people_role" required="required" aria-required="true" minlength="2" />
+          <input type="text" name="role" id="add_people_role" required="required" minlength="2" />
           <span id="add_people_role_err" class="field-error hidden" aria-live="assertive" data-input="add_people_role"></span>
 
           <input type="submit" value="Aggiungi" />
