@@ -41,7 +41,7 @@ if (!$user["is_admin"] || empty($_GET["username"])) {
     $template->delete_var("user_info", VarType::Block);
 }
 
-$template->replace_block_name_arr("recensioni", $reviews, function (Builder $t, array $i) {
+$template->replace_block_name_arr("recensioni", $reviews, function (Builder $t, mixed $i) {
     $t->replace_singles([
         "rec_film_title" => $i["name"],
         "rec_film_id" => $i["movie_id"],

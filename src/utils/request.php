@@ -81,7 +81,6 @@ class Request
         $image_path = null;
         if (!empty($_FILES[$param]["name"])) {
             $target_file = $target_dir . basename($_FILES[$param]["name"]);
-            $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
             // Controlla se il file è un'immagine reale o un'immagine falsa
             $check = getimagesize($_FILES[$param]["tmp_name"]);
@@ -92,11 +91,6 @@ class Request
             // Controlla la dimensione del file
             if ($_FILES[$param]["size"] > (2 * 1024 * 1024)) {
                 $error = "Spiacente, il tuo file è troppo grande.";
-            }
-
-            // Permetti solo determinati formati di file
-            if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
-                $error = "Spiacente, sono consentiti solo file JPG, JPEG, PNG e GIF.";
             }
 
             // Controlla se $error è impostato su un messaggio di errore

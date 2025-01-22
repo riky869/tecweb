@@ -4,6 +4,7 @@ require_once("utils/db.php");
 require_once("utils/request.php");
 require_once("utils/builder.php");
 require_once("utils/session.php");
+require_once("utils/input.php");
 
 Request::allowed_methods(["GET", "POST"]);
 Session::start();
@@ -16,7 +17,41 @@ if (!empty($user)) {
 
 $template = Builder::from_template(basename(__FILE__));
 
-$register_error = null;
+$error = [];
+$checks = [
+    'signup_username_err' => [
+        'err_name' => "username",
+        'optional' => false,
+        'checks' => [
+            [
+                'callback' => [Validation::class, 'regexCallback'],
+                'args' => ['regex' => "/^(?=.{3,20}$)(?![_\.])[a-zA-Z0-9._]+(?<![_\.])$/"],
+                'error' => 'Deve essere lungo tra 3 e 20 caratteri, può contenere lettere, numeri, punti e underscore, ma non può iniziare o terminare con un punto o un underscore né avere punti o underscore consecutivi.'
+            ]
+        ]
+    ],
+    'signup_password_err' => [
+        'err_name' => "password",
+        'optional' => false,
+        'checks' => [
+            [
+                'callback' => [Validation::class, 'regexCallback'],
+                'args' => ['regex' => "/^(?=.*[A-Za-z])(?=.*\d).{8,}$/"],
+                'error' => 'Deve essere lunga almeno 8 caratteri e contenere almeno una lettera e un numero.'
+            ]
+        ]
+    ],
+    'signup_name_err' => [
+        'err_name' => "nome",
+        'optional' => false,
+        'checks' => $commonChecks['name']
+    ],
+    'signup_last_name_err' => [
+        'err_name' => "cognome",
+        'optional' => false,
+        'checks' => $commonChecks['name']
+    ],
+];
 
 if (Request::is_post()) {
     $username = $_POST["username"] ?? null;
@@ -24,18 +59,17 @@ if (Request::is_post()) {
     $name = $_POST["name"] ?? null;
     $last_name = $_POST["last_name"] ?? null;
 
-
     if (empty($username) || empty($password) || empty($name) || empty($last_name)) {
-        $register_error = "Compilare tutti i campi";
-    } else if (strlen($username) < 4 || strlen($username) > 20) {
-        $register_error = "L'username deve essere lungo tra 4 e 20 caratteri";
-    } else if (strlen($password) < 4) {
-        $register_error = "La Password deve essere più lunga di 4 caratteri";
-    } else if (strlen($name) < 2) {
-        $register_error = "Nome deve essere lungo almeno 2 caratteri";
-    } else if (strlen($last_name) < 2) {
-        $register_error = "Cognome deve essere lungo almeno 2 caratteri";
-    } else {
+        $error[] = "Compilare tutti i campi";
+    }
+
+    $username = validate($username, $checks["signup_username_err"], $error);
+    $password = validate($password, $checks["signup_password_err"], $error);
+    $name = validate($name, $checks["signup_name_err"], $error);
+    $last_name = validate($last_name, $checks["signup_last_name_err"], $error);
+
+
+    if (empty($error)) {
         $db = DB::from_env();
         try {
             $created = $db->create_user($username, $password, $name, $last_name);
@@ -44,37 +78,31 @@ if (Request::is_post()) {
                 $db->close();
                 Request::redirect("profile.php");
             } else {
-                $register_error = "Errore durante la creazione dell'utente";
+                $error[] = "Errore durante la creazione dell'utente";
             }
             $db->close();
         } catch (mysqli_sql_exception $e) {
             if ($e->getCode() == 1062) { // Duplicate entry error code
-                $register_error = "Username già esistente";
-            } else {
-                $register_error = "Errore interno del <span lang=\"en\">server</span>";
-            }
+                $error[] = "Username già esistente";
+            } else throw $e;
         }
     }
 
-    if (!empty($register_error)) {
-        $_SESSION["register_error"] = $register_error;
+    if (!empty($error)) {
+        $_SESSION["register_error"] = $error;
     }
 
     Request::redirect("signup.php");
-}
-
-if (Request::is_get()) {
-    $register_error = $_SESSION["register_error"] ?? null;
+} else if (Request::is_get()) {
+    $error = $_SESSION["register_error"] ?? [];
     unset($_SESSION["register_error"]);
 
-    if (empty($register_error)) {
+    if (empty($error)) {
         $template->delete_blocks(["register_error"]);
     } else {
-        $template->replace_var(
-            "register_error",
-            $template->get_block("register_error")->replace_var("register_error", $register_error),
-            VarType::Block
-        );
+        $template->replace_block_name_arr("register_error", $error, function (Builder $t, mixed $i) {
+            $t->replace_var("register_error", $i);
+        });
     }
 
     $common = Builder::load_common();

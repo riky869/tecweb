@@ -25,7 +25,7 @@ $db->close();
 $template = Builder::from_template(basename(__FILE__));
 $common = Builder::load_common();
 
-$template->replace_block_name_arr("new_films", $new_films, function (Builder $t, array $i) {
+$template->replace_block_name_arr("new_films", $new_films, function (Builder $t, mixed $i) {
     $t->replace_singles([
         "new_film_title" => $i["name"],
         "new_film_id" => $i["id"],
@@ -35,7 +35,7 @@ $template->replace_block_name_arr("new_films", $new_films, function (Builder $t,
     ]);
 });
 
-$template->replace_block_name_arr("top_films", $top_films, function (Builder $t, array $i) {
+$template->replace_block_name_arr("top_films", $top_films, function (Builder $t, mixed $i) {
     $t->replace_singles([
         "top_film_title" => $i["name"],
         "top_film_id" => $i["id"],
@@ -46,7 +46,7 @@ $template->replace_block_name_arr("top_films", $top_films, function (Builder $t,
     ]);
 });
 
-$template->replace_block_name_arr("last_reviews", $last_reviews, function (Builder $t, array $i) {
+$template->replace_block_name_arr("last_reviews", $last_reviews, function (Builder $t, mixed $i) {
     $t->replace_singles([
         "rec_film_title" => $i["name"],
         "rec_username" => $i["username"],

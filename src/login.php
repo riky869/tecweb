@@ -4,6 +4,7 @@ require_once("utils/db.php");
 require_once("utils/request.php");
 require_once("utils/builder.php");
 require_once("utils/session.php");
+require_once("utils/input.php");
 
 Request::allowed_methods(["GET", "POST"]);
 Session::start();
@@ -12,47 +13,55 @@ if (Session::is_logged()) {
     Request::redirect("index.php");
 }
 
-$login_error = null;
+$error = [];
+$checks = [
+    'login_username_err' => [
+        'err_name' => "username",
+        'optional' => false,
+        'checks' => [Validation::minMaxCharsCheck(4, -1)]
+    ],
+    'login_password_err' => [
+        'err_name' => "password",
+        'optional' => false,
+        'checks' => [Validation::minMaxCharsCheck(4, -1)]
+    ],
+];
+
 if (Request::is_post()) {
-    $username = $_POST["username"] ?? null;
-    $password = $_POST["password"] ?? null;
+    $username = $_POST["username"];
+    $password = $_POST["password"];
 
-    if (empty($username) || empty($password)) {
-        $login_error = "Inserisci username e password";
-    } else if (!preg_match("/^[a-zA-Z0-9_]{3,20}$/", $username)) {
-        $login_error = "Username o password errate";
-    } else if (strlen($password) < 4) {
-        $login_error = "Username o password errate";
-    } else {
+    if (empty($_POST["username"]) || empty($_POST["password"])) {
+        $error[] = "Inserisci tutti i campi obbligatori";
+    }
 
-        try {
+    $username = validate($_POST["username"], $checks["login_username_err"], $error);
+    $password = validate($_POST["password"], $checks["login_password_err"], $error);
 
-            $db = DB::from_env();
-            // fetch user
-            $user = $db->get_user_with_password($_POST["username"], $_POST["password"]);
-            $db->close();
+    if (empty($error)) {
+        $db = DB::from_env();
+        // fetch user
+        $user = $db->get_user_with_password($username, $password);
+        $db->close();
 
-            if (!empty($user)) {
-                // Redirect to home
-                Session::set_user($user);
-                Request::redirect("index.php");
-            } else {
-                // show error
-                $login_error = "Username o password errate";
-            }
-        } catch (mysqli_sql_exception $e) {
-            $login_error = "Errore interno del <span lang=\"en\">server</span>";
+        if (!empty($user)) {
+            // Redirect to home
+            Session::set_user($user);
+            Request::redirect("index.php");
+        } else {
+            // show error
+            $error[] = "Username o password errate";
         }
     }
 
-    if (!empty($login_error)) {
-        $_SESSION["login_error"] = $login_error;
+    if (!empty($error)) {
+        $_SESSION["login_error"] = $error;
     }
     Request::redirect("login.php");
 }
 
 if (Request::is_get()) {
-    $login_error = $_SESSION["login_error"] ?? null;
+    $error = $_SESSION["login_error"] ?? [];
     unset($_SESSION["login_error"]);
 
     $template = Builder::from_template(basename(__FILE__));
@@ -61,8 +70,10 @@ if (Request::is_get()) {
     $template->build(null, $common);
     $template->delete_secs([]);
 
-    if (!empty($login_error)) {
-        $template->replace_var("login_error", $template->get_block("login_error")->replace_var("login_error", $login_error), VarType::Block);
+    if (!empty($error)) {
+        $template->replace_block_name_arr("login_error", $error, function (Builder $t, mixed $i) {
+            $t->replace_var("login_error", $i);
+        });
     } else {
         $template->delete_var("login_error", VarType::Block);
     }

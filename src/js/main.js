@@ -55,7 +55,7 @@ const commonChecks = {
     {
       callback: regexCallback,
       args: {
-        regex: /\.(jpeg|jpg|gif|png)$/
+        regex: /\.(jpeg|jpg|gif|png|webp)$/
       },
       error: 'deve essere un file jpeg, jpg, gif o png.'
     }

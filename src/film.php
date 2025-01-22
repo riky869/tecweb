@@ -232,11 +232,9 @@ else {
 }
 
 if (!empty($_SESSION["review_error"])) {
-    $template->replace_var(
-        "crea_recensione_error",
-        $template->get_block("crea_recensione_error")->replace_singles(["crea_recensione_error" => $_SESSION["review_error"]]),
-        VarType::Block
-    );
+    $template->replace_block_name_arr("crea_recensione_error", $_SESSION["review_error"], function (Builder $t, mixed $i) {
+        $t->replace_var("crea_recensione_error", $i);
+    });
     unset($_SESSION["review_error"]);
 } else {
     $template->delete_blocks(["crea_recensione_error"]);
