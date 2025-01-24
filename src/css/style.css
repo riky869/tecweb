@@ -99,12 +99,12 @@ body {
   /* Link e interazioni */
   --color-link: #8cc8ff; /* Azzurro pastello chiaro */
   --color-visited: #ffb88c; /* pesca/albicocca */
-  --color-current: #96eead; /* Verde menta pastello */
+  --color-current: #a6e3a2; /* Verde menta pastello */
   --color-button-hover: #ffe399; /* Giallo pastello caldo */
   --color-extra: #bdc9ff; /* Azzurro/lilla molto tenue */
 
   --color-visited: #dc7d09;
-  --color-border: rgba(255, 255, 255, 0.5);
+  --color-border: rgba(255, 255, 255, 0.3);
   --color-shadow: rgba(0, 0, 0, 0.5);
   --color-error: #f26969;
 }
