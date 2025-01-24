@@ -1449,27 +1449,30 @@ footer p {
 /* Stile bottone torna su fixed in fondo a destra della pagina */
 
 #tornaSu {
-  position: fixed;
+  align-self: center;
+  position: relative;
+
+  /* position: fixed; */
   cursor: pointer;
   text-indent: -9999em;
   color: var(--color-text-light);
-  width: 3em;
-  height: 3em;
+  margin-bottom: 1em;
+  width: 1.5em;
+  height: 1.5em;
+  padding: 0.5em;
 
-  right: -9999em;
-  bottom: -9999em;
-}
+  /* right: -9999em;
+  bottom: -9999em; */
 
-#tornaSu:focus {
   background-image: url('../images/tornaSu.png');
   background-repeat: no-repeat;
   border-radius: 100%;
   background-size: cover;
   background-position: center center;
-  background-color: #3477db;
-  overflow: hidden;
-  right: 1em;
-  bottom: 1em;
+  background-color: var(--color-extra);
+  /* overflow: hidden; */
+  /* right: 1em;
+  bottom: 1em; */
 }
 
 #btnOpen {
