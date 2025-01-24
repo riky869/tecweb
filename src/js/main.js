@@ -263,17 +263,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const top = document.querySelector('#top-nav');
 
   var btnOpenState = false;
+  menu.classList.remove('active');
+  top.classList.remove('active');
 
   if (window.innerWidth > 786) {
     btnOpen.setAttribute('aria-expanded', 'false');
-    menu.classList.remove('active');
-    top.classList.remove('active');
     menu.setAttribute('aria-hidden', 'false');
     btnOpen.setAttribute('aria-hidden', 'true');
   } else {
     btnOpen.setAttribute('aria-expanded', 'false');
-    menu.classList.remove('active');
-    top.classList.remove('active');
     menu.setAttribute('aria-hidden', 'true');
     btnOpen.setAttribute('aria-hidden', 'false');
   }
