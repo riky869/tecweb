@@ -116,7 +116,7 @@ header {
   padding: 3em 4em;
   background-color: var(--color-primary);
   color: var(--color-text-light);
-  background: url('../images/header_bck.png');
+  background: url('../images/header_bck.webp');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -126,7 +126,7 @@ header {
 }
 
 #contenuto-centrale {
-  width: 50%;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -235,7 +235,7 @@ header h2 {
 }
 
 .login-form form {
-  background-image: url(../images/back.png);
+  background-image: url(../images/back.webp);
   background-repeat: no-repeat;
   background-size: cover;
   border: 1px solid var(--color-border);
@@ -297,7 +297,7 @@ header h2 {
 }
 
 .login-form input[type='submit']:hover {
-  color: var(--color-text-light);
+  color: var(--color-text-dark);
   background-color: var(--color-button-hover);
 }
 
@@ -597,47 +597,47 @@ main a:visited:hover {
 
 /* Immagini sfondo categorie */
 #cat_fantascienza {
-  background-image: url('../images/fantascienza.png');
+  background-image: url('../images/fantascienza.webp');
 }
 
 #cat_azione {
-  background-image: url('../images/azione.png');
+  background-image: url('../images/azione.webp');
 }
 
 #cat_avventura {
-  background-image: url('../images/avventura.png');
+  background-image: url('../images/avventura.webp');
 }
 
 #cat_animazione {
-  background-image: url('../images/animazione.png');
+  background-image: url('../images/animazione.webp');
 }
 
 #cat_famiglia {
-  background-image: url('../images/famiglia.png');
+  background-image: url('../images/famiglia.webp');
 }
 
 #cat_commedia {
-  background-image: url('../images/commedia.png');
+  background-image: url('../images/commedia.webp');
 }
 
 #cat_thriller {
-  background-image: url('../images/thriller.png');
+  background-image: url('../images/thriller.webp');
 }
 
 #cat_romance {
-  background-image: url('../images/romance.png');
+  background-image: url('../images/romance.webp');
 }
 
 #cat_horror {
-  background-image: url('../images/horror.png');
+  background-image: url('../images/horror.webp');
 }
 
 #cat_dramma {
-  background-image: url('../images/dramma.png');
+  background-image: url('../images/dramma.webp');
 }
 
 #cat_fantasy {
-  background-image: url('../images/fantasy.png');
+  background-image: url('../images/fantasy.webp');
 }
 
 .griglia-categorie a {
