@@ -4,7 +4,7 @@ body {
   display: flex; /* Serve per tenere il footer in basso */
   flex-direction: column;
   background-color: var(--color-background);
-  margin: 1em;
+  margin: 0 1em;
   padding: 0;
 }
 
