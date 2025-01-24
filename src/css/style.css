@@ -6,7 +6,6 @@
 }
 
 #menu {
-  border: 1px solid black;
   padding: 0.5em;
   background-color: var(--color-primary);
   color: var(--color-text-light);
@@ -74,7 +73,7 @@ body {
   --color-visited: #f994f6;
   /* perù per link visitati */
 
-  --color-text-secondary: #bababa;
+  --color-text-light: #bababa;
   /* grigio chiaro per testo secondario */
   /* --color-current: #e03838; */
   --color-current: #f26969;
@@ -82,21 +81,31 @@ body {
 
   --color-button-hover: #344ca3;
 
-  /* Possibile alternativa colori */
+  /* NUOVI COLORI 2 */
 
-  /* --color-primary: #10141a;
-  --color-background: #1b202a;
-  --color-content-bg: #242a35;
-  --color-secondary-background: #313847;
-  --color-text-light: #f2f6f9;
-  --color-text-secondary: #dbe2e7;
-  --color-text-dark: #000000;
-  --color-link: #79d7ff;
-  --color-visited: #edbbff;
-  --color-visited: #ffbb80;
-  --color-current: #92ffc5;
-  --color-extra: #fce7ae;
-  --color-button-hover: #6ac4e6;  */
+  --color-primary: #121212; /* Nero ricco per header/footer */
+  --color-background: #171717; /* Sfondo principale leggermente più chiaro */
+  --color-content-bg: #1c1c1c; /* Contenuto principale */
+  --color-secondary-background: #242424; /* Elementi in primo piano */
+
+  /* Testi base */
+  --color-text-light: #ffffff; /* Testo principale su sfondo scuro */
+  --color-text-dark: #121212; /* Testo su sfondi chiari */
+
+  /* Colori di accento */
+  --color-secondary: #c8b788; /* Oro sobrio originale */
+  --color-extra: #ffd5b0; /* Pesca pastello */
+
+  /* Link e interazioni */
+  --color-link: #8cc8ff; /* Azzurro pastello chiaro */
+  --color-visited: #ffb88c; /* pesca/albicocca */
+  --color-current: #96eead; /* Verde menta pastello */
+  --color-button-hover: #ffe399; /* Giallo pastello caldo */
+  --color-extra: #bdc9ff; /* Azzurro/lilla molto tenue */
+
+  --color-visited: #dc7d09;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-error: #f26969;
 }
 
 /* Stile Header */
@@ -128,7 +137,7 @@ header h1 {
 header h2 {
   font-size: 1.2em;
   font-weight: normal;
-  color: var(--color-text-secondary);
+  color: var(--color-text-light);
   line-height: 1.4em;
 }
 
@@ -150,8 +159,9 @@ header h2 {
 
 #breadcrumb a {
   color: var(--color-text-light);
-  text-decoration: none;
-  border-bottom: 0.08em solid;
+  /* text-decoration: none; */
+  /* border-bottom: 0.08em solid; */
+  text-decoration: underline;
 }
 
 #breadcrumb a:hover {
@@ -163,34 +173,55 @@ header h2 {
   display: flex;
   list-style-type: none;
   flex-grow: 1;
+  gap: 1em;
+  height: 100%;
+  align-items: center;
 }
 
 #navbar li {
-  margin: 0 3%;
+  height: 100%;
+  margin: 0;
 }
 
 #navbar li a {
   color: var(--color-link);
-  text-decoration: none;
-  border-bottom: 0.08em solid;
-}
-
-#navbar li a:hover {
-  color: var(--color-secondary);
+  /* text-decoration: none; */
+  /* border-bottom: 0.08em solid; */
+  text-decoration: underline;
+  /* text-decoration: none; */
+  padding: 0.5em;
+  background-color: var(--color-secondary-background);
+  transition: all 0.2s ease;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
 }
 
 #navbar li a:visited {
   color: var(--color-visited);
 }
 
+#navbar li a:hover {
+  background-color: var(--color-button-hover);
+  color: var(--color-text-dark);
+}
+
 #navbar li a:visited:hover {
-  color: var(--color-secondary);
+  background-color: var(--color-button-hover);
+  color: var(--color-text-dark);
 }
 
 #currentLink {
-  /* border-bottom: 0.08em solid; */
-  color: var(--color-current);
-  font-weight: 600;
+  color: var(--color-text-dark);
+  background-color: var(--color-current);
+  padding: 0.55em;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
 }
 
 /* login/signup form */
@@ -206,7 +237,7 @@ header h2 {
   background-image: url(../images/back.png);
   background-repeat: no-repeat;
   background-size: cover;
-  border: 0.08em solid var(--color-text-secondary);
+  border: 0.08em solid var(--color-text-light);
   background-color: var(--color-secondary-background);
   /* lasciare il background-color che se non c'è l'immagine c'è il colore almeno */
   /* padding-left: 1.5em; */
@@ -270,8 +301,9 @@ header h2 {
 
 .login-form a {
   color: var(--color-link);
-  text-decoration: none;
-  border-bottom: 0.08em solid;
+  /* text-decoration: none; */
+  /* border-bottom: 0.08em solid; */
+  text-decoration: underline;
 }
 
 .login-form a:hover {
@@ -292,28 +324,23 @@ header h2 {
 
 #login {
   color: var(--color-text-light);
-  text-decoration: none;
   display: flex;
-  gap: 2em;
+  gap: 1em;
+  align-items: center;
 }
 
 #login a {
-  color: var(--color-link);
+  color: var(--color-text-dark);
   text-decoration: none;
-  border-bottom: 0.08em solid;
-  width: fit-content;
+  padding: 0.5em 1em;
+  border-radius: 8px;
+  background-color: var(--color-link);
+  transition: all 0.2s ease;
 }
 
 #login a:hover {
-  color: var(--color-secondary);
-}
-
-#login a:visited {
-  color: var(--color-visited);
-}
-
-#login a:visited:hover {
-  color: var(--color-secondary);
+  background-color: var(--color-button-hover);
+  color: var(--color-text-dark);
 }
 
 /* logout */
@@ -326,10 +353,10 @@ header h2 {
   align-items: center;
   column-gap: 0.5em;
   row-gap: 0.2em;
-  margin-right: 0.2em;
   flex-grow: 0.5;
   flex-shrink: 1;
   /* width: 30%; */
+  gap: 1em;
 }
 
 #loggato p {
@@ -340,25 +367,24 @@ header h2 {
 }
 
 #loggato a {
-  padding-left: 2em;
-  background-image: url('../images/404.jpg');
+  color: var(--color-text-dark);
+  text-decoration: none;
+  padding: 0.75em;
+  border-radius: 8px;
+  background-color: var(--color-link);
+  width: 1em;
+  height: 1em;
+  background-position: center;
+  background-image: url('../images/profile.jpg');
   background-size: contain;
-  background-position-x: -0.5em;
   background-repeat: no-repeat;
-  color: var(--color-link);
-  text-decoration: underline;
+  border-radius: 8px;
+  text-indent: -9999em;
+  background-size: cover;
 }
 
 #loggato a:hover {
-  color: var(--color-secondary);
-}
-
-#loggato a:visited {
-  color: var(--color-visited);
-}
-
-#loggato a:visited:hover {
-  color: var(--color-secondary);
+  background-color: var(--color-button-hover);
 }
 
 #loggato form {
@@ -381,20 +407,22 @@ header h2 {
 }
 
 #loggato input[type='submit'] {
-  background-color: var(--color-secondary);
+  background-color: var(--color-link);
   color: var(--color-text-dark);
   font-weight: 700;
-  padding: 0.3em 0.4em;
+  /* padding: 0.3em 0.4em; */
+  padding: 0.9em;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
   min-width: fit-content;
   width: 100%;
+  transition: all 0.2s ease;
 }
 
 #loggato input[type='submit']:hover {
-  color: var(--color-text-light);
   background-color: var(--color-button-hover);
+  color: var(--color-text-dark);
   transition: background-color 0.2s ease;
 }
 
@@ -428,7 +456,7 @@ main h4 {
 }
 
 main p {
-  color: var(--color-text-secondary);
+  color: var(--color-text-light);
   margin-bottom: 1em;
   font-size: 1.1em;
   line-height: 1.4em;
@@ -523,6 +551,11 @@ main a:visited:hover {
 .film-card a:hover {
   border-color: var(--color-secondary);
   border-radius: 8px;
+  color: var(--color-link);
+}
+
+.film-card a:visited:hover {
+  color: var(--color-visited);
 }
 
 .film-locandina {
@@ -553,7 +586,7 @@ main a:visited:hover {
   background-color: var(--color-primary);
   border-radius: 8px;
   text-align: center;
-  border: 0.07em solid var(--color-text-secondary);
+  border: 0.07em solid var(--color-text-light);
 
   background-position: center;
   background-size: cover;
@@ -671,22 +704,41 @@ main a:visited:hover {
 
 /* User info è un dl */
 
-.userInfo {
+#userInfo {
   background-color: var(--color-secondary-background);
-  padding: 1.5em 1.5em 0.5em 1.5em;
-  border-radius: 12px;
   margin: 1.5em 0;
+  border-radius: 20px;
+  padding: 2.5em;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--color-border);
 }
 
-.userInfo dt {
+#userInfo dt {
   font-weight: bold;
   color: var(--color-extra);
 }
 
-.userInfo dd {
-  margin-left: 1.5em;
-  margin-bottom: 1em;
-  color: var(--color-text-secondary);
+#userInfo dt {
+  font-weight: 600;
+  color: var(--color-extra);
+  margin-bottom: 0.5em;
+  display: flex;
+  align-items: center;
+}
+
+#userInfo dt:before {
+  content: '›';
+  margin-right: 0.5em;
+  color: var(--color-extra);
+}
+
+#userInfo dd {
+  background: var(--color-background);
+  padding: 1em 1.5em;
+  border-radius: 12px;
+  margin: 0 0 1.5em 0;
+  color: var(--color-text-light);
+  font-size: 1.1em;
 }
 
 /* Stile lista utenti */
@@ -736,7 +788,8 @@ main a:visited:hover {
 }
 
 .usersList li span {
-  border-bottom: 0.08em solid;
+  /* border-bottom: 0.08em solid; */
+  text-decoration: underline;
 }
 
 /* About */
@@ -832,6 +885,8 @@ main a:visited:hover {
   justify-content: space-between;
   list-style-type: none;
   gap: 0.6em;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
 }
 
 .info-list li {
@@ -893,13 +948,27 @@ picture {
 
 #generi li a {
   color: var(--color-link);
-  text-decoration: none;
-  border-bottom: 0.08em solid var(--color-link);
+  padding: 0.5em;
+  background-color: var(--color-secondary-background);
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  text-decoration: underline;
+  transition: all 0.2s ease;
 }
 
 #generi li a:visited {
+  /* color: var(--color-link); */
   color: var(--color-visited);
-  border-bottom: 0.08em solid var(--color-visited);
+}
+
+#generi li a:hover {
+  background-color: var(--color-button-hover);
+  color: var(--color-text-dark);
+}
+
+#generi li a:visited:hover {
+  background-color: var(--color-button-hover);
+  color: var(--color-text-dark);
 }
 
 #generi form fieldset {
@@ -1000,7 +1069,7 @@ picture {
 
 .person-info {
   text-align: left;
-  color: var(--color-text-secondary);
+  color: var(--color-text-light);
 }
 
 /* stile rettangolo background di ogni recensione */
@@ -1023,7 +1092,7 @@ picture {
 .frameRecensione dd {
   margin-left: 1em;
   margin-bottom: 0.5em;
-  color: var(--color-text-secondary);
+  color: var(--color-text-light);
   overflow-wrap: break-word;
 }
 
@@ -1054,13 +1123,14 @@ picture {
 .recensione dd {
   margin-left: 1em;
   margin-bottom: 0.5em;
-  color: var(--color-text-secondary);
+  color: var(--color-text-light);
   overflow-wrap: break-word;
 }
 
 .recensione dd a {
-  text-decoration: none;
-  border-bottom: 0.08em solid;
+  /* text-decoration: none; */
+  /* border-bottom: 0.08em solid; */
+  text-decoration: underline;
 }
 
 /* Stile per il form delle recensioni */
@@ -1331,7 +1401,7 @@ footer p {
 }
 
 .errorPage h2 {
-  color: var(--color-text-secondary);
+  color: var(--color-text-light);
   text-align: center;
   margin-left: 1em;
   margin-right: 1em;
@@ -1394,34 +1464,6 @@ footer p {
   right: 1em;
   bottom: 1em;
 }
-
-/*
-:root {
-    --bg-color: #0365AE;
-    --txt-color: #FFF;
-    --bread-color: #163F77;
-    --news-color: #F3C42B;
-    --news-txt-color: #000;
-    --content-bg-color: #FFF;
-    --content-txt-color: #000;
-    --link-color: #FFF;
-    --visited-color: #F3C42B;
-}
-
-html,
-body {
-    color: var(--txt-color);
-    background-color: var(--bg-color);
-}
-
-body {
-    font-size: 100%;
-    font-family: "Lexend", Roboto, sans-serif;
-    line-height: 1.5em;
-    max-width: 1024px;
-    margin: auto;
-    border: 1px solid #000;
-} */
 
 #btnOpen {
   display: none;

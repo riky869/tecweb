@@ -36,33 +36,54 @@ footer img {
 
 #navbar {
   flex-direction: column;
-  row-gap: 1em;
+  row-gap: 0.5em;
+  width: 100%;
   align-items: center;
 }
 
 #navbar li {
-  width: max-content;
+  width: 100%;
+}
+
+#navbar li a,
+#currentLink {
+  justify-content: center;
+  padding: 0.8em;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 #loggato {
   column-gap: 0;
-  row-gap: 1em;
   width: 10em;
   margin-right: 0;
   margin-bottom: 1em;
-  flex-direction: column;
+  /* flex-direction: column;
+  row-gap: 1em; */
   flex-wrap: nowrap;
-  /* width: 20%; */
+  flex-direction: row;
+  column-gap: 0.5em;
+  justify-content: center;
 }
 
 #loggato form {
-  width: 100%;
+  width: fit-content;
+  flex-grow: 0.7;
 }
 
 #login {
   flex-direction: column;
-  gap: 1em;
+  gap: 0.5em;
+  padding: 0;
+  width: 100%;
   align-items: center;
+}
+
+#login a {
+  display: block;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .person-list {
@@ -103,8 +124,8 @@ footer img {
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: 1.2em;
-  padding: 1em 0.5em;
+  row-gap: 1em;
+  padding: 1em;
 }
 
 #top-nav {
