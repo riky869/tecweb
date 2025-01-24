@@ -60,9 +60,6 @@ if ($type == "create" || $type == "modify") {
     $rating = validate($_POST["rating"], $checks["mod_rec_rating_err"], $error);
 } else if ($type == "delete") {
     $rev_username = $_POST["username"] ?? null;
-    if (empty($rev_username)) {
-        Request::load_404_page();
-    }
 
     // if the delete request is made by an admin, the review to delete is the one of the user specified in the form
     if (!empty($rev_username) && !empty($user) && $user["is_admin"]) {
