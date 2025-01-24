@@ -1,0 +1,21 @@
+*::-webkit-scrollbar,
+*::-webkit-scrollbar-track,
+*::-webkit-scrollbar-thumb,
+*::-webkit-scrollbar-thumb:hover,
+*::-webkit-outer-spin-button,
+*::-webkit-inner-spin-button {
+    display: none;
+    overflow: hidden;
+}
+
+#tornaSu,
+#loggato p,
+#loggato a,
+#loggato legend,
+.stileEliminaFilm legend,
+#generi form legend,
+.person-list figcaption form legend,
+.formGestione legend,
+.aiutoNavigazione {
+    display: none;
+}
