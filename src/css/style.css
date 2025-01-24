@@ -676,7 +676,7 @@ main a:visited:hover {
   padding: 0.9em;
   border-radius: 8px;
   display: block;
-  border: 0.1em solid transparent;
+  border: 0.1em solid var(--color-border);
   box-sizing: border-box;
 }
 
@@ -690,10 +690,12 @@ main a:visited:hover {
 
 .films li a h3 {
   color: var(--color-link);
+  text-decoration: underline;
 }
 
 .films li a:visited h3 {
   color: var(--color-visited);
+  text-decoration-color: var(--color-secondary-background);
 }
 
 .films li p {
@@ -858,7 +860,7 @@ main a:visited:hover {
 }
 
 .stileEliminaFilm input[type='submit']:hover {
-  color: var(--color-text-light);
+  color: var(--color-text-dark);
   background-color: var(--color-button-hover);
 }
 
@@ -944,6 +946,7 @@ picture {
   width: fit-content;
   display: flex;
   column-gap: 1em;
+  align-items: center;
 }
 
 #generi li a {
@@ -983,7 +986,7 @@ picture {
 #generi form input[type='submit'] {
   background-color: var(--color-link);
   color: var(--color-text-dark);
-  padding: 0.3em 0.7em;
+  padding: 0.8em 1em;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -991,7 +994,7 @@ picture {
 
 #generi form input[type='submit']:hover {
   background-color: var(--color-button-hover);
-  color: var(--color-text-light);
+  color: var(--color-text-dark);
 }
 
 /* Lista persone film */
@@ -1059,7 +1062,7 @@ picture {
 
 .person-list figcaption form input[type='submit']:hover {
   background-color: var(--color-button-hover);
-  color: var(--color-text-light);
+  color: var(--color-text-dark);
 }
 
 .person-title {
@@ -1216,7 +1219,7 @@ picture {
 }
 
 .formRecensione input[type='submit']:hover {
-  color: var(--color-text-light);
+  color: var(--color-text-dark);
   background-color: var(--color-button-hover);
 }
 
@@ -1261,7 +1264,7 @@ picture {
 }
 
 .formGestione input[type='submit']:hover {
-  color: var(--color-text-light);
+  color: var(--color-text-dark);
   background-color: var(--color-button-hover);
 }
 
@@ -1336,7 +1339,7 @@ div#modificaRecensione form.formRecensione {
 }
 
 .formCreazione input[type='submit']:hover {
-  color: var(--color-text-light);
+  color: var(--color-text-dark);
   background-color: var(--color-button-hover);
 }
 
