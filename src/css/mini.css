@@ -56,8 +56,7 @@ footer img {
 #loggato {
   column-gap: 0;
   width: 10em;
-  margin-right: 0;
-  margin-bottom: 1em;
+  margin: 1em 0;
   /* flex-direction: column;
   row-gap: 1em; */
   flex-wrap: nowrap;
@@ -77,6 +76,7 @@ footer img {
   padding: 0;
   width: 100%;
   align-items: center;
+  margin-top: 0.7em;
 }
 
 #login a {

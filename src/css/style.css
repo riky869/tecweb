@@ -6,7 +6,7 @@
 }
 
 #menu {
-  padding: 0.5em;
+  padding: 0.7em;
   background-color: var(--color-primary);
   color: var(--color-text-light);
   display: flex;
@@ -175,7 +175,7 @@ header h2 {
   display: flex;
   list-style-type: none;
   flex-grow: 1;
-  gap: 1em;
+  gap: 0.7em;
   height: 100%;
   align-items: center;
 }
@@ -328,14 +328,14 @@ header h2 {
 #login {
   color: var(--color-text-light);
   display: flex;
-  gap: 1em;
+  gap: 0.7em;
   align-items: center;
 }
 
 #login a {
   color: var(--color-text-dark);
   text-decoration: none;
-  padding: 0.5em 1em;
+  padding: 0.6em 1em;
   border-radius: 8px;
   background-color: var(--color-link);
   transition: all 0.2s ease;
@@ -359,7 +359,7 @@ header h2 {
   flex-grow: 0.5;
   flex-shrink: 1;
   /* width: 30%; */
-  gap: 1em;
+  gap: 0.7em;
 }
 
 #loggato p {
