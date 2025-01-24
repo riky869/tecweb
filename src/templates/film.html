@@ -4,10 +4,8 @@
     <meta charset="UTF-8" />
     <title>{{nome_film}} | Popcorn time</title>
 
-    <meta name="description" content="Dettagli, specifiche e recensioni del singolo film" />
-    <meta name="keywords" content="dettagli film, titolo film, descrizione film" />
-
-    <meta name="author" content="Loris Libralato, Leonardo Lucato, Piva Riccardo, Matteo Campagnaro, Tommaso Diviesti" />
+    <meta name="description" content="Scopri i dettagli, le specifiche e le recensioni del film. Leggi le opinioni degli esperti e guarda i trailer dei film più recenti." />
+    <meta name="keywords" content="dettagli film, recensioni film, specifiche film, opinioni film, trailer film, film recenti, cinema, titoli film" />
 
     <!--html_head-->
   </head>
@@ -274,7 +272,7 @@
           </fieldset>
         </form>
         <!--crea_recensione_error_start-->
-        <p>{{crea_recensione_error}}</p>
+        <p>{{error}}</p>
         <!--crea_recensione_error_end-->
       </section>
       <!--crea_recensione_end-->
@@ -283,7 +281,6 @@
         <h3>Recensioni</h3>
         <!--view_recensione_utente_start-->
         <div class="frameRecensione">
-          <!--TODO: modificare il tag p se necessario-->
           <p>La tua recensione:</p>
           <dl>
             <dt>Valutazione:</dt>
@@ -341,6 +338,9 @@
               <input id="mod_rec_rating" type="number" name="rating" value="{{mod_rating}}" min="1" max="10" required="required" />
               <span id="mod_rec_rating_err" class="field-error hidden" aria-live="assertive" data-input="mod_rec_rating"></span>
 
+              <!--mod_recensione_error_start-->
+              <span>{{error}}</span>
+              <!--mod_recensione_error_end-->
               <input type="submit" value="Conferma modifica" />
             </fieldset>
           </form>

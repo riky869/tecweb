@@ -18,7 +18,7 @@ $checks = [
         'checks' => $commonChecks['rec_title']
     ],
     'mod_rec_content_err' => [
-        'err_name' => "contenuto",
+        'err_name' => "commento",
         'optional' => false,
         'checks' => $commonChecks['rec_content']
     ],
@@ -98,6 +98,9 @@ $_SESSION["review_error"] = $error;
 $location = "film.php?id=$movie_id";
 if (!empty($cat)) {
     $location .= "&cat=" . $cat;
+}
+if ($type == "modify" && !empty($error)) {
+    $location .= "&modifica=1";
 }
 $location .= "#recensioni";
 

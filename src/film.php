@@ -8,11 +8,9 @@ require_once("utils/session.php");
 Request::allowed_methods(["GET"]);
 Session::start();
 
-
 if (empty($_GET["id"])) {
     Request::load_404_page();
 }
-
 
 $movie_id = $_GET["id"];
 $category = $_GET["cat"] ?? "";
@@ -205,6 +203,26 @@ if (empty($user) || !empty($user_review)) {
     $template->replace_var("crea_recensione", $template->get_block("crea_recensione"), VarType::Block);
 }
 
+// show error under submit buttons
+if (!empty($_SESSION["review_error"])) {
+    $error = $_SESSION["review_error"];
+    unset($_SESSION["review_error"]);
+
+    if (!empty($_GET["modifica"]) && $_GET["modifica"] == 1) {
+        $template->replace_block_name_arr("mod_recensione_error", $error, function (Builder $t, mixed $i) {
+            $t->replace_var("error", $i);
+        });
+        $template->delete_blocks(["crea_recensione_error"]);
+    } else {
+        $template->replace_block_name_arr("crea_recensione_error", $error, function (Builder $t, mixed $i) {
+            $t->replace_var("error", $i);
+        });
+        $template->delete_blocks(["mod_recensione_error"]);
+    }
+} else {
+    $template->delete_blocks(["crea_recensione_error", "mod_recensione_error"]);
+}
+
 if (!empty($user) && !empty($user_review)) {
     // se il parametro modifica è 1 ed esiste una review dell'utente loggato mostra il form di modifica
     if (!empty($_GET["modifica"]) && $_GET["modifica"] == 1) {
@@ -229,15 +247,6 @@ if (!empty($user) && !empty($user_review)) {
 // altrimenti non mostrare nulla della recensione dell'utente
 else {
     $template->delete_blocks(["mod_recensione_utente", "view_recensione_utente", "delete_recensione_utente"]);
-}
-
-if (!empty($_SESSION["review_error"])) {
-    $template->replace_block_name_arr("crea_recensione_error", $_SESSION["review_error"], function (Builder $t, mixed $i) {
-        $t->replace_var("crea_recensione_error", $i);
-    });
-    unset($_SESSION["review_error"]);
-} else {
-    $template->delete_blocks(["crea_recensione_error"]);
 }
 
 $common = Builder::load_common();

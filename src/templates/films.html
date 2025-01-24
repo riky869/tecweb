@@ -4,10 +4,8 @@
     <meta charset="UTF-8" />
     <title>{{cat_selected}} | Popcorn time</title>
 
-    <meta name="description" content="Elenco di tutti i film" />
-    <meta name="keywords" content="elenco film, categorie film" />
-
-    <meta name="author" content="Loris Libralato, Leonardo Lucato, Piva Riccardo, Matteo Campagnaro, Tommaso Diviesti" />
+    <meta name="description" content="Scopri l'elenco completo dei film nella categoria {{cat_selected}} su Popcorn Time. Trova i tuoi film preferiti e guarda le ultime novità." />
+    <meta name="keywords" content="film, {{cat_selected}}, elenco film, categorie film, Popcorn Time, novità film, film popolari" />
 
     <!--html_head-->
   </head>
@@ -39,36 +37,8 @@
       <!--profile-->
     </nav>
 
-    <!--
-    +-----------------+
-    |     Header      |
-    +-----------------+
-    |  Categoria:     |
-    |  - Film 1       |
-    |    Locandina    |
-    | nome in piccolo |
-    |  - Film 2       |
-    |    Locandina    |
-    | nome in piccolo |
-    |  - Film 3       |
-    |    Locandina    |
-    | nome in piccolo |
-    +-----------------+
-    |     Footer      |
-    +-----------------+
-    E tipo ogni film sarà tipo locandina con piccolo nome sotto
-    la scelta del display dei film è ancora da fare di preciso
-    abbiamo pensato al carosello ma anche una bella lista monolitica
-    non è male secondo me
-    -->
-
     <main id="contenuto">
       <h2>Film della categoria: {{cat_selected}}</h2>
-      <!-- volevo mettere h3 ma mi pare ci sia tipo la regola
-                 tipo della scala degli h
-                 E quindi ho aggiunto categoria anche se è ridondante con il breadcrumb
-                 Però ci sta nella pagina secondo me
-                 -->
       <ul class="films">
         <!--movie_start-->
         <li>

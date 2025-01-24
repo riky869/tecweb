@@ -125,7 +125,7 @@ $checks = [
         'checks' => $commonChecks['rec_title']
     ],
     'crea_rec_content_err' => [
-        'err_name' => "contenuto",
+        'err_name' => "commento",
         'optional' => false,
         'checks' => $commonChecks['rec_content']
     ],

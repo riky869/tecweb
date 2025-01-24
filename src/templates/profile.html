@@ -1,13 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="it">
   <head>
     <meta charset="UTF-8" />
     <title>Profilo | Popcorn time</title>
 
-    <meta name="description" content="Pagina profilo utente con recensioni personali" />
-    <meta name="keywords" content="profilo utente, recensioni personali, film" />
-
-    <meta name="author" content="Loris Libralato, Leonardo Lucato, Piva Riccardo, Matteo Campagnaro, Tommaso Diviesti" />
+    <meta name="description" content="Visualizza e gestisci il tuo profilo utente su Popcorn Time. Scopri le tue recensioni personali sui film e interagisci con altri utenti." />
+    <meta name="keywords" content="profilo utente, recensioni film, Popcorn Time, film, utenti, recensioni personali, gestione profilo" />
 
     <!--html_head-->
   </head>
@@ -46,22 +44,6 @@
       <!--profile-->
     </nav>
 
-    <!--
-    +-----------------+
-    |     Header      |
-    +-----------------+
-    |  Profilo Utente |
-    |  Nome:          |
-    |  Recensioni:    |
-    |  - Recensione 1 |
-    |  - Recensione 2 |
-    +-----------------+
-    |     Footer      |
-    +-----------------+
-    Qua non so se mettere le recensioni personali o meno
-    Boh, per ora le metto nello schemino ma non nell html
-    -->
-
     <main id="contenuto">
       <div id="userInfo">
         <h2>Profilo Utente</h2>
@@ -74,13 +56,11 @@
           <dd>{{last_name}}</dd>
         </dl>
       </div>
-      <!-- <h3>Recensioni Personali</h3> -->
-      <!-- Eventuale lista (non modificabile) delle recensioni dell'utente -->
+
       <section aria-label="Recensioni">
         <h3>Recensioni</h3>
 
         <!--recensioni_start-->
-        <!-- TODO: non sono sicuro sia il tag giusto-->
         <dl class="recensione">
           <dt>Film:</dt>
           <dd><a href="film.php?id={{rec_film_id}}">{{rec_film_title}}</a></dd>
