@@ -104,7 +104,8 @@ body {
   --color-extra: #bdc9ff; /* Azzurro/lilla molto tenue */
 
   --color-visited: #dc7d09;
-  --color-border: rgba(255, 255, 255, 0.1);
+  --color-border: rgba(255, 255, 255, 0.5);
+  --color-shadow: rgba(0, 0, 0, 0.5);
   --color-error: #f26969;
 }
 
@@ -196,7 +197,7 @@ header h2 {
   display: flex;
   align-items: center;
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--color-border);
   transition: all 0.2s ease;
 }
 
@@ -237,7 +238,8 @@ header h2 {
   background-image: url(../images/back.png);
   background-repeat: no-repeat;
   background-size: cover;
-  border: 0.08em solid var(--color-text-light);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 8px 32px 0 var(--color-shadow);
   background-color: var(--color-secondary-background);
   /* lasciare il background-color che se non c'è l'immagine c'è il colore almeno */
   /* padding-left: 1.5em; */
@@ -317,7 +319,7 @@ header h2 {
   font-weight: 100;
   color: var(--color-text-light);
   padding-bottom: 0.2em;
-  border-bottom: 0.14em solid var(--color-current);
+  border-bottom: 0.14em solid var(--color-error);
 }
 
 /* login navbar */
@@ -375,7 +377,7 @@ header h2 {
   width: 1em;
   height: 1em;
   background-position: center;
-  background-image: url('../images/profile.jpg');
+  background-image: url('../images/profile.webp');
   background-size: contain;
   background-repeat: no-repeat;
   border-radius: 8px;
@@ -561,7 +563,7 @@ main a:visited:hover {
 .film-locandina {
   width: 100%;
   height: auto;
-  border: 0.1em solid var(--color-secondary);
+  border: 2px solid var(--color-secondary);
   border-radius: 8px;
 }
 
@@ -586,7 +588,7 @@ main a:visited:hover {
   background-color: var(--color-primary);
   border-radius: 8px;
   text-align: center;
-  border: 0.07em solid var(--color-text-light);
+  border: 1px solid var(--color-border);
 
   background-position: center;
   background-size: cover;
@@ -676,7 +678,8 @@ main a:visited:hover {
   padding: 0.9em;
   border-radius: 8px;
   display: block;
-  border: 0.1em solid var(--color-border);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 8px 32px 0 var(--color-shadow);
   box-sizing: border-box;
 }
 
@@ -711,7 +714,7 @@ main a:visited:hover {
   margin: 1.5em 0;
   border-radius: 20px;
   padding: 2.5em;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 32px 0 var(--color-shadow);
   border: 1px solid var(--color-border);
 }
 
@@ -772,7 +775,7 @@ main a:visited:hover {
   align-items: center;
   border-radius: 8px;
   padding: 1em;
-  border: 0.1em solid var(--color-text-light);
+  border: 1px solid var(--color-border);
   background-color: var(--color-secondary-background);
   width: 100%;
   box-sizing: border-box;
@@ -787,6 +790,7 @@ main a:visited:hover {
   box-sizing: border-box;
   height: auto;
   border-radius: 8px;
+  background-color: var(--color-text-light);
 }
 
 .usersList li span {
@@ -807,7 +811,7 @@ main a:visited:hover {
 .griglia-about li {
   text-align: center;
   border-radius: 0.5em;
-  border: 0.08em solid var(--color-text-light);
+  border: 1px solid var(--color-border);
   background-color: var(--color-secondary);
 }
 
