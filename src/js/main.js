@@ -265,13 +265,12 @@ document.addEventListener('DOMContentLoaded', () => {
   var btnOpenState = false;
   menu.classList.remove('active');
   top.classList.remove('active');
+  btnOpen.setAttribute('aria-expanded', 'false');
 
   if (window.innerWidth > 786) {
-    btnOpen.setAttribute('aria-expanded', 'false');
     menu.setAttribute('aria-hidden', 'false');
     btnOpen.setAttribute('aria-hidden', 'true');
   } else {
-    btnOpen.setAttribute('aria-expanded', 'false');
     menu.setAttribute('aria-hidden', 'true');
     btnOpen.setAttribute('aria-hidden', 'false');
   }
