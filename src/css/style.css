@@ -377,7 +377,6 @@ header h2 {
   align-items: center;
   column-gap: 0.5em;
   row-gap: 0.2em;
-  flex-shrink: 1;
   /* width: 30%; */
   gap: 0.7em;
 }
