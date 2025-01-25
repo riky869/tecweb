@@ -223,7 +223,7 @@ if (Request::is_post()) {
                 }
             } catch (mysqli_sql_exception $e) {
                 if ($e->getCode() == 1062) {
-                    $error[] = "Questa persona ha già questo ruolo nel film";
+                    $error[] = "Questa persona ha già un ruolo nel film";
                 } else {
                     throw $e;
                 }

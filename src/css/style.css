@@ -108,7 +108,20 @@ body {
   --color-border: rgba(255, 255, 255, 0.3);
   --color-shadow: rgba(0, 0, 0, 0.5);
   --color-error: #f26969;
+  --color-background-error: #9e0d0d;
+  --color-background-success: #00cf4c;
 }
+
+
+.field-error {
+  border-top: 0.2em solid var(--color-error);
+  color: var(--color-text-light);
+  padding: 0.5em;
+  font-weight: 100;
+  margin-bottom: 0.5em;
+  font-size: 0.9em;
+}
+
 
 /* Stile Header */
 
@@ -316,11 +329,21 @@ header h2 {
 .form-submit-error {
   margin: 0;
   margin-top: 1em;
-  font-size: 0.9em;
-  font-weight: 100;
+  font-weight: 200;
   color: var(--color-text-light);
-  padding-bottom: 0.2em;
-  border-bottom: 0.14em solid var(--color-error);
+  background-color: var(--color-background-error);
+  padding: 0.4em;
+  border-radius: 0.3em;
+}
+
+.form-submit-success {
+  margin: 0;
+  margin-top: 1em;
+  font-weight: 200;
+  color: var(--color-text-dark);
+  background-color: var(--color-background-success);
+  padding: 0.4em;
+  border-radius: 0.3em;
 }
 
 /* login navbar */
@@ -1198,6 +1221,7 @@ picture {
   color: var(--color-text-light);
   text-align: center;
   -moz-appearance: textfield;
+  margin-bottom: 0.8em;
 }
 
 .formRecensione input::-webkit-outer-spin-button,
@@ -1354,10 +1378,6 @@ div#modificaRecensione form.formRecensione {
   accent-color: var(--color-secondary);
 }
 
-.formCreazione .field-error {
-  color: var(--color-current);
-  font-size: 0.9em;
-}
 
 .rowFormDiv {
   display: flex;
