@@ -541,11 +541,6 @@ main a:visited:hover {
   height: auto;
   background-color: var(--color-secondary-background);
   border-radius: 8px;
-  transition: transform 0.1s ease;
-}
-
-.film-card li:hover {
-  transform: translateY(-10px);
 }
 
 /* Personalizzazione della barra di scorrimento */
@@ -638,11 +633,10 @@ main a:visited:hover {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  transition: transform 0.1s ease;
 }
 
 .griglia-categorie li:hover {
-  transform: translateY(-10px);
+  border-color: var(--color-secondary);
 }
 
 /* Immagini sfondo categorie */
@@ -814,11 +808,6 @@ main a:visited:hover {
   width: 100%;
   max-width: 14em;
   height: auto;
-  transition: transform 0.1s ease;
-}
-
-.usersList li:hover {
-  transform: translateY(-10px);
 }
 
 .usersList li a {
