@@ -202,7 +202,7 @@ class Builder
     {
         if ($user) {
             $this->replace_secs([
-                "profile" => $common->get_block("user_logged")->replace_singles([
+                "profile" => $this->get_block("user_logged")->replace_singles([
                     "username" => $user["username"],
                 ]),
             ]);
@@ -211,6 +211,7 @@ class Builder
                 "profile" => $common->get_block("user_not_logged"),
             ]);
         }
+        $this->delete_blocks(["user_logged"]);
 
         return $this;
     }

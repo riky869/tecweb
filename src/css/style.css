@@ -204,17 +204,16 @@ header h2 {
   /* text-decoration: none; */
   padding: 0.5em;
   background-color: var(--color-secondary-background);
-  transition: all 0.2s ease;
   height: 100%;
   display: flex;
   align-items: center;
   border-radius: 8px;
   border: 1px solid var(--color-border);
-  transition: all 0.2s ease;
 }
 
 #navbar li a:visited {
   color: var(--color-visited);
+  text-decoration-color: var(--color-secondary-background);
 }
 
 #navbar li a:hover {
@@ -225,6 +224,7 @@ header h2 {
 #navbar li a:visited:hover {
   background-color: var(--color-button-hover);
   color: var(--color-text-dark);
+  text-decoration-color: var(--color-button-hover);
 }
 
 #currentLink {
@@ -388,6 +388,23 @@ header h2 {
   position: absolute;
 }
 
+#loggato span {
+  color: var(--color-text-dark);
+  text-decoration: none;
+  padding: 0.75em;
+  border-radius: 8px;
+  background-color: var(--color-current);
+  width: 1em;
+  height: 1em;
+  background-position: center;
+  background-image: url('../images/profile.webp');
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 8px;
+  text-indent: -9999em;
+  background-size: cover;
+}
+
 #loggato a {
   color: var(--color-text-dark);
   text-decoration: none;
@@ -403,6 +420,7 @@ header h2 {
   border-radius: 8px;
   text-indent: -9999em;
   background-size: cover;
+  transition: all 0.2s ease;
 }
 
 #loggato a:hover {
@@ -556,7 +574,7 @@ main a:visited:hover {
 .film-card a {
   padding: 1em;
   color: var(--color-link);
-  text-decoration: none;
+  text-decoration: underline;
   font-size: 1.1em;
   display: flex;
   flex-direction: column;
@@ -576,8 +594,14 @@ main a:visited:hover {
   color: var(--color-link);
 }
 
+.film-card a:visited {
+  color: var(--color-visited);
+  text-decoration-color: var(--color-secondary-background);
+}
+
 .film-card a:visited:hover {
   color: var(--color-visited);
+  text-decoration-color: var(--color-secondary-background);
 }
 
 .film-locandina {
@@ -664,8 +688,8 @@ main a:visited:hover {
   display: block;
   padding-top: 6em;
   padding-bottom: 6em;
-  color: var(--color-text-light);
-  text-decoration: none;
+  color: var(--color-link);
+  text-decoration: underline;
 }
 
 .griglia-categorie a:hover {
@@ -676,12 +700,14 @@ main a:visited:hover {
 
 .griglia-categorie a:visited {
   color: var(--color-visited);
+  text-decoration-color: var(--color-secondary-background);
 }
 
 .griglia-categorie a:visited:hover {
   border: none;
   background-color: rgba(0, 0, 0, 0.6);
   border-radius: 8px;
+  text-decoration-color: var(--color-secondary);
 }
 
 /* Stile rettangolo films */
@@ -701,6 +727,7 @@ main a:visited:hover {
   border: 1px solid var(--color-border);
   box-shadow: 0 8px 32px 0 var(--color-shadow);
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 .films li a:hover {
@@ -723,6 +750,7 @@ main a:visited:hover {
 
 .films li p {
   margin-bottom: 0;
+  text-decoration: none;
 }
 
 /* Stile informazioni singolo utente */
@@ -980,12 +1008,11 @@ picture {
   border-radius: 8px;
   border: 1px solid var(--color-border);
   text-decoration: underline;
-  transition: all 0.2s ease;
 }
 
 #generi li a:visited {
-  /* color: var(--color-link); */
   color: var(--color-visited);
+  text-decoration-color: var(--color-secondary-background);
 }
 
 #generi li a:hover {
@@ -996,6 +1023,7 @@ picture {
 #generi li a:visited:hover {
   background-color: var(--color-button-hover);
   color: var(--color-text-dark);
+  text-decoration-color: var(--color-button-hover);
 }
 
 #generi form fieldset {
@@ -1158,6 +1186,14 @@ picture {
   /* text-decoration: none; */
   /* border-bottom: 0.08em solid; */
   text-decoration: underline;
+}
+
+.recensione dd a:visited {
+  text-decoration-color: var(--color-secondary-background);
+}
+
+.recensione dd a:visited:hover {
+  text-decoration-color: var(--color-secondary);
 }
 
 /* Stile per il form delle recensioni */
@@ -1489,6 +1525,11 @@ footer p {
   /* overflow: hidden; */
   /* right: 1em;
   bottom: 1em; */
+  transition: all 0.2s ease;
+}
+
+#tornaSu:hover {
+  background-color: var(--color-button-hover);
 }
 
 #btnOpen {
