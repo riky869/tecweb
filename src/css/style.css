@@ -128,7 +128,7 @@ header {
   padding: 3em 4em;
   background-color: var(--color-primary);
   color: var(--color-text-light);
-  background: url('../images/header_bck.webp');
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/header_bck.webp');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
