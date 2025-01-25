@@ -38,11 +38,15 @@ class Validation
     {
         return [
             'callback' => function ($value, $args) {
-                $num = floatval($value);
+                if (is_numeric($value) && strpos($value, '.') !== false) {
+                    return false;
+                }
+
+                $num = intval($value);
                 return !is_nan($num) && ($args['min'] === -1 || $num >= $args['min']) && ($args['max'] === -1 || $num <= $args['max']);
             },
             'args' => ['min' => $min, 'max' => $max],
-            'error' => 'deve essere ' .
+            'error' => 'deve essere intero e ' .
                 ($min !== -1 ? "almeno $min" : '') .
                 ($min !== -1 && $max !== -1 ? ' e ' : '') .
                 ($max !== -1 ? "al massimo $max" : '') . '.'
@@ -58,6 +62,9 @@ $commonChecks = [
             'args' => ['regex' => "/^[A-Za-zÀ-ÖØ-öø-ÿ'’\-]+(?: [A-Za-zÀ-ÖØ-öø-ÿ'’\-]+)*$/"],
             'error' => 'può contenere solo lettere degli alfabeti e spazi.'
         ]
+    ],
+    'film_id' => [
+        Validation::minMaxCharsCheck(0, -1),
     ],
     'film' => [
         [

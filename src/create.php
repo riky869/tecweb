@@ -85,7 +85,7 @@ $checks = [
     'add_people_film_err' => [
         'err_name' => "film",
         'optional' => false,
-        'checks' => $commonChecks['film']
+        'checks' => $commonChecks['film_id']
     ],
     'add_people_people_err' => [
         'err_name' => "persona",
@@ -106,7 +106,7 @@ $checks = [
     'add_cat_film_err' => [
         'err_name' => "film",
         'optional' => false,
-        'checks' => $commonChecks['film']
+        'checks' => $commonChecks['film_id']
     ],
     'add_cat_category_err' => [
         'err_name' => "categoria",

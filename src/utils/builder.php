@@ -13,10 +13,12 @@ class Builder
 {
     private static string $TEMPLATE_DIR = "templates";
     protected string $content = "";
+    protected string $name;
 
-    public function __construct(string $content)
+    public function __construct(string $content, string $name)
     {
         $this->content = $content;
+        $this->name = $name;
     }
 
     public function get_content(): string
@@ -40,18 +42,18 @@ class Builder
 
     public function copy(): Self
     {
-        return new Self($this->content);
+        return new Self($this->content, $this->name);
     }
 
-    public static function from_content(string $content): Self
+    public static function from_content(string $content, string $name): Self
     {
-        return new Self($content);
+        return new Self($content, $name);
     }
 
     public static function from_template(string $name): Self
     {
         $content = Self::load_template_file($name);
-        return Self::from_content($content);
+        return Self::from_content($content, $name);
     }
 
     public static function load_common(): Self
@@ -102,7 +104,7 @@ class Builder
         assert($start !== false && $end !== false);
 
         $content = substr($this->content, $start + strlen($start_pattern), $end - $start - strlen($start_pattern));
-        return Self::from_content($content);
+        return Self::from_content($content, "");
     }
 
     public function replace_var(string $name, mixed $value, VarType $type = VarType::Single): Self
@@ -215,13 +217,19 @@ class Builder
 
     public function build(?array $user, Self $common): Self
     {
+        $base_path = "";
+        if (!empty(DEFAULT_VARS["DB_USER"])) {
+            $base_path .= "/" . DEFAULT_VARS["DB_USER"];
+        }
+        $base_path .= "/" . $this->name;
+
         $this->replace_secs([
             "header" => $common->get_block("header"),
             "torna_su" => $common->get_block("torna_su"),
             "footer" => $common->get_block("footer"),
             "hamburger" => $common->get_block("hamburger"),
             // NOTE: this is a workaround to use relative path based on the environment, production UniPD server or local docker env
-            "html_head" => $common->get_block("html_head")->replace_var("html_head_base_path", DEFAULT_VARS["BASE_PATH"]),
+            "html_head" => $common->get_block("html_head")->replace_var("html_head_base_path", $base_path),
         ]);
 
         $this->replace_profile($user, $common);

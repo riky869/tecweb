@@ -21,19 +21,22 @@ const minMaxNumCheck = (min = -1, max = -1) => {
   return {
     callback: (elem, { min, max }) => {
       const value = parseFloat(elem.value);
+      if (!Number.isInteger(value)) {
+        return false;
+      }
       return !isNaN(value) && (min === -1 || value >= min) && (max === -1 || value <= max);
     },
     args: {
       min: min,
       max: max
     },
-    error: `deve essere ${min !== -1 ? `almeno ${min}` : ''}${min !== -1 && max !== -1 ? ' e ' : ''}${max !== -1 ? `al massimo ${max}` : ''}.`
+    error: `deve essere intero e ${min !== -1 ? `almeno ${min}` : ''}${min !== -1 && max !== -1 ? ' e ' : ''}${max !== -1 ? `al massimo ${max}` : ''}.`
   };
 };
 
 const commonChecks = {
   name: [
-    minMaxCharsCheck(2, -1),
+    minMaxCharsCheck(2, 100),
     {
       callback: regexCallback,
       args: {
@@ -43,6 +46,7 @@ const commonChecks = {
     }
   ],
   film: [
+    minMaxCharsCheck(2, 100),
     {
       callback: regexCallback,
       args: {
@@ -108,7 +112,7 @@ const checks = {
   crea_film_revenue_err: { optional: true, checks: [minMaxNumCheck(0, -1)] },
   crea_film_description_err: { optional: false, checks: [minMaxCharsCheck(8, 1000)] },
   crea_film_image_err: { optional: true, checks: commonChecks.image },
-  add_people_film_err: { optional: false, checks: commonChecks.film },
+  add_people_film_err: { optional: false, checks: [minMaxNumCheck(0, -1)] },
   add_people_people_err: { optional: false, checks: [minMaxNumCheck(0, -1)] },
   add_people_role_err: {
     optional: false,
@@ -123,7 +127,7 @@ const checks = {
       }
     ]
   },
-  add_cat_film_err: { optional: false, checks: commonChecks.film },
+  add_cat_film_err: { optional: false, checks: [minMaxNumCheck(0, -1)] },
   add_cat_category_err: {
     optional: false,
     checks: [
