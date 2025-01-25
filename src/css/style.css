@@ -541,6 +541,7 @@ main a:visited:hover {
   height: auto;
   background-color: var(--color-secondary-background);
   border-radius: 8px;
+  transition: transform 0.1s ease;
 }
 
 .film-card li:hover {
@@ -637,6 +638,11 @@ main a:visited:hover {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  transition: transform 0.1s ease;
+}
+
+.griglia-categorie li:hover {
+  transform: translateY(-10px);
 }
 
 /* Immagini sfondo categorie */
@@ -766,6 +772,10 @@ main a:visited:hover {
   border: 1px solid var(--color-border);
 }
 
+#userInfo h2 {
+  margin-bottom: 0.5em;
+}
+
 #userInfo dt {
   font-weight: bold;
   color: var(--color-extra);
@@ -774,15 +784,9 @@ main a:visited:hover {
 #userInfo dt {
   font-weight: 600;
   color: var(--color-extra);
-  margin-bottom: 0.5em;
+  margin-bottom: 1em;
   display: flex;
   align-items: center;
-}
-
-#userInfo dt:before {
-  content: '›';
-  margin-right: 0.5em;
-  color: var(--color-extra);
 }
 
 #userInfo dd {
@@ -810,6 +814,7 @@ main a:visited:hover {
   width: 100%;
   max-width: 14em;
   height: auto;
+  transition: transform 0.1s ease;
 }
 
 .usersList li:hover {
@@ -979,7 +984,8 @@ picture {
 
 /* Locandina film */
 .locandina {
-  /* width: 100%; */
+  width: 100%;
+  height: 100%;
   /* max-width: 20em; */
   max-height: 35em;
   border-radius: 8px;
