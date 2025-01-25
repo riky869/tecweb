@@ -130,549 +130,549 @@ VALUES
     (
         '1',
         'Aaron Pierre',
-        'hNwZWdT2KxKj1YLbipvtUhNjfAp.jpg'
+        'hNwZWdT2KxKj1YLbipvtUhNjfAp.webp'
     ),
     (
         '2',
         'Kelvin Harrison Jr.',
-        '6kpDyaZzmSbqCNYuXZUfeMwS1bq.jpg'
+        '6kpDyaZzmSbqCNYuXZUfeMwS1bq.webp'
     ),
     (
         '3',
         'Tiffany Boone',
-        '9LwqRFdSzxVtnutDUg98YLq0bSz.jpg'
+        '9LwqRFdSzxVtnutDUg98YLq0bSz.webp'
     ),
     (
         '4',
         'Kagiso Lediga',
-        'nfqx3CqFVsAMelk6ry560SuN7Y0.jpg'
+        'nfqx3CqFVsAMelk6ry560SuN7Y0.webp'
     ),
     (
         '5',
         'Preston Nyman',
-        'eidKvLDCRw68tG3CN6fGhvHUnW.jpg'
+        'eidKvLDCRw68tG3CN6fGhvHUnW.webp'
     ),
     (
         '6',
         'Blue Ivy Carter',
-        'mnaFedkdW9TFCkky7fiiT5dfXye.jpg'
+        'mnaFedkdW9TFCkky7fiiT5dfXye.webp'
     ),
     (
         '7',
         'John Kani',
-        'g7tqg3q128a5O2qXMCwVnXsow9I.jpg'
+        'g7tqg3q128a5O2qXMCwVnXsow9I.webp'
     ),
     (
         '8',
         'Mads Mikkelsen',
-        'ntwPvV4GKGGHO3I7LcHMwhXfsw9.jpg'
+        'ntwPvV4GKGGHO3I7LcHMwhXfsw9.webp'
     ),
     (
         '9',
         'Seth Rogen',
-        '2dPFskUtoiG0xafsSEGl9Oz4teA.jpg'
+        '2dPFskUtoiG0xafsSEGl9Oz4teA.webp'
     ),
     (
         '10',
         'Billy Eichner',
-        'kScO4moqNlDbyCTZuIoBqyaml4l.jpg'
+        'kScO4moqNlDbyCTZuIoBqyaml4l.webp'
     ),
     (
         '11',
         'Barry Jenkins',
-        '6nld5eQwiJmuLmyesk4EUeCaoo3.jpg'
+        '6nld5eQwiJmuLmyesk4EUeCaoo3.webp'
     ),
     (
         '12',
         'Jim Carrey',
-        'u0AqTz6Y7GHPCHINS01P7gPvDSb.jpg'
+        'u0AqTz6Y7GHPCHINS01P7gPvDSb.webp'
     ),
     (
         '13',
         'Ben Schwartz',
-        'lJVYjPj0P6uvVxNrTy4xO2645D0.jpg'
+        'lJVYjPj0P6uvVxNrTy4xO2645D0.webp'
     ),
     (
         '14',
         'Keanu Reeves',
-        '8RZLOyYGsoRe9p44q3xin9QkMHv.jpg'
+        '8RZLOyYGsoRe9p44q3xin9QkMHv.webp'
     ),
     (
         '15',
         'Idris Elba',
-        'be1bVF7qGX91a6c5WeRPs5pKXln.jpg'
+        'be1bVF7qGX91a6c5WeRPs5pKXln.webp'
     ),
     (
         '16',
         'Colleen O''Shaughnessey',
-        'y3Kl5tCX1XD6uyL9wefTRbEXTwj.jpg'
+        'y3Kl5tCX1XD6uyL9wefTRbEXTwj.webp'
     ),
     (
         '17',
         'James Marsden',
-        'mk142GG0saiSXALY6V4wWcmPROW.jpg'
+        'mk142GG0saiSXALY6V4wWcmPROW.webp'
     ),
     (
         '18',
         'Tika Sumpter',
-        '1zTXufyuQFPXVthryH7KVoZAfb7.jpg'
+        '1zTXufyuQFPXVthryH7KVoZAfb7.webp'
     ),
     (
         '19',
         'Lee Majdoub',
-        'vpF3R2YRCGHseGevmDAhftmOPkO.jpg'
+        'vpF3R2YRCGHseGevmDAhftmOPkO.webp'
     ),
     (
         '20',
         'Krysten Ritter',
-        'd39VsFGyWq7f5fkUrCI9k3XpZl2.jpg'
+        'd39VsFGyWq7f5fkUrCI9k3XpZl2.webp'
     ),
     (
         '21',
         'Adam Pally',
-        'yY13PEaVbPoXT5MkitVxTfdAZnU.jpg'
+        'yY13PEaVbPoXT5MkitVxTfdAZnU.webp'
     ),
     (
         '22',
         'Jeff Fowler',
-        'wExdubFgeBkEUP8MojKPKoOcgdZ.jpg'
+        'wExdubFgeBkEUP8MojKPKoOcgdZ.webp'
     ),
     (
         '23',
         'Paul Mescal',
-        'vrzZ41TGNAFgfmZjC2sOJySzBLd.jpg'
+        'vrzZ41TGNAFgfmZjC2sOJySzBLd.webp'
     ),
     (
         '24',
         'Denzel Washington',
-        '9Iyt3wbsla5bM6IzbICDVnBhkER.jpg'
+        '9Iyt3wbsla5bM6IzbICDVnBhkER.webp'
     ),
     (
         '25',
         'Pedro Pascal',
-        '9VYK7oxcqhjd5LAH6ZFJ3XzOlID.jpg'
+        '9VYK7oxcqhjd5LAH6ZFJ3XzOlID.webp'
     ),
     (
         '26',
         'Connie Nielsen',
-        'lvQypTfeH2Gn2PTbzq6XkT2PLmn.jpg'
+        'lvQypTfeH2Gn2PTbzq6XkT2PLmn.webp'
     ),
     (
         '27',
         'Joseph Quinn',
-        'zshhuioZaH8S5ZKdMcojzWi1ntl.jpg'
+        'zshhuioZaH8S5ZKdMcojzWi1ntl.webp'
     ),
     (
         '28',
         'Fred Hechinger',
-        '99ctABEIEwNl4qjIZcLODgwnx0M.jpg'
+        '99ctABEIEwNl4qjIZcLODgwnx0M.webp'
     ),
     (
         '29',
         'Lior Raz',
-        'bl3KLFUQ4Q0zC9lCU4qP1Jf4qHS.jpg'
+        'bl3KLFUQ4Q0zC9lCU4qP1Jf4qHS.webp'
     ),
     (
         '30',
         'Derek Jacobi',
-        'htc4eCYmNlVotcu8AFTbDiLBzsJ.jpg'
+        'htc4eCYmNlVotcu8AFTbDiLBzsJ.webp'
     ),
     (
         '31',
         'Peter Mensah',
-        't94TFc6f71AUmZFqdaQfjr7LTRp.jpg'
+        't94TFc6f71AUmZFqdaQfjr7LTRp.webp'
     ),
     (
         '32',
         'Matt Lucas',
-        '2OhGLJqiknaWlbTkG2KDwT935km.jpg'
+        '2OhGLJqiknaWlbTkG2KDwT935km.webp'
     ),
     (
         '33',
         'Ridley Scott',
-        'zABJmN9opmqD4orWl3KSdCaSo7Q.jpg'
+        'zABJmN9opmqD4orWl3KSdCaSo7Q.webp'
     ),
     (
         '34',
         'Auliʻi Cravalho',
-        'aLYuYXqjESo8IWu2nfQjauGrPUT.jpg'
+        'aLYuYXqjESo8IWu2nfQjauGrPUT.webp'
     ),
     (
         '35',
         'Dwayne Johnson',
-        'kuqFzlYMc2IrsOyPznMd1FroeGq.jpg'
+        'kuqFzlYMc2IrsOyPznMd1FroeGq.webp'
     ),
     (
         '36',
         'Hualālai Chung',
-        'x2g5fdHqETY9dZgL4aB0QDP0boR.jpg'
+        'x2g5fdHqETY9dZgL4aB0QDP0boR.webp'
     ),
     (
         '37',
         'Rose Matafeo',
-        'zQa39fMjbOTIsovbh1TBTJVlToz.jpg'
+        'zQa39fMjbOTIsovbh1TBTJVlToz.webp'
     ),
     (
         '38',
         'David Fane',
-        'tcozyaTgAa8rRmzc5qeht0loni6.jpg'
+        'tcozyaTgAa8rRmzc5qeht0loni6.webp'
     ),
     (
         '39',
         'Awhimai Fraser',
-        '276OUDPl2iIsz772HQw3tiz2JN2.jpg'
+        '276OUDPl2iIsz772HQw3tiz2JN2.webp'
     ),
     (
         '40',
         'Khaleesi Lambert-Tsuda',
-        '3LHXDjy9UijbtR7X2EReX5H57kk.jpg'
+        '3LHXDjy9UijbtR7X2EReX5H57kk.webp'
     ),
     (
         '41',
         'Temuera Morrison',
-        '1ckHDFgKXJ8pazmvLCW7DeOKqA0.jpg'
+        '1ckHDFgKXJ8pazmvLCW7DeOKqA0.webp'
     ),
     (
         '42',
         'Nicole Scherzinger',
-        'pOu2al9UBvBYCHaMQFcmGbPNXeF.jpg'
+        'pOu2al9UBvBYCHaMQFcmGbPNXeF.webp'
     ),
     (
         '43',
         'Rachel House',
-        'm8D9XlTGfI0ZmauMKtYp5tw8eNi.jpg'
+        'm8D9XlTGfI0ZmauMKtYp5tw8eNi.webp'
     ),
     (
         '44',
         'David G. Derrick Jr.',
-        'j5JOtRua5KduoPsQVix0rwY3jOo.jpg'
+        'j5JOtRua5KduoPsQVix0rwY3jOo.webp'
     ),
     (
         '45',
         'Jason Hand',
-        'gepbkgavGdDXdNbQzdFaxayTpoH.jpg'
+        'gepbkgavGdDXdNbQzdFaxayTpoH.webp'
     ),
     (
         '46',
         'Dana Ledoux Miller',
-        'wKqVtkgOv6iMcv1P0YPxV7UtQS9.jpg'
+        'wKqVtkgOv6iMcv1P0YPxV7UtQS9.webp'
     ),
     (
         '47',
         'Cynthia Erivo',
-        'oQcFwHu50upW6Soz4Ycc9iHge1k.jpg'
+        'oQcFwHu50upW6Soz4Ycc9iHge1k.webp'
     ),
     (
         '48',
         'Ariana Grande',
-        'cslFyOh3sTWDeWXgsxmjJ1uqE0P.jpg'
+        'cslFyOh3sTWDeWXgsxmjJ1uqE0P.webp'
     ),
     (
         '49',
         'Jeff Goldblum',
-        'o3PahuK7OmCI0RAQUq38CUBWYZ9.jpg'
+        'o3PahuK7OmCI0RAQUq38CUBWYZ9.webp'
     ),
     (
         '50',
         'Michelle Yeoh',
-        'nrbHNzSMydpWK9um5VqWIFJihB5.jpg'
+        'nrbHNzSMydpWK9um5VqWIFJihB5.webp'
     ),
     (
         '51',
         'Jonathan Bailey',
-        'mZNzekZo8eaHMuXKgDTNLp0EvYM.jpg'
+        'mZNzekZo8eaHMuXKgDTNLp0EvYM.webp'
     ),
     (
         '52',
         'Ethan Slater',
-        'xIgqyrM78FPt7Pb2Vv3IvJcnOWS.jpg'
+        'xIgqyrM78FPt7Pb2Vv3IvJcnOWS.webp'
     ),
     (
         '53',
         'Marissa Bode',
-        'uqifog9p62A6dW9T4yivfWnSFXQ.jpg'
+        'uqifog9p62A6dW9T4yivfWnSFXQ.webp'
     ),
     (
         '54',
         'Peter Dinklage',
-        '9CAd7wr8QZyIN0E7nm8v1B6WkGn.jpg'
+        '9CAd7wr8QZyIN0E7nm8v1B6WkGn.webp'
     ),
     (
         '55',
         'Andy Nyman',
-        '9bN9RVoPWmsmV3VBI7hp4VKD9Kg.jpg'
+        '9bN9RVoPWmsmV3VBI7hp4VKD9Kg.webp'
     ),
     (
         '56',
         'Courtney Mae-Briggs',
-        'ofOEXvhJpbFV7v8ZnH0ztTPGKkr.jpg'
+        'ofOEXvhJpbFV7v8ZnH0ztTPGKkr.webp'
     ),
     (
         '57',
         'Jon M. Chu',
-        '85kOxm7w4nGRwyhquj9wtUM8KUW.jpg'
+        '85kOxm7w4nGRwyhquj9wtUM8KUW.webp'
     ),
     (
         '58',
         'Brian Cox',
-        'yvoAgJTOvuNSPSKegcIcD62ySY9.jpg'
+        'yvoAgJTOvuNSPSKegcIcD62ySY9.webp'
     ),
     (
         '59',
         'Gaia Wise',
-        'vyjUZOrhto3PKq4PuHG7270cum5.jpg'
+        'vyjUZOrhto3PKq4PuHG7270cum5.webp'
     ),
     (
         '60',
         'Luke Pasqualino',
-        'egwyqohJ3KLag4GUyTzXGngwTc1.jpg'
+        'egwyqohJ3KLag4GUyTzXGngwTc1.webp'
     ),
     (
         '61',
         'Laurence Ubong Williams',
-        'wKc9PHuuqrFRIAepLm87AUDdvgt.jpg'
+        'wKc9PHuuqrFRIAepLm87AUDdvgt.webp'
     ),
     (
         '62',
         'Lorraine Ashbourne',
-        '4cOOwDYkKcCf9G6fdGGDyAR4jru.jpg'
+        '4cOOwDYkKcCf9G6fdGGDyAR4jru.webp'
     ),
     (
         '63',
         'Miranda Otto',
-        'szME1IBVTLgiKrO5D5wvOGnvUDW.jpg'
+        'szME1IBVTLgiKrO5D5wvOGnvUDW.webp'
     ),
     (
         '64',
         'Shaun Dooley',
-        'uWiw28ARiLkvL6xUjKDLDlSsfkY.jpg'
+        'uWiw28ARiLkvL6xUjKDLDlSsfkY.webp'
     ),
     (
         '65',
         'Benjamin Wainwright',
-        'hdU9RbfcSBUHhUPcPTildubV0bZ.jpg'
+        'hdU9RbfcSBUHhUPcPTildubV0bZ.webp'
     ),
     (
         '66',
         'Yazdan Qafouri',
-        'yzDZMMziiqdrSyWecOv8v2O56HL.jpg'
+        'yzDZMMziiqdrSyWecOv8v2O56HL.webp'
     ),
     (
         '67',
         'Michael Wildman',
-        '7JzaKisWtdqYmuuEunjTkU8zDf8.jpg'
+        '7JzaKisWtdqYmuuEunjTkU8zDf8.webp'
     ),
-    ('68', '神山健治', '1irWT1aUVYdeoZCtnxNVS9wfrks.jpg'),
+    ('68', '神山健治', '1irWT1aUVYdeoZCtnxNVS9wfrks.webp'),
     (
         '69',
         'Frank Grillo',
-        'br2nPzelch2Tb3pZHnYAbXng7cz.jpg'
+        'br2nPzelch2Tb3pZHnYAbXng7cz.webp'
     ),
     (
         '70',
         'Katrina Law',
-        'y7LzCN8BaoPPSXDBo0UwPQ4UwSB.jpg'
+        'y7LzCN8BaoPPSXDBo0UwPQ4UwSB.webp'
     ),
     (
         '71',
         'Ilfenesh Hadera',
-        'ba6APgDd74vMu7kvBYQwYOpvoEM.jpg'
+        'ba6APgDd74vMu7kvBYQwYOpvoEM.webp'
     ),
     (
         '72',
         'Jimmy Cummings',
-        'fVedSxKuTiF4tJcC2qqkQ8M4jSf.jpg'
+        'fVedSxKuTiF4tJcC2qqkQ8M4jSf.webp'
     ),
     (
         '73',
         'Lou Diamond Phillips',
-        'yqGZwaGe8XgoxfO7zmx7weGBaXZ.jpg'
+        'yqGZwaGe8XgoxfO7zmx7weGBaXZ.webp'
     ),
     (
         '74',
         'Kamdynn Gary',
-        '4g97ms0dbKALnhgwSwwEXxZGV2k.jpg'
+        '4g97ms0dbKALnhgwSwwEXxZGV2k.webp'
     ),
     (
         '75',
         'Lydia Styslinger',
-        'd5R9WgB4wvUmFyoiBgXbVVJuax2.jpg'
+        'd5R9WgB4wvUmFyoiBgXbVVJuax2.webp'
     ),
-    ('76', 'Daniel Fernandez', 'DanielFernandez.jpg'),
+    ('76', 'Daniel Fernandez', 'DanielFernandez.webp'),
     (
         '77',
         'James Kyson',
-        'jpV8eFgigwHbhyEL9eZ4czbgMoy.jpg'
+        'jpV8eFgigwHbhyEL9eZ4czbgMoy.webp'
     ),
     (
         '78',
         'Betzaida Landín',
-        '6ZMhy5QxQAD6U0iRME5psZTO4Rb.jpg'
+        '6ZMhy5QxQAD6U0iRME5psZTO4Rb.webp'
     ),
     (
         '79',
         'Steven C. Miller',
-        'lilw96APKmmFouMiDl7Hd5tlw6t.jpg'
+        'lilw96APKmmFouMiDl7Hd5tlw6t.webp'
     ),
     ('80', 'Matthew Kennedy', 'MatthewKennedy.webp'),
     (
         '81',
         'Nicole Wallace',
-        'xlvq6OYCN6yQef4fpJQtwVyQxqr.jpg'
+        'xlvq6OYCN6yQef4fpJQtwVyQxqr.webp'
     ),
     (
         '82',
         'Gabriel Guevara',
-        'pviRYKEEmoPUfLYwP1VHJ6LQcRg.jpg'
+        'pviRYKEEmoPUfLYwP1VHJ6LQcRg.webp'
     ),
     (
         '83',
         'Marta Hazas',
-        '1dbeTFRCbWBt70dIGjYHKVLnpaG.jpg'
+        '1dbeTFRCbWBt70dIGjYHKVLnpaG.webp'
     ),
     (
         '84',
         'Iván Sánchez',
-        'woVz8D7t1VUKjFJnsTAdc8tyz5C.jpg'
+        'woVz8D7t1VUKjFJnsTAdc8tyz5C.webp'
     ),
     (
         '85',
         'Eva Ruiz',
-        'bcu0nmQvhxwTzh4csc4kuxJsQee.jpg'
+        'bcu0nmQvhxwTzh4csc4kuxJsQee.webp'
     ),
     (
         '86',
         'Víctor Varona',
-        'lcwFAjHjhJXkxf59TXGSjGGOlLj.jpg'
+        'lcwFAjHjhJXkxf59TXGSjGGOlLj.webp'
     ),
     (
         '87',
         'Gabriela Andrada',
-        'h8cAdDqbDK2ayGIuxQQdNCzyCsb.jpg'
+        'h8cAdDqbDK2ayGIuxQQdNCzyCsb.webp'
     ),
     (
         '88',
         'Alex Bejar',
-        'kPeFa6xX57IyhAfoT8dtgfPMgmX.jpg'
+        'kPeFa6xX57IyhAfoT8dtgfPMgmX.webp'
     ),
     (
         '89',
         'Goya Toledo',
-        'dihdQxVr2sFA1XznPK4orzC2m7i.jpg'
+        'dihdQxVr2sFA1XznPK4orzC2m7i.webp'
     ),
     (
         '90',
         'Javier Morgade',
-        'hcDV10bTZlm1rTi0NRhoGIpdicw.jpg'
+        'hcDV10bTZlm1rTi0NRhoGIpdicw.webp'
     ),
     (
         '91',
         'Domingo González',
-        'xpjPbZnSBvYjqgIKMvc835Hf6PJ.jpg'
+        'xpjPbZnSBvYjqgIKMvc835Hf6PJ.webp'
     ),
     (
         '92',
         'Chris Evans',
-        'a52ncG9JskJtqrryE0KakPPBkHJ.jpg'
+        'a52ncG9JskJtqrryE0KakPPBkHJ.webp'
     ),
     (
         '93',
         'Lucy Liu',
-        '9nbtjqsx3De7hO2XDtrBQ7M9VCH.jpg'
+        '9nbtjqsx3De7hO2XDtrBQ7M9VCH.webp'
     ),
     (
         '94',
         'J.K. Simmons',
-        'ScmKoJ9eiSUOthAt1PDNLi8Fkw.jpg'
+        'ScmKoJ9eiSUOthAt1PDNLi8Fkw.webp'
     ),
     (
         '95',
         'Bonnie Hunt',
-        '7z0GaJW9WyHcjX3hVfzZXRAkZEz.jpg'
+        '7z0GaJW9WyHcjX3hVfzZXRAkZEz.webp'
     ),
     (
         '96',
         'Kristofer Hivju',
-        'bACL39GihNmBnFRay78rS3PUHsH.jpg'
+        'bACL39GihNmBnFRay78rS3PUHsH.webp'
     ),
     (
         '97',
         'Kiernan Shipka',
-        't2FWVLTIhVRIa398mQAfN4thO5R.jpg'
+        't2FWVLTIhVRIa398mQAfN4thO5R.webp'
     ),
     (
         '98',
         'Mary Elizabeth Ellis',
-        '8tf8w69Bl6MO5P8r8Vk6dFnHKxx.jpg'
+        '8tf8w69Bl6MO5P8r8Vk6dFnHKxx.webp'
     ),
     (
         '99',
         'Wesley Kimmel',
-        'lN3VfrQiYmU9ldZRHie8PQtnOe2.jpg'
+        'lN3VfrQiYmU9ldZRHie8PQtnOe2.webp'
     ),
     (
         '100',
         'Nick Kroll',
-        'vdgpGtSXqTBnIKrKNMZocdFu7pX.jpg'
+        'vdgpGtSXqTBnIKrKNMZocdFu7pX.webp'
     ),
     (
         '101',
         'Jake Kasdan',
-        'pIpY7zcBSpq6Z3Q1eADPtKDB043.jpg'
+        'pIpY7zcBSpq6Z3Q1eADPtKDB043.webp'
     ),
     (
         '102',
         'Anthony Mackie',
-        'kfTwOYr3iUucmYz8kPjhYy07G2Z.jpg'
+        'kfTwOYr3iUucmYz8kPjhYy07G2Z.webp'
     ),
     (
         '103',
         'Morena Baccarin',
-        'kBSKKaOtsqIzZPhtEeHfCBmhWl9.jpg'
+        'kBSKKaOtsqIzZPhtEeHfCBmhWl9.webp'
     ),
     (
         '104',
         'Maddie Hasson',
-        'eH6SnpMGDC9CQScmIchSnKkZAbc.jpg'
+        'eH6SnpMGDC9CQScmIchSnKkZAbc.webp'
     ),
     (
         '105',
         'Danny Boyd Jr.',
-        'k6ewXmzmCJa71bQmmEifmy11ezt.jpg'
+        'k6ewXmzmCJa71bQmmEifmy11ezt.webp'
     ),
     (
         '106',
         'Rachel Nicks',
-        'wJx6DHJ5S5IGvj61yUUPtKzr9cf.jpg'
+        'wJx6DHJ5S5IGvj61yUUPtKzr9cf.webp'
     ),
     (
         '107',
         'Shauna Earp',
-        'cpAOnH902U7S9uBNzHOB7tOSvRq.jpg'
+        'cpAOnH902U7S9uBNzHOB7tOSvRq.webp'
     ),
     (
         '108',
         'Tyler Grey',
-        '3yuB34p1EXx8273HnMrng7kgolA.jpg'
+        '3yuB34p1EXx8273HnMrng7kgolA.webp'
     ),
     ('109', 'Drexel Malkoff', NULL),
     (
         '110',
         'David Malkoff',
-        'dVo8W6TR2nF9vdRic8OWizutSEe.jpg'
+        'dVo8W6TR2nF9vdRic8OWizutSEe.webp'
     ),
     ('111', 'Mike Hickman', NULL),
     (
         '112',
         'George Nolfi',
-        'dYr20UCtki5iRg0k2zSKjG36QKy.jpg'
+        'dYr20UCtki5iRg0k2zSKjG36QKy.webp'
     ),
     ('113', 'Kenny Ryan', NULL),
     ('114', 'Jacob Roman', NULL),
     (
         '115',
         'John Glenn',
-        'xDrtvEY2bpdFnRNqW0YNeiCfdv4.jpg'
+        'xDrtvEY2bpdFnRNqW0YNeiCfdv4.webp'
     );
 
 UPDATE people
@@ -828,7 +828,7 @@ VALUES
         '200000000',
         '539677479',
         'Rafiki narra la leggenda di Mufasa alla giovane leoncina Kiara, figlia di Simba e Nala, con Timon e Pumbaa che offrono il loro caratteristico spettacolo. Raccontata attraverso flashback, la storia presenta Mufasa, un cucciolo orfano, perso e solo fino a quando incontra un leone compassionevole di nome Taka, erede di una stirpe reale. L''incontro casuale dà il via al viaggio di uno straordinario gruppo di sventurati alla ricerca del proprio destino: i loro legami saranno messi alla prova mentre lavorano insieme per sfuggire a un nemico minaccioso e letale.',
-        'images/film/eZS2taWdadP8lh22xJOVrWT0lTn.jpg'
+        'images/film/eZS2taWdadP8lh22xJOVrWT0lTn.webp'
     ),
     (
         '2',
@@ -841,7 +841,7 @@ VALUES
         '122000000',
         '384815196',
         'Sonic, Knuckles e Tails si ritrovano a dover fronteggiare un nuovo e formidabile nemico:  Shadow, un misterioso villain con poteri incredibili mai visti prima. Con le loro abilità messe alla prova in ogni modo, il Team Sonic dovra cercare un''alleanza inaspettata per fermare Shadow e proteggere il pianeta.',
-        'images/film/hArbAOlNZX0qfd2Udpr6RCTflpg.jpg'
+        'images/film/hArbAOlNZX0qfd2Udpr6RCTflpg.webp'
     ),
     (
         '3',
@@ -854,7 +854,7 @@ VALUES
         '310000000',
         '455388841',
         'Anni dopo aver assistito alla tragica morte del venerato eroe Massimo per mano del suo perfido zio, Lucio (Paul Mescal) si trova costretto a combattere nel Colosseo dopo che la sua patria viene conquistata da parte di due tirannici imperatori, che ora governano Roma.  Con il cuore ardente di rabbia e il destino dell''Impero appeso a un filo, Lucio deve affrontare pericoli e nemici, riscoprendo nel suo passato la forza e l''onore necessari per riportare la gloria di Roma al suo popolo. Preparatevi per un viaggio epico di coraggio e vendetta nella sanguinosa arena del Colosseo.',
-        'images/film/chnuw5cQMzbrGTK2F7bPUDdmyQF.jpg'
+        'images/film/chnuw5cQMzbrGTK2F7bPUDdmyQF.webp'
     ),
     (
         '4',
@@ -867,7 +867,7 @@ VALUES
         '150000000',
         '989755208',
         'A tre anni dal suo primo viaggio, Vaiana è impegnata in un lungo viaggio alla ricerca di persone oltre le coste di Motunui. Assieme a Maui e a un nuovissimo equipaggio di improbabili marittimi, Vaiana si imbarca alla volta dei lontani mari dell''Oceania in acque pericolose per un''avventura diversa da qualsiasi cosa abbia mai affrontato.',
-        'images/film/dPnRomNzww9G7dgS84f6HSevVLc.jpg'
+        'images/film/dPnRomNzww9G7dgS84f6HSevVLc.webp'
     ),
     (
         '5',
@@ -880,7 +880,7 @@ VALUES
         '150000000',
         '697615060',
         'La storia ruota attorno all’amicizia tra le due streghe. Elphaba, soprannominata ingiustamente Malvagia Strega dell’Ovest, è in realtà una donna rivoluzionaria e anticonformista con la pelle verde che sfida lo strapotere del Mago di Oz, imbroglione dalle mire imperialiste. Glinda è invece la Strega Buona del Nord, amica di Elphaba dai tempi dell’Università di Shiz.',
-        'images/film/3al2ouBCaZN5UcCNr8HKSiNji28.jpg'
+        'images/film/3al2ouBCaZN5UcCNr8HKSiNji28.webp'
     ),
     (
         '6',
@@ -893,7 +893,7 @@ VALUES
         '30000000',
         '19891554',
         '183 anni prima degli aventi del Signore degli Anelli, Helm Mandimartello, re di Rohan, e la sua famiglia difendono il loro regno da un esercito di Dunlandiani. A prendersi il ruolo di protagonista della battaglia, però, è soprattutto Hèra, figlia di Helm dal temperamento ribelle che non esiterà a scendere in campo per difendere il proprio popolo.',
-        'images/film/vNVAJb5gmQP0wjd1LDxu0eI6Thl.jpg'
+        'images/film/vNVAJb5gmQP0wjd1LDxu0eI6Thl.webp'
     ),
     (
         '7',
@@ -906,7 +906,7 @@ VALUES
         '0',
         '1052998',
         'Una Superluna ha innescato il gene latente in ogni essere umano sulla Terra, trasformando in lupo mannaro chiunque si fosse esposto alla luce lunare durante quella notte. Si è scatenato il caos, e quasi un miliardo di persone sono morte. Ora, un anno dopo, la Superluna è tornata…',
-        'images/film/xZv09zZ3Rhe84JFmJB7dzb7iSeJ.jpg'
+        'images/film/xZv09zZ3Rhe84JFmJB7dzb7iSeJ.webp'
     ),
     (
         '8',
@@ -919,7 +919,7 @@ VALUES
         '0',
         '0',
         'Noah deve lasciare la sua città, il fidanzato e gli amici per trasferirsi a casa del nuovo marito di sua madre. Lì conosce il fratellastro Nick e le loro personalità sono sin da subito in contrasto. Tuttavia, l''attrazione che provano li porterà a vivere una relazione proibita, in cui i caratteri ribelli e tormentati metteranno a soqquadro i rispettivi mondi, facendoli innamorare follemente.',
-        'images/film/cKwId4BiGtYPIUCYtKxVphtclrt.jpg'
+        'images/film/cKwId4BiGtYPIUCYtKxVphtclrt.webp'
     ),
     (
         '9',
@@ -932,7 +932,7 @@ VALUES
         '250000000',
         '185700759',
         'Dopo che Babbo Natale - nome in codice: UNO ROSSO - viene rapito, il capo della sicurezza del Polo Nord (Dwayne Johnson) deve fare squadra con il più famigerato cacciatore di taglie del mondo (Chris Evans) in una missione travolgente e ricca di azione per salvare il Natale.',
-        'images/film/xjmVhig5Y856SCDFwvUMLaqi8hH.jpg'
+        'images/film/xjmVhig5Y856SCDFwvUMLaqi8hH.webp'
     ),
     (
         '10',
@@ -945,7 +945,7 @@ VALUES
         '18000000',
         '3300000',
         'Un padre single e due donne escono dalla sicurezza delle loro case per affrontare creature mostruose e salvare la vita di un ragazzino.',
-        'images/film/tnfc0NJ3BzhJrGJhkkEd6MHBdq5.jpg'
+        'images/film/tnfc0NJ3BzhJrGJhkkEd6MHBdq5.webp'
     );
 
 INSERT INTO
