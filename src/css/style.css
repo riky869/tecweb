@@ -112,7 +112,6 @@ body {
   --color-background-success: #00cf4c;
 }
 
-
 .field-error {
   border-top: 0.2em solid var(--color-error);
   color: var(--color-text-light);
@@ -121,7 +120,6 @@ body {
   margin-bottom: 0.5em;
   font-size: 0.9em;
 }
-
 
 /* Stile Header */
 
@@ -379,7 +377,6 @@ header h2 {
   align-items: center;
   column-gap: 0.5em;
   row-gap: 0.2em;
-  flex-grow: 0.5;
   flex-shrink: 1;
   /* width: 30%; */
   gap: 0.7em;
@@ -437,7 +434,7 @@ header h2 {
   color: var(--color-text-dark);
   font-weight: 700;
   /* padding: 0.3em 0.4em; */
-  padding: 0.9em;
+  padding: 0.9em 1.5em;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -1377,7 +1374,6 @@ div#modificaRecensione form.formRecensione {
   width: 1.2rem;
   accent-color: var(--color-secondary);
 }
-
 
 .rowFormDiv {
   display: flex;
