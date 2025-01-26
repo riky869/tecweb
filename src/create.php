@@ -208,7 +208,7 @@ if (Request::is_post()) {
         $role = validate($_POST["role"], $checks["add_people_role_err"], $error);
 
         if ($role_type != "cast" && $role_type != "crew") {
-            $error[] = "Tipologia del ruolo non valido";
+            $error[] = "Tipologia del ruolo non valida";
         }
 
         if (empty($error)) {
@@ -267,7 +267,7 @@ if (Request::is_get()) {
             $success_text = "Film creato con successo";
             break;
         case "create_people":
-            $success_text = "Persona create con successo";
+            $success_text = "Persona creata con successo";
             break;
         case "add_people_to_film":
             $success_text = "Ruolo aggiunto con successo";

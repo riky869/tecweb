@@ -43,7 +43,7 @@ if (!$user["is_admin"] || empty($_GET["username"])) {
 
 $template->replace_block_name_arr("recensioni", $reviews, function (Builder $t, mixed $i) {
     $t->replace_singles([
-        "rec_film_title" => $i["name"],
+        "rec_film_title" => $i["html_name"],
         "rec_film_id" => $i["movie_id"],
         "rec_title" => $i["title"],
         "rec_content" => $i["content"],

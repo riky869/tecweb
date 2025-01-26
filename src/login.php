@@ -16,12 +16,12 @@ if (Session::is_logged()) {
 $error = [];
 $checks = [
     'login_username_err' => [
-        'err_name' => "username",
+        'err_name' => toSpan("username", "en"),
         'optional' => false,
         'checks' => [Validation::minMaxCharsCheck(4, -1)]
     ],
     'login_password_err' => [
-        'err_name' => "password",
+        'err_name' => toSpan("password", "en"),
         'optional' => false,
         'checks' => [Validation::minMaxCharsCheck(4, -1)]
     ],

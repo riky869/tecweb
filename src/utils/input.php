@@ -119,3 +119,8 @@ function validate(?string $value, array $checks, array &$error)
     }
     return $value;
 }
+
+function toSpan(string $value, string $lang = "en"): string
+{
+    return "<span lang=\"$lang\">$value</span>";
+}

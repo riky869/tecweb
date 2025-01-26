@@ -35,7 +35,7 @@ $template->replace_block_name_arr(
             [
                 "cat_name" => $category,
                 "film_id" => $i["id"],
-                "film_name" => $i["movie_name"],
+                "film_name" => $i["movie_html_name"],
                 "description" => $i["description"],
             ]
         );
