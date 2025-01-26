@@ -1494,7 +1494,7 @@ footer p {
   /* position: fixed; */
   cursor: pointer;
   text-indent: -9999em;
-  color: var(--color-text-light);
+  color: var(--color-text-dark);
   margin-bottom: 1em;
   width: 1.5em;
   height: 1.5em;
