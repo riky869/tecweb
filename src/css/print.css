@@ -4,8 +4,8 @@
 *::-webkit-scrollbar-thumb:hover,
 *::-webkit-outer-spin-button,
 *::-webkit-inner-spin-button {
-    display: none;
-    overflow: hidden;
+  display: none;
+  overflow: hidden;
 }
 
 #tornaSu,
@@ -17,5 +17,47 @@
 .person-list figcaption form legend,
 .formGestione legend,
 .aiutoNavigazione {
-    display: none;
+  display: none;
+}
+
+#menu,
+#top-nav,
+#tornaSu,
+.aiutoNavigazione,
+#btnOpen {
+  display: none;
+}
+
+footer img {
+  display: none;
+}
+
+.formGestione,
+#loggato form,
+.person-list figcaption form {
+  display: none;
+}
+
+.film-card,
+.recensione,
+.frameRecensione,
+.formRecensione,
+.griglia-categorie li,
+.info-list {
+  box-shadow: none !important;
+  border: 1px solid #000;
+}
+
+h2,
+h3 {
+  page-break-after: avoid;
+}
+
+img {
+  page-break-inside: avoid;
+}
+
+#top {
+  background: none;
+  background-color: var(--color-primary);
 }

@@ -142,6 +142,10 @@ header h1 {
   align-items: center;
 }
 
+#breadcrumb abbr {
+  text-decoration: none;
+}
+
 #breadcrumb a {
   color: var(--color-text-light);
   /* text-decoration: none; */
