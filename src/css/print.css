@@ -38,16 +38,6 @@ footer img {
   display: none;
 }
 
-.film-card,
-.recensione,
-.frameRecensione,
-.formRecensione,
-.griglia-categorie li,
-.info-list {
-  box-shadow: none !important;
-  border: 1px solid #000;
-}
-
 h2,
 h3 {
   page-break-after: avoid;
