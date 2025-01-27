@@ -32,22 +32,41 @@ footer img {
   display: none;
 }
 
-.formGestione,
-#loggato form,
-.person-list figcaption form {
-  display: none;
-}
-
-h2,
-h3 {
-  page-break-after: avoid;
-}
-
-img {
-  page-break-inside: avoid;
-}
-
 #top {
   background: none;
   background-color: var(--color-primary);
+}
+
+/* Correzione rottura interna di elementi */
+
+#cast {
+  page-break-inside: avoid;
+}
+
+#crew {
+  page-break-inside: avoid;
+}
+
+#sectionRecensione {
+  page-break-inside: avoid;
+}
+
+#recensioni {
+  page-break-inside: avoid;
+}
+
+.person-list li {
+  page-break-inside: avoid;
+}
+
+.films li {
+  page-break-inside: avoid;
+}
+
+.film-card li {
+  page-break-inside: avoid;
+}
+
+.recensione {
+  page-break-inside: avoid;
 }
