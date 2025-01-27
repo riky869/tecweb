@@ -81,55 +81,46 @@
             <img class="locandina" src="{{locandina}}" alt="Locandina del film {{nome_film}}{{locandina_alt_img_not_present}}" />
           </picture>
 
-          <ul class="info-list">
-            <li>
-              <h4 class="info-title">Titolo originale:</h4>
-              <p class="info-value">{{nome_originale}}</p>
-            </li>
-            <li>
-              <h4 class="info-title">Lingua originale:</h4>
-              <p class="info-value">{{lingua_originale}}</p>
-            </li>
-            <li>
-              <h4 class="info-title">Data di uscita:</h4>
-              <!--data_release_presente_start-->
-              <p class="info-value"><time datetime="{{data_uscita_iso}}">{{data_uscita}}</time></p>
-              <!--data_release_presente_end-->
-              <!--data_release_non_presente_start-->
-              <p class="info-value">Non disponibile</p>
-              <!--data_release_non_presente_end-->
-            </li>
-            <li>
-              <h4 class="info-title">Durata:</h4>
-              <!--durata_presente_start-->
-              <p class="info-value">{{durata}} <abbr title="minuti">min</abbr></p>
-              <!--durata_presente_end-->
-              <!--durata_non_presente_start-->
-              <p class="info-value">Non disponibile</p>
-              <!--durata_non_presente_end-->
-            </li>
-            <li>
-              <h4 class="info-title">Stato di avanzamento:</h4>
-              <p class="info-value">{{stato}}</p>
-            </li>
-            <li>
-              <h4 class="info-title"><span lang="en">Budget</span>:</h4>
-              <p class="info-value">{{budget}}</p>
-            </li>
-            <li>
-              <h4 class="info-title">Incassi:</h4>
-              <p class="info-value">{{incassi}}</p>
-            </li>
-            <li>
-              <h4 class="info-title">Valutazione:</h4>
-              <!--valutazione_presente_start-->
-              <p class="info-value">{{valutazione}} <abbr title="su">/</abbr> 10</p>
-              <!--valutazione_presente_end-->
-              <!--valutazione_non_presente_start-->
-              <p class="info-value">Non disponibile</p>
-              <!--valutazione_non_presente_end-->
-            </li>
-          </ul>
+          <dl class="info-list">
+            <dt>Titolo originale:</dt>
+            <dd>{{nome_originale}}</dd>
+
+            <dt>Lingua originale:</dt>
+            <dd>{{lingua_originale}}</dd>
+
+            <dt>Data di uscita:</dt>
+            <!--data_release_presente_start-->
+            <dd><time datetime="{{data_uscita_iso}}">{{data_uscita}}</time></dd>
+            <!--data_release_presente_end-->
+            <!--data_release_non_presente_start-->
+            <dd>Non disponibile</dd>
+            <!--data_release_non_presente_end-->
+
+            <dt>Durata:</dt>
+            <!--durata_presente_start-->
+            <dd>{{durata}} <abbr title="minuti">min</abbr></dd>
+            <!--durata_presente_end-->
+            <!--durata_non_presente_start-->
+            <dd>Non disponibile</dd>
+            <!--durata_non_presente_end-->
+
+            <dt>Stato di avanzamento:</dt>
+            <dd>{{stato}}</dd>
+
+            <dt><span lang="en">Budget</span>:</dt>
+            <dd>{{budget}}</dd>
+
+            <dt>Incassi:</dt>
+            <dd>{{incassi}}</dd>
+
+            <dt>Valutazione:</dt>
+            <!--valutazione_presente_start-->
+            <dd>{{valutazione}} <abbr title="su">/</abbr> 10</dd>
+            <!--valutazione_presente_end-->
+            <!--valutazione_non_presente_start-->
+            <dd>Non disponibile</dd>
+            <!--valutazione_non_presente_end-->
+          </dl>
         </div>
       </section>
 
@@ -163,7 +154,7 @@
         <!--show_no_generi_end-->
       </section>
 
-      <section aria-label="Descrizione">
+      <section id="sectionDescrizione" aria-label="Descrizione">
         <h3>Descrizione</h3>
         <p id="film-description">{{description}}</p>
       </section>

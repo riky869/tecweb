@@ -29,7 +29,6 @@ body {
   margin: 0 auto;
   padding: 0 1em;
   max-width: 1024px;
-  transition: 0.5s ease;
 }
 
 :root {
@@ -104,7 +103,7 @@ body {
 
 header {
   text-align: center;
-  padding: 3em 4em;
+  padding: 5em;
   background-color: var(--color-primary);
   color: var(--color-text-light);
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/header_bck.webp');
@@ -112,18 +111,11 @@ header {
   background-repeat: no-repeat;
   background-position: center;
   margin: 1em 0;
-  height: 8em;
   border-radius: 8px;
-}
-
-#contenuto-centrale {
-  width: 100%;
-  margin: 0 auto;
 }
 
 header h1 {
   font-size: 2.5em;
-  margin-top: 1em;
 }
 
 /* breadcrumb */
@@ -427,8 +419,8 @@ header h1 {
   background-color: var(--color-link);
   color: var(--color-text-dark);
   font-weight: bold;
-  /* padding: 0.3em 0.4em; */
-  padding: 0.9em 1.5em;
+  padding: 1em 1.5em;
+  box-sizing: border-box;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -904,6 +896,7 @@ main a:visited:hover {
   display: flex;
   gap: 2em;
   margin: 3em 0;
+  align-items: center;
 }
 
 #informazioniPrincipali abbr {
@@ -918,54 +911,44 @@ main a:visited:hover {
   padding: 0.6em;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  list-style-type: none;
-  gap: 0.6em;
+  justify-content: space-around;
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
 }
 
-.info-list li {
-  padding: 0;
-  border-radius: 8px;
+.info-list dt {
+  width: 100%;
+  text-align: center;
+  padding: 0.3em 0;
   background-color: var(--color-secondary-background);
-  width: 100%;
-}
-
-.info-list abbr {
-  text-decoration: none;
-}
-
-.info-title {
-  margin: 0;
-  align-content: center;
-  width: 100%;
-  text-align: center;
-  padding: 0.3em 0 0.3em 0;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
   border-bottom: 0.1px solid var(--color-background);
+  font-weight: bold;
+  color: var(--color-extra);
 }
 
-.info-value {
-  margin: 0;
-  align-content: center;
+.info-list dd {
   width: 100%;
   text-align: center;
-  padding: 0.3em 0 0.3em 0;
+  padding: 0.3em 0;
+  background-color: var(--color-secondary-background);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
   font-size: 0.9em;
+  margin-bottom: 1.3em;
 }
 
-picture {
-  display: inherit;
+/* Rimuove il margin-bottom dall'ultimo dd */
+.info-list dd:last-child {
+  margin-bottom: 0;
 }
 
 /* Locandina film */
 .locandina {
-  width: 100%;
   height: 100%;
-  /* max-width: 20em; */
   max-height: 37em;
   border-radius: 8px;
-  /* margin-right: 3em; */
   box-shadow: 0 8px 32px 0 var(--color-shadow);
 }
 

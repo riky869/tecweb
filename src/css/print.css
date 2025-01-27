@@ -10,7 +10,6 @@
 
 #tornaSu,
 #loggato p,
-#loggato a,
 #loggato legend,
 .stileEliminaFilm legend,
 #generi form legend,
@@ -20,8 +19,14 @@
   display: none;
 }
 
-#menu,
-#top-nav,
+#loggato a {
+  text-indent: 0;
+  background: none;
+  color: var(--text-color-light);
+  width: fit-content;
+}
+
+/* #top-nav, */
 #tornaSu,
 .aiutoNavigazione,
 #btnOpen {
@@ -32,41 +37,41 @@ footer img {
   display: none;
 }
 
-#top {
+header {
   background: none;
   background-color: var(--color-primary);
+  padding: 0;
 }
 
 /* Correzione rottura interna di elementi */
 
-#cast {
-  page-break-inside: avoid;
-}
-
-#crew {
-  page-break-inside: avoid;
-}
-
-#sectionRecensione {
-  page-break-inside: avoid;
-}
-
-#recensioni {
-  page-break-inside: avoid;
-}
-
-.person-list li {
-  page-break-inside: avoid;
-}
-
-.films li {
-  page-break-inside: avoid;
-}
-
-.film-card li {
-  page-break-inside: avoid;
-}
-
+#cast,
+#crew,
+#generi,
+#sectionDescrizione,
+#sectionRecensione,
+#recensioni,
+.person-list li,
+.films li,
+.film-card li,
 .recensione {
   page-break-inside: avoid;
+}
+
+/* Rimozione ombra attorno elementi */
+
+.login-form form,
+.info-list,
+.locandina,
+.griglia-categorie li,
+.films li a,
+#userInfo,
+.usersList li a,
+.griglia-about li,
+.frameRecensione,
+.formRecensione,
+.formGestione,
+.formCreazione,
+.recensione {
+  box-shadow: none;
 }
