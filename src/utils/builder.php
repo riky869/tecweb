@@ -218,11 +218,7 @@ class Builder
 
     public function build(?array $user, Self $common): Self
     {
-        $base_path = "";
-        if (!empty(DEFAULT_VARS["DB_USER"])) {
-            $base_path .= "/" . DEFAULT_VARS["DB_USER"];
-        }
-        $base_path .= "/" . $this->name;
+        $base_path = $_SERVER['REQUEST_URI'];
 
         $this->replace_secs([
             "header" => $common->get_block("header"),
