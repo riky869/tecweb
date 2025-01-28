@@ -100,7 +100,7 @@ CREATE TABLE
     IF NOT EXISTS review (
         title VARCHAR(255) NOT NULL,
         content TEXT NOT NULL,
-        data DATE NOT NULL,
+        data DATETIME NOT NULL,
         rating INT NOT NULL,
         username VARCHAR(255),
         movie_id INT,
