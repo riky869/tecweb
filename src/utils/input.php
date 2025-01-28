@@ -59,8 +59,8 @@ $commonChecks = [
         Validation::minMaxCharsCheck(2, -1),
         [
             'callback' => [Validation::class, 'regexCallback'],
-            'args' => ['regex' => "/^[A-Za-zÀ-ÖØ-öø-ÿ'’\-]+(?: [A-Za-zÀ-ÖØ-öø-ÿ'’\-]+)*$/"],
-            'error' => 'può contenere solo lettere degli alfabeti e spazi.'
+            'args' => ['regex' => "/^[a-zA-ZàèéìòùÀÈÉÌÒÙçÇ' ]+$/"],
+            'error' => 'può contenere solo lettere, spazi e apostrofi'
         ]
     ],
     'film_id' => [
@@ -69,30 +69,30 @@ $commonChecks = [
     'film' => [
         [
             'callback' => [Validation::class, 'regexCallback'],
-            'args' => ['regex' => "/^[A-Za-zÀ-ÖØ-öø-ÿ0-9!?,.'’\-: ]+$/"],
-            'error' => 'può contenere solo lettere, numeri e spazi.'
+            'args' => ['regex' => "/^[a-zA-Z0-9\s'’\-!?]+$/"],
+            'error' => 'può contenere solo lettere, numeri, spazi, apostrofi, trattini, punti esclamativi o interrogativi.'
         ]
     ],
     'image' => [
         [
             'callback' => [Validation::class, 'regexCallback'],
             'args' => ['regex' => "/\.(jpeg|jpg|gif|png|webp)$/"],
-            'error' => 'deve essere un file jpeg, jpg, gif o png.'
+            'error' => 'deve essere un file jpeg, jpg, gif, webp o png.'
         ]
     ],
     'rec_title' => [
         Validation::minMaxCharsCheck(2, 30),
         [
             'callback' => [Validation::class, 'regexCallback'],
-            'args' => ['regex' => "/^(?![-\s])[A-Za-zÀ-ÖØ-öø-ÿ0-9\s'()\-\u{2013}]{2,30}(?<![-\s])$/"],
-            'error' => 'deve essere lungo tra 2 e 30 caratteri, può contenere lettere, numeri, spazi, trattini, apostrofi e parentesi, ma non può iniziare o terminare con spazi o caratteri speciali.'
+            'args' => ['regex' => "/^[a-zA-Z0-9\s.,!?:'-]+$/"],
+            'error' => 'può contenere solo lettere, numeri, spazi e caratteri speciali come .,!?\'-'
         ]
     ],
     'rec_content' => [
         [
             'callback' => [Validation::class, 'regexCallback'],
-            'args' => ['regex' => "/^[A-Za-zÀ-ÖØ-öø-ÿ0-9\s'(),.!?;:\-\u{2013}\u{2014}]+$/"],
-            'error' => 'può contenere solo lettere, numeri, spazi e alcuni caratteri speciali (, . ! ? ; : - – —).'
+            'args' => ['regex' => "/^(?!\s*$).+/"],
+            'error' => 'non può essere vuota o composta solo da spazi.'
         ],
         Validation::minMaxCharsCheck(8, 1000)
     ],

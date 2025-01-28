@@ -40,9 +40,9 @@ const commonChecks = {
     {
       callback: regexCallback,
       args: {
-        regex: /^[A-Za-zÀ-ÖØ-öø-ÿ'’\-]+(?: [A-Za-zÀ-ÖØ-öø-ÿ'’\-]+)*$/
+        regex: /^[a-zA-ZàèéìòùÀÈÉÌÒÙçÇ' ]+$/
       },
-      error: 'può contenere solo lettere degli alfabeti e spazi.'
+      error: 'può contenere solo lettere, spazi e apostrofi.'
     }
   ],
   film: [
@@ -50,9 +50,9 @@ const commonChecks = {
     {
       callback: regexCallback,
       args: {
-        regex: /^[A-Za-zÀ-ÖØ-öø-ÿ0-9!?,.'’\-: ]+$/
+        regex: /^[a-zA-Z0-9\s'’\-!?]+$/
       },
-      error: 'può contenere solo lettere, numeri e spazi.'
+      error: 'può contenere solo lettere, numeri, spazi, apostrofi, trattini, punti esclamativi o interrogativi.'
     }
   ],
   image: [
@@ -61,7 +61,7 @@ const commonChecks = {
       args: {
         regex: /\.(jpeg|jpg|gif|png|webp)$/
       },
-      error: 'deve essere un file jpeg, jpg, gif o png.'
+      error: 'deve essere un file jpeg, jpg, gif, webp o png.'
     }
   ],
   rec_title: [
@@ -69,19 +69,18 @@ const commonChecks = {
     {
       callback: regexCallback,
       args: {
-        regex: /^(?![-\s])[A-Za-zÀ-ÖØ-öø-ÿ0-9\s'()\-\u2013]{2,30}(?<![-\s])$/
+        regex: /^[a-zA-Z0-9\s.,:!?'-]+$/
       },
-      error:
-        'deve essere lungo tra 2 e 30 caratteri, può contenere lettere, numeri, spazi, trattini, apostrofi e parentesi, ma non può iniziare o terminare con spazi o caratteri speciali.'
+      error: "può contenere solo lettere, numeri, spazi e caratteri speciali come .,!?:'-"
     }
   ],
   rec_content: [
     {
       callback: regexCallback,
       args: {
-        regex: /^[A-Za-zÀ-ÖØ-öø-ÿ0-9\s'(),.!?;:\-\u2013\u2014]+$/
+        regex: /^(?!\s*$).+/
       },
-      error: 'può contenere solo lettere, numeri, spazi e alcuni caratteri speciali (, . ! ? ; : - – —).'
+      error: 'non può essere vuota o composta solo da spazi.'
     },
     minMaxCharsCheck(8, 1000)
   ],
@@ -117,13 +116,13 @@ const checks = {
   add_people_role_err: {
     optional: false,
     checks: [
+      minMaxCharsCheck(1, 50),
       {
         callback: regexCallback,
         args: {
-          regex: /^(?![-\s'()])[A-Za-zÀ-ÖØ-öø-ÿ0-9\s'()\-\u2013]{2,50}(?<![-\s'()])$/
+          regex: /^[a-zA-ZàèéìòùÀÈÉÌÒÙçÇ\s]+$/
         },
-        error:
-          'deve essere lungo tra 2 e 50 caratteri, può contenere lettere, numeri, spazi, trattini, apostrofi e parentesi, ma non può iniziare o terminare con spazi o caratteri speciali.'
+        error: 'può contenere solo lettere, spazi e caratteri accentati.'
       }
     ]
   },
@@ -131,12 +130,13 @@ const checks = {
   add_cat_category_err: {
     optional: false,
     checks: [
+      minMaxCharsCheck(1, 30),
       {
         callback: regexCallback,
         args: {
-          regex: /^(?![-\s])[A-Za-zÀ-ÖØ-öø-ÿ\s'-]{2,30}(?<![-\s])$/
+          regex: /^[a-zA-ZÀ-ÿ\s-]+$/
         },
-        error: 'deve essere lungo tra 2 e 30 caratteri, può contenere solo lettere, spazi, trattini e apostrofi, e non può iniziare o terminare con uno spazio o un trattino.'
+        error: 'può contenere solo lettere, spazi e trattini.'
       }
     ]
   },
@@ -156,10 +156,9 @@ const checks = {
       {
         callback: regexCallback,
         args: {
-          regex: /^(?=.{3,20}$)(?![_\.])[a-zA-Z0-9._]+(?<![_\.])$/
+          regex: /^(?=.{3,20}$)[a-zA-Z0-9._]$/
         },
-        error:
-          'deve essere lungo tra 3 e 20 caratteri, può contenere lettere, numeri, punti e underscore, ma non può iniziare o terminare con un punto o un underscore né avere punti o underscore consecutivi'
+        error: 'deve essere lungo tra 3 e 20 caratteri, può contenere lettere, numeri, punti e underscore'
       }
     ]
   },

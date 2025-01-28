@@ -98,8 +98,8 @@ $checks = [
         'checks' => [
             [
                 'callback' => [Validation::class, 'regexCallback'],
-                'args' => ['regex' => "/^(?![-\s'()])[A-Za-zÀ-ÖØ-öø-ÿ0-9\s'()\-\u{2013}]{2,50}(?<![-\s'()])$/"],
-                'error' => 'deve essere lungo tra 2 e 50 caratteri, può contenere lettere, numeri, spazi, trattini, apostrofi e parentesi, ma non può iniziare o terminare con spazi o caratteri speciali.'
+                'args' => ['regex' => "/^[a-zA-ZàèéìòùÀÈÉÌÒÙçÇ\s]+$/"],
+                'error' => 'può contenere solo lettere, spazi e caratteri accentati.'
             ]
         ]
     ],
@@ -114,8 +114,8 @@ $checks = [
         'checks' => [
             [
                 'callback' => [Validation::class, 'regexCallback'],
-                'args' => ['regex' => "/^(?![-\s])[A-Za-zÀ-ÖØ-öø-ÿ\s'-]{2,30}(?<![-\s])$/"],
-                'error' => 'deve essere lungo tra 2 e 30 caratteri, può contenere solo lettere, spazi, trattini e apostrofi, e non può iniziare o terminare con uno spazio o un trattino.'
+                'args' => ['regex' => "/^[a-zA-ZÀ-ÿ\s-]+$/"],
+                'error' => 'può contenere solo lettere, spazi e trattini.'
             ]
         ]
     ],

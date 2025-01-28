@@ -25,8 +25,8 @@ $checks = [
         'checks' => [
             [
                 'callback' => [Validation::class, 'regexCallback'],
-                'args' => ['regex' => "/^(?=.{3,20}$)(?![_\.])[a-zA-Z0-9._]+(?<![_\.])$/"],
-                'error' => 'Deve essere lungo tra 3 e 20 caratteri, può contenere lettere, numeri, punti e underscore, ma non può iniziare o terminare con un punto o un underscore né avere punti o underscore consecutivi.'
+                'args' => ['regex' => "/^(?=.{3,20}$)[a-zA-Z0-9._]$/"],
+                'error' => 'Deve essere lungo tra 3 e 20 caratteri, può contenere lettere, numeri, punti e underscore.'
             ]
         ]
     ],
