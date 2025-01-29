@@ -139,7 +139,8 @@ class DB
         $stmt = $this->conn->prepare("SELECT *, movie.name as movie_name, movie.html_name as movie_html_name FROM movie
                           JOIN movie_category ON movie.id = movie_category.movie_id
                           JOIN category ON category.name = movie_category.category_name
-                          WHERE movie_category.category_name = ?");
+                          WHERE movie_category.category_name = ?
+                          ORDER BY movie_name ASC");
         if (!$stmt) {
             throw new Exception("Could not prepare statement: " . $this->conn->error);
         }
