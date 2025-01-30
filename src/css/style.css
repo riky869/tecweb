@@ -557,7 +557,7 @@ main a:visited:hover {
 .film-card a:hover {
   border-color: var(--color-secondary);
   border-radius: 8px;
-  color: var(--color-link);
+  color: var(--color-secondary);
 }
 
 .film-card a:visited {
@@ -566,8 +566,8 @@ main a:visited:hover {
 }
 
 .film-card a:visited:hover {
-  color: var(--color-visited);
-  text-decoration-color: var(--color-secondary-background);
+  color: var(--color-secondary);
+  text-decoration-color: var(--color-secondary);
 }
 
 .film-locandina {
@@ -716,6 +716,11 @@ main a:visited:hover {
 .films li a:visited h3 {
   color: var(--color-visited);
   text-decoration-color: var(--color-secondary-background);
+}
+
+.films li a:hover h3 {
+  color: var(--color-secondary);
+  text-decoration-color: var(--color-secondary);
 }
 
 .films li p {
