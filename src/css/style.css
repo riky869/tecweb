@@ -802,9 +802,18 @@ main a:visited:hover {
   width: 100%;
   box-sizing: border-box;
 }
+.usersList li a:visited span {
+  color: var(--color-visited);
+  text-decoration-color: var(--color-secondary-background);
+}
 
 .usersList li a:hover {
   border-color: var(--color-secondary);
+}
+
+.usersList li a:hover span {
+  color: var(--color-secondary);
+  text-decoration-color: var(--color-secondary);
 }
 
 .usersList li img {
