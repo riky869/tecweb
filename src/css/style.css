@@ -492,12 +492,15 @@ main a:visited:hover {
 
 .film-card {
   display: flex;
-  overflow-x: auto;
+  overflow-x: scroll;
   padding: 1em 0;
   gap: 1em;
   list-style-type: none;
   align-items: stretch;
   margin-bottom: 1em;
+  scroll-behavior: auto;
+  scroll-padding: 1em;
+  scroll-snap-type: x mandatory;
 }
 
 /* Stile per le card dei film */
@@ -509,6 +512,7 @@ main a:visited:hover {
   height: auto;
   background-color: var(--color-secondary-background);
   border-radius: 8px;
+  scroll-snap-align: start;
 }
 
 /* Personalizzazione della barra di scorrimento */
