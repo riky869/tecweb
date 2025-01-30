@@ -836,7 +836,7 @@ main a:visited:hover {
   flex-wrap: wrap; */
 
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(11em, 1fr));
   gap: 1em;
   list-style-type: none;
   margin-top: 1em;
@@ -844,7 +844,6 @@ main a:visited:hover {
 }
 
 .griglia-about li {
-  flex: 1 1 0;
   text-align: center;
   border-radius: 0.5em;
   box-shadow: 0 8px 32px 0 var(--color-shadow);
@@ -861,6 +860,7 @@ main a:visited:hover {
   border-top-right-radius: 0.3em; */
   border-radius: 8px;
   background-color: var(--color-text-light);
+  object-fit: contain;
   /* box-sizing: border-box; */
 }
 
@@ -1553,4 +1553,19 @@ footer p {
 
 .hidden {
   display: none;
+}
+
+#disclaimer {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+#disclaimer abbr {
+  text-decoration: none;
+}
+
+#disclaimer img {
+  max-width: 20em;
+  display: block;
+  margin: 3em auto;
 }
