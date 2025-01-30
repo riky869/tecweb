@@ -12,30 +12,30 @@
 
   /* Colori di accento */
   --color-secondary: #c8b788; /* Oro sobrio originale */
+  --color-extra: #bdc9ff; /* Azzurro/lilla molto tenue */
 
   /* Link e interazioni */
   --color-link: #8cc8ff; /* Azzurro pastello chiaro */
-  --color-visited: #dc7d09;
+  --color-visited: #dc7d09; /* Arancione pastello */
   --color-current: #a6e3a2; /* Verde menta pastello */
   --color-button-hover: #ffe399; /* Giallo pastello caldo */
-  --color-extra: #bdc9ff; /* Azzurro/lilla molto tenue */
 
   /* Altri colori */
-  --color-border: #ffffff4d;
-  --color-shadow: #00000080;
-  --color-error: #f26969;
-  --color-background-error: #9e0d0d;
-  --color-background-success: #00cf4c;
-  --color-transparent: #00000099;
+  --color-border: #ffffff4d; /* Bianco con trasparenza */
+  --color-shadow: #00000080; /* Nero con trasparenza */
+  --color-error: #f26969; /* Rosso pastello */
+  --color-background-error: #9e0d0d; /* Rosso scuro */
+  --color-background-success: #00cf4c; /* Verde pastello */
+  --color-transparent: #00000099; /* Nero con trasparenza */
 
   /* Dimensioni principali */
-  --body-width: 1024px;
-  --border-radius: 0.5em;
-  --border-radius-small: 0.25em;
-  --border-radius-large: 0.75em;
-  --border-width: 0.0625em;
-  --box-shadow-offset: 0.5em;
-  --box-shadow-blur: 2em;
+  --body-width: 1024px; /* Larghezza massima del contenuto */
+  --border-radius: 0.5em; /* Raggio degli angoli */
+  --border-radius-small: 0.25em; /* Raggio degli angoli piccolo */
+  --border-radius-large: 0.75em; /* Raggio degli angoli grande */
+  --border-width: 0.0625em; /* Spessore dei bordi */
+  --box-shadow-offset: 0.5em; /* Spostamento ombra */
+  --box-shadow-blur: 2em; /* Sfocatura ombra */
 }
 
 * {
