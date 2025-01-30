@@ -1,7 +1,7 @@
-/* css per il resize della finestra da mobile*/
+/* CSS per il resize della finestra da mobile (<=768px)*/
 
 body {
-  display: flex; /* Serve per tenere il footer in basso */
+  display: flex;
   flex-direction: column;
   background-color: var(--color-background);
   margin: 0 1em;
@@ -23,13 +23,14 @@ footer img {
 
 .locandina {
   max-width: 15em;
+  width: 100%;
 }
 
 .info-list {
   width: 100%;
+  box-sizing: border-box;
 }
 
-/* Per togliere il menu e fare i bordi della breadcrumb rotondi */
 #menu {
   display: none;
 }
@@ -57,8 +58,6 @@ footer img {
   column-gap: 0;
   width: 10em;
   margin: 1em 0;
-  /* flex-direction: column;
-  row-gap: 1em; */
   flex-wrap: nowrap;
   flex-direction: row;
   column-gap: 0.5em;
@@ -96,7 +95,7 @@ footer img {
 
 .film-card li a {
   padding: 0.5em;
-  border-radius: 16px;
+  border-radius: var(--border-radius-large);
 }
 
 #btnOpen:active {
@@ -114,7 +113,7 @@ footer img {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  border: 0.3px solid white;
+  border: 0.01875em solid white;
   cursor: pointer;
   padding: 0.6em 0.5em;
   border-radius: 0.4em;
@@ -129,18 +128,17 @@ footer img {
 }
 
 #top-nav {
-  border-radius: 8px;
+  border-radius: var(--border-radius);
 }
 
 #top-nav.active {
   border-radius: 0;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
 }
 
 .usersList {
   grid-template-columns: repeat(auto-fit, minmax(7em, 1fr));
-  /* grid-template-columns: repeat(auto-fill, minmax(7em, 1fr)); */
 }
 
 .stileEliminaFilm {
