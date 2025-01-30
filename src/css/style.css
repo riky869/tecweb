@@ -102,7 +102,7 @@ body {
 
 /* Stile Header */
 
-header {
+#top {
   text-align: center;
   padding: 5em;
   background-color: var(--color-primary);
@@ -115,7 +115,7 @@ header {
   border-radius: 8px;
 }
 
-header h1 {
+#top h1 {
   font-size: 2.5em;
 }
 

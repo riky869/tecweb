@@ -37,7 +37,7 @@ footer img {
   display: none;
 }
 
-header {
+#top {
   background: none;
   background-color: var(--color-primary);
   padding: 0;

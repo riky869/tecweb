@@ -74,8 +74,10 @@
         <!--delete_film_end-->
       </div>
 
-      <section aria-label="Informazioni principali">
-        <h3>Informazioni principali</h3>
+      <section>
+        <header>
+          <h3>Informazioni principali</h3>
+        </header>
         <div id="informazioniPrincipali">
           <picture>
             <img class="locandina" src="{{locandina}}" alt="Locandina del film {{nome_film}}{{locandina_alt_img_not_present}}" />
@@ -124,8 +126,10 @@
         </div>
       </section>
 
-      <section id="generi" aria-label="Generi">
-        <h3>Generi</h3>
+      <section id="generi">
+        <header>
+          <h3>Generi</h3>
+        </header>
         <!--show_generi_start-->
         <ul>
           <!--genere_start-->
@@ -154,13 +158,17 @@
         <!--show_no_generi_end-->
       </section>
 
-      <section id="sectionDescrizione" aria-label="Descrizione">
-        <h3>Descrizione</h3>
+      <section id="sectionDescrizione">
+        <header>
+          <h3>Descrizione</h3>
+        </header>
         <p id="film-description">{{description}}</p>
       </section>
 
-      <section aria-label="Cast" id="cast">
-        <h3><span lang="en">Cast</span></h3>
+      <section id="cast">
+        <header>
+          <h3><span lang="en">Cast</span></h3>
+        </header>
 
         <!--show_cast_start-->
         <ul class="person-list">
@@ -203,8 +211,10 @@
         <!--show_no_cast_end-->
       </section>
 
-      <section aria-label="Crew" id="crew">
-        <h3><span lang="en">Crew</span></h3>
+      <section id="crew">
+        <header>
+          <h3><span lang="en">Crew</span></h3>
+        </header>
 
         <!--show_crew_start-->
         <ul class="person-list">
@@ -249,8 +259,10 @@
       </section>
 
       <!--crea_recensione_start-->
-      <section id="sectionRecensione" aria-label="Crea Recensione">
-        <h3>Crea recensione</h3>
+      <section id="sectionRecensione">
+        <header>
+          <h3>Crea recensione</h3>
+        </header>
         <form id="crea_recensione" class="formRecensione" action="review.php" method="post" novalidate="novalidate">
           <fieldset>
             <legend>Crea una recensione</legend>
@@ -281,8 +293,10 @@
       </section>
       <!--crea_recensione_end-->
 
-      <section aria-label="Recensioni" id="recensioni">
-        <h3>Recensioni</h3>
+      <section id="recensioni">
+        <header>
+          <h3>Recensioni</h3>
+        </header>
         <!--view_recensione_utente_start-->
         <div class="frameRecensione">
           <p>La tua recensione:</p>
