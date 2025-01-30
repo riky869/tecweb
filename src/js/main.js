@@ -262,6 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const btnOpen = document.getElementById('btnOpen');
+  const navBurger = document.getElementById('navBurger');
   const menu = document.querySelector('#menu');
   const top = document.querySelector('#top-nav');
 
@@ -273,9 +274,11 @@ document.addEventListener('DOMContentLoaded', () => {
   if (window.innerWidth > 786) {
     menu.setAttribute('aria-hidden', 'false');
     btnOpen.setAttribute('aria-hidden', 'true');
+    navBurger.setAttribute('aria-hidden', 'true');
   } else {
     menu.setAttribute('aria-hidden', 'true');
     btnOpen.setAttribute('aria-hidden', 'false');
+    navBurger.setAttribute('aria-hidden', 'false');
   }
 
   btnOpen.addEventListener('click', () => {
@@ -299,8 +302,10 @@ document.addEventListener('DOMContentLoaded', () => {
       top.classList.remove('active');
       menu.setAttribute('aria-hidden', 'false');
       btnOpen.setAttribute('aria-hidden', 'true');
+      navBurger.setAttribute('aria-hidden', 'true');
     } else {
       btnOpen.setAttribute('aria-hidden', 'false');
+      navBurger.setAttribute('aria-hidden', 'false');
       menu.setAttribute('aria-hidden', !btnOpenState);
     }
   });

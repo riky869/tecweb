@@ -1431,6 +1431,10 @@ footer p {
   display: none;
 }
 
+#navBurger {
+  display: none;
+}
+
 .hidden {
   display: none;
 }

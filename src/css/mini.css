@@ -102,6 +102,10 @@ footer img {
   background-color: var(--color-background);
 }
 
+#navBurger {
+  display: block;
+}
+
 #btnOpen {
   display: block;
   width: 2rem;
