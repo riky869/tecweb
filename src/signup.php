@@ -9,10 +9,8 @@ require_once("utils/input.php");
 Request::allowed_methods(["GET", "POST"]);
 Session::start();
 
-$user = Session::get_user();
-
-if (!empty($user)) {
-    Request::load_403_page();
+if (Session::is_logged()) {
+    Request::redirect("index.php");
 }
 
 $template = Builder::from_template(basename(__FILE__));
@@ -106,7 +104,7 @@ if (Request::is_post()) {
     }
 
     $common = Builder::load_common();
-    $template->build($user, $common);
+    $template->build(null, $common);
     $template->delete_secs([]);
     $template->show();
 }
