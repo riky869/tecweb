@@ -548,7 +548,9 @@ main a:visited:hover {
   box-sizing: border-box;
   justify-content: space-around;
   row-gap: 0.5em;
-  border: 0.1em solid transparent;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 8px 32px 0 var(--color-shadow);
 }
 
 .film-card a:hover {
@@ -596,7 +598,7 @@ main a:visited:hover {
   border-radius: 8px;
   text-align: center;
   border: 1px solid var(--color-border);
-  box-shadow: 0 8px 16px 0 var(--color-shadow);
+  box-shadow: 0 8px 32px 0 var(--color-shadow);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -912,8 +914,8 @@ main a:visited:hover {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 8px 32px 0 var(--color-shadow);
 }
 
 .info-list dt {
@@ -1037,6 +1039,8 @@ main a:visited:hover {
   text-align: center;
   box-sizing: border-box;
   height: 100%;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 8px 32px 0 var(--color-shadow);
 }
 
 .person-list img {
