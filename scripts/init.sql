@@ -61,8 +61,8 @@ CREATE TABLE
         release_date DATE,
         runtime INT,
         phase VARCHAR(255) NOT NULL,
-        budget INT,
-        revenue INT,
+        budget BIGINT,
+        revenue BIGINT,
         description TEXT NOT NULL,
         image_path TEXT
     );
