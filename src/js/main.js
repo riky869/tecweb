@@ -198,26 +198,35 @@ const forms = {
   signup: ['signup_name_err', 'signup_last_name_err', 'signup_username_err', 'signup_password_err']
 };
 
+const showError = (inputElem, errElem, errText) => {
+  if (errElem.classList.contains('hidden')) {
+    inputElem.focus();
+  }
+  errElem.innerHTML = errText;
+  errElem.classList.remove('hidden');
+  errElem.setAttribute('role', 'alert');
+  inputElem.setAttribute('aria-invalid', 'true');
+  inputElem.setAttribute('aria-describedby', errElem.id);
+};
+
+const cleanError = (inputElem, errElem) => {
+  errElem.innerHTML = '';
+  errElem.classList.add('hidden');
+  errElem.removeAttribute('role');
+  inputElem.removeAttribute('aria-invalid');
+  inputElem.removeAttribute('aria-describedby');
+};
+
 const checkRules = (inputElem, errElem, rule) => {
   return (
     (rule['optional'] && inputElem.value === '') ||
     rule['checks'].every(c => {
       if (!c['callback']) return true;
-
       if (c['callback'](inputElem, c['args'])) {
-        errElem.innerHTML = '';
-        errElem.classList.add('hidden');
-        errElem.removeAttribute('role');
-        inputElem.removeAttribute('aria-invalid');
-        inputElem.removeAttribute('aria-describedby');
+        cleanError(inputElem, errElem);
         return true;
       } else {
-        errElem.innerHTML = c['error'];
-        errElem.classList.remove('hidden');
-        errElem.setAttribute('role', 'alert');
-        inputElem.setAttribute('aria-invalid', 'true');
-        inputElem.setAttribute('aria-describedby', errElem.id);
-        inputElem.focus();
+        showError(inputElem, errElem, c['error']);
         return false;
       }
     })
