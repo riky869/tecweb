@@ -50,7 +50,7 @@ if (Request::is_post()) {
             Request::redirect("index.php");
         } else {
             // show error
-            $error[] = "Username o password errate";
+            $error[] = "<span lang=\"en\">Username</span> o <span lang=\"en\">password</span> errate";
         }
     }
 

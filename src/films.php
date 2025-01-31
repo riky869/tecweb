@@ -26,6 +26,7 @@ $movies_data = $db->get_movies_by_category($category);
 $db->close();
 
 $template = Builder::from_template(basename(__FILE__));
+$template->replace_var("cat_html", $categoryFound["html_name"]);
 $template->replace_var("cat_selected", $category);
 $template->replace_block_name_arr(
     "movie",
