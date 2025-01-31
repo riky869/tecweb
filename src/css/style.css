@@ -519,6 +519,7 @@ main a:visited:hover {
   height: auto;
   border: var(--border-width) solid var(--color-secondary);
   border-radius: var(--border-radius);
+  max-height: 13.5em;
 }
 
 .film-card span {
@@ -1009,9 +1010,10 @@ main a:visited:hover {
 }
 
 .person-list img {
-  max-width: 100%;
+  width: 100%;
   height: auto;
   border-radius: var(--border-radius);
+  max-height: 20em;
 }
 
 .person-list figcaption {
