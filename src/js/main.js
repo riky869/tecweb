@@ -207,14 +207,17 @@ const checkRules = (inputElem, errElem, rule) => {
       if (c['callback'](inputElem, c['args'])) {
         errElem.innerHTML = '';
         errElem.classList.add('hidden');
+        errElem.removeAttribute('role');
         inputElem.removeAttribute('aria-invalid');
         inputElem.removeAttribute('aria-describedby');
         return true;
       } else {
         errElem.innerHTML = c['error'];
         errElem.classList.remove('hidden');
+        errElem.setAttribute('role', 'alert');
         inputElem.setAttribute('aria-invalid', 'true');
         inputElem.setAttribute('aria-describedby', errElem.id);
+        inputElem.focus();
         return false;
       }
     })
