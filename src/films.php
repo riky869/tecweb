@@ -44,6 +44,7 @@ $template->replace_block_name_arr(
 );
 
 $common = Builder::load_common();
+$template->replace_profile($user, $common);
 $template->build($user, $common);
 $template->delete_secs([]);
 

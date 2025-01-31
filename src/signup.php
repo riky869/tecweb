@@ -104,6 +104,7 @@ if (Request::is_post()) {
     }
 
     $common = Builder::load_common();
+    $template->replace_profile(null, $common);
     $template->build(null, $common);
     $template->delete_secs([]);
     $template->show();

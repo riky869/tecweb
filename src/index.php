@@ -59,6 +59,7 @@ $template->replace_block_name_arr("last_reviews", $last_reviews, function (Build
     ]);
 });
 
+$template->replace_profile($user, $common);
 $template->build($user, $common);
 $template->delete_blocks([""]);
 

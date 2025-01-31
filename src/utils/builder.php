@@ -198,14 +198,22 @@ class Builder
         return $this;
     }
 
-    public function replace_profile(?array $user, Self $common): Self
+    public function replace_profile(?array $user, Self $common, ?array $current_username = null): Self
     {
-        if ($user) {
-            $this->replace_secs([
-                "profile" => $this->get_block("user_logged")->replace_singles([
-                    "username" => $user["username"],
-                ]),
-            ]);
+        if (!empty($user)) {
+            if (!empty($current_username) && $user["username"] == $current_username["username"]) {
+                $this->replace_secs([
+                    "profile" => $common->get_block("user_logged_in_profile")->replace_singles([
+                        "username" => $user["username"],
+                    ]),
+                ]);
+            } else {
+                $this->replace_secs([
+                    "profile" => $common->get_block("user_logged")->replace_singles([
+                        "username" => $user["username"],
+                    ]),
+                ]);
+            }
         } else {
             $this->replace_secs([
                 "profile" => $common->get_block("user_not_logged"),
@@ -225,8 +233,6 @@ class Builder
             "hamburger" => $common->get_block("hamburger"),
             "html_head" => $common->get_block("html_head"),
         ]);
-
-        $this->replace_profile($user, $common);
 
         if (empty($user) || !$user["is_admin"])
             $this->delete_var("menu_admin", VarType::Block);

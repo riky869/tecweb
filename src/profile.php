@@ -21,6 +21,9 @@ if (!$user["is_admin"] || empty($_GET["username"])) {
     $profile_user = $user;
 } else {
     $profile_user = $db->get_user($_GET["username"]);
+    if (empty($profile_user)) {
+        Request::load_404_page();
+    }
 }
 
 $reviews = $db->get_reviews_by_user($profile_user["username"]);
@@ -58,6 +61,7 @@ if (empty($reviews)) {
 }
 
 $common = Builder::load_common();
+$template->replace_profile($user, $common, $profile_user);
 $template->build($user, $common);
 $template->delete_secs([]);
 

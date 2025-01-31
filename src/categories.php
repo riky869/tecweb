@@ -24,6 +24,7 @@ $template->replace_block_name_arr("category", $categories, function (Builder $se
 
 $common = Builder::load_common();
 $user = Session::get_user();
+$template->replace_profile($user, $common);
 $template->build($user, $common);
 $template->delete_secs([]);
 

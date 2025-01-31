@@ -67,6 +67,7 @@ if (Request::is_get()) {
     $template = Builder::from_template(basename(__FILE__));
     $common = Builder::load_common();
 
+    $template->replace_profile(null, $common);
     $template->build(null, $common);
     $template->delete_secs([]);
 

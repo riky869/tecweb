@@ -340,6 +340,7 @@ if (Request::is_get()) {
         ]);
     });
 
+    $template->replace_profile($user, $common);
     $template->build($user, $common);
     $template->delete_secs([]);
 

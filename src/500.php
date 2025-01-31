@@ -13,6 +13,7 @@ $template = Builder::from_template(basename(__FILE__));
 
 $common = Builder::load_common();
 
+$template->replace_profile($user, $common);
 $template->build($user, $common);
 $template->delete_secs([]);
 

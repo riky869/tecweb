@@ -33,6 +33,32 @@
     </div>
     <!--user_not_logged_end-->
 
+    <!--user_logged_in_profile_start-->
+    <div id="loggato">
+      <p id="utenteCorrente">Utente corrente:</p>
+      <span aria-describedby="utenteCorrente">{{username}}</span>
+      <form method="post" action="logout.php">
+        <fieldset>
+          <legend>Effettua la disconnessione</legend>
+          <input type="submit" value="Esci" />
+        </fieldset>
+      </form>
+    </div>
+    <!--user_logged_in_profile_end-->
+
+    <!--user_logged_start-->
+    <div id="loggato">
+      <p id="utenteCorrente">Utente corrente:</p>
+      <a aria-describedby="utenteCorrente" href="profile.php">{{username}}</a>
+      <form method="post" action="logout.php">
+        <fieldset>
+          <legend>Effettua la disconnessione</legend>
+          <input type="submit" value="Esci" />
+        </fieldset>
+      </form>
+    </div>
+    <!--user_logged_end-->
+
     <!--hamburger_start-->
     <nav aria-label="burger menu" id="navBurger" aria-hidden="false">
       <button id="btnOpen" aria-expanded="true" aria-hidden="false" aria-controls="menu" aria-label="menù"></button>

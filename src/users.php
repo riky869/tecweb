@@ -26,6 +26,7 @@ $template->replace_block_name_arr("users_list", $users, function (Builder $sec, 
     $sec->replace_singles(["profile_username" => $i["username"]]);
 });
 
+$template->replace_profile($user, $common);
 $template->build($user, $common);
 $template->delete_secs([]);
 
