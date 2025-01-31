@@ -406,10 +406,19 @@ main h4 {
 
 main p {
   color: var(--color-text-light);
-  margin-bottom: 1em;
-  line-height: 1.4em;
+  margin-bottom: 2em;
+  line-height: 1.5;
   word-break: break-word;
   overflow-wrap: break-word;
+  word-spacing: 0.16ex;
+}
+
+/* Line heigh dl recensioni e anagrafica cast/crew */
+
+.recensione,
+.frameRecensione,
+.person-info {
+  line-height: 1.5;
 }
 
 main a {
