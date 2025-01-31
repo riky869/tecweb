@@ -500,7 +500,6 @@ main a:visited:hover {
 
 .film-card a:hover {
   border-color: var(--color-secondary);
-  border-radius: var(--border-radius);
   color: var(--color-secondary);
 }
 
