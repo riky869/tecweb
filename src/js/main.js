@@ -156,9 +156,9 @@ const checks = {
       {
         callback: regexCallback,
         args: {
-          regex: /^(?=.{3,20}$)[a-zA-Z0-9._]$/
+          regex: /^[a-zA-Z0-9_]{3,15}$/
         },
-        error: 'deve essere lungo tra 3 e 20 caratteri, può contenere lettere, numeri, punti e underscore'
+        error: 'deve essere lungo tra 3 e 15 caratteri, può contenere lettere, numeri e underscore.'
       }
     ]
   },
