@@ -16,7 +16,6 @@ if (empty($user)) {
 
 $db = DB::from_env();
 
-// TODO: error handling
 if (!$user["is_admin"] || empty($_GET["username"])) {
     $profile_user = $user;
 } else {
