@@ -24,18 +24,22 @@ class Validation
 
     public static function minMaxCharsCheck(int $min = -1, int $max = -1)
     {
+        $max_formatted = number_format($max, 0, ',', '.');
+        $min_formatted = number_format($min, 0, ',', '.');
         return [
             'callback' => [self::class, 'lengthCallback'],
             'args' => ['min' => $min, 'max' => $max],
             'error' => 'deve essere lungo ' .
-                ($min !== -1 ? "almeno $min caratteri" : '') .
+                ($min !== -1 ? "almeno $min_formatted caratteri" : '') .
                 ($min !== -1 && $max !== -1 ? ' e ' : '') .
-                ($max !== -1 ? "al massimo $max caratteri" : '') . '.'
+                ($max !== -1 ? "al massimo $max_formatted caratteri" : '') . '.'
         ];
     }
 
     public static function minMaxNumCheck(int $min = -1, int $max = -1)
     {
+        $max_formatted = number_format($max, 0, ',', '.');
+        $min_formatted = number_format($min, 0, ',', '.');
         return [
             'callback' => function ($value, $args) {
                 if (is_numeric($value) && strpos($value, '.') !== false) {
@@ -47,9 +51,9 @@ class Validation
             },
             'args' => ['min' => $min, 'max' => $max],
             'error' => 'deve essere intero e ' .
-                ($min !== -1 ? "almeno $min" : '') .
+                ($min !== -1 ? "almeno $min_formatted" : '') .
                 ($min !== -1 && $max !== -1 ? ' e ' : '') .
-                ($max !== -1 ? "al massimo $max" : '') . '.'
+                ($max !== -1 ? "al massimo $max_formatted" : '') . '.'
         ];
     }
 }
