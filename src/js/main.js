@@ -13,7 +13,9 @@ const minMaxCharsCheck = (min = -1, max = -1) => {
       min: min,
       max: max
     },
-    error: `il testo deve essere lungo ${min !== -1 ? `almeno ${min} caratteri` : ''}${min !== -1 && max !== -1 ? ' e ' : ''}${max !== -1 ? `al massimo ${max} caratteri` : ''}.`
+    error: `il testo deve essere lungo ${min !== -1 ? `almeno ${number_format(min, 0, ',', '.')}` : ''}${min !== -1 && max !== -1 ? ' e ' : ''}${
+      max !== -1 ? `al massimo ${number_format(max, 0, ',', '.')}` : ''
+    }.`
   };
 };
 
@@ -30,7 +32,9 @@ const minMaxNumCheck = (min = -1, max = -1) => {
       min: min,
       max: max
     },
-    error: `deve essere intero e ${min !== -1 ? `almeno ${min}` : ''}${min !== -1 && max !== -1 ? ' e ' : ''}${max !== -1 ? `al massimo ${max}` : ''}.`
+    error: `deve essere intero e ${min !== -1 ? `almeno ${number_format(min, 0, ',', '.')}` : ''}${min !== -1 && max !== -1 ? ' e ' : ''}${
+      max !== -1 ? `al massimo ${number_format(max, 0, ',', '.')}` : ''
+    }.`
   };
 };
 
