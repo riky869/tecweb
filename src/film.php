@@ -105,6 +105,7 @@ if (empty($categoryFound)) {
 } else {
     $template->replace_var("breadcrumb_da_categoria", $template->get_block("breadcrumb_da_categoria")->replace_singles([
         "breadcrumb_nome_cat" => $categoryFound["name"],
+        "breadcrumb_html_cat" => $categoryFound["html_name"],
         "breadcrumb_nome_film" => $movie["name"],
     ]), VarType::Block);
     $template->delete_var("breadcrumb_da_altro", VarType::Block);
