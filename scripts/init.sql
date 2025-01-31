@@ -723,7 +723,7 @@ SET
         WHEN id = '36' THEN CONCAT ('<span lang="haw">', name, '</span>')
         WHEN id = '37' THEN CONCAT ('<span lang="en">', name, '</span>')
         WHEN id = '38' THEN CONCAT ('<span lang="en">', name, '</span>')
-        WHEN id = '39' THEN CONCAT ('<span lang="ma">', name, '</span>')
+        WHEN id = '39' THEN CONCAT ('<span lang="nzl">', name, '</span>')
         WHEN id = '40' THEN CONCAT ('<span lang="en">', name, '</span>')
         WHEN id = '41' THEN CONCAT ('<span lang="en">', name, '</span>')
         WHEN id = '42' THEN CONCAT ('<span lang="en">', name, '</span>')
