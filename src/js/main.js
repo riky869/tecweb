@@ -7,19 +7,33 @@ const lengthCallback = (elem, { min, max }) => {
 };
 
 const minMaxCharsCheck = (min = -1, max = -1) => {
+  const min_formatted = min.toLocaleString(undefined, {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0
+  });
+  const max_formatted = max.toLocaleString(undefined, {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0
+  });
   return {
     callback: lengthCallback,
     args: {
       min: min,
       max: max
     },
-    error: `il testo deve essere lungo ${min !== -1 ? `almeno ${number_format(min, 0, ',', '.')}` : ''}${min !== -1 && max !== -1 ? ' e ' : ''}${
-      max !== -1 ? `al massimo ${number_format(max, 0, ',', '.')}` : ''
-    }.`
+    error: `il testo deve essere lungo ${min !== -1 ? `almeno ${min_formatted}` : ''}${min !== -1 && max !== -1 ? ' e ' : ''}${max !== -1 ? `al massimo ${max_formatted}` : ''}.`
   };
 };
 
 const minMaxNumCheck = (min = -1, max = -1) => {
+  const min_formatted = min.toLocaleString(undefined, {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0
+  });
+  const max_formatted = max.toLocaleString(undefined, {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0
+  });
   return {
     callback: (elem, { min, max }) => {
       const value = parseFloat(elem.value);
@@ -32,9 +46,7 @@ const minMaxNumCheck = (min = -1, max = -1) => {
       min: min,
       max: max
     },
-    error: `deve essere intero e ${min !== -1 ? `almeno ${number_format(min, 0, ',', '.')}` : ''}${min !== -1 && max !== -1 ? ' e ' : ''}${
-      max !== -1 ? `al massimo ${number_format(max, 0, ',', '.')}` : ''
-    }.`
+    error: `deve essere intero e ${min !== -1 ? `almeno ${min_formatted}` : ''}${min !== -1 && max !== -1 ? ' e ' : ''}${max !== -1 ? `al massimo ${max_formatted}` : ''}.`
   };
 };
 
