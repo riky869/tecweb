@@ -2,8 +2,6 @@
 
 require_once("utils/cred.php");
 
-mysqli_report(MYSQLI_REPORT_ERROR);
-
 class DB
 {
     private mysqli $conn;
