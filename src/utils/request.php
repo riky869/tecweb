@@ -80,7 +80,7 @@ class Request
     {
         $image_path = null;
         if (!empty($_FILES[$param]["name"])) {
-            $target_file = $target_dir . basename($_FILES[$param]["name"]);
+            $target_file = $target_dir . time() . "_" .  basename($_FILES[$param]["name"]);
 
             // Controlla se il file è un'immagine reale o un'immagine falsa
             $check = getimagesize($_FILES[$param]["tmp_name"]);
