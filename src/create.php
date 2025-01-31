@@ -65,12 +65,12 @@ $checks = [
     'crea_film_budget_err' => [
         'err_name' => "budget",
         'optional' => true,
-        'checks' => [Validation::minMaxNumCheck(0, -1)]
+        'checks' => [Validation::minMaxNumCheck(0, 100_000_000_000)]
     ],
     'crea_film_revenue_err' => [
         'err_name' => "revenue",
         'optional' => true,
-        'checks' => [Validation::minMaxNumCheck(0, -1)]
+        'checks' => [Validation::minMaxNumCheck(0, 100_000_000_000)]
     ],
     'crea_film_description_err' => [
         'err_name' => "descrizione",
@@ -164,6 +164,8 @@ if (Request::is_post()) {
         $image_path = Request::read_upload_file("storage/film/", "image", $error);
 
         if (empty($error)) {
+            $budget = empty($budget) ? null : (int)$budget;
+            $revenue = empty($revenue) ? null : (int)$revenue;
             try {
                 $db->create_film($name, $original_name, $original_language, $release_date, $runtime, $phase, $budget, $revenue, $description, $image_path);
             } catch (mysqli_sql_exception $e) {

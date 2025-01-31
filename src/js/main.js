@@ -107,8 +107,8 @@ const checks = {
   },
   crea_film_runtime_err: { optional: true, checks: [minMaxNumCheck(10, 60 * 10)] },
   crea_film_phase_err: { optional: false, checks: [] },
-  crea_film_budget_err: { optional: true, checks: [minMaxNumCheck(0, -1)] },
-  crea_film_revenue_err: { optional: true, checks: [minMaxNumCheck(0, -1)] },
+  crea_film_budget_err: { optional: true, checks: [minMaxNumCheck(0, 100000000000)] },
+  crea_film_revenue_err: { optional: true, checks: [minMaxNumCheck(0, 100000000000)] },
   crea_film_description_err: { optional: false, checks: [minMaxCharsCheck(8, 1000)] },
   crea_film_image_err: { optional: true, checks: commonChecks.image },
   add_people_film_err: { optional: false, checks: [minMaxNumCheck(0, -1)] },
@@ -207,14 +207,17 @@ const checkRules = (inputElem, errElem, rule) => {
       if (c['callback'](inputElem, c['args'])) {
         errElem.innerHTML = '';
         errElem.classList.add('hidden');
+        errElem.removeAttribute('role');
         inputElem.removeAttribute('aria-invalid');
         inputElem.removeAttribute('aria-describedby');
         return true;
       } else {
         errElem.innerHTML = c['error'];
         errElem.classList.remove('hidden');
+        errElem.setAttribute('role', 'alert');
         inputElem.setAttribute('aria-invalid', 'true');
         inputElem.setAttribute('aria-describedby', errElem.id);
+        inputElem.focus();
         return false;
       }
     })
