@@ -655,6 +655,8 @@ main a:visited:hover {
 .films li a h3 {
   color: var(--color-link);
   text-decoration: underline;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .films li a:visited h3 {
@@ -1053,6 +1055,11 @@ main a:visited:hover {
 .person-title {
   font-weight: bold;
   color: var(--color-extra);
+}
+
+.person-info {
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .person-info {
