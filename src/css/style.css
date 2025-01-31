@@ -75,6 +75,11 @@ body {
 
 /* breadcrumb */
 
+#breadcrumb p {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
 #top-nav {
   background-color: var(--color-secondary-background);
   color: var(--color-text-light);
@@ -403,6 +408,8 @@ main p {
   color: var(--color-text-light);
   margin-bottom: 1em;
   line-height: 1.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 main a {
@@ -517,6 +524,9 @@ main a:visited:hover {
 .film-card span {
   flex-grow: 1;
   align-content: center;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  width: 100%;
 }
 
 /* griglia categorie */
@@ -805,6 +815,8 @@ main a:visited:hover {
 
 .stileEliminaFilm h2 {
   margin-bottom: 0;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .stileEliminaFilm fieldset {
@@ -837,7 +849,7 @@ main a:visited:hover {
   display: flex;
   gap: 2em;
   margin: 3em 0;
-  align-items: center;
+  align-items: stretch;
 }
 
 #informazioniPrincipali abbr {
@@ -850,7 +862,7 @@ main a:visited:hover {
   display: flex;
   background-color: var(--color-background);
   border-radius: var(--border-radius);
-  padding: 1.15em;
+  padding: 1.15em 1.65em;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
@@ -861,7 +873,7 @@ main a:visited:hover {
 .info-list dt {
   width: 100%;
   text-align: center;
-  padding: 0.3em 0;
+  padding: 0.3em 0.5em;
   background-color: var(--color-secondary-background);
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
@@ -873,12 +885,14 @@ main a:visited:hover {
 .info-list dd {
   width: 100%;
   text-align: center;
-  padding: 0.3em 0;
+  padding: 0.3em 0.5em;
   background-color: var(--color-secondary-background);
   border-bottom-left-radius: var(--border-radius);
   border-bottom-right-radius: var(--border-radius);
   font-size: 0.9em;
   margin-bottom: 1.15em;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 /* Rimuove il margin-bottom dall'ultimo dd */
@@ -888,9 +902,19 @@ main a:visited:hover {
 
 /* Locandina film */
 .locandina {
-  display: block;
+  max-height: 38em;
   height: 100%;
-  max-height: 37em;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  border-radius: var(--border-radius);
+}
+
+.picture-locandina {
+  max-width: 58%;
+  background-color: var(--color-secondary-background);
+  object-fit: contain;
+  overflow-clip-margin: content-box;
   border-radius: var(--border-radius);
   box-shadow: 0 var(--box-shadow-offset) var(--box-shadow-blur) 0 var(--color-shadow);
 }
