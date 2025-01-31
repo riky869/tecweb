@@ -188,7 +188,6 @@ if (Request::is_post()) {
 
         if (empty($error)) {
             try {
-
                 $db->create_person($name, $image_path);
             } catch (mysqli_sql_exception $e) {
                 if ($e->getCode() == 1062) {
